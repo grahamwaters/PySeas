@@ -1,6 +1,58 @@
 ## PyBuoy Module Repository
 ========================
 
+<div id="top"></div>
+<!--
+*** Thanks for checking out the PyBuoy. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][grahamwaters-linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/grahamwaters/PyBuoy">
+    <img src="images/PyBuoy_Main.png" alt="Logo" width="1640" height="200">
+  </a>
+
+  <h3 align="center">PyBuoy</h3>
+
+  <p align="center">
+    Generating a sense of randomness from the world's oceans.
+    <br />
+    <a href="https://github.com/grahamwaters/PyBuoy"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://github.com/grahamwaters/PyBuoy/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/grahamwaters/PyBuoy/issues">Request Feature</a>
+  </p>
+</div>
+
+Feel free to share this project on Twitter!
+
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://froala.com/design-blocks&via=froala&hashtags=bootstrap,design,templates,blocks,developers)
+
+
 ### Basics
 
 * Station ID - A 7 character station ID, or a currents station ID. Specify the station ID with the "station=" parameter.
@@ -77,4 +129,25 @@ currents_predictions 	Currents predictions data for currents predictions station
 
 
 
-'''
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/grahamwaters/PyBuoy.svg?style=for-the-badge
+[contributors-url]: https://github.com/grahamwaters/PyBuoy/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/grahamwaters/PyBuoy.svg?style=for-the-badge
+[forks-url]: https://github.com/grahamwaters/PyBuoy/network/members
+[stars-shield]: https://img.shields.io/github/stars/grahamwaters/PyBuoy.svg?style=for-the-badge
+[stars-url]: https://github.com/grahamwaters/PyBuoy/stargazers
+[issues-shield]: https://img.shields.io/github/issues/grahamwaters/PyBuoy.svg?style=for-the-badge
+[issues-url]: https://github.com/grahamwaters/PyBuoy/issues
+[license-shield]: https://img.shields.io/github/license/grahamwaters/PyBuoy.svg?style=for-the-badge
+[license-url]: https://github.com/grahamwaters/PyBuoy/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
+[nura-linkedin-url]:https://www.linkedin.com/in/nura-abuassaf/
+[grahamwaters-linkedin-url]: https://linkedin.com/in/grahamwaters01
+[product-screenshot]: images/screenshot.png
+[iso1]: images/example_isometric_scene.png
+[iso2]: images/example_isometricscene2.png
+[iso_goal]: images/goal_visual_iso.jpg
+
+[pybuoymain]: images/PyBuoy_Main.png

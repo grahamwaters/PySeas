@@ -9,39 +9,19 @@
         "documentation": {}
     },
     {
-        "label": "sys",
-        "kind": 6,
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
         "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
+        "detail": "setuptools",
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "sample",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sample",
-        "description": "sample",
-        "detail": "sample",
-        "documentation": {}
-    },
-    {
-        "label": "unittest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "unittest",
-        "description": "unittest",
-        "detail": "unittest",
+        "detail": "setuptools",
         "documentation": {}
     },
     {
@@ -95,22 +75,6 @@
         "importPath": "pandas",
         "description": "pandas",
         "detail": "pandas",
-        "documentation": {}
-    },
-    {
-        "label": "setup",
-        "importPath": "setuptools",
-        "description": "setuptools",
-        "isExtraImport": true,
-        "detail": "setuptools",
-        "documentation": {}
-    },
-    {
-        "label": "find_packages",
-        "importPath": "setuptools",
-        "description": "setuptools",
-        "isExtraImport": true,
-        "detail": "setuptools",
         "documentation": {}
     },
     {
@@ -636,48 +600,30 @@
         "documentation": {}
     },
     {
-        "label": "AdvancedTestSuite",
-        "kind": 6,
-        "importPath": "tests.test_advanced",
-        "description": "tests.test_advanced",
-        "peekOfCode": "class AdvancedTestSuite(unittest.TestCase):\n    \"\"\"Advanced test cases.\"\"\"\n    def test_thoughts(self):\n        self.assertIsNone(sample.hmm())\nif __name__ == '__main__':\n    unittest.main()",
-        "detail": "tests.test_advanced",
-        "documentation": {}
-    },
-    {
-        "label": "BasicTestSuite",
-        "kind": 6,
-        "importPath": "tests.test_basic",
-        "description": "tests.test_basic",
-        "peekOfCode": "class BasicTestSuite(unittest.TestCase):\n    \"\"\"Basic test cases.\"\"\"\n    def test_absolute_truth_and_meaning(self):\n        assert True\nif __name__ == '__main__':\n    unittest.main()",
-        "detail": "tests.test_basic",
-        "documentation": {}
-    },
-    {
         "label": "Buoy",
         "kind": 6,
-        "importPath": "PyBuoy",
-        "description": "PyBuoy",
+        "importPath": "scripts.03_PyBuoy",
+        "description": "scripts.03_PyBuoy",
         "peekOfCode": "class Buoy(): # this is the super parent class\n    def __init__(self,buoy_id=\"none\",temperature=\"none\"):\n        self.buoy_id = buoy_id\n        self.temperature = temperature\n    def check_buoy(self,buoy_id):\n        self.check_data = 'defaults' # put defaults into the code here\nclass Chosen_Buoy(Buoy):\n    def __init__(self,buoy_type=\"none\"):\n        super().__init__(\"Chosen_Buoy\")\n        self.buoy_lat = 10.0",
-        "detail": "PyBuoy",
+        "detail": "scripts.03_PyBuoy",
         "documentation": {}
     },
     {
         "label": "Chosen_Buoy",
         "kind": 6,
-        "importPath": "PyBuoy",
-        "description": "PyBuoy",
+        "importPath": "scripts.03_PyBuoy",
+        "description": "scripts.03_PyBuoy",
         "peekOfCode": "class Chosen_Buoy(Buoy):\n    def __init__(self,buoy_type=\"none\"):\n        super().__init__(\"Chosen_Buoy\")\n        self.buoy_lat = 10.0\n        self.buoy_lng = 10.0\n        self.buoy_depth = 10.0\n        self.buoy_temp = 10.0\n        self.buoy_atmpressure = 10.0\n    def report_out(self,chosen_metric):\n        super().report_out(chosen_metric)",
-        "detail": "PyBuoy",
+        "detail": "scripts.03_PyBuoy",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "PyBuoy",
-        "description": "PyBuoy",
+        "importPath": "scripts.03_PyBuoy",
+        "description": "scripts.03_PyBuoy",
         "peekOfCode": "def main():\n    # create a matrix 36 x 36 containing buoy ids\n    # https://www.ndbc.noaa.gov/buoycam.php?station=xxxxx\n    # this gets most recent photo from the buoy with the code xxxxx\n    # https://tidesandcurrents.noaa.gov/api-helper/url-generator.html\n    #https://www.ndbc.noaa.gov/rss/ndbc_obs_search.php?lat=40N&lon=73W&radius=100\n    #https://www.ndbc.noaa.gov/data/realtime2/ (station id) .swdir\n    #https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20130808 15:00&end_date=20130808 15:06&station=8454000&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json\n    #The result \"V\" should be the desired variable\n    product = 'air_temperature'",
-        "detail": "PyBuoy",
+        "detail": "scripts.03_PyBuoy",
         "documentation": {}
     }
 ]

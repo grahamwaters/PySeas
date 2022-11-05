@@ -6,8 +6,9 @@ import time
 from ratelimit import limits, sleep_and_retry
 import re
 from bs4 import BeautifulSoup
-
-
+import csv
+# from alive_progress import alive_bar
+from tqdm import tqdm
 
 
 # The main.py file is the main code body for the PyBuoy application.
@@ -149,48 +150,35 @@ def get_available_buoy_ids():
 
 class ProcessFlow():
     def __init__(self):
-        self.buoy_ids = self.get_available_buoy_ids()
+        # read in the list of buoy ids from the buoy_ids.csv file
+        with open('data/buoy_ids.csv', 'r') as f:
+            buoy_ids = f.read()
+        self.buoy_ids = buoy_ids.split(',')
         self.buoy_ids_with_camera = []
+        self.verbose_output = True # set to False to disable verbose output
 
-    def get_available_buoy_ids(self):
-        # source for this data: https://www.ndbc.noaa.gov/to_station.shtml
-        # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.
-        # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.
-        import re
+    def check_buoys(self):
+        # 2. Now that we have the list of buoy ids, we want to loop through them and check if they have a buoy cam.
+        for buoy_id in tqdm(self.buoy_ids):
+            # check to make sure the buoy id is not in the blacklisted list file (blacklisted_buoy_ids.csv)
+            with open('data/blacklisted_buoy_ids.csv', 'r') as f:
+                blacklisted_buoy_ids = f.read()
+            blacklisted_buoy_ids = blacklisted_buoy_ids.split(',')
+            if buoy_id in blacklisted_buoy_ids:
+                if self.verbose_output:
+                    print(f'buoy id {buoy_id} is blacklisted')
+                continue
 
-        # if data/buoy_ids_with_camera.csv' exists, then load it and return it.
-        if os.path.exists('data/buoy_ids_with_camera.csv'):
-            buoy_ids_with_camera = pd.read_csv('data/buoy_ids_with_camera.csv')
-            buoy_ids_with_camera = buoy_ids_with_camera['buoy_id'].to_list()
-            return buoy_ids_with_camera
+            try:
+                self.check_for_camera(buoy_id)
+            except Exception as e:
+                print(e)
+                time.sleep(5)
+                self.check_for_camera(buoy_id)
 
-        stations_text = open('data/stations.txt', 'r').read()
-        task_one_stations_list = re.findall(r' \d+ ', stations_text)
-        task_two_stations_list = re.findall(r' \w+\d ', stations_text)
-        # combine by adding the second list to the first with .extend()
-        task_one_stations_list.extend(task_two_stations_list)
-        # remove the spaces from the list
-        stations_list = [x.strip() for x in task_one_stations_list] # remove whitespace
-        # strip the whitespace from the list
-        stations_list = [x.strip() for x in stations_list] # remove whitespace
-        # remove duplicates
-        stations_list = [x for x in task_one_stations_list if x != ''] # remove empty strings
-        stations_list = list(dict.fromkeys(stations_list))
-        # remove all nonalpha characters from the elements in the list
-        stations_list = [re.sub(r'\W+', '', x) for x in stations_list]
-        print(len(stations_list), ' stations were identified')
-        # print(stations_list)
-        return stations_list
+        print('all buoys have been checked, found', len(self.buoy_ids_with_camera), ' buoys with cameras out of ', len(self.buoy_ids), ' total buoys')
 
-    def save_buoyids_tocsv(self):
-        import csv
-        with open('data/buoy_ids_with_camera.csv', 'w+') as f:
-            writer = csv.writer(f)
-            writer.writerow(self.buoy_ids_with_camera)
-
-
-
-    @sleep_and_retry()
+    @limits(calls=15, period=600)
     def check_for_camera(self, buoy_id): # Step 2 in the process flow above
         # 2. Now that we have the list of buoy ids, we want to loop through them and check if they have a buoy cam, we will use bs4, requests, and regex to do this.
         # 2a. We know that the buoy has a camera if the following text appears on the buoy's page: "Buoy Camera Photos" AND "Click photo to enlarge." (Both of these phrases appear on the page when the buoy has a camera.)
@@ -200,7 +188,6 @@ class ProcessFlow():
 
 
         #* Step 2a.
-
         # get the buoy page
         buoy_page = requests.get(f'https://www.ndbc.noaa.gov/station_page.php?station={buoy_id}')
         # parse the buoy page
@@ -215,30 +202,24 @@ class ProcessFlow():
             print(f'buoy {buoy_id} has a camera')
         else:
             print(f'buoy {buoy_id} does not have a camera')
-
-    def check_buoys(self):
-        # 2. Now that we have the list of buoy ids, we want to loop through them and check if they have a buoy cam.
-        for buoy_id in self.buoy_ids:
-            try:
-                self.check_for_camera(buoy_id)
-            except Exception as e:
-                print(e)
-                time.sleep(5)
-                self.check_for_camera(buoy_id)
-
-        print('all buoys have been checked, found', len(self.buoy_ids_with_camera), ' buoys with cameras out of ', len(self.buoy_ids), ' total buoys')
+            # add this to the blacklisted buoy ids list
+            with open('data/blacklisted_buoy_ids.csv', 'a+') as f:
+                f.write(f'{buoy_id},')
 
     def query_buoy(self, buoy_id):
         # 3a. we want to get the latest photo from the buoy cam and save it to the data folder with the buoy id as the file name (every time we run this script we want to overwrite the existing photo with the latest one.)
         #   3b1. We can get the latest photo from the buoy cam by going to the following URL: https://www.ndbc.noaa.gov/buoycam.php?station=XXXXX
         #   3b2. XXXXX is the buoy id
         #   3b3. an example of a buoy with a camera is 44013
-
         # get the buoy page
+        if self.verbose_output:
+            print(f'querying buoy {buoy_id}')
         buoy_page = requests.get(f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}') # 3b1
         with open(f"images/buoys/{buoy_id}_latest.png", "wb+") as f:
             f.write(buoy_page.content) # write the image to the file
-        print(f'buoy {buoy_id} has been queried with response code {buoy_page.status_code}')
+        if self.verbose_output:
+            print(f'buoy {buoy_id} has been queried with response code {buoy_page.status_code}')
+
 
     def query_buoys(self):
         # 3. Now that we have the list of buoy ids with cameras, we want to loop through them and query them for the latest photo.
@@ -253,9 +234,9 @@ class ProcessFlow():
         print('all buoys have been queried')
 
     def run(self):
-        self.get_buoy_ids()
+        # ids = self.get_buoy_ids()
         self.check_buoys()
-        self.save_buoyids_tocsv()
+        # self.save_buoyids_tocsv()
         self.query_buoys()
 
 

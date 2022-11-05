@@ -11,6 +11,10 @@ import csv
 from tqdm import tqdm
 # import RateLimitException
 from ratelimit import RateLimitException
+import cv2
+import numpy as np
+import urllib.request
+import time
 
 # The main.py file is the main code body for the PyBuoy application.
 #note: captain_seemore is available as a repo name on GitHub
@@ -81,6 +85,40 @@ def get_buoy_cam(buoy_id):
     df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\s+') # Read in the data
     df.head() # this is a pandas dataframe
     return df # Main code body
+
+# Image Processing Functions
+# we have the images in the images/buoys directory already downloaded.
+
+def divide_into_panels(buoy_id, image_file):
+    # divide the image into six panels, as dictated in the image processing pipeline for NOAA Buoy Cameras Comments above.
+
+    # read the image
+    img = cv2.imread(image_file)
+    # get the name of the image file
+    image_name = image_file.split('/')[-1]
+
+    # get the dimensions of the image
+    height, width, channels = img.shape
+
+    # Before dividing into panels, crop the image to remove 30 pixels from the bottom of the image.
+    # This is to remove the "Buoy Camera" text from the image.
+    # img = img[0:height-30, 0:width]
+
+    # divide the image into six panels named: image_name_panel_#.jpg
+    image_name = image_name.replace('.jpg', '') # remove the .jpg extension for now
+    panel_1 = img[0:height-30, 0:int(width/6)]
+    cv2.imwrite('images/panels/{}/{}_panel_1.png'.format(buoy_id, image_name), panel_1)
+    panel_2 = img[0:height-30, int(width/6):int(width/3)]
+    cv2.imwrite('images/panels/{}/{}_panel_2.png'.format(buoy_id, image_name), panel_2)
+    panel_3 = img[0:height-30, int(width/3):int(width/2)]
+    cv2.imwrite('images/panels/{}/{}_panel_3.png'.format(buoy_id, image_name), panel_3)
+    panel_4 = img[0:height-30, int(width/2):int(width*2/3)]
+    cv2.imwrite('images/panels/{}/{}_panel_4.png'.format(buoy_id, image_name), panel_4)
+    panel_5 = img[0:height-30, int(width*2/3):int(width*5/6)]
+    cv2.imwrite('images/panels/{}/{}_panel_5.png'.format(buoy_id, image_name), panel_5)
+    panel_6 = img[0:height-30, int(width*5/6):width]
+    cv2.imwrite('images/panels/{}/{}_panel_6.png'.format(buoy_id, image_name), panel_6)
+    return panel_1, panel_2, panel_3, panel_4, panel_5, panel_6
 
 
 
@@ -192,9 +230,26 @@ class ProcessFlow():
 
 
 
+def panelizer():
+    # Save the panels to the images/panels directory
 
+    list_of_buoys = os.listdir('images/buoys') # get the list of buoy ids by their directory names
 
-
+    for buoy_id in tqdm(list_of_buoys):
+        # get the list of images for the buoy
+        if buoy_id != '.DS_Store':
+            images = os.listdir('images/buoys/{}'.format(buoy_id))
+            # for each image, divide it into panels and save the panels to the images/panels directory
+            for image in tqdm(images):
+                if image == '.DS_Store' and buoy_id != '.DS_Store':
+                    continue # skip the .DS_Store file
+                print('Processing image: {}'.format(image))
+                # If the panels directory for the buoy doesn't exist, create it.
+                if not os.path.exists('images/panels/{}'.format(buoy_id)):
+                    os.makedirs('images/panels/{}'.format(buoy_id))
+                # get the panels
+                panel_1, panel_2, panel_3, panel_4, panel_5, panel_6 = divide_into_panels(buoy_id, 'images/buoys/{}/{}'.format(buoy_id, image))
+                # save the panels to the images/panels directory
 
 
 

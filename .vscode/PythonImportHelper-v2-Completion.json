@@ -154,6 +154,15 @@
         "documentation": {}
     },
     {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
         "label": "#needs_sphinx",
         "kind": 5,
         "importPath": "docs.conf",
@@ -739,11 +748,29 @@
         "documentation": {}
     },
     {
+        "label": "divide_into_panels",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def divide_into_panels(buoy_id, image_file):\n    # divide the image into six panels, as dictated in the image processing pipeline for NOAA Buoy Cameras Comments above.\n    # read the image\n    img = cv2.imread(image_file)\n    # get the name of the image file\n    image_name = image_file.split('/')[-1]\n    # get the dimensions of the image\n    height, width, channels = img.shape\n    # Before dividing into panels, crop the image to remove 30 pixels from the bottom of the image.\n    # This is to remove the \"Buoy Camera\" text from the image.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
         "label": "get_available_buoy_ids",
         "kind": 2,
         "importPath": "main",
         "description": "main",
         "peekOfCode": "def get_available_buoy_ids():\n    # source for this data: https://www.ndbc.noaa.gov/to_station.shtml\n    # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.\n    # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.\n    import re\n    stations_text = open('data/stations.txt', 'r').read()\n    task_one_stations_list = re.findall(r' \\d+ ', stations_text) # find all numbers in the file\n    task_two_stations_list = re.findall(r' \\w+\\d ', stations_text) # find all identifiers in the file\n    # combine by adding the second list to the first with .extend()\n    task_one_stations_list.extend(task_two_stations_list)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "panelizer",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def panelizer():\n    # Save the panels to the images/panels directory\n    list_of_buoys = os.listdir('images/buoys') # get the list of buoy ids by their directory names\n    for buoy_id in tqdm(list_of_buoys):\n        # get the list of images for the buoy\n        if buoy_id != '.DS_Store':\n            images = os.listdir('images/buoys/{}'.format(buoy_id))\n            # for each image, divide it into panels and save the panels to the images/panels directory\n            for image in tqdm(images):\n                if image == '.DS_Store' and buoy_id != '.DS_Store':",
         "detail": "main",
         "documentation": {}
     }

@@ -4,8 +4,12 @@ import requests
 import os
 import time
 from ratelimit import limits, sleep_and_retry
-import requests
 import re
+from bs4 import BeautifulSoup
+
+
+
+
 # The main.py file is the main code body for the PyBuoy application.
 #note: captain_seemore is available as a repo name on GitHub
 
@@ -153,6 +157,13 @@ class ProcessFlow():
         # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.
         # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.
         import re
+
+        # if data/buoy_ids_with_camera.csv' exists, then load it and return it.
+        if os.path.exists('data/buoy_ids_with_camera.csv'):
+            buoy_ids_with_camera = pd.read_csv('data/buoy_ids_with_camera.csv')
+            buoy_ids_with_camera = buoy_ids_with_camera['buoy_id'].to_list()
+            return buoy_ids_with_camera
+
         stations_text = open('data/stations.txt', 'r').read()
         task_one_stations_list = re.findall(r' \d+ ', stations_text)
         task_two_stations_list = re.findall(r' \w+\d ', stations_text)
@@ -189,9 +200,7 @@ class ProcessFlow():
 
 
         #* Step 2a.
-        import requests
-        from bs4 import BeautifulSoup
-        import re
+
         # get the buoy page
         buoy_page = requests.get(f'https://www.ndbc.noaa.gov/station_page.php?station={buoy_id}')
         # parse the buoy page

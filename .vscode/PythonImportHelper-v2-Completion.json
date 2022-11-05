@@ -121,6 +121,14 @@
         "documentation": {}
     },
     {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
         "label": "#needs_sphinx",
         "kind": 5,
         "importPath": "docs.conf",
@@ -674,7 +682,7 @@
         "kind": 6,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "class ProcessFlow():\n    def __init__(self):\n        self.buoy_ids = self.get_available_buoy_ids()\n        self.buoy_ids_with_camera = []\n    def get_available_buoy_ids(self):\n        # source for this data: https://www.ndbc.noaa.gov/to_station.shtml\n        # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.\n        # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.\n        import re\n        stations_text = open('data/stations.txt', 'r').read()",
+        "peekOfCode": "class ProcessFlow():\n    def __init__(self):\n        self.buoy_ids = self.get_available_buoy_ids()\n        self.buoy_ids_with_camera = []\n    def get_available_buoy_ids(self):\n        # source for this data: https://www.ndbc.noaa.gov/to_station.shtml\n        # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.\n        # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.\n        import re\n        # if data/buoy_ids_with_camera.csv' exists, then load it and return it.",
         "detail": "main",
         "documentation": {}
     },

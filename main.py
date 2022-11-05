@@ -9,7 +9,8 @@ from bs4 import BeautifulSoup
 import csv
 # from alive_progress import alive_bar
 from tqdm import tqdm
-
+# import RateLimitException
+from ratelimit import RateLimitException
 
 # The main.py file is the main code body for the PyBuoy application.
 #note: captain_seemore is available as a repo name on GitHub
@@ -168,9 +169,12 @@ class ProcessFlow():
                 if self.verbose_output:
                     print(f'buoy id {buoy_id} is blacklisted')
                 continue
-
             try:
                 self.check_for_camera(buoy_id)
+            except RateLimitException:
+                print('Rate limit exceeded')
+                time.sleep(60)
+                break
             except Exception as e:
                 print(e)
                 time.sleep(5)
@@ -178,7 +182,33 @@ class ProcessFlow():
 
         print('all buoys have been checked, found', len(self.buoy_ids_with_camera), ' buoys with cameras out of ', len(self.buoy_ids), ' total buoys')
 
-    @limits(calls=15, period=600)
+
+
+
+    def check_for_camera_alt(self, buoy_id):
+        # checking for camera using a different method
+        # https://www.ndbc.noaa.gov/data_availability/data_avail.php?station={buoy_id} will return a page with the following text if the buoy has a camera: "Buoy Camera Photos" AND "Click photo to enlarge."
+        return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # @limits(calls=15, period=300)
     def check_for_camera(self, buoy_id): # Step 2 in the process flow above
         # 2. Now that we have the list of buoy ids, we want to loop through them and check if they have a buoy cam, we will use bs4, requests, and regex to do this.
         # 2a. We know that the buoy has a camera if the following text appears on the buoy's page: "Buoy Camera Photos" AND "Click photo to enlarge." (Both of these phrases appear on the page when the buoy has a camera.)
@@ -189,13 +219,11 @@ class ProcessFlow():
 
         #* Step 2a.
         # get the buoy page
-        buoy_page = requests.get(f'https://www.ndbc.noaa.gov/station_page.php?station={buoy_id}')
-        # parse the buoy page
-        buoy_page_soup = BeautifulSoup(buoy_page.text, 'html.parser')
-        # get the text from the buoy page
-        buoy_page_text = buoy_page_soup.get_text()
-        # check if the buoy has a camera
-        buoy_has_camera = re.search(r'Buoy Camera Photos', buoy_page_text) and re.search(r'Click photo to enlarge.', buoy_page_text)
+        time.sleep(1)
+        url = f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}'
+        buoy_page = requests.get(url)
+        # when a buoy has a camera, the following text appears in the <head> <title> tag: "buoycam.php" followed by some other text. We can use regex to search for this text, and determine if the buoy has a camera.
+
         # if the buoy has a camera, then append the buoy id to the list of buoy ids that have cameras
         if buoy_has_camera:
             self.buoy_ids_with_camera.append(buoy_id)

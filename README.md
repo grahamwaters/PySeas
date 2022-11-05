@@ -64,6 +64,9 @@ Feel free to share this project on Twitter!
   - [Getting Started](#getting-started)
     - [What Data is Available?](#what-data-is-available)
   - [See Buoy Data Retrieval Example](#see-buoy-data-retrieval-example)
+  - [Using our own Method](#using-our-own-method)
+    - [Stationary Buoys](#stationary-buoys)
+    - [Drifting Buoys](#drifting-buoys)
   - [Usage](#usage)
 
 # Installation
@@ -132,9 +135,144 @@ df.head()
 ```
 What I like about this tool is that it provides an easy method of accessing not just one data element but all of the data elements that are available. This is a great way to get a sense of what can be gathered. The result is a pandas dataframe with the date in datetime format on the left.
 
-<div align = "center">
-    <img src="images/PyBuoy_DataFrame.png" alt="Logo" width="1640" height="200">
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Using our own Method
+
+The real-time buoy data is available at `https://www.ndbc.noaa.gov/data/realtime2/` and can be scraped using the `requests` library. The data is available in a csv format and can be accessed using the buoy's ID. For example, the buoy with ID `41013` can be accessed at `https://www.ndbc.noaa.gov/data/realtime2/41013.spec` and the data is available in csv format at `https://www.ndbc.noaa.gov/data/realtime2/41013.spec.csv`. The data is available in a csv format and can be accessed using the buoy's ID. For example, the buoy with ID `41013` can be accessed at `https://www.ndbc.noaa.gov/data/realtime2/41013.spec` and the data is available in csv format at `https://www.ndbc.noaa.gov/data/realtime2/41013.spec.csv`.
+
+
+### Stationary Buoys
+
+The buoys that are anchored down are called stationary buoys. These buoys are used to measure the ocean's surface and are typically located in the middle of the ocean. The data that is available for these buoys is also useful for generating a random number.
+
+```python
+# https://www.ndbc.noaa.gov/data/realtime2/21415.dart
+# example buoy data pull for water column height (capture the latest one)
+
+import requests
+import pandas as pd
+
+url = 'https://www.ndbc.noaa.gov/data/realtime2/21415.dart'
+
+r = requests.get(url)
+
+with open('data.csv', 'wb') as f:
+    f.write(r.content)
+
+df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\s+')
+
+df.head()
+```
+
+
+
+
+
+
+
+
+
+
+
+### Drifting Buoys
+
+There are some buoys that are drifting which simply means they are not anchored in one location. These buoys are identified by the word `.drift` after the id. For example, the buoy with id `41013` is anchored and the buoy with id `41013.drift` is drifting. The data for the drifting buoy is available at `https://www.ndbc.noaa.gov/data/realtime2/41013.drift`.
+
+```python
+# https://www.ndbc.noaa.gov/data/realtime2/22101.drift.csv
+# example buoy data pull for all the available columns (capture the latest one)
+
+import requests
+import pandas as pd
+
+url = 'https://www.ndbc.noaa.gov/data/realtime2/22101.drift'
+
+r = requests.get(url)
+
+with open('data.csv', 'wb') as f:
+    f.write(r.content)
+
+df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\s+')
+
+df.head()
+```
+<!--
+## Designing our BuoyBoat Class
+
+The BuoyBoat objects will be tasked with retrieving the buoy data and generating a random number. The BuoyBoat class will be responsible for the following:
+* Retrieving the buoy data
+* Generating a random number
+* Storing the random number
+
+```python
+class BuoyBoat:
+    def __init__(self, buoy_id):
+        self.buoy_id = buoy_id
+        self.random_number = None
+        self.data = None
+
+    def get_data(self):
+        pass
+
+    def generate_random_number(self):
+        pass
+```
+
+## Designing our Buoy Class
+
+Each of the buoys will be represented by a Buoy object. The Buoy objects store their own buoy id and the BuoyBoat object that is associated with them. The Buoy class will be responsible for the following:
+* Storing the buoy id
+* Storing the BuoyBoat object
+
+```python
+class Buoy:
+    def __init__(self, buoy_id, buoy_boat):
+        self.buoy_id = buoy_id
+        self.buoy_boat = buoy_boat
+    def report_id(self):
+        # print(f"Buoy ID: {self.buoy_id}")
+        return self.buoy_id # return the buoy id to the BuoyBoat object
+```
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,6 +311,16 @@ random_number = buoy.get_random_number()
 ```
 
 The user then has a number that is generated from the ocean's surface. This number is random, but it is also influenced by the ocean's variant movements. So, pure mathematicians will tell you this is not true randomness, and they are technically correct. We posit that it is pretty close, though.
+
+
+
+<!-- # Future Work
+
+It would be a fun idea to have an autonomous agent in the ocean space that was designed to travel between buoys and collect data. This agent could receive damage by going through certain types of waters and could be repaired by going to a buoy. The agent could also be used to collect data from the buoys, which informs the system on the agent's internal computer about the state of the ocean. This could be used to inform the agent on how to navigate the ocean and how it is affecting its onboard hardware. This could be a fun project to work on in the future. -->
+
+
+
+
 
 
 

@@ -78,6 +78,49 @@
         "documentation": {}
     },
     {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "limits",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "sleep_and_retry",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
         "label": "#needs_sphinx",
         "kind": 5,
         "importPath": "docs.conf",
@@ -624,6 +667,51 @@
         "description": "scripts.03_PyBuoy",
         "peekOfCode": "def main():\n    # create a matrix 36 x 36 containing buoy ids\n    # https://www.ndbc.noaa.gov/buoycam.php?station=xxxxx\n    # this gets most recent photo from the buoy with the code xxxxx\n    # https://tidesandcurrents.noaa.gov/api-helper/url-generator.html\n    #https://www.ndbc.noaa.gov/rss/ndbc_obs_search.php?lat=40N&lon=73W&radius=100\n    #https://www.ndbc.noaa.gov/data/realtime2/ (station id) .swdir\n    #https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20130808 15:00&end_date=20130808 15:06&station=8454000&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json\n    #The result \"V\" should be the desired variable\n    product = 'air_temperature'",
         "detail": "scripts.03_PyBuoy",
+        "documentation": {}
+    },
+    {
+        "label": "ProcessFlow",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class ProcessFlow():\n    def __init__(self):\n        self.buoy_ids = self.get_available_buoy_ids()\n        self.buoy_ids_with_camera = []\n    def get_available_buoy_ids(self):\n        # source for this data: https://www.ndbc.noaa.gov/to_station.shtml\n        # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.\n        # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.\n        import re\n        stations_text = open('data/stations.txt', 'r').read()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_drifting_buoy_data",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_drifting_buoy_data(buoy_id):\n    # Get buoy data from NOAA # https://www.ndbc.noaa.gov/data/realtime2/{buoy_id}.drift\n    url = f'https://www.ndbc.noaa.gov/data/realtime2/{buoy_id}.drift' # f-string url\n    r = requests.get(url) # Get the data from the URL\n    with open('data.csv', 'wb') as f: # Write the data to a file\n        f.write(r.content) # Write the data to a file\n    df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\\s+') # Read in the data\n    return df # return the buoy data\n@sleep_and_retry\ndef get_stationary_buoy_data(buoy_id):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_stationary_buoy_data",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_stationary_buoy_data(buoy_id):\n    # https://www.ndbc.noaa.gov/data/realtime2/21415.dart\n    # example buoy data pull for water column height (capture the latest one)\n    url = f'https://www.ndbc.noaa.gov/data/realtime2/{buoy_id}.dart' # f-string url\n    r = requests.get(url)\n    with open('data.csv', 'wb') as f:\n        f.write(r.content)\n    df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\\s+')\n    df.head()\n    return df",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_buoy_cam",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_buoy_cam(buoy_id):\n    \"\"\"\n    NDBC operates BuoyCAMs at several stations. These BuoyCAMs typically take photos only during daylight hours.\n    To view the most recent BuoyCAM image from an NDBC station, use this URL:\n        https://www.ndbc.noaa.gov/buoycam.php?station=xxxxx\n    where xxxxx is the desired station ID. To see which stations are currently reporting BuoyCAM images, check the BuoyCAMs map.\n    If the server encounters any difficulties in processing your request, you will receive one of these error messages:\n        No station specified\n        Modify your URL to use the station parameter to specify a valid station with a BuoyCAM (station=xxxxx where xxxxx is the station ID). Review the BuoyCAMs map to see which stations have a BuoyCAM.\n        Invalid station specified",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_available_buoy_ids",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def get_available_buoy_ids():\n    # source for this data: https://www.ndbc.noaa.gov/to_station.shtml\n    # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.\n    # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.\n    import re\n    stations_text = open('data/stations.txt', 'r').read()\n    task_one_stations_list = re.findall(r' \\d+ ', stations_text) # find all numbers in the file\n    task_two_stations_list = re.findall(r' \\w+\\d ', stations_text) # find all identifiers in the file\n    # combine by adding the second list to the first with .extend()\n    task_one_stations_list.extend(task_two_stations_list)",
+        "detail": "main",
         "documentation": {}
     }
 ]

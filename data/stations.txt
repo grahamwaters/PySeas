@@ -1,0 +1,773 @@
+National Data Buoy Center Stations
+
+21413   21414   21415   21416   21417   21418   21419   21420
+21D18   21D20   32301   32302   32411   32412   32413   32745
+32746   32D12   32D13   41001   41002   41003   41004   41005
+41006   41007   41008   41009   41010   41011   41012   41013
+41015   41016   41017   41018   41021   41022   41023   41025
+41035   41036   41040   41041   41043   41044   41046   41047
+41048   41049   41420   41421   41424   41425   41A46   41B41
+41D20   41S43   41S46   42001   42002   42003   42004   42005
+42006   42007   42008   42009   42010   42011   42012   42015
+42016   42017   42018   42019   42020   42025   42035   42036
+42037   42038   42039   42040   42041   42042   42053   42054
+42055   42056   42057   42058   42059   42060   42065   42080
+42407   42408   42409   42429   42501   42503   42534   43412
+43413   44001   44003   44004   44005   44006   44007   44008
+44009   44010   44011   44012   44013   44014   44015   44017
+44018   44019   44020   44023   44025   44026   44027   44028
+44065   44066   44070   44071   44401   44402   44403   44585
+45001   45002   45003   45004   45005   45006   45007   45008
+45009   45010   45011   45012   46001   46002   46003   46005
+46006   46007   46008   46009   46010   46011   46012   46013
+46014   46015   46016   46017   46018   46019   46020   46021
+46022   46023   46024   46025   46026   46027   46028   46029
+46030   46031   46032   46033   46034   46035   46037   46038
+46039   46040   46041   46042   46043   46045   46047   46048
+46050   46051   46053   46054   46059   46060   46061   46062
+46063   46066   46069   46070   46071   46072   46073   46075
+46076   46077   46078   46079   46080   46081   46082   46083
+46084   46085   46086   46087   46088   46089   46090   46105
+46106   46107   46115   46270   46290   46401   46402   46403
+46404   46405   46406   46407   46408   46409   46410   46411
+46412   46413   46414   46415   46416   46419   46490   46551
+46553   46779   46780   46781   46782   46785   46B35   46D04
+48011   51000   51001   51002   51003   51004   51005   51026
+51027   51028   51100   51101   51406   51407   51425   51426
+51542   52009   52401   52402   52403   52404   52405   52406
+54401   91204   91222   91251   91328   91338   91343   91352
+91355   91356   91365   91374   91377   91411   91442   ABAN6
+ALRF1   ALSN6   AMAA2   AUGA2   BLIA2   BURL1   BUSL1   BUZM3
+CARO3   CDRF1   CHLV2   CLKN7   CSBF1   DBLN6   DESW1   DISW3
+DPIA1   DRFA2   DRYF1   DSLN7   DUCN7   EB01    EB10    EB31
+EB32    EB33    EB35    EB36    EB43    EB52    EB53    EB61
+EB62    EB70    EB90    EB91    EB92    FARP2   FBIS1   FFIA2
+FILA2   FPSN7   FWYF1   GBCL1   GDIL1   GLLN6   IOSN3   KTNF1
+LNEL1   LONF1   LPOI1   MDRM1   MISM1   MLRF1   MPCL1   MRKA2
+NWPO3   PILA2   PILM4   PLSF1   POTA2   PTAC1   PTAT2   PTGC1
+ROAM4   SANF1   SAUF1   SBIO1   SGNW3   SGOF1   SISW1   SJLF1
+SMKF1   SPGF1   SRST2   STDM4   SUPN6   SVLS1   THIN6   TPLM2
+TTIW1   VENF1   WPOW1
+
+Alaska Ocean Observing System Stations
+
+46108   46265   48114
+
+AOML Stations
+
+41554   41670   41852   41904   41933   48916   48917   52834
+52837   52838   52839   52840   52841   52842   52843   52849
+52858   52862   52901
+
+APL-UW, University of Washington Applied Physics Laboratory Stations
+
+46246   46255
+
+Australian Bureau of Meteorology Stations
+
+53046   55012   55013   55015   55016   55023   55042   55401
+56001   56003
+
+Australian Integrated Marine Observing System Stations
+
+58951   58952   58953
+
+Brazilian Navy Hydrographic Center Stations
+
+31051   31052   31053   31260
+
+California Polytechnic State University Stations
+
+CPXC1   MBXC1
+
+California State University, East Bay Stations
+
+DMBC1   NLEC1
+
+Caribbean Integrated Coastal Ocean Observing System (CarICoos) Stations
+
+41051   41052   41053   41056   41058   41115   41121   42085
+IMGP4   PTRP4
+
+CaroCOOPS Stations
+
+41027   41030   SNSN7
+
+Central and Northern California Ocean Observing System Stations
+
+CQUC1   HBXC1   MYXC1   TDPC1   TIBC1
+
+Chesapeake Bay Interpretive Buoy System (CBIBS) Stations
+
+44041   44042   44043   44057   44058   44059   44061   44062
+44063   44064   44068   44072
+
+Chesapeake Biological Lab Stations
+
+44044   CBIM2
+
+Chicago Park District Stations
+
+45015   45016   45017   45018   45019   45177   FSTI2   JAKI2
+OKSI2
+
+Cleveland Water Alliance Stations
+
+45201   45202   45203   45204   45205   45206   45207   45208
+
+Columbia River Inter-Tribal Fish Commission Stations
+
+46096   46116   46117   46127   DMNO3   GPTW1   HMNO3   JTAW1
+LSIO3   PRTO3   SEFO3   SETO3   SRAW1   SRFW1   TANO3   TNSO3
+WDYO3
+
+COMPS (University of South Florida) Stations
+
+42013   42014   42021   42022   42023   42024   42026   48905
+ANCF1   ANMF1   ARPF1   BGCF1   CAMF1   CLBF1   EGKF1   FHPF1
+HSSF1   NFBF1   PTRF1   SHPF1   TARF1
+
+Conrad Blucher Institute (CBI) for Surveying and Science, Texas A&M University-Corpus Christi Stations
+
+42092
+
+Cooperative Effort DART 4G Stations
+
+32403   32404   34420
+
+CORIE Stations
+
+MLTO3
+
+CORMP Stations
+
+41024   41029   41033   41037   41038   41064   41065   41066
+41076   41110   41119   41159   MBIN7   MBNN7   OCPN7   SSBN7
+
+Dalhousie University Stations
+
+00922   00923
+
+Dauphin Island Sea Lab Stations
+
+42031   BSCA1   CRTA1   DPHA1   KATA1   MBLA1   MHPA1   PPTA1
+
+Delaware Coastal Management Program Stations
+
+44054   44055
+
+DIMAR Colombia Stations
+
+32489
+
+DIMAR Colombia - CCCP Stations
+
+32487   32488   41193   41194
+
+Environment and Climate Change Canada Stations
+
+44137   44138   44139   44140   44141   44142   44150   44174
+44175   44176   44235   44251   44255   44258   44488   44489
+44490   45132   45135   45136   45137   45138   45139   45140
+45141   45142   45143   45144   45145   45147   45148   45149
+45150   45151   45152   45154   45155   45158   45159   45160
+46004   46036   46131   46132   46134   46138   46139   46145
+46146   46147   46181   46183   46184   46185   46204   46205
+46206   46207   46208   46303   46304   48021   CWCI
+
+EPA & Mexican Government Cooperative Program Stations
+
+LMBV4   SACV4   VERV4
+
+Esso Petroleum, Australia Stations
+
+55039
+
+Everglades National Park Stations
+
+BBNF1   BBSF1   BDVF1   BKYF1   BNKF1   BOBF1   BSKF1   BWSF1
+CANF1   CNBF1   CWAF1   DKKF1   GBIF1   GBTF1   GKYF1   HCEF1
+HREF1   JBYF1   JKYF1   LBRF1   LBSF1   LMDF1   LMRF1   LRIF1
+LRKF1   LSNF1   MDKF1   MNBF1   MUKF1   NRRF1   PKYF1   SREF1
+TBYF1   TCVF1   THRF1   TPEF1   TRRF1   WIWF1   WPLF1   WRBF1
+WWEF1
+
+Federal Aviation Administration Stations
+
+KATP   KBBF   KBQX   KCMB   KCRH   KCVW   KDLP   KEHC
+KEIR   KEMK   KGBK   KGHB   KGRY   KGUL   KGVX   KHHV
+KHQI   KIKT   KIPN   KMDJ   KMIS   KMIU   KMYT   KMZG
+KOPM   KSCF   KSPR   KSQE   KSTZ   KVAF   KVBS   KVKY
+KVNP   KVOA   KVQT   KXIH   KXPY
+
+Florida Institute of Technology Stations
+
+SIPF1
+
+GLERL Stations
+
+45161   45162   45163   45195   APNM4   CHII2   MCYI3   MKGM4
+MLWW3   SRLM4   SVNM4   TBIM4   THLO1   WSLM4
+
+Great Lakes Water Authority Stations
+
+45209
+
+Greater Tampa Bay Marine Advisory Council-PORTS Stations
+
+42098
+
+Humboldt State University Stations
+
+ERKC1
+
+Hydrographic and Oceanographic Service of the Chilean Navy (SHOA) Stations
+
+32401   32402
+
+Icelandic Maritime Administration Stations
+
+TFBLK
+
+Illinois-Indiana Sea Grant and Purdue Civil Engineering Stations
+
+45170   45198
+
+Indian National Center for Ocean Information Services INDIA Stations
+
+23217   23219   23227   23228
+
+Indonesian Agency for Assessment and Application of Technology (BPPT) Stations
+
+53401
+
+INPE Brazil Stations
+
+31261   31478
+
+Instituto Oceanografico y Antartico de la Armada (INOCAR) Stations
+
+21401   21402
+
+Instituto Oceanografico y Antartico de la Armadai (INOCAR) Stations
+
+32066   32067   32068   32069
+
+Integrated Coral Observing Network (ICON) Stations
+
+41057   42087   42088   42089   42090   LCIY2   LLBP7   LPRP4
+PVGF1   SRBV3
+
+Intellicheck Mobilisa Stations
+
+44067   46109   46110   46111   46112   46113
+
+Japanese Meteorological Agency Stations
+
+21178   21346   21347   21348   21595   21597   21598   21600
+21636   21637   21640   21707
+
+King Abdullah University for Science and Tech (KAUST) Stations
+
+23020
+
+Korean Meteorological Administration Stations
+
+22101   22102   22103   22104   22105   22106   22107   22108
+
+Limno Tech Stations
+
+45026   45029   45164   45165   45168   45169   45176   45196
+45197   TWCO1
+
+llinois-Indiana Sea Grant Stations
+
+45174
+
+Long Island Ferry Stations
+
+BHRC3   FWIC3   MISC3   MISN6   NCSC3   NOSC3   OFPN6   PTJN6
+SCSN6   SOSN6
+
+Louisiana Offshore Oil Port Stations
+
+LOPL1
+
+LSU CSI Stations
+
+GRBL1   ILDL1   MRSL1   SIPM6   SLPL1   SPLL1
+
+LUMCON Stations
+
+LKPL1   LUML1   TAML1   TRBL1
+
+Marine Exchange of Alaska Stations
+
+AJXA2   AKXA2   APMA2   BEXA2   CDXA2   CPXA2   DHXA2   DPLA2
+DPOA2   DPXA2   ERXA2   GBXA2   GEXA2   GIXA2   GPXA2   GUXA2
+HAXA2   HMSA2   ICYA2   JLXA2   JMLA2   JNGA2   KEXA2   KGXA2
+KMXA2   KNXA2   KOZA2   LIXA2   MIXA2   MRNA2   MRYA2   MVXA2
+MXXA2   NKLA2   NKXA2   NLXA2   NMXA2   NSXA2   PAUA2   PAXA2
+PCXA2   PEXA2   PGXA2   PPXA2   PTLA2   RIXA2   SCXA2   SGXA2
+SHXA2   SIXA2   SKXA2   SLXA2   SPXA2   SRXA2   STXA2   SVXA2
+SWXA2   SXXA2   TKEA2   TPXA2   UQXA2   VDXA2   WCXA2   WIXA2
+WRXA2
+
+Mariner Energy Inc. Stations
+
+FGBL1
+
+MBARI Stations
+
+46044   46091   46092   46093
+
+Met Eireann Stations
+
+62090   62091   62092   62093   62094   62095
+
+Meteo France Stations
+
+41096   41097   41098   41100   41101   41300   61001   61002
+62052
+
+Meteorological Dept, States of Jersey Stations
+
+62027
+
+Michigan Technological University Stations
+
+45023   45025   45175   45194
+
+Mississippi State University Stations
+
+GOM01   MSG10   MSG12   MSG14
+
+Moss Landing Marine Lab Stations
+
+MLSC1
+
+MOTE Marine Stations
+
+48906
+
+MYSOUND Stations
+
+44022   44039   44040   44060   LDLC3
+
+National Disaster Warning Center (NDWC), Department of Disaster Prevention and Mitigation, Ministry of the Interior, Thailand Stations
+
+23401   23461
+
+National Estuarine Research Reserve System Stations
+
+ACFS1   ACQS1   ACXS1   ANMN6   ANRN6   APQF1   APXA2   APXF1
+BGXN3   BILW3   BRIM2   BSLM2   BVQW1   CHNO3   CHQO3   CVQV2
+CWQO3   CWQT2   DBQS1   DEQD1   DRSD1   EAZC1   EHSC1   ELQC1
+ELXC1   EVMC1   FFFC1   GBHM6   GBQN3   GBRM6   GDQM6   GDWV2
+GDXM6   GGGC1   GTQF1   GTXF1   HBMN6   HMRA2   HUQN6   JCQN4
+JCRN4   JCTN4   JOBP4   JOQP4   JOXP4   KCHA2   LTQM2   MAQT2
+MAXT2   MIST2   MQMT2   MWQT2   NAQR1   NAXR1   NIQS1   NIWS1
+NOQN7   NOXN7   NPQN6   NPXN6   OWDO1   OWQO1   OWSO1   OWXO1
+PBFW1   PBLW1   PKBW3   RKQF1   RKXF1   RYEC1   SAQG1   SAXG1
+SCLD1   SCQC1   SCQN6   SEQA2   SFXC1   SKQN6   SLOO3   SNTO3
+SOQO3   TCSV2   TIQC1   TIXC1   TKPN6   WAQM3   WAXM3   WBYA1
+WEBM1   WELM1   WEQM1   WEXM1   WKQA1   WKXA1   WYBS1   WYSS1
+YRSV2   ZBQN7
+
+National Institute for Ocean Technology INDIA Stations
+
+23218   23220   23223   23225   23226
+
+National Marine Fisheries Service Stations
+
+LPWA2
+
+National Park Service - Lake Mead National Recreation Area Stations
+
+NBBA3   NLMA3   SBBN2   SLMN2   VBBA3
+
+National Park Service - Sleeping Bear Dunes Stations
+
+45183
+
+National Renewable Energy Laboratory Stations
+
+46260   46261   46263   46264
+
+NAVO Stations
+
+48900   48901   48908   48909   48912   48919
+
+NC-COOS Stations
+
+SECG1
+
+NOAA NOS PORTS Stations
+
+AGXC1   BAXC1   BDRN4   BDSP1   BGNN6   BKBF1   BLIF1   BLTM3
+BMTW1   BRND1   CHCM2   CHYV2   COVM2   CPMW1   CPNW1   CPTR1
+CPVM2   CRYV2   DELD1   DMSF1   DOMV2   DPXC1   EBEF1   EFLA1
+EINL1   FMOA1   FRVM3   FRXM3   FSKM2   FSNM2   GCTF1   HIVT2
+KBMG1   LNDC1   LQAT2   LTJF1   MBPA1   MCGA1   MHBT2   MHRN6
+MNPV2   MRCP1   MTBF1   MZXC1   NBLP1   NFDF1   NWHC3   OBXC1
+OKXC1   OMHC1   OPTF1   PDVR1   PEGF1   PFDC1   PFXC1   PILL1
+PMAF1   PPTM2   PPXC1   PRJC1   PRUR1   PSBC1   PSXC1   PTBM6
+PTCR1   PTOA1   PVDR1   PXAC1   PXOC1   PXSC1   QPTR1   RCMC1
+ROBN4   RPLV2   RTYC1   SEIM1   SJSN4   SKCF1   SWPM4   TCBM2
+TCMW1   TCNW1   TLVT2   TPAF1   TSHF1   TXVT2   UPBC1   UTVT2
+VTBT2   WDSV2   YKRV2
+
+NOAA/PMEL Stations
+
+28401   48400
+
+North Carolina State University Stations
+
+01510
+
+Northeastern Regional Association of Coastal Ocean Observing Systems Stations
+
+44021   44024   44029   44030   44031   44032   44033   44034
+44035   44036   44037   44038
+
+Northern Michigan University Stations
+
+45171   45172   45173   GRIM4
+
+Northwest Association of Networked Ocean Observing Systems Stations
+
+46094   46118   46119   46128
+
+Northwestern Michigan College Stations
+
+45020
+
+NOS Stations
+
+AAMC1   ACYN4   ADKA2   AGCM4   ALIA2   ALXN6   AMRL1   ANTA2
+ANVC1   APAM2   APCF1   APRP7   ASTO3   ATGM1   ATKA2   BARA9
+BATN6   BEPB6   BFTN7   BHBM3   BISM2   BKTL1   BLTM2   BRHC3
+BUFN6   BYGL1   BZBM3   CAMM2   CAPL1   CARL1   CASM1   CBBV2
+CCUF1   CECC1   CFWM1   CHAO3   CHAV3   CHBV2   CHSV3   CHTM3
+CHTS1   CHYW1   CLBP4   CMAN4   CMTI2   CNDO1   CRVA2   CTGM1
+CWBF1   DILA1   DKCM6   DTLM4   DUKN7   DULM5   EBSW1   ELFA2
+EREP1   ERTF1   ESPP4   FAIO1   FCGT2   FMRF1   FOXR1   FPKG1
+FPST2   FPTT2   FRCB6   FRDF1   FRDW1   FREL1   FRPS1   FRWL1
+FTGM4   FTPC1   GBWW3   GCVF1   GDMM5   GISL1   GNJT2   GPOM6
+GPST2   GTOT2   GWPM6   HBYC1   HCGN7   HLNM4   HMDO3   HRBM4
+HRVC1   ICAC1   IIWC1   ILOH1   ITKA2   JMPN7   JNEA2   JXUF1
+KDAA2   KECA2   KGCA2   KLIH1   KPTN6   KPTV2   KWHH1   KWJP8
+KWNW3   KYWF1   LABL1   LAMV3   LAPW1   LCLL1   LDTM4   LJAC1
+LKWF1   LOPW1   LPNM4   LTBV3   LTRM4   LWSD1   LWTV2   MACM4
+MBET2   MBRM4   MCGM4   MCYF1   MEYC1   MGIP4   MGZP4   MISP4
+MNMM4   MOKH1   MQTT2   MRHO1   MROS1   MTKN6   MTYC1   MYPF1
+NCDV2   NEAW1   NIAN6   NJLC1   NKTA2   NLNC3   NMTA2   NPSF1
+NSTP6   NTBC1   NTKM3   NUET2   NWCL1   NWPR1   NWWH1   OBGN6
+OBLA1   OCIM2   OHBC1   OLSA2   OOUH1   ORIN7   OSGN6   OVIA2
+PACF1   PCBF1   PCLF1   PCOC1   PGBP7   PHBP1   PLXA2   PMOA2
+PNLM4   PNLM6   PORO3   PRDA2   PRYC1   PSBM1   PSLC1   PSTL1
+PSTN6   PTAW1   PTIM4   PTIT2   PTWW1   RARM6   RCKM4   RCPT2
+RCRN6   RCYF1   RDDA2   RDYD1   SAPF1   SBEO3   SBLF1   SBPT2
+SCIS1   SDBC1   SDHN4   SHBL1   SJNP4   SKTA2   SLIM2   SMOC1
+SNDA2   SNDP5   SWLA2   SWPV2   TESL1   THRO1   TLBO3   TOKW1
+TPBN4   TRDF1   TXPT2   ULAM6   ULRA2   UNLA2   VAKF1   VCAF1
+VCVA2   VDZA2   WAHV2   WAKP8   WASD2   WAVM6   WLON7   WNDV2
+WNEM4   WPTW1   WYCM6   YATA2   YKTV2
+
+NWS Alaska Region Stations
+
+46518   46531   46534   46538   46565   BLTA2   CDEA2   CRGA2
+CSPA2   EROA2   LCNA2   PBPA2   PRTA2   SDIA2   SISA2
+
+NWS Central Region Stations
+
+18CY3   AGMW3   BHRI3   BIGM4   BSBM4   CBRW3   CLSM4   CNII2
+CYGM4   FPTM4   GBLW3   GRMM4   GSLM4   GTLM4   GTRM4   KGNA
+KNSW3   KP53   KP58   KP59   LSCM4   MEEM4   NABM4   NPDW3
+OTNM4   PCLM4   PNGW3   PRIM4   PSCM4   PWAW3   SBLM4   SJOM4
+SLVM5   SPTM4   SXHW3   SYWW3   TAWM4   WFPM4   WHRI2
+
+NWS Eastern Region Stations
+
+ASBO1   BARN6   CBLO1   CHDS1   CMPO1   GELO1   HHLO1   LMFS1
+LMSS1   LORO1   NREP1   OLCN6   RPRN6   WATS1   YGNN6
+
+NWS Pacific Region Stations
+
+none
+
+NWS Southern Region Stations
+
+none
+
+NWS Western Region Stations
+
+none
+
+Ocean Observatories Initiative Stations
+
+34002   44075   44076   44077   44078   46097   46098   46099
+46100
+
+Oregon Coastal Ocean Observing System Stations
+
+none
+
+Pacific Islands Ocean Observing System Stations
+
+51045   51046   51201   51202   51203   51204   51205   51206
+51207   51208   51209   51210   51211   51212   51213   52200
+52201   52202   52211   52212
+
+Prediction and Research Moored Array in the Atlantic Stations
+
+13001   13002   13008   13009   13010   15001   15002   15006
+15007   31001   31002   31003   31004   31005   31006   31007
+41026   41139
+
+Private Industry Oil Platform Stations
+
+62114   62121   62124   62125   62126   62127   62130   62135
+62142   62144   62145   62146   62147   62148   62149   62150
+62164   62165   62166   63105   63110   63112   63113   63115
+63117
+
+Puerto Rico Seismic Network Stations
+
+AROP4   AUDP4   FRDP4   PLSP4   VQSP4   YABP4
+
+Raytheon Stations
+
+none
+
+Regional Science Consortium Stations
+
+45167
+
+Research Moored Array for African-Asian-Australian Monsoon Analysis and Prediction Stations
+
+14040   14041   14043   14047   23001   23003   23004   23006
+23007   23008   23009   23010   23011   23012   23013   23014
+23015   23016   23017   53005   53006   53009   53040   53056
+53057   56053   56055
+
+Rutgers Stations
+
+01505   01506   01507   01518   01537   48904   48907   91500
+
+Salmon Unlimited Wisconsin Stations
+
+45199
+
+San Francisco State Stations
+
+none
+
+SCCOOS Stations
+
+46233
+
+SCRIPPS Stations
+
+01500   01521   01522   01523   01524   01526   01531   01532
+01534   01535   01536   01538   01909   01910   31201   41108
+41109   41112   41113   41114   41116   41118   41120   41140
+41141   42084   42091   42094   42099   44088   44094   44096
+44097   44099   44100   44172   46114   46211   46212   46213
+46214   46215   46216   46217   46218   46219   46220   46221
+46222   46223   46224   46225   46226   46227   46228   46229
+46230   46231   46232   46234   46235   46236   46237   46238
+46239   46240   46241   46242   46243   46244   46245   46247
+46248   46249   46250   46251   46253   46254   46256   46257
+46258   46262   46267   46268   46269   46273   46274   46275
+48910   51200   LJPC1
+
+Shell Arctic Stations
+
+48211   48212   48213   48214   48216
+
+Shell Oil Stations
+
+46126   48677   48678   48679   48680   48911   CGCL1   WDEL1
+
+Skidaway Stations
+
+01511   SKMG1   SPAG1   TYBG1
+
+South Carolina Nearshore Monitoring System Stations
+
+FBPS1   SMBS1
+
+State University of New York College of Environmental Science and Forestry Stations
+
+none
+
+Statoil Hydro Stations
+
+48215
+
+Stevens Stations
+
+ACMN4   AVAN4   BRBN4   OCGN4   SGRN4
+
+Stony Brook University Stations
+
+44069
+
+SUNY Plattsburgh Center for Earth and Environmental Science/Lake Champlain Research Institute Stations
+
+45178   45188
+
+Superior Watershed Partnership Stations
+
+45179
+
+TABS Stations
+
+42043   42044   42045   42046   42047   42048   42049   42050
+42051
+
+TCOON Stations
+
+ANPT2   AWRT2   BABT2   BZST2   CLLT2   CPNT2   EMAT2   EPTT2
+GLPT2   GRRT2   HIST2   IRDT2   LUIT2   LYBT2   MGPT2   NCHT2
+NGLT2   NWST2   PACT2   PCGT2   PCNT2   PMNT2   PORT2   RLIT2
+RLOT2   RSJT2   RTAT2   RTOT2   SDRT2   SGNT2   TAQT2   VCAT2
+
+Terra Ceia Aquatic Preserve Stations
+
+BPHF1   FRKF1
+
+U.S. Army Corps of Engineers Stations
+
+41117   42078   42079   42093   42095   42097   44056   44089
+44091   45180   46259   46266   BTHD1   FRFN7   JPRN7   OCSM2
+
+U.S. Navy Stations
+
+44087
+
+U.S. Navy and U.S. Army Corps of Engineers Stations
+
+46252
+
+U.S.C.G. Marine Reporting Stations Stations
+
+0Y2W3   18CI3   20CM4   C58W3
+
+UK Met Office Stations
+
+62001   62028   62029   62030   62050   62081   62103   62105
+62107   62108   62163   62170   62298   62301   62303   62304
+62305   62442   64045   64046
+
+UNC Coastal Studies Institute Stations
+
+44086   44095
+
+UNH/Oscilla Power/UW-APL Stations
+
+44092
+
+United States Geological Survey Stations
+
+none
+
+University of Alaska, Fairbanks Stations
+
+48012
+
+University of California Davis, Bodega Marine Laboratory Stations
+
+BDXC1   FPXC1
+
+University of Delaware Stations
+
+01508   48903
+
+University of Georgia Stations
+
+none
+
+University of Hawaii Stations
+
+KNOH1
+
+University of Illinois at Urbana-Champaign Stations
+
+45186   45187
+
+University of Maine Stations
+
+01502   01519
+
+University of Maryland Horn Point Laboratory Stations
+
+HPLM2
+
+University of Massachusetts Stations
+
+01504
+
+University of Michigan Stations
+
+45021   GTBM4
+
+University of Michigan CILER Stations
+
+45022   45024
+
+University of Minnesota, Duluth Stations
+
+45027   45028
+
+University of New Hampshire Stations
+
+44073   44098   CMLN3
+
+University of North Carolina Stations
+
+41062   41063
+
+University of Washington Stations
+
+46120   46121   46122   46123   46124   46125
+
+University of Washington - APL Stations
+
+28900   28902   28903   28904   28906   28907   28908   28909
+48915   58900   58902   58903   58904   58905   58906   58907
+58908   58909   68900   78900   78901
+
+University of Washington/iRobot Stations
+
+48902
+
+University of Wisconsin-Milwaukee Stations
+
+45013   45014   45184   45185
+
+USM Stations
+
+42067
+
+Vermont EPSCOR Stations
+
+45166
+
+Virginia Department of Mines, Minerals, and Energy Stations
+
+44093
+
+Virginia Institute of Marine Science (VIMS) Stations
+
+44052   44053   GDIV2   VMSV2
+
+Woods Hole Group/NERACOOS Stations
+
+44085   44090
+
+Woods Hole Oceanographic Institution Stations
+
+01503   01517   32012   32ST0   41060   41061   41NT0   43010
+51WH0

@@ -9,19 +9,39 @@
         "documentation": {}
     },
     {
-        "label": "setup",
-        "importPath": "setuptools",
-        "description": "setuptools",
+        "label": "sys",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "setuptools",
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
-        "label": "find_packages",
-        "importPath": "setuptools",
-        "description": "setuptools",
+        "label": "os",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "setuptools",
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sample",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sample",
+        "description": "sample",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
         "documentation": {}
     },
     {
@@ -78,115 +98,19 @@
         "documentation": {}
     },
     {
-        "label": "daylight",
-        "kind": 6,
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
         "isExtraImport": true,
-        "importPath": "daylight",
-        "description": "daylight",
-        "detail": "daylight",
+        "detail": "setuptools",
         "documentation": {}
     },
     {
-        "label": "cv2",
-        "kind": 6,
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
         "isExtraImport": true,
-        "importPath": "cv2",
-        "description": "cv2",
-        "detail": "cv2",
-        "documentation": {}
-    },
-    {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "glob",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "glob",
-        "description": "glob",
-        "detail": "glob",
-        "documentation": {}
-    },
-    {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "limits",
-        "importPath": "ratelimit",
-        "description": "ratelimit",
-        "isExtraImport": true,
-        "detail": "ratelimit",
-        "documentation": {}
-    },
-    {
-        "label": "sleep_and_retry",
-        "importPath": "ratelimit",
-        "description": "ratelimit",
-        "isExtraImport": true,
-        "detail": "ratelimit",
-        "documentation": {}
-    },
-    {
-        "label": "RateLimitException",
-        "importPath": "ratelimit",
-        "description": "ratelimit",
-        "isExtraImport": true,
-        "detail": "ratelimit",
-        "documentation": {}
-    },
-    {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
-        "isExtraImport": true,
-        "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "csv",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "csv",
-        "description": "csv",
-        "detail": "csv",
-        "documentation": {}
-    },
-    {
-        "label": "tqdm",
-        "importPath": "tqdm",
-        "description": "tqdm",
-        "isExtraImport": true,
-        "detail": "tqdm",
+        "detail": "setuptools",
         "documentation": {}
     },
     {
@@ -712,93 +636,48 @@
         "documentation": {}
     },
     {
+        "label": "AdvancedTestSuite",
+        "kind": 6,
+        "importPath": "tests.test_advanced",
+        "description": "tests.test_advanced",
+        "peekOfCode": "class AdvancedTestSuite(unittest.TestCase):\n    \"\"\"Advanced test cases.\"\"\"\n    def test_thoughts(self):\n        self.assertIsNone(sample.hmm())\nif __name__ == '__main__':\n    unittest.main()",
+        "detail": "tests.test_advanced",
+        "documentation": {}
+    },
+    {
+        "label": "BasicTestSuite",
+        "kind": 6,
+        "importPath": "tests.test_basic",
+        "description": "tests.test_basic",
+        "peekOfCode": "class BasicTestSuite(unittest.TestCase):\n    \"\"\"Basic test cases.\"\"\"\n    def test_absolute_truth_and_meaning(self):\n        assert True\nif __name__ == '__main__':\n    unittest.main()",
+        "detail": "tests.test_basic",
+        "documentation": {}
+    },
+    {
         "label": "Buoy",
         "kind": 6,
-        "importPath": "scripts.03_PyBuoy",
-        "description": "scripts.03_PyBuoy",
+        "importPath": "PyBuoy",
+        "description": "PyBuoy",
         "peekOfCode": "class Buoy(): # this is the super parent class\n    def __init__(self,buoy_id=\"none\",temperature=\"none\"):\n        self.buoy_id = buoy_id\n        self.temperature = temperature\n    def check_buoy(self,buoy_id):\n        self.check_data = 'defaults' # put defaults into the code here\nclass Chosen_Buoy(Buoy):\n    def __init__(self,buoy_type=\"none\"):\n        super().__init__(\"Chosen_Buoy\")\n        self.buoy_lat = 10.0",
-        "detail": "scripts.03_PyBuoy",
+        "detail": "PyBuoy",
         "documentation": {}
     },
     {
         "label": "Chosen_Buoy",
         "kind": 6,
-        "importPath": "scripts.03_PyBuoy",
-        "description": "scripts.03_PyBuoy",
+        "importPath": "PyBuoy",
+        "description": "PyBuoy",
         "peekOfCode": "class Chosen_Buoy(Buoy):\n    def __init__(self,buoy_type=\"none\"):\n        super().__init__(\"Chosen_Buoy\")\n        self.buoy_lat = 10.0\n        self.buoy_lng = 10.0\n        self.buoy_depth = 10.0\n        self.buoy_temp = 10.0\n        self.buoy_atmpressure = 10.0\n    def report_out(self,chosen_metric):\n        super().report_out(chosen_metric)",
-        "detail": "scripts.03_PyBuoy",
+        "detail": "PyBuoy",
         "documentation": {}
     },
     {
         "label": "main",
         "kind": 2,
-        "importPath": "scripts.03_PyBuoy",
-        "description": "scripts.03_PyBuoy",
+        "importPath": "PyBuoy",
+        "description": "PyBuoy",
         "peekOfCode": "def main():\n    # create a matrix 36 x 36 containing buoy ids\n    # https://www.ndbc.noaa.gov/buoycam.php?station=xxxxx\n    # this gets most recent photo from the buoy with the code xxxxx\n    # https://tidesandcurrents.noaa.gov/api-helper/url-generator.html\n    #https://www.ndbc.noaa.gov/rss/ndbc_obs_search.php?lat=40N&lon=73W&radius=100\n    #https://www.ndbc.noaa.gov/data/realtime2/ (station id) .swdir\n    #https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20130808 15:00&end_date=20130808 15:06&station=8454000&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json\n    #The result \"V\" should be the desired variable\n    product = 'air_temperature'",
-        "detail": "scripts.03_PyBuoy",
-        "documentation": {}
-    },
-    {
-        "label": "ProcessFlow",
-        "kind": 6,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "class ProcessFlow():\n    def __init__(self):\n        # read in the list of buoy ids from the buoy_ids.csv file\n        with open('data/buoy_ids.csv', 'r') as f:\n            buoy_ids = f.read()\n        self.buoy_ids = buoy_ids.split(',')\n        self.buoy_ids_with_camera = []\n        self.verbose_output = True # set to False to disable verbose output\n    def check_buoys(self):\n        # 2. Now that we have the list of buoy ids, we want to loop through them and check if they have a buoy cam.",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "get_drifting_buoy_data",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def get_drifting_buoy_data(buoy_id):\n    # Get buoy data from NOAA # https://www.ndbc.noaa.gov/data/realtime2/{buoy_id}.drift\n    url = f'https://www.ndbc.noaa.gov/data/realtime2/{buoy_id}.drift' # f-string url\n    r = requests.get(url) # Get the data from the URL\n    with open('data.csv', 'wb') as f: # Write the data to a file\n        f.write(r.content) # Write the data to a file\n    df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\\s+') # Read in the data\n    return df # return the buoy data\n@sleep_and_retry\ndef get_stationary_buoy_data(buoy_id):",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "get_stationary_buoy_data",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def get_stationary_buoy_data(buoy_id):\n    # https://www.ndbc.noaa.gov/data/realtime2/21415.dart\n    # example buoy data pull for water column height (capture the latest one)\n    url = f'https://www.ndbc.noaa.gov/data/realtime2/{buoy_id}.dart' # f-string url\n    r = requests.get(url)\n    with open('data.csv', 'wb') as f:\n        f.write(r.content)\n    df = pd.read_csv('data.csv', header=1, parse_dates=True, delimiter = '\\s+')\n    df.head()\n    return df",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "get_buoy_cam",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def get_buoy_cam(buoy_id):\n    \"\"\"\n    NDBC operates BuoyCAMs at several stations. These BuoyCAMs typically take photos only during daylight hours.\n    To view the most recent BuoyCAM image from an NDBC station, use this URL:\n        https://www.ndbc.noaa.gov/buoycam.php?station=xxxxx\n    where xxxxx is the desired station ID. To see which stations are currently reporting BuoyCAM images, check the BuoyCAMs map.\n    If the server encounters any difficulties in processing your request, you will receive one of these error messages:\n        No station specified\n        Modify your URL to use the station parameter to specify a valid station with a BuoyCAM (station=xxxxx where xxxxx is the station ID). Review the BuoyCAMs map to see which stations have a BuoyCAM.\n        Invalid station specified",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "divide_into_panels",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def divide_into_panels(buoy_id, image_file):\n    # divide the image into six panels, as dictated in the image processing pipeline for NOAA Buoy Cameras Comments above.\n    # read the image\n    img = cv2.imread(image_file)\n    # get the name of the image file\n    image_name = image_file.split('/')[-1]\n    # get the dimensions of the image\n    height, width, channels = img.shape\n    # Before dividing into panels, crop the image to remove 30 pixels from the bottom of the image.\n    # This is to remove the \"Buoy Camera\" text from the image.",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "get_available_buoy_ids",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def get_available_buoy_ids():\n    # source for this data: https://www.ndbc.noaa.gov/to_station.shtml\n    # task 1 -  use regex to extract all numbers like 44004 from stations.txt file and save to a list.\n    # task 2 - use regex to also identify any identifiers like ALXN6 or ALXN7 and append them to the list as well.\n    import re\n    stations_text = open('data/stations.txt', 'r').read()\n    task_one_stations_list = re.findall(r' \\d+ ', stations_text) # find all numbers in the file\n    task_two_stations_list = re.findall(r' \\w+\\d ', stations_text) # find all identifiers in the file\n    # combine by adding the second list to the first with .extend()\n    task_one_stations_list.extend(task_two_stations_list)",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "panelizer",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def panelizer():\n    # Save the panels to the images/panels directory\n    list_of_buoys = os.listdir('images/buoys') # get the list of buoy ids by their directory names\n    for buoy_id in tqdm(list_of_buoys):\n        # get the list of images for the buoy\n        if buoy_id != '.DS_Store':\n            images = os.listdir('images/buoys/{}'.format(buoy_id))\n            # for each image, divide it into panels and save the panels to the images/panels directory\n            for image in tqdm(images):\n                if image == '.DS_Store' and buoy_id != '.DS_Store':",
-        "detail": "main",
+        "detail": "PyBuoy",
         "documentation": {}
     }
 ]

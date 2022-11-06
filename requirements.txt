@@ -1,6 +1,2 @@
 nose
 sphinx
-seebuoy
-pandas
-numpy
-requests

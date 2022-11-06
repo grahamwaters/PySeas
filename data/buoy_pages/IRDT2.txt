@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="Text/html; charset=iso-8859-1" />
+<meta name="DC.title" content="NDBC Station Page" />
+<meta name="DC.description" content="National Data Buoy Center - Recent observations from station IRDT2 (27.480N 97.322W) - 8776139 - South Bird Island, TX." />
+<meta name="description" content="National Data Buoy Center - Recent observations from station IRDT2 (27.480N 97.322W) - 8776139 - South Bird Island, TX." />
+<meta name="DC.subject" content="weather, buoy, weather buoy, marine, forecast, hurricane, wind, wave, offshore, surfing, temperature, meteorology, climate, ocean" />
+<meta name="DC.creator" content="US Department of Commerce, National Oceanic and Atmospheric Administration, National Weather Service, National Data Buoy Center" />
+<meta name="DC.language" scheme="DCTERMS.RFC1766" content="EN-US" />
+<meta name="DC.format" content="text/html;charset=iso-8859-1" />
+<meta name="DC.date.created" scheme="ISO8601" content="1996-11-08" />
+<meta http-equiv="Refresh" content="900" />
+<title>NDBC - Station IRDT2 Recent Data</title>
+
+
+<link rel="canonical" href="http://www.ndbc.noaa.gov/station_page.php?station=irdt2" />
+<link rel="alternate" type="application/rss+xml" title="NDBC - Station IRDT2 Observations" href="/data/latest_obs/irdt2.rss" />
+<link rel="alternate" type="application/rss+xml" title="NDBC - Station Observations near 27.480N 97.322W" href="/rss/ndbc_obs_search.php?lat=27.480N&amp;lon=97.322W" />
+<link rel="stylesheet" href="/style/ndbc2017a.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://js.arcgis.com/3.37/dijit/themes/claro/claro.css" type="text/css" />
+  <link rel="stylesheet" href="https://js.arcgis.com/3.37/esri/css/esri.css" type="text/css" />
+  <style type="text/css">
+	#stnmap {
+      height:175px;
+      width:250px;
+      border:1px solid #ccc;
+      margin:2px 0px;
+	  text-align:left;
+    }
+	.esriSimpleSlider div {
+	    width: 18px;
+    	height: 18px;
+    	font-size: 12px;
+    	font-family: verdana,helvetica;
+    	font-weight: bold;
+    	text-align: center;
+    	line-height: 18px;
+    	-moz-user-select: none;
+    	cursor: pointer;
+	}
+	.esriSimpleSliderTL {
+	    top: 10px;
+    	left: 10px;
+	}
+  </style>
+  <script src="https://js.arcgis.com/3.37/" type="text/javascript"></script>
+  <script type="text/javascript"><!--
+//<![CDATA[
+  	var currentstnid = 'IRDT2';
+  	var currentstnlat = 27.48;
+  	var currentstnlng = -97.322;
+  	var currentstnname = '8776139 - South Bird Island, TX';
+  	var currentstndata = 'y';
+    require([
+			"esri/map", 
+			"dojo/dom", 
+			"dojo/on", 
+			"dojo/dom-class", 
+			"dijit/TooltipDialog",
+			"dijit/popup",
+			"esri/config",
+			"esri/graphic",
+			"esri/lang",
+			"esri/layers/FeatureLayer",
+			"esri/layers/ArcGISTiledMapServiceLayer",
+			"esri/geometry/Point",
+			"esri/request",
+			"dojo/dom-style",
+			"dojo/_base/array",
+			"dojo/cookie",
+			"dojo/has",
+			"dojo/domReady!"], 
+			function(Map,dom,on,domClass,TooltipDialog,dijitPopup,Config,Graphic,esriLang,FeatureLayer,ArcGISTiledMapServiceLayer,Point,esriRequest,domStyle,array,cookie,has) {
+    	var touchscreen = false;
+    	if (has("touch")) { touchscreen = true; }
+    	Config.defaults.map.slider = { left:"10px", top:"10px" };
+        dom.byId("stnmap").innerHTML = '';
+    	map = new Map("stnmap", {
+    		center: [currentstnlng, currentstnlat],
+    		zoom: 8,
+    		minZoom: 5,
+    		sliderStyle: "small"
+    	});
+    	var currentBasemap = [];
+    	var topoBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+	    var streetsBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+		var satelliteBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+		var oceanBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+		//The following associative array allows you to map the dropdown values with an object reference to the tiled service layers created above
+		var bmList = ({
+    		  "topo": topoBasemap,
+    		  "satellite": satelliteBasemap,
+    		  "streets": streetsBasemap,
+    		  "oceans": oceanBasemap
+    		  });
+		var mt = cookie('maptype');
+		var layer = null;
+		for (var x in bmList) {
+			if (x === mt) {changeLayer(bmList[x],x); layer = mt; break;}
+		}
+		if (layer == null) {
+			changeLayer(topoBasemap,'oceans');
+		}
+
+		function setSelectedValue(selectObj, valueToSet) {
+		    for (var i = 0; i < selectObj.options.length; i++) {
+		        if (selectObj.options[i].value== valueToSet) {
+		            selectObj.options[i].selected = true;
+		            return;
+		        }
+		    }
+		}
+		
+        function changeLayer(layerChosen,layerName) {
+        	setSelectedValue(dom.byId("basemap-selected"),layerName);
+        	var satellite_ref_layer = "";
+			var ocean_ref_layer = "";
+    	     if (currentBasemap.length > 0) { map.removeLayer(currentBasemap[0]) }
+    	     currentBasemap.length = 0;
+    	     currentBasemap.push(layerChosen)
+    	     map.addLayer(layerChosen)
+    	     if(layerName == "satellite") {
+    	    	 satellite_ref_layer = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+    	    	 map.addLayer(satellite_ref_layer);
+    	     }
+    	     if(layerName == "oceans") {
+    	    	 ocean_ref_layer = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Reference/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+    	    	 map.addLayer(ocean_ref_layer);
+    	   	 }
+    	     cookie("maptype", layerName, { expires: 30, path: '/' });
+		}
+
+        var bmselect = dom.byId("basemap-selected");
+		on(bmselect,'change',function(evt){
+			var newBasemap = evt.target.options[evt.target.selectedIndex].value;
+			if (newBasemap === "none" || newBasemap == null) {
+				changeLayer(oceanBasemap,'oceans')
+			} else {
+		    	  //Find the selected basemap in the array above and use the associated object to add the selected theme layer to the map
+		    	  for (var x in bmList) {
+		    		  if (x === newBasemap) {
+		    			  changeLayer(bmList[x],x)
+		    		  }
+		    	  }
+		      }      
+		});
+		var featureCollection = {
+  				"layerDefinition": null,
+  					"featureSet": {
+    					"features": [],
+    					"geometryType": "esriGeometryPoint"
+  					}
+					};
+					featureCollection.layerDefinition = {
+  					"geometryType": "esriGeometryPoint",
+  					"objectIdField": "ObjectID",
+  					"drawingInfo": {
+    					"renderer": {
+    						"type": "uniqueValue",
+  							"field1": "data",
+  							"field2": "current",
+  							"fieldDelimiter": ":",
+  							"defaultSymbol": {
+  								"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 222, 222, 222, 255 ],
+									"size" : 11,
+									"outline": {
+						        		"color": [30,30,30,255],
+        								"width": 1,
+       									"type": "esriSLS",
+        								"style": "esriSLSSolid"
+								 	}
+      						},
+      						"uniqueValueInfos": [{
+    							"value": "y:y",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 255, 0, 255 ],
+									"size" : 17,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+								 	}
+    	  						}
+							}, {
+    							"value": "n:y",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 0, 0, 255 ],
+									"size" : 17,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+									}
+								 }
+							},{
+    							"value": "y:n",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 255, 0, 255 ],
+									"size" : 11,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+								 	}
+    	  						}
+							}, {
+    							"value": "n:n",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 0, 0, 255 ],
+									"size" : 11,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+									}
+								 }
+							}
+    				]}},
+  					"fields": [{
+      					"name": "ObjectID",
+      					"alias": "ObjectID",
+      					"type": "esriFieldTypeOID"
+    					}, {
+      					"name": "id",
+      					"alias": "id",
+      					"type": "esriFieldTypeString"
+    					}, {
+      					"name": "name",
+      					"alias": "name",
+      					"type": "esriFieldTypeString"
+    					}, {
+      					"name": "data",
+      					"alias": "data",
+      					"type": "esriFieldTypeString"
+    					}, {
+          				"name": "current",
+          				"alias": "current",
+          				"type": "esriFieldTypeString"
+    					}, {
+    						"name": "seq",
+    						"alias": "seq",
+    						"type": "esriFieldTypeInteger"
+    					}
+  					]
+					};
+					var stationLayer = new FeatureLayer(featureCollection, {
+  					id: 'myFeatureLayer',
+  					mode: FeatureLayer.MODE_SNAPSHOT
+					});
+					 map.on("layers-add-result", function(results) {
+          	requestStations();
+        	});
+					map.addLayers([stationLayer]);	
+
+          dialog = new TooltipDialog({
+						id: "tooltipDialog",
+						style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
+					});
+					dialog.startup();
+          map.on("load", function(){
+	          map.graphics.enableMouseEvents();
+	        });
+          
+          if (!touchscreen) {
+	       	  stationLayer.on("mouse-over", function(evt){
+	        	  if (evt.graphic.attributes.id != currentstnid) { map.setMapCursor('pointer'); }
+	        	  var t = "<b>Station ${id}<\/b> - ${name}";
+	        	  var content = esriLang.substitute(evt.graphic.attributes,t);
+	        	  dialog.setContent(content);
+	        	  domStyle.set(dialog.domNode, "opacity", 0.85);
+	        	  dijitPopup.open({
+	        		  popup: dialog, 
+	        		  x: evt.pageX,
+	        		  y: evt.pageY
+	        	  });
+	          });
+			stationLayer.on("mouse-out",function(evt) {
+				closeDialog();
+				map.setMapCursor('default');
+			});
+          }
+				
+	stationLayer.on("click",function(evt) {
+		if (evt.graphic.attributes.seq == null) {
+			if (evt.graphic.attributes.id == currentstnid) { return; }
+			location.href = "/station_page.php?station="+evt.graphic.attributes.id.toLowerCase();
+		} else {
+			location.href = "http://tao.ndbc.noaa.gov/refreshed/site.php?site="+evt.graphic.attributes.seq;
+		}
+	});
+					
+        function closeDialog() {
+	          map.graphics.clear();
+  	        dijitPopup.close(dialog);
+   	    }
+
+		function requestStations() {
+    			var stations = esriRequest({
+        			url: "/ndbcmapstations.json",
+        			handleAs: "json"
+      			});
+     		stations.then(requestSucceeded, requestFailed);
+      	}
+
+		function requestSucceeded(response, io){
+			var features = [];
+			var cs = currentstnid.toLowerCase();
+			array.forEach(response.station, function(stn) {
+				if (stn.status == 'E') {
+					var attr = {};
+					attr["id"] = stn.id.toUpperCase();
+					attr["name"] = stn.name;
+					attr["data"] = stn.data;
+					attr["seq"] = parseInt(stn.seq);
+					if (isNaN(attr["seq"])) { attr["seq"] = null; }
+					var geometry = new Point(stn.lon, stn.lat);
+					var graphic = new Graphic(geometry);
+					graphic.setAttributes(attr);
+					features.push(graphic);
+					if (stn.id == cs) {
+						attr["current"] = 'y';
+						if (stn.lat != currentstnlat && stn.lon != currentstnlng) {
+							map.centerAt(geometry);
+						}
+						cs = null;
+					} else {
+						attr["current"] = 'n';
+					}
+				}
+			});
+			if (cs != null) { // If current station not in JSON, add it to map.
+				var attr = {};
+				attr["id"] = currentstnid.toUpperCase();
+				attr["name"] = currentstnname;
+				attr["data"] = currentstndata;
+				attr["seq"] = null;  // Not called for TAO stations.
+				attr["current"] = 'y';
+				var geometry = new Point(currentstnlng, currentstnlat);
+				var graphic = new Graphic(geometry);
+				graphic.setAttributes(attr);
+				features.push(graphic);
+			}
+			stationLayer.applyEdits(features, null, null);
+		}
+
+		function requestFailed(error, io){
+			alert("Unable to load map data at this time!");
+		}
+      
+	});
+//]]>
+//-->
+</script>
+</head>
+<!-- Start Top Navbar -->
+<body class="claro">
+
+<div id="topnav" class="noprint">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr><td>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-image:url(/images/nws/topbanner.jpg)">
+	<tr>
+	<td align="right" height="19"><a href="#contents"><img src="/images/nws/skipgraphic.gif" alt="Skip Navigation Links" width="1" height="1" border="0" /></a> <a href="https://www.weather.gov/"><span class="nwslink">weather.gov</span></a>&nbsp;</td>
+	</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tr>
+		<td><a href="https://www.noaa.gov/"><img src="/images/nws/noaaleft.jpg" alt="NOAA logo-Select to go to the NOAA homepage" width="85" height="78" border="0" /></a></td>
+		<td width="500" height="78" align="center" nowrap="nowrap"><img src="/images/nws/ndbc_title.jpg" width="500" height="78" alt="NDBC Title Graphic" border="0" usemap="#NDBCLinkMap"/><map id="NDBCLinkMap" name="NDBCLinkMap"><area shape="rect" coords="62,20,452,56" href="/" alt="Click to go to NDBC home page" /></map></td>
+		<td width="100%" style="background-image:url(/images/nws/wfo_bkgrnd.jpg)">&nbsp;</td>
+		<td align="right"><a href="https://www.weather.gov/"><img src="/images/nws/nwsright.jpg" alt="Select to go to the NWS homepage" width="85" height="78" border="0" /></a></td>
+	</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" style="background-image:url(/images/nws/navbkgrnd.gif)" width="100%">
+	<tr>
+		<td align="left" valign="top" width="94"><img src="/images/nws/navbarleft.jpg" alt="" width="94" height="23" border="0" /></td>
+		<td width="15%" align="center" nowrap="nowrap"><a href="/" class="nav">Home</a></td>
+		<td width="15%" align="center"><a href="/ndbc.shtml" class="nav">About Us</a></td>
+		<td width="15%" align="center"><a href="/contact_us.shtml" class="nav">Contact Us</a></td>
+		<td align="right" class="searchinput" width="40%" nowrap="nowrap"><form method="get" action="https://search.usa.gov/search" style="margin-bottom:0; margin-top:0;">
+			<label for="Search" class="yellow">Search&nbsp;</label>
+			<input type="hidden" name="affiliate" value="ndbc.noaa.gov" />
+			<input type="hidden" name="v:project" value="firstgov" />
+			<input type="text" name="query" value="NDBC Web Site" onclick="this.value='';return(true);" size="20" maxlength="256" id="Search" />
+			<input type="submit" value="Search" />
+		</form></td>
+		<td width="10%">&nbsp;</td>
+		<td align="right" valign="bottom" width="24"><img src="/images/nws/navbarendcap.jpg" alt="" width="24" height="23" border="0" /></td>
+	</tr>
+</table>
+</td></tr></table>
+</div>
+<!-- End Top Navbar -->
+
+
+<!-- Start Side Navbar -->
+
+<div id="contentdiv">
+<table id="contenttable" width="700" border="0" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+	<td id="sidenav" class="noprint" width="150" bgcolor="#0a2390" align="left" valign="top" style="margin-top:5px" nowrap="nowrap">
+			<form id="station_form" method="get" action="/station_page.php" style="margin-bottom:0">
+			&nbsp;<span class="yellow"><label for="station">Station ID Search</label></span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="searchinput"><input name="station" id="station" value="" size="8" maxlength="7" />
+			<input type="submit" value="Go"/></span></form>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/to_station.shtml" title="View a list of available stations ordered by owner" class="nav">Station List</a><br /><br />
+
+			&nbsp;<span class="yellow">Data Access</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mobile/" title="Access latest marine observations on your mobile device" class="nav">Mobile Access</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">Interactive Maps</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/obs.shtml" class="nav">All Stations</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/obs.shtml?lat=13&lon=-173&zoom=2&pgm=tsunami" title="Deep Ocean Assessment and Reporting of Tsunamis" class="nav">DART&#174;</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/os.shtml" title="Get a tabular list of recent marine observations near a specific location" class="nav">Obs Search</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ship_obs.php" title="View a list of recent marine observations from ships" class="nav">Ship Obs Report</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/buoycams.shtml" title="BuoyCAMs" class="nav">BuoyCAMs</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://tao.ndbc.noaa.gov/" title="Tropical Atmosphere Ocean" class="nav">TAO</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dods.ndbc.noaa.gov/" title="NDBC DODS Server" class="nav">DODS</a><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dods.ndbc.noaa.gov/oceansites/" title="NDBC OceanSITES GDAC" class="nav">OceanSITES</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://hfradar.ndbc.noaa.gov/" title="View ocean surface currents measured by High Frequency Radar" class="nav">HF Radar</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://osmc.noaa.gov/Monitor/OSMC/OSMC.html" title="Observing System Monitoring Center (OSMC)" class="nav">OSMC</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/dial.shtml" title="Listen to latest marine observations on your phone" class="nav">Dial-A-Buoy</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/rss_access.shtml" title="Latest marine observations via RSS Feeds" class="nav">RSS Feeds <img src='/images/feed-icon-14x14.png' alt='Image indicating link to RSS feed access page' width='14' height='14' border='0' /></a><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/widgets/" title="Add latest marine observations for a given station to your web site" class="nav">Web Widget</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/docs/ndbc_web_data_guide.pdf" title="How to access data on the NDBC web site" class="nav">Web Data Guide</a><br />
+
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ops.shtml" title="Maintenance schedule for NDBC stations" class="nav">Maintenance Schedule</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/wstat.shtml" title="Status report for NDBC Stations" class="nav">Station Status Report</a><br /><br />
+
+			&nbsp;<span class="yellow">Program Info</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://tao.ndbc.noaa.gov/proj_overview/proj_overview_ndbc.shtml" title="Tropical Atmosphere Ocean" class="nav">TAO</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/dart/dart.shtml" title="Deep Ocean Assessment and Reporting of Tsunamis" class="nav">DART&#174;</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://ioos.noaa.gov/" title="Integrated Ocean Observing System (IOOS&#174;)" class="nav">IOOS&#174;</a><br /><br />
+
+			&nbsp;<span class="yellow">Publications</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/pea/ndbc_final_pea_20180104.pdf" title="NDBC Final Programmatic Environmental Assessment" class="nav">NDBC PEA</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/pea/ndbc_fonsi_signed_20180102.pdf" title="NDBC Finding of No Significant Impact" class="nav">NDBC FONSI</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/NDBCHandbookofAutomatedDataQualityControl2009.pdf" title="Handbook of Automated Data Quality Control Checks and Procedures" class="nav">NDBC DQC Handbook</a><br />
+			<br />
+
+			&nbsp;<span class="yellow"><a href="/visitorinfo.shtml" class="nav">Visitor Information</a></span><br />
+			&nbsp;<br />
+			<a href="https://www.usa.gov/"><img src="/images/usagov_logo.gif" title="USA.gov is the U.S. government's official web portal to all federal, state and local government web resources and services" alt="USA.gov is the U.S. government's official web portal to all federal, state and local government web resources and services." width="110" height="30" hspace="3" vspace="3" border="0" /></a><br />
+		</td>
+		<td id="contentarea" valign="top" width="560"><a name="contents"></a>
+	<div id="notices" class="noprint">
+		<!-- Put notices here -->
+        </div>
+		
+                <h1 style="text-align:center; margin:3px;">Station IRDT2  - 8776139 - South Bird Island, TX <a href='/data/latest_obs/irdt2.rss' title='RSS feed of recent observations from Station IRDT2'><img src='/images/feed-icon-14x14.png' alt='Image indicating link to RSS feed of recent meteorological observations for station IRDT2' width='14' height='14' border='0' /></a></h1>
+                
+
+<!-- End Side Navbar -->
+
+
+<table width="650" border="0" cellpadding="2" cellspacing="0">
+<tr>
+	<td>
+		<div id="stn_metadata">
+		<p><b>Owned and maintained by <a href="/ndbcexit.php?url=http://cbi.tamucc.edu/TCOON/&amp;blurb=Texas+Coastal+Ocean+Observation+Network">Texas Coastal Ocean Observing Network</a></b><br />
+		<b>Water Level Observation Network</b><br />
+		<b>27.480 N 97.322 W (27&#176;28'48" N 97&#176;19'18" W)</b><br />
+		<br />
+		<b>Site elevation:</b> 1 m above mean sea level<br />
+		<b>Air temp height:</b> 3 m above site elevation<br />
+		<b>Anemometer height:</b> 3.3 m above site elevation<br />
+		<b>Barometer elevation:</b> 4 m above mean sea level<br />
+		<b>Sea temp depth:</b> 1 m below MLLW<br />
+		</p>
+		<p><a href="/sar.php?station=irdt2">Search And Rescue (SAR) Data</a></p>
+		<p><a href="/radial_search.php?lat1=27.480N&amp;lon1=97.322W&amp;uom=E&amp;dist=250">Meteorological Observations from Nearby Stations and Ships</a>
+		<a href="/rss/ndbc_obs_search.php?lat=27.480N&amp;lon=97.322W" title="RSS feed of recent meteorological observations near station IRDT2">
+			<img src="/images/feed-icon-14x14.png" alt="Image indicating link to RSS feed of recent meteorological observations near station IRDT2" width="14" height="14" border="0" />
+		</a></p>
+		</div>
+		<div id="stn_img_map">
+	<div id="stnmapcontainer">
+  <div id="switch-basemap-container">
+    <div id="basemap-selection-form" title="Choose a Basemap">
+        <label for="basemap-selected">Map Type: </label>
+     	<select name="basemap-selected" id="basemap-selected" title="Basemap Dropdown Menu">
+        <option value="none">Select Basemap</option>
+       	<option value="oceans">Oceans</option>
+       	<option value="satellite">Satellite</option>
+       	<option value="streets">Streets</option>
+       	<option value="topo">Topographic</option>
+     	</select>
+   	</div>
+  </div>
+  <div id="stnmap"></div>
+  <div id="ndbcmapfooter">
+	<div id="ndbcmaplegend" style="text-align:left;margin:0;background-color:white;color:black;float:left;width:80%;">
+      Large icon indicates selected station.<br />
+      <img src="/images/maps/markers/tiny_active_marker.png" width="11" height="11" alt="yellow diamond" style="vertical-align:middle;" /> Stations with recent data<br />
+      <img src="/images/maps/markers/tiny_inactive_marker.png" width="11" height="11" alt="red diamond" style="vertical-align:middle;" /> Stations with no data in last 8 hours<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(24 hours for tsunami stations)
+    </div>
+    <div id="ndbcmapnwslinks" style="text-align:left;margin:0;background-color:white;color:black;float:right;width:20%;">
+      <a href="https://www.weather.gov/disclaimer#esri" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/disclaimer#esri','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false">Disclaimer</a><br />
+      <!--<a href="javascript:alert('Reserved for future KML option');">Download in KML/KMZ</a>-->
+    </div>
+  </div>
+</div>
+	</div>
+</td></tr></table>
+<br style="clear:both;" /><div id="data" data-nosnippet="true">
+<hr width="100%" size="1" />
+<table bgcolor="#f0f8fe" border="0" cellspacing="0" cellpadding="2"><caption class="titleDataHeader">Conditions at IRDT2 as of<br />(1:30 pm CDT)<br />1830 GMT on 11/05/2022:</caption>
+<tr>
+	<td colspan="3" bgcolor="#ffffff">
+<form name="uom_m" action="/station_page.php" method="get">
+<input type="hidden" name="station" size="7" value="irdt2" />
+<label for="uom">Unit of Measure: </label><select name="uom" id="uom" size="1">
+<option value="E" selected="selected"> Imperial</option>
+<option value="M"> Metric</option>
+</select>&nbsp;&nbsp;
+<label for="tz">Time Zone: </label><select name="tz" id="tz" size="1">
+<option value="STN">Station Local Time</option>
+<option value="GMT">Greenwich Mean Time [GMT]</option>
+<option value="BST">British Summer Time [GMT+1]</option>
+<option value="EGT">Eastern Greenland [GMT-1]</option>
+<option value="AT">Azores [GMT-2]</option>
+<option value="WGT">Western Greenland [GMT-3]</option>
+<option value="AST">Atlantic Standard [GMT-4]</option>
+<option value="EST">US/Eastern Standard</option>
+<option value="CST">US/Central Standard</option>
+<option value="MST">US/Mountain Standard</option>
+<option value="PST">US/Pacific Standard</option>
+<option value="AKST">Alaska Standard [GMT-9]</option>
+<option value="HAST">Hawaii-Aleutian Standard [GMT-10]</option>
+<option value="SST">Samoa Standard [GMT-11]</option>
+<option value="IDLW">International Date Line West [GMT-12]</option>
+<option value="WET">Western European [GMT+0]</option>
+<option value="CET">Central European [GMT+1]</option>
+<option value="EET">Eastern European [GMT+2]</option>
+<option value="MSK">Moscow [GMT+3]</option>
+<option value="GMT+4">GMT+4</option>
+<option value="PKT">Pakistan Standard [GMT+5]</option>
+<option value="GMT+6">GMT+6</option>
+<option value="ICT">Indochina Time [GMT+7]</option>
+<option value="CCT">China Coast [GMT+8]</option>
+<option value="JST">Japan Standard [GMT+9]</option>
+<option value="GST">Guam Standard [GMT+10]</option>
+<option value="ZP11">GMT+11</option>
+<option value="IDLE">International Date Line East [GMT+12]</option>
+</select>&nbsp;&nbsp;<input type="submit" value=" Select " /></form>
+<p><i>Click on the graph icon in the table below to see a time series plot of the last five days of that observation.</i></p></td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=wdir&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Direction" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Wind Direction (WDIR):</td>
+	<td> NE ( 50 deg true )</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=wspd&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Speed" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Wind Speed (WSPD):</td>
+	<td> 14.0 kts</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=wgst&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Gust" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Wind Gust (GST):</td>
+	<td> 20.0 kts</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=pres&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Atmospheric Pressure" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Atmospheric Pressure (PRES):</td>
+	<td>29.91 in</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=atmp&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Air Temperature" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Air Temperature (ATMP):</td>
+	<td> 72.9 &deg;F</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=wtmp&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Water Temperature" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Water Temperature (WTMP):</td>
+	<td> 73.8 &deg;F</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=w10m&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Speed at 10 Meters" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Wind Speed at 10 meters (WSPD10M):</td>
+	<td> 15.5 kts</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=w20m&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Speed at 10 Meters" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td>Wind Speed at 20 meters (WSPD20M):</td>
+	<td> 17.5 kts</td>
+</tr>
+<tr>
+	<td><a href="/show_plot.php?station=irdt2&amp;meas=wdpr&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Speed, Wind Gust and Atmospheric Pressure" border="0" src="/images/graph04.gif" width="21" height="20" /></a></td>
+	<td colspan="2"><a href="/show_plot.php?station=irdt2&amp;meas=wdpr&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT">Combined plot of Wind Speed, Gust, and Air Pressure</a></td>
+</tr>
+</table>
+<table border="0" cellspacing="10" cellpadding="0">
+<tr valign="top">
+	<td>
+</td>
+</tr>
+<tr valign="top">
+	<td>
+	</td>
+</tr>
+</table><table class="dataTable">
+<caption class="dataHeader">Previous observations</caption>
+<tr valign="top" align="right">
+	<td></td>
+	<td></td>
+	<td></td>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=wdir&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Direction" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=wspd&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Speed" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=wgst&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wind Gust" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=wvht&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Wave Height" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=dmpd&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Dominant Wave Period" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=avpd&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Average Period" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=wvdr&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Mean Wave Direction" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=pres&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Atmospheric Pressure" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=ptnd&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Pressure Tendency" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=atmp&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Air Temperature" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=wtmp&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Water Temperature" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=dewp&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Dew Point" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=salt&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Salinity" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=visi&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Visibility" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+	<th><a href="/show_plot.php?station=irdt2&amp;meas=tide&amp;uom=E&amp;time_diff=-5&amp;time_label=CDT"><img alt="5-day plot - Tide (above MLLW)" border="0" src="/images/graph04.gif" width="21" height="20" /></a></th>
+</tr>
+<tr valign="top" align="right"><th class="dataHeader">MM</th>
+<th class="dataHeader">DD</th>
+<th class="dataHeader">TIME<br />(CDT)</th>
+<th class="dataHeader">WDIR</th>
+<th class="dataHeader">WSPD<br />kts</th>
+<th class="dataHeader">GST<br />kts</th>
+<th class="dataHeader">WVHT<br />ft</th>
+<th class="dataHeader">DPD<br />sec</th>
+<th class="dataHeader">APD<br />sec</th>
+<th class="dataHeader">MWD</th>
+<th class="dataHeader">PRES<br />in</th>
+<th class="dataHeader">PTDY<br />in</th>
+<th class="dataHeader">ATMP<br />&deg;F</th>
+<th class="dataHeader">WTMP<br />&deg;F</th>
+<th class="dataHeader">DEWP<br />&deg;F</th>
+<th class="dataHeader">SAL<br />psu</th>
+<th class="dataHeader">VIS<br />nmi</th>
+<th class="dataHeader">TIDE<br />ft</th>
+</tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:24&nbsp;pm</td><td align="left"> NE</td><td> 15.9</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.7</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:18&nbsp;pm</td><td align="left"> NE</td><td> 15.9</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.9</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:12&nbsp;pm</td><td align="left"> NE</td><td> 15.9</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.3</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:06&nbsp;pm</td><td align="left"> NE</td><td> 15.0</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-</td><td> 72.5</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:00&nbsp;pm</td><td align="left"> NE</td><td> 15.9</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-0.02</td><td> 72.9</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:54&nbsp;pm</td><td align="left"> NE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-</td><td> 72.9</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:48&nbsp;pm</td><td align="left"> NE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-</td><td> 72.7</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:42&nbsp;pm</td><td align="left"> NE</td><td> 17.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.7</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:36&nbsp;pm</td><td align="left"> NE</td><td> 15.9</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.7</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:30&nbsp;pm</td><td align="left">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.7</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:24&nbsp;pm</td><td align="left">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.5</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:18&nbsp;pm</td><td align="left"> NE</td><td> 15.0</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.5</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:12&nbsp;pm</td><td align="left"> NE</td><td> 15.0</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.5</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:06&nbsp;pm</td><td align="left">NNE</td><td> 15.9</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.3</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:00&nbsp;pm</td><td align="left">NNE</td><td> 17.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>+0.02</td><td> 72.3</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>11:54&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.3</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>11:48&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.5</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>11:42&nbsp;am</td><td align="left"> NE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.5</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>11:36&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.9</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>11:30&nbsp;am</td><td align="left"> NE</td><td> 18.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.9</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>11:24&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 73.0</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>11:18&nbsp;am</td><td align="left">NNE</td><td> 21.0</td><td> 24.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 73.2</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>11:12&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 73.0</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>11:06&nbsp;am</td><td align="left">NNE</td><td> 20.0</td><td> 24.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 73.0</td><td> 73.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>11:00&nbsp;am</td><td align="left">NNE</td><td> 19.0</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>+0.04</td><td> 72.9</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>10:54&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.9</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>10:48&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.95</td><td>-</td><td> 72.9</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>10:42&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 73.0</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>10:36&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 73.0</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>10:30&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 73.4</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>10:24&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 73.2</td><td> 73.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>10:18&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 73.0</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>10:12&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.9</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>10:06&nbsp;am</td><td align="left">NNE</td><td> 15.9</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.9</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>10:00&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>+0.04</td><td> 73.0</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 9:54&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 73.0</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 9:48&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.9</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 9:42&nbsp;am</td><td align="left"> NE</td><td> 14.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.7</td><td> 73.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 9:36&nbsp;am</td><td align="left"> NE</td><td> 15.9</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.94</td><td>-</td><td> 72.7</td><td> 74.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 9:30&nbsp;am</td><td align="left"> NE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.5</td><td> 74.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 9:24&nbsp;am</td><td align="left"> NE</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.7</td><td> 74.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 9:18&nbsp;am</td><td align="left"> NE</td><td> 14.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.93</td><td>-</td><td> 72.3</td><td> 74.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 9:12&nbsp;am</td><td align="left"> NE</td><td> 14.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-</td><td> 72.1</td><td> 74.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 9:06&nbsp;am</td><td align="left"> NE</td><td> 15.9</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-</td><td> 72.0</td><td> 74.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 9:00&nbsp;am</td><td align="left"> NE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>+0.04</td><td>-</td><td> 74.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 8:54&nbsp;am</td><td align="left"> NE</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.92</td><td>-</td><td>-</td><td> 74.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 8:48&nbsp;am</td><td align="left"> NE</td><td> 13.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 71.2</td><td> 74.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 8:42&nbsp;am</td><td align="left"> NE</td><td> 15.9</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 71.1</td><td> 74.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 8:36&nbsp;am</td><td align="left"> NE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 71.4</td><td> 74.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 8:30&nbsp;am</td><td align="left"> NE</td><td> 19.0</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.8</td><td> 74.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 8:24&nbsp;am</td><td align="left"> NE</td><td> 18.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.0</td><td> 74.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 8:18&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.1</td><td> 74.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 8:12&nbsp;am</td><td align="left">NNE</td><td> 20.0</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.1</td><td> 74.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 8:06&nbsp;am</td><td align="left">NNE</td><td> 19.0</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.91</td><td>-</td><td> 72.0</td><td> 74.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 8:00&nbsp;am</td><td align="left">NNE</td><td> 21.0</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>+0.02</td><td> 72.1</td><td> 74.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 7:54&nbsp;am</td><td align="left">NNE</td><td> 19.0</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.8</td><td> 74.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 7:48&nbsp;am</td><td align="left"> NE</td><td> 15.9</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.1</td><td> 74.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 7:42&nbsp;am</td><td align="left"> NE</td><td> 15.0</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 70.9</td><td> 75.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 7:36&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.6</td><td> 75.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 7:30&nbsp;am</td><td align="left">NNE</td><td> 19.0</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.8</td><td> 75.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 7:24&nbsp;am</td><td align="left"> NE</td><td> 18.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.4</td><td> 75.2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 7:18&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.2</td><td> 75.2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 7:12&nbsp;am</td><td align="left">NNE</td><td> 15.9</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 71.1</td><td> 75.2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 7:06&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 70.9</td><td> 75.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 7:00&nbsp;am</td><td align="left"> NE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.89</td><td>+0.03</td><td> 70.3</td><td> 75.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 6:54&nbsp;am</td><td align="left">NNE</td><td> 13.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.90</td><td>-</td><td> 70.9</td><td> 75.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 6:48&nbsp;am</td><td align="left">  N</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.89</td><td>-</td><td> 70.9</td><td> 75.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 6:42&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 70.7</td><td> 75.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 6:36&nbsp;am</td><td align="left">  N</td><td> 14.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 71.1</td><td> 75.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 6:30&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 70.9</td><td> 75.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 6:24&nbsp;am</td><td align="left">NNE</td><td> 13.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 70.3</td><td> 75.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 6:18&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 69.8</td><td> 75.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 6:12&nbsp;am</td><td align="left">  N</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 69.4</td><td> 75.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 6:06&nbsp;am</td><td align="left">  N</td><td> 15.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 69.3</td><td> 75.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 6:00&nbsp;am</td><td align="left">  N</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>+0.03</td><td> 68.9</td><td> 75.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 5:54&nbsp;am</td><td align="left">NNE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.89</td><td>-</td><td> 69.8</td><td> 75.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 5:48&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.89</td><td>-</td><td> 69.8</td><td> 75.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 5:42&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 69.8</td><td> 75.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 5:36&nbsp;am</td><td align="left">NNE</td><td> 15.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.89</td><td>-</td><td> 70.3</td><td> 75.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 5:30&nbsp;am</td><td align="left">NNE</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.89</td><td>-</td><td> 70.2</td><td> 75.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 5:24&nbsp;am</td><td align="left"> NE</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 69.6</td><td> 75.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 5:18&nbsp;am</td><td align="left"> NE</td><td> 15.0</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 69.3</td><td> 76.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 5:12&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 68.7</td><td> 76.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 5:06&nbsp;am</td><td align="left"> NE</td><td> 15.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 68.4</td><td> 76.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 5:00&nbsp;am</td><td align="left"> NE</td><td> 13.0</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>+0.03</td><td> 68.9</td><td> 76.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 4:54&nbsp;am</td><td align="left">NNE</td><td> 17.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.88</td><td>-</td><td> 70.5</td><td> 76.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 4:48&nbsp;am</td><td align="left">NNE</td><td> 18.1</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.87</td><td>-</td><td> 70.3</td><td> 76.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 4:42&nbsp;am</td><td align="left">NNE</td><td> 22.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 69.8</td><td> 76.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 4:36&nbsp;am</td><td align="left">NNE</td><td> 22.0</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 69.8</td><td> 76.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 4:30&nbsp;am</td><td align="left">NNE</td><td> 19.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 69.4</td><td> 76.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 4:24&nbsp;am</td><td align="left">NNE</td><td> 20.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 69.4</td><td> 76.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 4:18&nbsp;am</td><td align="left">NNE</td><td> 22.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 68.7</td><td> 76.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 4:12&nbsp;am</td><td align="left">NNE</td><td> 24.1</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 68.7</td><td> 76.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 4:06&nbsp;am</td><td align="left">  N</td><td> 22.9</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 68.7</td><td> 76.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 4:00&nbsp;am</td><td align="left">  N</td><td> 25.1</td><td> 29.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>+0.03</td><td> 68.5</td><td> 76.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 3:54&nbsp;am</td><td align="left">  N</td><td> 24.1</td><td> 27.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 68.5</td><td> 77.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 3:48&nbsp;am</td><td align="left">  N</td><td> 25.1</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 69.1</td><td> 77.2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 3:42&nbsp;am</td><td align="left">  N</td><td> 22.9</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.86</td><td>-</td><td> 69.3</td><td> 77.2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 3:36&nbsp;am</td><td align="left">NNE</td><td> 20.0</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 70.2</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 3:30&nbsp;am</td><td align="left">  N</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 74.5</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 3:24&nbsp;am</td><td align="left">  N</td><td>  8.0</td><td>  9.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 3:18&nbsp;am</td><td align="left">  N</td><td>  6.0</td><td>  7.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 3:12&nbsp;am</td><td align="left">  N</td><td>  6.0</td><td>  7.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 3:06&nbsp;am</td><td align="left">NNW</td><td>  5.1</td><td>  6.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 3:00&nbsp;am</td><td align="left"> NW</td><td>  4.1</td><td>  5.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>+0.03</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 2:54&nbsp;am</td><td align="left"> NW</td><td>  2.9</td><td>  2.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 2:48&nbsp;am</td><td align="left">WNW</td><td>  1.9</td><td>  2.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 2:42&nbsp;am</td><td align="left">WNW</td><td>  1.9</td><td>  2.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 2:36&nbsp;am</td><td align="left">WNW</td><td>  2.9</td><td>  4.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 76.8</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 2:30&nbsp;am</td><td align="left">  W</td><td>  2.9</td><td>  2.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.0</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 2:24&nbsp;am</td><td align="left">  W</td><td>  2.9</td><td>  5.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.0</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 2:18&nbsp;am</td><td align="left">  W</td><td>  4.1</td><td>  5.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.0</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 2:12&nbsp;am</td><td align="left">WNW</td><td>  4.1</td><td>  5.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.0</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 2:06&nbsp;am</td><td align="left">  W</td><td>  2.9</td><td>  2.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.2</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 2:00&nbsp;am</td><td align="left">  W</td><td>  4.1</td><td>  5.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>+0.02</td><td> 77.2</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:54&nbsp;am</td><td align="left">WSW</td><td>  4.1</td><td>  5.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.5</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:48&nbsp;am</td><td align="left">WSW</td><td>  5.1</td><td>  6.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.5</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:42&nbsp;am</td><td align="left">WSW</td><td>  5.1</td><td>  6.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.7</td><td> 77.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:36&nbsp;am</td><td align="left"> SW</td><td>  6.0</td><td>  7.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:30&nbsp;am</td><td align="left"> SW</td><td>  6.0</td><td>  7.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:24&nbsp;am</td><td align="left"> SW</td><td>  6.0</td><td>  7.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.85</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:18&nbsp;am</td><td align="left">  S</td><td>  6.0</td><td>  8.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.84</td><td>-</td><td> 77.4</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:12&nbsp;am</td><td align="left">  S</td><td>  8.9</td><td>  9.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.4</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td> 1:06&nbsp;am</td><td align="left">  S</td><td>  9.9</td><td> 11.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td> 1:00&nbsp;am</td><td align="left">  S</td><td>  8.9</td><td> 11.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>+0.04</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:54&nbsp;am</td><td align="left">  S</td><td>  9.9</td><td> 12.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:48&nbsp;am</td><td align="left">  S</td><td>  8.9</td><td> 12.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:42&nbsp;am</td><td align="left">  S</td><td>  9.9</td><td> 11.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:36&nbsp;am</td><td align="left">  S</td><td>  8.9</td><td> 13.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:30&nbsp;am</td><td align="left">  S</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:24&nbsp;am</td><td align="left">  S</td><td> 11.1</td><td> 13.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:18&nbsp;am</td><td align="left">  S</td><td> 12.0</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:12&nbsp;am</td><td align="left">  S</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>05</td><td>12:06&nbsp;am</td><td align="left">  S</td><td> 11.1</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>05</td><td>12:00&nbsp;am</td><td align="left">SSE</td><td> 13.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.82</td><td>+0.03</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>11:54&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.82</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>11:48&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.82</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>11:42&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.5</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>11:36&nbsp;pm</td><td align="left">  S</td><td> 12.0</td><td> 13.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>11:30&nbsp;pm</td><td align="left">  S</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>11:24&nbsp;pm</td><td align="left">  S</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>11:18&nbsp;pm</td><td align="left">  S</td><td> 11.1</td><td> 13.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>11:12&nbsp;pm</td><td align="left">  S</td><td>  9.9</td><td> 12.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>11:06&nbsp;pm</td><td align="left">  S</td><td>  9.9</td><td> 13.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.7</td><td> 77.5</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>11:00&nbsp;pm</td><td align="left">  S</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>+0.05</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>10:54&nbsp;pm</td><td align="left">  S</td><td> 11.1</td><td> 13.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.83</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>10:48&nbsp;pm</td><td align="left">SSE</td><td> 11.1</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.82</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>10:42&nbsp;pm</td><td align="left">  S</td><td>  9.9</td><td> 12.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.82</td><td>-</td><td> 77.7</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>10:36&nbsp;pm</td><td align="left">SSE</td><td> 11.1</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.82</td><td>-</td><td> 77.7</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>10:30&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.81</td><td>-</td><td> 77.7</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>10:24&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>-</td><td> 77.7</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>10:18&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>-</td><td> 77.7</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>10:12&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td>10:06&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td>10:00&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>+0.05</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 9:54&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 9:48&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.80</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 9:42&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 9:36&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 9:30&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 9:24&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 9:18&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 9:12&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 77.9</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 9:06&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 78.1</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 9:00&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 14.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>+0.05</td><td> 78.1</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 8:54&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 78.1</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 8:48&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 8:42&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 8:36&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.79</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 8:30&nbsp;pm</td><td align="left">SSE</td><td> 13.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 8:24&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 8:18&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 8:12&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 8:06&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 8:00&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>+0.06</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 7:54&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 7:48&nbsp;pm</td><td align="left">SSE</td><td> 12.0</td><td> 15.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 7:42&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 78.3</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 7:36&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 17.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 78.4</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 7:30&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 15.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.76</td><td>-</td><td> 78.4</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 7:24&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.76</td><td>-</td><td> 78.4</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 7:18&nbsp;pm</td><td align="left">SSE</td><td> 15.9</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.76</td><td>-</td><td> 78.6</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 7:12&nbsp;pm</td><td align="left">SSE</td><td> 15.9</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 78.4</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 7:06&nbsp;pm</td><td align="left">SSE</td><td> 15.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 78.4</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 7:00&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 18.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>+0.03</td><td> 78.6</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 6:54&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 78.6</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 6:48&nbsp;pm</td><td align="left">SSE</td><td> 14.0</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 78.6</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 6:42&nbsp;pm</td><td align="left">SSE</td><td> 15.0</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 78.8</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 6:36&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 79.0</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 6:30&nbsp;pm</td><td align="left">SSE</td><td> 15.0</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 79.0</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 6:24&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 20.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 79.2</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 6:18&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 19.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 79.2</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 6:12&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 79.3</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 6:06&nbsp;pm</td><td align="left">SSE</td><td> 19.0</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 79.3</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 6:00&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>+0.00</td><td> 79.3</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 5:54&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 24.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 79.2</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 5:48&nbsp;pm</td><td align="left">SSE</td><td> 18.1</td><td> 22.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 79.2</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 5:42&nbsp;pm</td><td align="left">SSE</td><td> 19.0</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 79.2</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 5:36&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 79.0</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 5:30&nbsp;pm</td><td align="left">SSE</td><td> 17.1</td><td> 21.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.0</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 5:24&nbsp;pm</td><td align="left">SSE</td><td> 18.1</td><td> 22.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.0</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 5:18&nbsp;pm</td><td align="left">SSE</td><td> 19.0</td><td> 24.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.0</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 5:12&nbsp;pm</td><td align="left">SSE</td><td> 20.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.2</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 5:06&nbsp;pm</td><td align="left">SSE</td><td> 20.0</td><td> 24.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.2</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 5:00&nbsp;pm</td><td align="left">SSE</td><td> 19.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-0.06</td><td> 79.3</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 4:54&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 27.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.71</td><td>-</td><td> 79.3</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 4:48&nbsp;pm</td><td align="left">SSE</td><td> 20.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.71</td><td>-</td><td> 79.5</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 4:42&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.71</td><td>-</td><td> 79.5</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 4:36&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.7</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 4:30&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 27.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 79.9</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 4:24&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 80.1</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 4:18&nbsp;pm</td><td align="left">SSE</td><td> 22.0</td><td> 27.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 80.2</td><td> 78.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 4:12&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 29.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 80.4</td><td> 78.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 4:06&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 28.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 80.4</td><td> 78.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 4:00&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 32.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-0.10</td><td> 80.6</td><td> 78.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 3:54&nbsp;pm</td><td align="left">SSE</td><td> 24.1</td><td> 29.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 80.4</td><td> 78.8</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 3:48&nbsp;pm</td><td align="left">SSE</td><td> 24.1</td><td> 31.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.72</td><td>-</td><td> 80.6</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 3:42&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 80.8</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 3:36&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 80.8</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 3:30&nbsp;pm</td><td align="left">SSE</td><td> 22.0</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 80.8</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 3:24&nbsp;pm</td><td align="left">SSE</td><td> 24.1</td><td> 29.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.73</td><td>-</td><td> 80.8</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 3:18&nbsp;pm</td><td align="left">SSE</td><td> 22.0</td><td> 29.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 81.1</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 3:12&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 29.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 81.0</td><td> 78.6</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 3:06&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 31.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 81.0</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 3:00&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-0.11</td><td> 81.0</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 2:54&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 28.9</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.74</td><td>-</td><td> 80.8</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 2:48&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 27.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 80.8</td><td> 78.4</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 2:42&nbsp;pm</td><td align="left">SSE</td><td> 22.0</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 80.6</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 2:36&nbsp;pm</td><td align="left">SSE</td><td> 22.0</td><td> 28.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.75</td><td>-</td><td> 80.6</td><td> 78.3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 2:30&nbsp;pm</td><td align="left">SSE</td><td> 22.9</td><td> 27.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.76</td><td>-</td><td> 80.6</td><td> 78.1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 2:24&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.76</td><td>-</td><td> 80.4</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 2:18&nbsp;pm</td><td align="left">SSE</td><td> 20.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 80.6</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 2:12&nbsp;pm</td><td align="left">SSE</td><td> 19.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 80.2</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 2:06&nbsp;pm</td><td align="left">SSE</td><td> 20.0</td><td> 26.0</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.77</td><td>-</td><td> 80.8</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#f0f8fe" align="right"><td>11</td><td>04</td><td> 2:00&nbsp;pm</td><td align="left">SSE</td><td> 19.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-0.09</td><td> 80.4</td><td> 77.9</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr bgcolor="#fffff0" align="right"><td>11</td><td>04</td><td> 1:54&nbsp;pm</td><td align="left">SSE</td><td> 21.0</td><td> 25.1</td><td>-</td><td>-</td><td>-</td><td align="center">-</td><td>29.78</td><td>-</td><td> 80.4</td><td> 77.7</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+</table>
+</div>
+<hr width="100%" size="1" />
+<p><a href="/measdes.shtml">Description of Measurements</a></p>
+<p>Links which are specific to this station are listed below:</p>
+<p><a href="/station_realtime.php?station=irdt2">Real Time Data</a> in tabular form for the last forty-five days.</p>
+<p><a href="/station_history.php?station=irdt2">Historical Data &#38; Climatic Summaries</a> for quality controlled data for the current month, previous months, and previous years.</p>
+<!-- Start Tail -->
+
+		<div id="footer" class="noprint" style="clear:both;">
+			<hr width="100%" size="1" noshade="noshade" />
+				<div id="footer-flexbox" class="footer-flexbox" width="100%">
+					<a class="socialMediaLink" href="/ndbcexit.php?url=https://www.facebook.com/NWSNDBC&amp;blurb=NDBC%20on%20Facebook"><img src="/images/facebook_logo.png" class="socialMediaLogo" height="21" width="21" alt="Facebook Logo" title="NDBC on Facebook"/>&nbsp;NDBC on Facebook</a><br />
+					<a class="socialMediaLink" href="/ndbcexit.php?url=https://www.linkedin.com/company/noaa&amp;blurb=NOAA%20on%20LinkedIn"><img src="/images/linkedin_logo.png" class="socialMediaLogo" height="21" width="25" alt="LinkedIn Logo" title="NDBC on LinkedIn"/>&nbsp;NOAA on LinkedIn</a><br />
+					<a class="socialMediaLink" href="/ndbcexit.php?url=https://www.twitter.com/databuoycenter&amp;blurb=NDBC%20on%20Twitter"><img src="/images/twitter.png" class="socialMediaLogo" height="21" width="25" alt="Twitter Logo" title="NDBC on Twitter"/>&nbsp;NDBC on Twitter</a><br />
+				</div>
+			<table width="100%" cellpadding="2" border="0">
+				<tr valign="top">
+					<td width="70%" align="left" class="footertext"><a href="https://www.commerce.gov/"><span class="footertext">U.S. Dept. of Commerce</span></a><br />
+					<a href="https://www.noaa.gov/"><span class="footertext">National Oceanic and Atmospheric Administration</span></a><br />
+					<a href="https://www.weather.gov/"><span class="footertext">National Weather Service</span></a><br />
+					National Data Buoy Center<br />
+					Bldg. 3205<br />
+					Stennis Space Center, MS 39529<br />
+					<a href="/contact_us.shtml"><span class="footertext">Contact&nbsp;Us</span></a><br />
+					Page last modified: August 30, 2022</td>
+					<td width="15%" align="left">
+					<a href="https://www.weather.gov/disclaimer" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/disclaimer','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Disclaimer</span></a><br />
+					<a href="https://www.cio.noaa.gov/services_programs/info_quality.html" target="_blank" rel="noopener" onclick="window.open('https://www.cio.noaa.gov/services_programs/info_quality.html','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Information&nbsp;Quality</span></a><br />
+					<a href="https://www.weather.gov/glossary" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/glossary','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Glossary</span></a></td>
+					<td width="15%" align="left">
+					<a href="https://www.weather.gov/privacy" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/privacy','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Privacy Policy</span></a><br />
+					<a href="https://www.noaa.gov/foia-freedom-of-information-act" target="_blank" rel="noopener" onclick="window.open('https://www.noaa.gov/foia-freedom-of-information-act','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Freedom&nbsp;of&nbsp;Information</span></a><br />
+					<a href="/ndbc.shtml"><span class="footertext">About Us</span></a><br />
+					<a href="https://www.weather.gov/careers" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/careers','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Career&nbsp;Opportunities</span></a></td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+</table>
+</div>
+<script id="_fed_an_ua_tag" type="text/javascript" src="/js/federated-analytics.js?agency=DOC&amp;subagency=NOAA&amp;pua=UA-33523145-1"></script>
+</body>
+
+<!-- End Tail -->
+
+
+
+
+</html>

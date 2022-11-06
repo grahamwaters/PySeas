@@ -78,6 +78,15 @@
         "documentation": {}
     },
     {
+        "label": "daylight",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "daylight",
+        "description": "daylight",
+        "detail": "daylight",
+        "documentation": {}
+    },
+    {
         "label": "cv2",
         "kind": 6,
         "isExtraImport": true,

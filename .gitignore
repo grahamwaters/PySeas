@@ -92,6 +92,6 @@ ENV/
 #hazel file
 .hazellock
 
-/data
 /images/buoys
 /images/panels
+/images/keepers

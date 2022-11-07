@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="Text/html; charset=iso-8859-1" />
+<meta name="DC.title" content="NDBC Station Page" />
+<meta name="DC.description" content="National Data Buoy Center - Recent observations from tsunami station 23227 (6.255N 88.792E) - Bay of Bengal." />
+<meta name="description" content="National Data Buoy Center - Recent observations from tsunami station 23227 (6.255N 88.792E) - Bay of Bengal." />
+<meta name="DC.subject" content="weather, buoy, weather buoy, marine, forecast, hurricane, wind, wave, offshore, surfing, temperature, meteorology, climate, ocean" />
+<meta name="DC.creator" content="US Department of Commerce, National Oceanic and Atmospheric Administration, National Weather Service, National Data Buoy Center" />
+<meta name="DC.language" scheme="DCTERMS.RFC1766" content="EN-US" />
+<meta name="DC.format" content="text/html;charset=iso-8859-1" />
+<meta name="DC.date.created" scheme="ISO8601" content="1996-11-08" />
+<meta http-equiv="Refresh" content="900" />
+<title>NDBC - Station 23227 Recent Data</title>
+
+	<script src="/js/dart_data.js" type="text/javascript">
+	</script>
+	<script type="text/javascript">
+	<!--
+	var seriestime = "2011 Oct 25 18:15:00 to 2019 Dec 27 12:00:00";
+	var event_date_array = new Array(
+		"20180516035400;tt: 2018 May 16 03:54:00, ts: 2018 May 16 02:00:00 to 2018 May 16 06:56:00",
+		"20180515090845;tt: 2018 May 15 09:08:45, ts: 2018 May 15 08:00:00 to 2018 May 15 12:11:00",
+		"20180515085545;tt: 2018 May 15 08:55:45, ts: 2018 May 15 07:00:00 to 2018 May 15 09:02:00",
+		"20180515085400;tt: 2018 May 15 08:54:00, ts: 2018 May 15 08:53:15 to 2018 May 15 08:54:00",
+		"20161206221400;tt: 2016 Dec 06 22:14:00, ts: 2016 Dec 06 22:00:00 to 2016 Dec 07 01:59:00",
+		"20160523202830;tt: 2016 May 23 20:28:30, ts: 2016 May 23 22:00:00 to 2016 May 23 23:59:00",
+		"20160515182830;tt: 2016 May 15 18:28:30, ts: 2016 May 15 18:00:00 to 2016 May 16 00:59:00",
+		"20160326075730;tt: 2016 Mar 26 07:57:30, ts: 2016 Mar 26 07:00:00 to 2016 Mar 26 15:59:00",
+		"20160325230145;tt: 2016 Mar 25 23:01:45, ts: 2016 Mar 25 22:53:00 to 2016 Mar 26 03:59:00",
+		"20160302130100;tt: 2016 Mar 02 13:01:00, ts: 2016 Mar 02 11:00:00 to 2016 Mar 02 16:59:00",
+		"20160226225945;tt: 2016 Feb 26 22:59:45, ts: 2016 Feb 26 21:00:00 to 2016 Feb 27 02:02:00",
+		"20160224001545;tt: 2016 Feb 24 00:15:45, ts: 2016 Feb 24 00:00:00 to 2016 Feb 24 03:59:00",
+		"20160223123515;tt: 2016 Feb 23 12:35:15, ts: 2016 Feb 23 12:00:00 to 2016 Feb 23 15:59:00",
+		"20151119095145;tt: 2015 Nov 19 09:51:45, ts: 2015 Nov 19 08:00:00 to 2015 Nov 19 12:59:00",
+		"20151115045230;tt: 2015 Nov 15 04:52:30, ts: 2015 Nov 15 03:00:00 to 2015 Nov 15 08:59:00",
+		"20151113190345;tt: 2015 Nov 13 19:03:45, ts: 2015 Nov 13 18:00:00 to 2015 Nov 14 02:59:00",
+		"20151113061930;tt: 2015 Nov 13 06:19:30, ts: 2015 Nov 13 05:00:00 to 2015 Nov 13 09:59:00",
+		"20151112221515;tt: 2015 Nov 12 22:15:15, ts: 2015 Nov 12 21:00:00 to 2015 Nov 13 03:59:00",
+		"20151107220430;tt: 2015 Nov 07 22:04:30, ts: 2015 Nov 07 21:55:00 to 2015 Nov 08 03:59:00",
+		"20151107121600;tt: 2015 Nov 07 12:16:00, ts: 2015 Nov 07 11:00:00 to 2015 Nov 07 17:59:00",
+		"20151105231900;tt: 2015 Nov 05 23:19:00, ts: 2015 Nov 05 22:00:00 to 2015 Nov 06 03:59:00",
+		"20151105053245;tt: 2015 Nov 05 05:32:45, ts: 2015 Nov 05 04:00:00 to 2015 Nov 05 11:59:00",
+		"20151011131345;tt: 2015 Oct 11 13:13:45, ts: 2015 Oct 11 12:00:00 to 2015 Oct 11 18:59:00",
+		"20151003120045;tt: 2015 Oct 03 12:00:45, ts: 2015 Oct 03 10:00:00 to 2015 Oct 03 15:59:00",
+		"20151002230700;tt: 2015 Oct 02 23:07:00, ts: 2015 Oct 02 22:00:00 to 2015 Oct 03 02:59:00",
+		"20151002104815;tt: 2015 Oct 02 10:48:15, ts: 2015 Oct 02 09:00:00 to 2015 Oct 02 14:59:00",
+		"20151001223715;tt: 2015 Oct 01 22:37:15, ts: 2015 Oct 01 21:00:00 to 2015 Oct 02 01:59:00",
+		"20151001105115;tt: 2015 Oct 01 10:51:15, ts: 2015 Oct 01 09:00:00 to 2015 Oct 01 14:59:00",
+		"20150918194715;tt: 2015 Sep 18 19:47:15, ts: 2015 Sep 18 18:00:00 to 2015 Sep 18 23:59:00",
+		"20150918140830;tt: 2015 Sep 18 14:08:30, ts: 2015 Sep 18 13:00:00 to 2015 Sep 18 17:59:00",
+		"20150917230245;tt: 2015 Sep 17 23:02:45, ts: 2015 Sep 17 22:00:00 to 2015 Sep 18 03:59:00",
+		"20150915205845;tt: 2015 Sep 15 20:58:45, ts: 2015 Sep 15 19:00:00 to 2015 Sep 16 01:59:00",
+		"20150818235000;tt: 2015 Aug 18 23:50:00, ts: 2015 Aug 18 22:00:00 to 2015 Aug 19 04:59:00",
+		"20150818103900;tt: 2015 Aug 18 10:39:00, ts: 2015 Aug 18 09:00:00 to 2015 Aug 18 14:59:00",
+		"20150425062300;tt: 2015 Apr 25 06:23:00, ts: 2015 Apr 25 05:00:00 to 2015 Apr 25 09:59:00",
+		"20150219181345;tt: 2015 Feb 19 18:13:45, ts: 2015 Feb 19 17:00:00 to 2015 Feb 19 21:59:00",
+		"20150207061900;tt: 2015 Feb 07 06:19:00, ts: 2015 Feb 07 05:00:00 to 2015 Feb 07 10:59:00",
+		"20150203172845;tt: 2015 Feb 03 17:28:45, ts: 2015 Feb 03 16:00:00 to 2015 Feb 03 20:59:00",
+		"20150124073415;tt: 2015 Jan 24 07:34:15, ts: 2015 Jan 24 06:00:00 to 2015 Jan 24 10:36:00",
+		"20150123204315;tt: 2015 Jan 23 20:43:15, ts: 2015 Jan 23 19:00:00 to 2015 Jan 24 01:59:00",
+		"20150123073645;tt: 2015 Jan 23 07:36:45, ts: 2015 Jan 23 07:00:00 to 2015 Jan 23 12:59:00",
+		"20150122182730;tt: 2015 Jan 22 18:27:30, ts: 2015 Jan 22 17:00:00 to 2015 Jan 23 01:59:00",
+		"20141231220900;tt: 2014 Dec 31 22:09:00, ts: 2014 Dec 31 21:00:00 to 2015 Jan 01 01:59:00",
+		"20141224093645;tt: 2014 Dec 24 09:36:45, ts: 2014 Dec 24 08:00:00 to 2014 Dec 24 10:47:00",
+		"20141222192530;tt: 2014 Dec 22 19:25:30, ts: 2014 Dec 22 18:00:00 to 2014 Dec 22 23:59:00",
+		"20141222090515;tt: 2014 Dec 22 09:05:15, ts: 2014 Dec 22 08:00:00 to 2014 Dec 22 12:59:00",
+		"20141221192745;tt: 2014 Dec 21 19:27:45, ts: 2014 Dec 21 18:00:00 to 2014 Dec 22 01:59:00",
+		"20141221082830;tt: 2014 Dec 21 08:28:30, ts: 2014 Dec 21 07:00:00 to 2014 Dec 21 12:59:00",
+		"20140902020000;tt: 2014 Sep 02 02:00:00, ts: 2014 Sep 02 00:00:00 to 2014 Sep 02 05:02:00",
+		"20140831130730;tt: 2014 Aug 31 13:07:30, ts: 2014 Aug 31 12:00:00 to 2014 Aug 31 16:09:00",
+		"20140830120215;tt: 2014 Aug 30 12:02:15, ts: 2014 Aug 30 11:00:00 to 2014 Aug 30 16:59:00",
+		"20140830004730;tt: 2014 Aug 30 00:47:30, ts: 2014 Aug 29 23:00:00 to 2014 Aug 30 03:59:00",
+		"20140813084100;tt: 2014 Aug 13 08:41:00, ts: 2014 Aug 13 07:00:00 to 2014 Aug 13 12:59:00",
+		"20140728203845;tt: 2014 Jul 28 20:38:45, ts: 2014 Jul 28 19:00:00 to 2014 Jul 28 23:59:00",
+		"20140725061845;tt: 2014 Jul 25 06:18:45, ts: 2014 Jul 25 05:00:00 to 2014 Jul 25 09:59:00",
+		"20140717091545;tt: 2014 Jul 17 09:15:45, ts: 2014 Jul 17 08:00:00 to 2014 Jul 17 12:59:00",
+		"20140716083830;tt: 2014 Jul 16 08:38:30, ts: 2014 Jul 16 07:00:00 to 2014 Jul 16 11:59:00",
+		"20140603102900;tt: 2014 Jun 03 10:29:00, ts: 2014 Jun 03 09:00:00 to 2014 Jun 03 13:59:00",
+		"20140528222445;tt: 2014 May 28 22:24:45, ts: 2014 May 28 21:00:00 to 2014 May 29 01:59:00",
+		"20140522210815;tt: 2014 May 22 21:08:15, ts: 2014 May 22 20:00:00 to 2014 May 23 18:59:00",
+		"20140522113145;tt: 2014 May 22 11:31:45, ts: 2014 May 22 10:00:00 to 2014 May 22 17:59:00",
+		"20140521211830;tt: 2014 May 21 21:18:30, ts: 2014 May 21 21:00:00 to 2014 May 22 06:59:00",
+		"20140521101145;tt: 2014 May 21 10:11:45, ts: 2014 May 21 09:00:00 to 2014 May 21 16:59:00",
+		"20140520213800;tt: 2014 May 20 21:38:00, ts: 2014 May 20 20:00:00 to 2014 May 21 05:59:00",
+		"20140519212545;tt: 2014 May 19 21:25:45, ts: 2014 May 19 20:00:00 to 2014 May 20 04:59:00",
+		"20140519063915;tt: 2014 May 19 06:39:15, ts: 2014 May 19 06:00:00 to 2014 May 19 14:59:00",
+		"20140518233115;tt: 2014 May 18 23:31:15, ts: 2014 May 18 22:00:00 to 2014 May 19 02:59:00",
+		"20140503142900;tt: 2014 May 03 14:29:00, ts: 2014 May 03 13:00:00 to 2014 May 03 17:59:00",
+		"20140321135000;tt: 2014 Mar 21 13:50:00, ts: 2014 Mar 21 13:00:00 to 2014 Mar 21 16:59:00",
+		"20140318124915;tt: 2014 Mar 18 12:49:15, ts: 2014 Mar 18 11:00:00 to 2014 Mar 18 16:59:00",
+		"20140318001045;tt: 2014 Mar 18 00:10:45, ts: 2014 Mar 17 23:00:00 to 2014 Mar 18 03:59:00",
+		"20140306024730;tt: 2014 Mar 06 02:47:30, ts: 2014 Mar 06 01:00:00 to 2014 Mar 06 05:59:00",
+		"20140304004130;tt: 2014 Mar 04 00:41:30, ts: 2014 Mar 03 23:00:00 to 2014 Mar 04 03:43:00",
+		"20140303125615;tt: 2014 Mar 03 12:56:15, ts: 2014 Mar 03 11:00:00 to 2014 Mar 03 18:59:00",
+		"20140303004600;tt: 2014 Mar 03 00:46:00, ts: 2014 Mar 02 23:00:00 to 2014 Mar 03 05:59:00",
+		"20140301235215;tt: 2014 Mar 01 23:52:15, ts: 2014 Mar 01 22:00:00 to 2014 Mar 02 03:59:00",
+		"20140222154200;tt: 2014 Feb 22 15:42:00, ts: 2014 Feb 22 14:00:00 to 2014 Feb 22 21:59:00",
+		"20140222040815;tt: 2014 Feb 22 04:08:15, ts: 2014 Feb 22 03:00:00 to 2014 Feb 22 09:59:00",
+		"20140219131545;tt: 2014 Feb 19 13:15:45, ts: 2014 Feb 19 12:00:00 to 2014 Feb 19 18:59:00",
+		"20140219012745;tt: 2014 Feb 19 01:27:45, ts: 2014 Feb 19 00:00:00 to 2014 Feb 19 05:59:00",
+		"20131007205815;tt: 2013 Oct 07 20:58:15, ts: 2013 Oct 07 19:00:00 to 2013 Oct 08 00:00:00",
+		"20131006110130;tt: 2013 Oct 06 11:01:30, ts: 2013 Oct 06 10:00:00 to 2013 Oct 07 07:59:00",
+		"20130816234345;tt: 2013 Aug 16 23:43:45, ts: 2013 Aug 16 22:00:00 to 2013 Aug 17 18:59:00",
+		"20130816121545;tt: 2013 Aug 16 12:15:45, ts: 2013 Aug 16 11:00:00 to 2013 Aug 16 22:59:00",
+		"20130815230615;tt: 2013 Aug 15 23:06:15, ts: 2013 Aug 15 22:00:00 to 2013 Aug 16 09:59:00",
+		"20130815101415;tt: 2013 Aug 15 10:14:15, ts: 2013 Aug 15 09:00:00 to 2013 Aug 15 20:59:00",
+		"20130814121730;tt: 2013 Aug 14 12:17:30, ts: 2013 Aug 14 11:00:00 to 2013 Aug 14 16:59:00",
+		"20121117220845;tt: 2012 Nov 17 22:08:45, ts: 2012 Nov 17 22:40:00 to 2012 Nov 18 03:59:00",
+		"20121117110915;tt: 2012 Nov 17 11:09:15, ts: 2012 Nov 17 11:48:00 to 2012 Nov 17 14:59:00",
+		"20121023100715;tt: 2012 Oct 23 10:07:15, ts: 2012 Oct 23 09:00:00 to 2012 Oct 23 14:59:00",
+		"20121022220100;tt: 2012 Oct 22 22:01:00, ts: 2012 Oct 22 20:00:00 to 2012 Oct 23 01:59:00",
+		"20121022135300;tt: 2012 Oct 22 13:53:00, ts: 2012 Oct 22 12:00:00 to 2012 Oct 22 18:59:00",
+		"20121022084330;tt: 2012 Oct 22 08:43:30, ts: 2012 Oct 22 07:00:00 to 2012 Oct 22 12:59:00",
+		"20121020003900;tt: 2012 Oct 20 00:39:00, ts: 2012 Oct 19 23:00:00 to 2012 Oct 20 03:59:00",
+		"20121019131315;tt: 2012 Oct 19 13:13:15, ts: 2012 Oct 19 12:00:00 to 2012 Oct 19 18:59:00",
+		"20121019002700;tt: 2012 Oct 19 00:27:00, ts: 2012 Oct 18 23:00:00 to 2012 Oct 19 04:59:00",
+		"20121018122545;tt: 2012 Oct 18 12:25:45, ts: 2012 Oct 18 11:00:00 to 2012 Oct 18 17:59:00",
+		"20121002223800;tt: 2012 Oct 02 22:38:00, ts: 2012 Oct 02 21:00:00 to 2012 Oct 03 01:59:00",
+		"20120822214430;tt: 2012 Aug 22 21:44:30, ts: 2012 Aug 22 20:00:00 to 2012 Aug 23 00:59:00",
+		"20120822093215;tt: 2012 Aug 22 09:32:15, ts: 2012 Aug 22 08:00:00 to 2012 Aug 22 14:59:00",
+		"20120821214945;tt: 2012 Aug 21 21:49:45, ts: 2012 Aug 21 20:00:00 to 2012 Aug 22 00:59:00",
+		"20120411084100;tt: 2012 Apr 11 08:41:00, ts: 2012 Apr 11 08:00:00 to 2012 Apr 11 13:59:00",
+		"20120110184530;tt: 2012 Jan 10 18:45:30, ts: 2012 Jan 10 17:00:00 to 2012 Jan 10 21:59:00"
+	);
+	// -->
+	</script>
+<link rel="canonical" href="http://www.ndbc.noaa.gov/station_page.php?station=23227" />
+<link rel="alternate" type="application/rss+xml" title="NDBC - Station Observations near 6.255N 88.792E" href="/rss/ndbc_obs_search.php?lat=6.255N&amp;lon=88.792E" />
+<link rel="stylesheet" href="/style/ndbc2017a.css" type="text/css" />
+
+  <link rel="stylesheet" href="https://js.arcgis.com/3.37/dijit/themes/claro/claro.css" type="text/css" />
+  <link rel="stylesheet" href="https://js.arcgis.com/3.37/esri/css/esri.css" type="text/css" />
+  <style type="text/css">
+	#stnmap {
+      height:175px;
+      width:250px;
+      border:1px solid #ccc;
+      margin:2px 0px;
+	  text-align:left;
+    }
+	.esriSimpleSlider div {
+	    width: 18px;
+    	height: 18px;
+    	font-size: 12px;
+    	font-family: verdana,helvetica;
+    	font-weight: bold;
+    	text-align: center;
+    	line-height: 18px;
+    	-moz-user-select: none;
+    	cursor: pointer;
+	}
+	.esriSimpleSliderTL {
+	    top: 10px;
+    	left: 10px;
+	}
+  </style>
+  <script src="https://js.arcgis.com/3.37/" type="text/javascript"></script>
+  <script type="text/javascript"><!--
+//<![CDATA[
+  	var currentstnid = '23227';
+  	var currentstnlat = 6.255;
+  	var currentstnlng = 88.792;
+  	var currentstnname = 'Bay of Bengal';
+  	var currentstndata = 'n';
+    require([
+			"esri/map", 
+			"dojo/dom", 
+			"dojo/on", 
+			"dojo/dom-class", 
+			"dijit/TooltipDialog",
+			"dijit/popup",
+			"esri/config",
+			"esri/graphic",
+			"esri/lang",
+			"esri/layers/FeatureLayer",
+			"esri/layers/ArcGISTiledMapServiceLayer",
+			"esri/geometry/Point",
+			"esri/request",
+			"dojo/dom-style",
+			"dojo/_base/array",
+			"dojo/cookie",
+			"dojo/has",
+			"dojo/domReady!"], 
+			function(Map,dom,on,domClass,TooltipDialog,dijitPopup,Config,Graphic,esriLang,FeatureLayer,ArcGISTiledMapServiceLayer,Point,esriRequest,domStyle,array,cookie,has) {
+    	var touchscreen = false;
+    	if (has("touch")) { touchscreen = true; }
+    	Config.defaults.map.slider = { left:"10px", top:"10px" };
+        dom.byId("stnmap").innerHTML = '';
+    	map = new Map("stnmap", {
+    		center: [currentstnlng, currentstnlat],
+    		zoom: 8,
+    		minZoom: 5,
+    		sliderStyle: "small"
+    	});
+    	var currentBasemap = [];
+    	var topoBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+	    var streetsBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+		var satelliteBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+		var oceanBasemap = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+		//The following associative array allows you to map the dropdown values with an object reference to the tiled service layers created above
+		var bmList = ({
+    		  "topo": topoBasemap,
+    		  "satellite": satelliteBasemap,
+    		  "streets": streetsBasemap,
+    		  "oceans": oceanBasemap
+    		  });
+		var mt = cookie('maptype');
+		var layer = null;
+		for (var x in bmList) {
+			if (x === mt) {changeLayer(bmList[x],x); layer = mt; break;}
+		}
+		if (layer == null) {
+			changeLayer(topoBasemap,'oceans');
+		}
+
+		function setSelectedValue(selectObj, valueToSet) {
+		    for (var i = 0; i < selectObj.options.length; i++) {
+		        if (selectObj.options[i].value== valueToSet) {
+		            selectObj.options[i].selected = true;
+		            return;
+		        }
+		    }
+		}
+		
+        function changeLayer(layerChosen,layerName) {
+        	setSelectedValue(dom.byId("basemap-selected"),layerName);
+        	var satellite_ref_layer = "";
+			var ocean_ref_layer = "";
+    	     if (currentBasemap.length > 0) { map.removeLayer(currentBasemap[0]) }
+    	     currentBasemap.length = 0;
+    	     currentBasemap.push(layerChosen)
+    	     map.addLayer(layerChosen)
+    	     if(layerName == "satellite") {
+    	    	 satellite_ref_layer = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+    	    	 map.addLayer(satellite_ref_layer);
+    	     }
+    	     if(layerName == "oceans") {
+    	    	 ocean_ref_layer = new ArcGISTiledMapServiceLayer("https://server.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Reference/MapServer?appid=1ad64ec9-3608-40af-b061-2def30eb7a31");
+    	    	 map.addLayer(ocean_ref_layer);
+    	   	 }
+    	     cookie("maptype", layerName, { expires: 30, path: '/' });
+		}
+
+        var bmselect = dom.byId("basemap-selected");
+		on(bmselect,'change',function(evt){
+			var newBasemap = evt.target.options[evt.target.selectedIndex].value;
+			if (newBasemap === "none" || newBasemap == null) {
+				changeLayer(oceanBasemap,'oceans')
+			} else {
+		    	  //Find the selected basemap in the array above and use the associated object to add the selected theme layer to the map
+		    	  for (var x in bmList) {
+		    		  if (x === newBasemap) {
+		    			  changeLayer(bmList[x],x)
+		    		  }
+		    	  }
+		      }      
+		});
+		var featureCollection = {
+  				"layerDefinition": null,
+  					"featureSet": {
+    					"features": [],
+    					"geometryType": "esriGeometryPoint"
+  					}
+					};
+					featureCollection.layerDefinition = {
+  					"geometryType": "esriGeometryPoint",
+  					"objectIdField": "ObjectID",
+  					"drawingInfo": {
+    					"renderer": {
+    						"type": "uniqueValue",
+  							"field1": "data",
+  							"field2": "current",
+  							"fieldDelimiter": ":",
+  							"defaultSymbol": {
+  								"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 222, 222, 222, 255 ],
+									"size" : 11,
+									"outline": {
+						        		"color": [30,30,30,255],
+        								"width": 1,
+       									"type": "esriSLS",
+        								"style": "esriSLSSolid"
+								 	}
+      						},
+      						"uniqueValueInfos": [{
+    							"value": "y:y",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 255, 0, 255 ],
+									"size" : 17,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+								 	}
+    	  						}
+							}, {
+    							"value": "n:y",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 0, 0, 255 ],
+									"size" : 17,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+									}
+								 }
+							},{
+    							"value": "y:n",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 255, 0, 255 ],
+									"size" : 11,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+								 	}
+    	  						}
+							}, {
+    							"value": "n:n",
+    							"symbol": {
+ 									"type" : "esriSMS",
+									"style" : "esriSMSDiamond",
+									"color" : [ 255, 0, 0, 255 ],
+									"size" : 11,
+									"outline": {
+						        		"color": [30,30,30,255],
+	       								"width": 1,
+	     								"type": "esriSLS",
+	       								"style": "esriSLSSolid"
+									}
+								 }
+							}
+    				]}},
+  					"fields": [{
+      					"name": "ObjectID",
+      					"alias": "ObjectID",
+      					"type": "esriFieldTypeOID"
+    					}, {
+      					"name": "id",
+      					"alias": "id",
+      					"type": "esriFieldTypeString"
+    					}, {
+      					"name": "name",
+      					"alias": "name",
+      					"type": "esriFieldTypeString"
+    					}, {
+      					"name": "data",
+      					"alias": "data",
+      					"type": "esriFieldTypeString"
+    					}, {
+          				"name": "current",
+          				"alias": "current",
+          				"type": "esriFieldTypeString"
+    					}, {
+    						"name": "seq",
+    						"alias": "seq",
+    						"type": "esriFieldTypeInteger"
+    					}
+  					]
+					};
+					var stationLayer = new FeatureLayer(featureCollection, {
+  					id: 'myFeatureLayer',
+  					mode: FeatureLayer.MODE_SNAPSHOT
+					});
+					 map.on("layers-add-result", function(results) {
+          	requestStations();
+        	});
+					map.addLayers([stationLayer]);	
+
+          dialog = new TooltipDialog({
+						id: "tooltipDialog",
+						style: "position: absolute; width: 250px; font: normal normal normal 10pt Helvetica;z-index:100"
+					});
+					dialog.startup();
+          map.on("load", function(){
+	          map.graphics.enableMouseEvents();
+	        });
+          
+          if (!touchscreen) {
+	       	  stationLayer.on("mouse-over", function(evt){
+	        	  if (evt.graphic.attributes.id != currentstnid) { map.setMapCursor('pointer'); }
+	        	  var t = "<b>Station ${id}<\/b> - ${name}";
+	        	  var content = esriLang.substitute(evt.graphic.attributes,t);
+	        	  dialog.setContent(content);
+	        	  domStyle.set(dialog.domNode, "opacity", 0.85);
+	        	  dijitPopup.open({
+	        		  popup: dialog, 
+	        		  x: evt.pageX,
+	        		  y: evt.pageY
+	        	  });
+	          });
+			stationLayer.on("mouse-out",function(evt) {
+				closeDialog();
+				map.setMapCursor('default');
+			});
+          }
+				
+	stationLayer.on("click",function(evt) {
+		if (evt.graphic.attributes.seq == null) {
+			if (evt.graphic.attributes.id == currentstnid) { return; }
+			location.href = "/station_page.php?station="+evt.graphic.attributes.id.toLowerCase();
+		} else {
+			location.href = "http://tao.ndbc.noaa.gov/refreshed/site.php?site="+evt.graphic.attributes.seq;
+		}
+	});
+					
+        function closeDialog() {
+	          map.graphics.clear();
+  	        dijitPopup.close(dialog);
+   	    }
+
+		function requestStations() {
+    			var stations = esriRequest({
+        			url: "/ndbcmapstations.json",
+        			handleAs: "json"
+      			});
+     		stations.then(requestSucceeded, requestFailed);
+      	}
+
+		function requestSucceeded(response, io){
+			var features = [];
+			var cs = currentstnid.toLowerCase();
+			array.forEach(response.station, function(stn) {
+				if (stn.status == 'E') {
+					var attr = {};
+					attr["id"] = stn.id.toUpperCase();
+					attr["name"] = stn.name;
+					attr["data"] = stn.data;
+					attr["seq"] = parseInt(stn.seq);
+					if (isNaN(attr["seq"])) { attr["seq"] = null; }
+					var geometry = new Point(stn.lon, stn.lat);
+					var graphic = new Graphic(geometry);
+					graphic.setAttributes(attr);
+					features.push(graphic);
+					if (stn.id == cs) {
+						attr["current"] = 'y';
+						if (stn.lat != currentstnlat && stn.lon != currentstnlng) {
+							map.centerAt(geometry);
+						}
+						cs = null;
+					} else {
+						attr["current"] = 'n';
+					}
+				}
+			});
+			if (cs != null) { // If current station not in JSON, add it to map.
+				var attr = {};
+				attr["id"] = currentstnid.toUpperCase();
+				attr["name"] = currentstnname;
+				attr["data"] = currentstndata;
+				attr["seq"] = null;  // Not called for TAO stations.
+				attr["current"] = 'y';
+				var geometry = new Point(currentstnlng, currentstnlat);
+				var graphic = new Graphic(geometry);
+				graphic.setAttributes(attr);
+				features.push(graphic);
+			}
+			stationLayer.applyEdits(features, null, null);
+		}
+
+		function requestFailed(error, io){
+			alert("Unable to load map data at this time!");
+		}
+      
+	});
+//]]>
+//-->
+</script>
+</head>
+<!-- Start Top Navbar -->
+<body class="claro">
+
+<div id="topnav" class="noprint">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr><td>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-image:url(/images/nws/topbanner.jpg)">
+	<tr>
+	<td align="right" height="19"><a href="#contents"><img src="/images/nws/skipgraphic.gif" alt="Skip Navigation Links" width="1" height="1" border="0" /></a> <a href="https://www.weather.gov/"><span class="nwslink">weather.gov</span></a>&nbsp;</td>
+	</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<tr>
+		<td><a href="https://www.noaa.gov/"><img src="/images/nws/noaaleft.jpg" alt="NOAA logo-Select to go to the NOAA homepage" width="85" height="78" border="0" /></a></td>
+		<td width="500" height="78" align="center" nowrap="nowrap"><img src="/images/nws/ndbc_title.jpg" width="500" height="78" alt="NDBC Title Graphic" border="0" usemap="#NDBCLinkMap"/><map id="NDBCLinkMap" name="NDBCLinkMap"><area shape="rect" coords="62,20,452,56" href="/" alt="Click to go to NDBC home page" /></map></td>
+		<td width="100%" style="background-image:url(/images/nws/wfo_bkgrnd.jpg)">&nbsp;</td>
+		<td align="right"><a href="https://www.weather.gov/"><img src="/images/nws/nwsright.jpg" alt="Select to go to the NWS homepage" width="85" height="78" border="0" /></a></td>
+	</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" style="background-image:url(/images/nws/navbkgrnd.gif)" width="100%">
+	<tr>
+		<td align="left" valign="top" width="94"><img src="/images/nws/navbarleft.jpg" alt="" width="94" height="23" border="0" /></td>
+		<td width="15%" align="center" nowrap="nowrap"><a href="/" class="nav">Home</a></td>
+		<td width="15%" align="center"><a href="/ndbc.shtml" class="nav">About Us</a></td>
+		<td width="15%" align="center"><a href="/contact_us.shtml" class="nav">Contact Us</a></td>
+		<td align="right" class="searchinput" width="40%" nowrap="nowrap"><form method="get" action="https://search.usa.gov/search" style="margin-bottom:0; margin-top:0;">
+			<label for="Search" class="yellow">Search&nbsp;</label>
+			<input type="hidden" name="affiliate" value="ndbc.noaa.gov" />
+			<input type="hidden" name="v:project" value="firstgov" />
+			<input type="text" name="query" value="NDBC Web Site" onclick="this.value='';return(true);" size="20" maxlength="256" id="Search" />
+			<input type="submit" value="Search" />
+		</form></td>
+		<td width="10%">&nbsp;</td>
+		<td align="right" valign="bottom" width="24"><img src="/images/nws/navbarendcap.jpg" alt="" width="24" height="23" border="0" /></td>
+	</tr>
+</table>
+</td></tr></table>
+</div>
+<!-- End Top Navbar -->
+
+
+<!-- Start Side Navbar -->
+
+<div id="contentdiv">
+<table id="contenttable" width="700" border="0" cellspacing="0" cellpadding="0">
+	<tr valign="top">
+	<td id="sidenav" class="noprint" width="150" bgcolor="#0a2390" align="left" valign="top" style="margin-top:5px" nowrap="nowrap">
+			<form id="station_form" method="get" action="/station_page.php" style="margin-bottom:0">
+			&nbsp;<span class="yellow"><label for="station">Station ID Search</label></span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="searchinput"><input name="station" id="station" value="" size="8" maxlength="7" />
+			<input type="submit" value="Go"/></span></form>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/to_station.shtml" title="View a list of available stations ordered by owner" class="nav">Station List</a><br /><br />
+
+			&nbsp;<span class="yellow">Data Access</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mobile/" title="Access latest marine observations on your mobile device" class="nav">Mobile Access</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">Interactive Maps</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/obs.shtml" class="nav">All Stations</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/obs.shtml?lat=13&lon=-173&zoom=2&pgm=tsunami" title="Deep Ocean Assessment and Reporting of Tsunamis" class="nav">DART&#174;</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/os.shtml" title="Get a tabular list of recent marine observations near a specific location" class="nav">Obs Search</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ship_obs.php" title="View a list of recent marine observations from ships" class="nav">Ship Obs Report</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/buoycams.shtml" title="BuoyCAMs" class="nav">BuoyCAMs</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://tao.ndbc.noaa.gov/" title="Tropical Atmosphere Ocean" class="nav">TAO</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dods.ndbc.noaa.gov/" title="NDBC DODS Server" class="nav">DODS</a><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dods.ndbc.noaa.gov/oceansites/" title="NDBC OceanSITES GDAC" class="nav">OceanSITES</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://hfradar.ndbc.noaa.gov/" title="View ocean surface currents measured by High Frequency Radar" class="nav">HF Radar</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://osmc.noaa.gov/Monitor/OSMC/OSMC.html" title="Observing System Monitoring Center (OSMC)" class="nav">OSMC</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/dial.shtml" title="Listen to latest marine observations on your phone" class="nav">Dial-A-Buoy</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/rss_access.shtml" title="Latest marine observations via RSS Feeds" class="nav">RSS Feeds <img src='/images/feed-icon-14x14.png' alt='Image indicating link to RSS feed access page' width='14' height='14' border='0' /></a><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/widgets/" title="Add latest marine observations for a given station to your web site" class="nav">Web Widget</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/docs/ndbc_web_data_guide.pdf" title="How to access data on the NDBC web site" class="nav">Web Data Guide</a><br />
+
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ops.shtml" title="Maintenance schedule for NDBC stations" class="nav">Maintenance Schedule</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/wstat.shtml" title="Status report for NDBC Stations" class="nav">Station Status Report</a><br /><br />
+
+			&nbsp;<span class="yellow">Program Info</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://tao.ndbc.noaa.gov/proj_overview/proj_overview_ndbc.shtml" title="Tropical Atmosphere Ocean" class="nav">TAO</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/dart/dart.shtml" title="Deep Ocean Assessment and Reporting of Tsunamis" class="nav">DART&#174;</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://ioos.noaa.gov/" title="Integrated Ocean Observing System (IOOS&#174;)" class="nav">IOOS&#174;</a><br /><br />
+
+			&nbsp;<span class="yellow">Publications</span><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/pea/ndbc_final_pea_20180104.pdf" title="NDBC Final Programmatic Environmental Assessment" class="nav">NDBC PEA</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/pea/ndbc_fonsi_signed_20180102.pdf" title="NDBC Finding of No Significant Impact" class="nav">NDBC FONSI</a><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="/NDBCHandbookofAutomatedDataQualityControl2009.pdf" title="Handbook of Automated Data Quality Control Checks and Procedures" class="nav">NDBC DQC Handbook</a><br />
+			<br />
+
+			&nbsp;<span class="yellow"><a href="/visitorinfo.shtml" class="nav">Visitor Information</a></span><br />
+			&nbsp;<br />
+			<a href="https://www.usa.gov/"><img src="/images/usagov_logo.gif" title="USA.gov is the U.S. government's official web portal to all federal, state and local government web resources and services" alt="USA.gov is the U.S. government's official web portal to all federal, state and local government web resources and services." width="110" height="30" hspace="3" vspace="3" border="0" /></a><br />
+		</td>
+		<td id="contentarea" valign="top" width="560"><a name="contents"></a>
+	<div id="notices" class="noprint">
+		<!-- Put notices here -->
+        </div>
+		
+                <h1 style="text-align:center; margin:3px;">Station 23227  - Bay of Bengal</h1>
+                
+
+<!-- End Side Navbar -->
+
+
+<table width="650" border="0" cellpadding="2" cellspacing="0">
+<tr>
+	<td>
+		<div id="stn_metadata">
+		<p><b>Owned and maintained by <a href="/ndbcexit.php?url=http://www.tsunami.incois.gov.in/&amp;blurb=Indian+National+Center+for+Ocean+Information+Services+INDIA">Indian National Center for Ocean Information Services INDIA</a></b><br />
+		<b>STB - SAIC Tsunami Buoy</b><br />
+		<b>SAIC Tsunami Buoy (STB) with DART II BPR</b><br />
+		<b>6.255 N 88.792 E (6&#176;15'17" N 88&#176;47'31" E)</b><br />
+		<br />
+		<b>Water depth:</b> 3793 m<br />
+		</p>
+<div class="station_notice">Data are not quality controlled by NDBC.</div>
+		<p><a href="/radial_search.php?lat1=6.255N&amp;lon1=88.792E&amp;uom=E&amp;dist=250">Meteorological Observations from Nearby Stations and Ships</a>
+		<a href="/rss/ndbc_obs_search.php?lat=6.255N&amp;lon=88.792E" title="RSS feed of recent meteorological observations near station 23227">
+			<img src="/images/feed-icon-14x14.png" alt="Image indicating link to RSS feed of recent meteorological observations near station 23227" width="14" height="14" border="0" />
+		</a></p>
+		<p><a href="/dart/dart.shtml">DART Program Description</a></p>
+		<p><a href="http://www.tsunami.gov/">U.S. Tsunami Warning Centers</a></p>
+		</div>
+		<div id="stn_img_map">
+				<a href="/images/stations/stb.jpg"><img src="/images/stations/stb_mini.jpg" border="0" alt="Station 23227" /></a>
+	<div id="stnmapcontainer">
+  <div id="switch-basemap-container">
+    <div id="basemap-selection-form" title="Choose a Basemap">
+        <label for="basemap-selected">Map Type: </label>
+     	<select name="basemap-selected" id="basemap-selected" title="Basemap Dropdown Menu">
+        <option value="none">Select Basemap</option>
+       	<option value="oceans">Oceans</option>
+       	<option value="satellite">Satellite</option>
+       	<option value="streets">Streets</option>
+       	<option value="topo">Topographic</option>
+     	</select>
+   	</div>
+  </div>
+  <div id="stnmap"></div>
+  <div id="ndbcmapfooter">
+	<div id="ndbcmaplegend" style="text-align:left;margin:0;background-color:white;color:black;float:left;width:80%;">
+      Large icon indicates selected station.<br />
+      <img src="/images/maps/markers/tiny_active_marker.png" width="11" height="11" alt="yellow diamond" style="vertical-align:middle;" /> Stations with recent data<br />
+      <img src="/images/maps/markers/tiny_inactive_marker.png" width="11" height="11" alt="red diamond" style="vertical-align:middle;" /> Stations with no data in last 8 hours<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(24 hours for tsunami stations)
+    </div>
+    <div id="ndbcmapnwslinks" style="text-align:left;margin:0;background-color:white;color:black;float:right;width:20%;">
+      <a href="https://www.weather.gov/disclaimer#esri" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/disclaimer#esri','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false">Disclaimer</a><br />
+      <!--<a href="javascript:alert('Reserved for future KML option');">Download in KML/KMZ</a>-->
+    </div>
+  </div>
+</div>
+	</div>
+</td></tr></table>
+<br style="clear:both;" /><div id="data" data-nosnippet="true">
+<hr width="100%" size="1" />
+<p><img src="/plot_dart.php?station=23227&amp;uom=M&amp;width=400&amp;height=220&amp;start=20221101000000&amp;end=20221105235959" width="400" height="220" alt="Plot of Water Column Height Data for Station 23227" /></p>
+<hr width="100%" size="1" />
+	<p><b>Data Access</b></p>
+	<form name="dart_data_select" action="/station_page.php" method="get" onsubmit="return checkform(this);">
+	<input type="hidden" name="station" size="7" value="23227" />
+	Select <label for="type"> Data Type: </label><select name="type" id="type" onchange="updateSeries(this)" size="1">
+	<option selected="selected" value="0">Data Type</option>
+	<option value="1">Heights</option>
+	<option value="2">Events</option>
+	<!-- <option value=3>Unparsed p</option> -->
+	<!-- <option value=4>Unparsed s</option> -->
+	</select><br />
+	<label for="seriestime">Available series:</label><br />
+	<select name="seriestime" id="seriestime" size="4">
+		<option value="">&nbsp;</option>
+	</select><br />
+	Select start date:<br />
+	<label for="startyear"><select name="startyear" id="startyear" size="1" onchange = "endYearSelect(this.form);">
+	<option selected="selected" value="0000">Year</option>
+	<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+	</select></label>
+	<label for="startmonth"><select name="startmonth" id="startmonth" size="1" onchange = "endMonthSelect(this.form);">
+	<option selected="selected" value="00">Month</option>
+	<option value="01">January</option><option value="02">February</option>
+	<option value="03">March</option><option value="04">April</option>
+	<option value="05">May</option><option value="06">June</option>
+	<option value="07">July</option><option value="08">August</option>
+	<option value="09">September</option><option value="10">October</option>
+	<option value="11">November</option><option value="12">December</option>
+	</select></label>
+	<label for="startday"><select name="startday" id="startday" size="1">
+	<option selected="selected" value="00">Day</option><option value="01">1</option>
+	<option value="02">2</option><option value="03">3</option>
+	<option value="04">4</option><option value="05">5</option>
+	<option value="06">6</option><option value="07">7</option>
+	<option value="08">8</option><option value="09">9</option>
+	<option value="10">10</option><option value="11">11</option>
+	<option value="12">12</option><option value="13">13</option>
+	<option value="14">14</option><option value="15">15</option>
+	<option value="16">16</option><option value="17">17</option>
+	<option value="18">18</option><option value="19">19</option>
+	<option value="20">20</option><option value="21">21</option>
+	<option value="22">22</option><option value="23">23</option>
+	<option value="24">24</option><option value="25">25</option>
+	<option value="26">26</option><option value="27">27</option>
+	<option value="28">28</option><option value="29">29</option>
+	<option value="30">30</option><option value="31">31</option></select></label><br />
+	Select end date:<br />
+	<label for="endyear"><select name="endyear" id="endyear" size="1">
+	<option selected="selected" value="0000">Year</option>
+	<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+	</select></label>
+	<label for="endmonth"><select name="endmonth" id="endmonth" size="1">
+	<option selected="selected" value="00">Month</option>
+	<option value="01">January</option><option value="02">February</option>
+	<option value="03">March</option><option value="04">April</option>
+	<option value="05">May</option><option value="06">June</option>
+	<option value="07">July</option><option value="08">August</option>
+	<option value="09">September</option><option value="10">October</option>
+	<option value="11">November</option><option value="12">December</option>
+	</select></label>
+	<label for="endday"><select name="endday" id="endday" size="1">
+	<option selected="selected" value="00">Day</option> <option value="01">1</option>
+	<option value="02">2</option><option value="03">3</option>
+	<option value="04">4</option><option value="05">5</option>
+	<option value="06">6</option><option value="07">7</option>
+	<option value="08">8</option><option value="09">9</option>
+	<option value="10">10</option><option value="11">11</option>
+	<option value="12">12</option><option value="13">13</option>
+	<option value="14">14</option><option value="15">15</option>
+	<option value="16">16</option><option value="17">17</option>
+	<option value="18">18</option><option value="19">19</option>
+	<option value="20">20</option><option value="21">21</option>
+	<option value="22">22</option><option value="23">23</option>
+	<option value="24">24</option><option value="25">25</option>
+	<option value="26">26</option><option value="27">27</option>
+	<option value="28">28</option><option value="29">29</option>
+	<option value="30">30</option><option value="31">31</option></select></label><br />
+	<input type="submit" name="submit" value="Submit" />
+	</form>
+	<form name="dart_data" action="/station_page.php" method="get">
+<p>Water Column Heights:<br />11/01/2022 00:00:00 to 11/05/2022 23:59:59</p>
+<p>The data are recorded in pounds per square inch absolute (PSIA), but are displayed in meters of water after applying a constant 670.0 mm of water/PSIA conversion factor.</p>
+<pre><label for="data"><textarea name="data" id="data" rows="30" cols="40"></textarea></label></pre>
+<input type="button" value="Highlight Data" onclick="javascript:this.form.data.focus(); this.form.data.select();" />
+<p>T = Measurement Type;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where 1 = 15-minute measurement; 2 = 1-minute measurement; 3 = 15-second measurement</p>
+</form>
+</div>
+<hr width="100%" size="1" />
+<p><a href="/measdes.shtml">Description of Measurements</a></p>
+<p>Links which are specific to this station are listed below:</p>
+<p><a href="/station_realtime.php?station=23227">Real Time Data</a> in tabular form for the last forty-five days.</p>
+<p><a href="/station_history.php?station=23227">Historical Data &#38; Climatic Summaries</a> for quality controlled data for the current month, previous months, and previous years.</p>
+<!-- Start Tail -->
+
+		<div id="footer" class="noprint" style="clear:both;">
+			<hr width="100%" size="1" noshade="noshade" />
+				<div id="footer-flexbox" class="footer-flexbox" width="100%">
+					<a class="socialMediaLink" href="/ndbcexit.php?url=https://www.facebook.com/NWSNDBC&amp;blurb=NDBC%20on%20Facebook"><img src="/images/facebook_logo.png" class="socialMediaLogo" height="21" width="21" alt="Facebook Logo" title="NDBC on Facebook"/>&nbsp;NDBC on Facebook</a><br />
+					<a class="socialMediaLink" href="/ndbcexit.php?url=https://www.linkedin.com/company/noaa&amp;blurb=NOAA%20on%20LinkedIn"><img src="/images/linkedin_logo.png" class="socialMediaLogo" height="21" width="25" alt="LinkedIn Logo" title="NDBC on LinkedIn"/>&nbsp;NOAA on LinkedIn</a><br />
+					<a class="socialMediaLink" href="/ndbcexit.php?url=https://www.twitter.com/databuoycenter&amp;blurb=NDBC%20on%20Twitter"><img src="/images/twitter.png" class="socialMediaLogo" height="21" width="25" alt="Twitter Logo" title="NDBC on Twitter"/>&nbsp;NDBC on Twitter</a><br />
+				</div>
+			<table width="100%" cellpadding="2" border="0">
+				<tr valign="top">
+					<td width="70%" align="left" class="footertext"><a href="https://www.commerce.gov/"><span class="footertext">U.S. Dept. of Commerce</span></a><br />
+					<a href="https://www.noaa.gov/"><span class="footertext">National Oceanic and Atmospheric Administration</span></a><br />
+					<a href="https://www.weather.gov/"><span class="footertext">National Weather Service</span></a><br />
+					National Data Buoy Center<br />
+					Bldg. 3205<br />
+					Stennis Space Center, MS 39529<br />
+					<a href="/contact_us.shtml"><span class="footertext">Contact&nbsp;Us</span></a><br />
+					Page last modified: August 30, 2022</td>
+					<td width="15%" align="left">
+					<a href="https://www.weather.gov/disclaimer" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/disclaimer','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Disclaimer</span></a><br />
+					<a href="https://www.cio.noaa.gov/services_programs/info_quality.html" target="_blank" rel="noopener" onclick="window.open('https://www.cio.noaa.gov/services_programs/info_quality.html','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Information&nbsp;Quality</span></a><br />
+					<a href="https://www.weather.gov/glossary" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/glossary','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Glossary</span></a></td>
+					<td width="15%" align="left">
+					<a href="https://www.weather.gov/privacy" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/privacy','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Privacy Policy</span></a><br />
+					<a href="https://www.noaa.gov/foia-freedom-of-information-act" target="_blank" rel="noopener" onclick="window.open('https://www.noaa.gov/foia-freedom-of-information-act','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Freedom&nbsp;of&nbsp;Information</span></a><br />
+					<a href="/ndbc.shtml"><span class="footertext">About Us</span></a><br />
+					<a href="https://www.weather.gov/careers" target="_blank" rel="noopener" onclick="window.open('https://www.weather.gov/careers','_blank','width=750,height=550,top=0,left=0,menubar=yes,toolbar=yes,scrollbars=yes');return false"><span class="footertext">Career&nbsp;Opportunities</span></a></td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+</table>
+</div>
+<script id="_fed_an_ua_tag" type="text/javascript" src="/js/federated-analytics.js?agency=DOC&amp;subagency=NOAA&amp;pua=UA-33523145-1"></script>
+</body>
+
+<!-- End Tail -->
+
+
+
+
+</html>

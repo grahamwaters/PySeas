@@ -4,6 +4,13 @@ print('Starting the download loop')
 last_time_fetched = time.time() # get the current time
 first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)
 
+# import the necessary packages
+from imutils import paths
+import numpy as np
+import argparse
+import imutils
+import cv2
+
 
 def buoy_links():
     links = ["https://www.ndbc.noaa.gov/buoycam.php?station=42001","https://www.ndbc.noaa.gov/buoycam.php?station=46059","https://www.ndbc.noaa.gov/buoycam.php?station=41044","https://www.ndbc.noaa.gov/buoycam.php?station=46071","https://www.ndbc.noaa.gov/buoycam.php?station=42002","https://www.ndbc.noaa.gov/buoycam.php?station=46072","https://www.ndbc.noaa.gov/buoycam.php?station=46066","https://www.ndbc.noaa.gov/buoycam.php?station=41046","https://www.ndbc.noaa.gov/buoycam.php?station=46088","https://www.ndbc.noaa.gov/buoycam.php?station=44066","https://www.ndbc.noaa.gov/buoycam.php?station=46089","https://www.ndbc.noaa.gov/buoycam.php?station=41043","https://www.ndbc.noaa.gov/buoycam.php?station=42012","https://www.ndbc.noaa.gov/buoycam.php?station=42039","https://www.ndbc.noaa.gov/buoycam.php?station=46012","https://www.ndbc.noaa.gov/buoycam.php?station=46011","https://www.ndbc.noaa.gov/buoycam.php?station=42060","https://www.ndbc.noaa.gov/buoycam.php?station=41009","https://www.ndbc.noaa.gov/buoycam.php?station=46028","https://www.ndbc.noaa.gov/buoycam.php?station=44011","https://www.ndbc.noaa.gov/buoycam.php?station=41008","https://www.ndbc.noaa.gov/buoycam.php?station=46015","https://www.ndbc.noaa.gov/buoycam.php?station=42059","https://www.ndbc.noaa.gov/buoycam.php?station=44013","https://www.ndbc.noaa.gov/buoycam.php?station=44007","https://www.ndbc.noaa.gov/buoycam.php?station=46002","https://www.ndbc.noaa.gov/buoycam.php?station=51003","https://www.ndbc.noaa.gov/buoycam.php?station=46027","https://www.ndbc.noaa.gov/buoycam.php?station=46026","https://www.ndbc.noaa.gov/buoycam.php?station=51002","https://www.ndbc.noaa.gov/buoycam.php?station=51000","https://www.ndbc.noaa.gov/buoycam.php?station=42040","https://www.ndbc.noaa.gov/buoycam.php?station=44020","https://www.ndbc.noaa.gov/buoycam.php?station=46025","https://www.ndbc.noaa.gov/buoycam.php?station=41010","https://www.ndbc.noaa.gov/buoycam.php?station=41004","https://www.ndbc.noaa.gov/buoycam.php?station=51001","https://www.ndbc.noaa.gov/buoycam.php?station=44025","https://www.ndbc.noaa.gov/buoycam.php?station=41001","https://www.ndbc.noaa.gov/buoycam.php?station=51004","https://www.ndbc.noaa.gov/buoycam.php?station=44027","https://www.ndbc.noaa.gov/buoycam.php?station=41002","https://www.ndbc.noaa.gov/buoycam.php?station=42020","https://www.ndbc.noaa.gov/buoycam.php?station=46078","https://www.ndbc.noaa.gov/buoycam.php?station=46087","https://www.ndbc.noaa.gov/buoycam.php?station=51101","https://www.ndbc.noaa.gov/buoycam.php?station=46086","https://www.ndbc.noaa.gov/buoycam.php?station=45002","https://www.ndbc.noaa.gov/buoycam.php?station=46053","https://www.ndbc.noaa.gov/buoycam.php?station=46047","https://www.ndbc.noaa.gov/buoycam.php?station=46084","https://www.ndbc.noaa.gov/buoycam.php?station=46085","https://www.ndbc.noaa.gov/buoycam.php?station=45003","https://www.ndbc.noaa.gov/buoycam.php?station=45007","https://www.ndbc.noaa.gov/buoycam.php?station=46042","https://www.ndbc.noaa.gov/buoycam.php?station=45012","https://www.ndbc.noaa.gov/buoycam.php?station=42019","https://www.ndbc.noaa.gov/buoycam.php?station=46069","https://www.ndbc.noaa.gov/buoycam.php?station=46054","https://www.ndbc.noaa.gov/buoycam.php?station=41049","https://www.ndbc.noaa.gov/buoycam.php?station=45005"]
@@ -11,6 +18,75 @@ def buoy_links():
 
 # Notes:
 # Buoy 42002 Has good sunsets
+
+
+
+def ocean_stitching(imagePaths, pano_path):
+    images = []
+    # loop over the image paths, load each one, and add them to our
+    # images to stitch list
+    # open each image with cv2 and append to images list
+    for imagePath in imagePaths:
+        try:
+            # add the full path to the image
+            # '/Volumes/Backups of Grahams IMAC/PythonProjects/PySeas_Master_Folder/PySeas/images/panels/44020/2022_11_6_10_54/panel_1.jpg'
+            # read the image
+            full_path =  '/Volumes/Backups of Grahams IMAC/PythonProjects/PySeas_Master_Folder/PySeas/' + imagePath
+            imagePath = full_path # this is the full path to the image
+            assert(os.path.exists(imagePath)) # check if file exists
+            image = cv2.imread(imagePath, cv2.IMREAD_COLOR) # read image
+            #cv2.imshow("image", image)
+            #cv2.waitKey(0) # show image
+            images.append(image) # append to list
+            if image is None:
+                print("Error loading image: " + imagePath)
+        except:
+            print("Error reading image: " + imagePath)
+            continue
+    # getting error: OpenCV(4.6.0) /Users/runner/work/opencv-python/opencv-python/opencv/modules/imgproc/src/resize.cpp:4052: error: (-215:Assertion failed) !ssize.empty() in function 'resize'
+    # how to fix this:
+    # The error is saying that the image is empty. This is because you are trying to read an image that doesn't exist. Check the path to the image and make sure it is correct.
+
+    # initialize OpenCV's image stitcher object and then perform the image
+    # stitching
+    print("[INFO] stitching images...")
+    stitcher = cv2.createStitcher() if imutils.is_cv3() else cv2.Stitcher_create()
+    (status, stitched) = stitcher.stitch(images)
+    # if the status is '0', then OpenCV successfully performed image
+    # stitching
+    if status == 0:
+        # write the output stitched image to disk
+        cv2.imwrite(pano_path, stitched) # save the stitched image
+        # display the output stitched image to our screen
+        #!cv2.imshow("Stitched", stitched)
+        #!cv2.waitKey(0)
+    # otherwise the stitching failed, likely due to not enough keypoints)
+    # being detected
+    else:
+        print("[INFO] image stitching failed ({})".format(status))
+
+
+def refine_view(stitched_image):
+    stitched = cv2.copyMakeBorder(stitched, 10, 10, 10, 10,
+			cv2.BORDER_CONSTANT, (0, 0, 0))
+    # convert the stitched image to grayscale and threshold it
+    # such that all pixels greater than zero are set to 255
+    # (foreground) while all others remain 0 (background)
+    gray = cv2.cvtColor(stitched, cv2.COLOR_BGR2GRAY)
+    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY)[1]
+    # find all external contours in the threshold image then find
+    # the *largest* contour which will be the contour/outline of
+    # the stitched image
+    cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_SIMPLE)
+    cnts = imutils.grab_contours(cnts)
+    c = max(cnts, key=cv2.contourArea)
+    # allocate memory for the mask which will contain the
+    # rectangular bounding box of the stitched image region
+    mask = np.zeros(thresh.shape, dtype="uint8")
+    (x, y, w, h) = cv2.boundingRect(c)
+    cv2.rectangle(mask, (x, y), (x + w, y + h), 255, -1)
+
 
 
 
@@ -131,6 +207,7 @@ def chunk_images(buoy_id,foldername):
 
 
 cam_urls = buoy_links() # get the links to the cameras
+stitch_switch = False # make false if you don't want to stitch the images.
 
 
 while True:
@@ -231,19 +308,24 @@ while True:
             folder_path = 'images/buoys/{}'.format(folder)
             search = dif(folder_path, similarity='high', show_output=False, show_progress=True, silent_del=True, delete=True)
 
+        ignoring_panel_optimimal = True # note: this is a temporary fix to the problem of the panel images not being generated
         # final step: make sure that all the previous buoy images have been panelled and saved to the images/panels directory
         for folder in tqdm(os.listdir('images/buoys')):
             #print('Checking if all images have been panelled for buoy {}'.format(folder))
             try:
                 if folder == '.DS_Store':
                     continue
+                images = os.listdir('images/buoys/{}'.format(folder))
                 # if the folder is not in the images/panels directory, then we need to panel the images
-                if not os.path.exists('images/panels/{}'.format(folder)):
+                # if not os.path.exists('images/panels/{}'.format(folder)):
+                if ignoring_panel_optimimal:
                     #print('The images in the images/buoys/{} directory have not been panelled yet.'.format(folder))
                     # panelling the images
-                    os.mkdir('images/panels/{}'.format(folder))
-                    images = os.listdir('images/buoys/{}'.format(folder))
-                    print('made directory for buoy {}'.format(folder) + ' in images/panels')
+                    try:
+                        os.mkdir('images/panels/{}'.format(folder))
+                        print('made directory for buoy {}'.format(folder) + ' in images/panels')
+                    except:
+                        pass
                     batch_id = 1
                     for image in images:
                         # make a folder for the batch that has the same name as the image without the extension
@@ -254,7 +336,9 @@ while True:
                         except FileExistsError:
                             pass
                         # get the panels
-
+                        # if the folder is not empty skip it
+                        if len(os.listdir(directory_save_path)) > 0:
+                            continue
                         try:
                             if image == '.DS_Store':
                                 continue
@@ -276,8 +360,32 @@ while True:
 
                         #note: trying to add in the vincent code here
                         # stitch the images together
+                        if stitch_switch:
+                            files_to_stitch = [f'{directory_save_path}/panel_1.jpg', f'{directory_save_path}/panel_2.jpg', f'{directory_save_path}/panel_3.jpg', f'{directory_save_path}/panel_4.jpg', f'{directory_save_path}/panel_5.jpg', f'{directory_save_path}/panel_6.jpg'] # list of files to stitch
 
-                        files_to_stitch = [f'{directory_save_path}/panel_1.jpg', f'{directory_save_path}/panel_2.jpg', f'{directory_save_path}/panel_3.jpg', f'{directory_save_path}/panel_4.jpg', f'{directory_save_path}/panel_5.jpg', f'{directory_save_path}/panel_6.jpg'] # list of files to stitch
+                            # Stitch the images together with OpenCV and save the stitched image to the panoramas directory
+                            print('Stitching images...')
+                            try:
+                                ocean_stitching(files_to_stitch, f'images/panoramas/{folder}/{i_name}.jpg') # stitch the images together and save the stitched image to the panoramas directory
+                            except Exception as f:
+                                print(f)
+                                print('Could not stitch images for image: {}'.format(image))
+                            # > Overload resolution failed:
+                            # >  - Can't parse 'images'. Sequence item with index 0 has a wrong type
+                            # >  - Can't parse 'images'. Sequence item with index 0 has a wrong type
+                            # >  - Stitcher.stitch() missing required argument 'masks' (pos 2)
+                            # >  - Stitcher.stitch() missing required argument 'masks' (pos 2)
+                            # fix: https://stackoverflow.com/questions/6380057/python-cv2-error-215-overload-resolution-failed
+
+
+
+
+
+
+
+
+
+
 
                         # try:
                         #     print('Stitching images for image set {}'.format(files_to_stitch))
@@ -301,7 +409,7 @@ while True:
                 continue
         # for each folder in the images/panels folder, stitch the images together and save them to the images/panoramas folder with the same name as the folder + panorama.png
 
-        #note: the for loop below does not account for the fact that there are multiple captures with 6 frames per capture. This means that the images will be stitched together incorrectly. This is a problem that needs to be fixed. Find a way to select only the sets of 6 images that go together to stitch together.
+        #//: the for loop below does not account for the fact that there are multiple captures with 6 frames per capture. This means that the images will be stitched together incorrectly. This is a problem that needs to be fixed. Find a way to select only the sets of 6 images that go together to stitch together.
 
         print('stage 5 complete')
         # Stage 6: Create the buoy dataframes

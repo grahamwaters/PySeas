@@ -98,6 +98,215 @@
         "documentation": {}
     },
     {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "dif",
+        "importPath": "difPy",
+        "description": "difPy",
+        "isExtraImport": true,
+        "detail": "difPy",
+        "documentation": {}
+    },
+    {
+        "label": "dif",
+        "importPath": "difPy",
+        "description": "difPy",
+        "isExtraImport": true,
+        "detail": "difPy",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "imutils",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "imutils",
+        "description": "imutils",
+        "detail": "imutils",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "isExtraImport": true,
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "isExtraImport": true,
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
         "label": "setup",
         "importPath": "setuptools",
         "description": "setuptools",
@@ -111,6 +320,33 @@
         "description": "setuptools",
         "isExtraImport": true,
         "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "detail": "tensorflow",
         "documentation": {}
     },
     {
@@ -678,6 +914,528 @@
         "description": "PyBuoy",
         "peekOfCode": "def main():\n    # create a matrix 36 x 36 containing buoy ids\n    # https://www.ndbc.noaa.gov/buoycam.php?station=xxxxx\n    # this gets most recent photo from the buoy with the code xxxxx\n    # https://tidesandcurrents.noaa.gov/api-helper/url-generator.html\n    #https://www.ndbc.noaa.gov/rss/ndbc_obs_search.php?lat=40N&lon=73W&radius=100\n    #https://www.ndbc.noaa.gov/data/realtime2/ (station id) .swdir\n    #https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20130808 15:00&end_date=20130808 15:06&station=8454000&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json\n    #The result \"V\" should be the desired variable\n    product = 'air_temperature'",
         "detail": "PyBuoy",
+        "documentation": {}
+    },
+    {
+        "label": "Artist",
+        "kind": 6,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "class Artist:\n    def __init__(self):\n        self.folder = 'images'\n        self.batches = []\n    def make_panorama(self, images):\n        \"\"\"\n        make_panorama\n        _extended_summary_\n        :param images: _description_\n        :type images: _type_",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "panel_sorter",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def panel_sorter():\n    # Go into each panel directory and sort the images into folders by the date in their filename (if they haven't already been sorted)\n    # example unsorted directory: 'images/panels/46078/2022_11_5_15_44_panel_1.png'\n    # example sorted directory: images/panels/51000/2022_11_5_15_44/panel_1.png\n    for buoy_id in os.listdir('images/panels'):\n        if buoy_id != '.DS_Store' and '.' not in buoy_id:\n            for image in os.listdir('images/panels/{}'.format(buoy_id)):\n                if image != '.DS_Store' and '.' not in image:\n                    try:\n                        # find the 2022_11_5_15_44 (#_#_#_#_#) part of the filename and make a new folder with that name.",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "divide_into_panels",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def divide_into_panels(buoy_id, image_file):\n    # divide the image into six panels, as dictated in the image processing pipeline for NOAA Buoy Cameras Comments above.\n    # read the image\n    img = cv2.imread(image_file)\n    # get the name of the image file\n    image_name = image_file.split('/')[-1]\n    # get the dimensions of the image\n    height, width, channels = img.shape\n    # Before dividing into panels, crop the image to remove 30 pixels from the bottom of the image.\n    # This is to remove the \"Buoy Camera\" text from the image.",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "is_it_daytime",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def is_it_daytime(image_path):\n    # This function will take an image path and return True if it is daytime and False if it is nighttime.\n    # The image path should be a string.\n    # The image path should be the path to the image that was used to create the panels.\n    # The image path should be in the format 'images/buoys/46025/2019_12_12_12_12.jpg'\n    # get the image\n    try:\n        img = Image.open(image_path)\n        # get the image size\n        width, height = img.size",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "image_has_changed",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def image_has_changed(image_one,image_two):\n    # looks for changes between two images and returns True if there are changes and False if there are not.\n    # this function is used to determine what rate the images are being updated for each buoy.\n    # if the images are not changing, then the buoy is not updating the images.\n    # if the images are changing, then the buoy is updating the images.\n    try:\n        image_one = cv2.imread(image_one)\n        image_two = cv2.imread(image_two)\n        difference = cv2.subtract(image_one, image_two)\n        result = not np.any(difference)",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "artist_eval",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def artist_eval(image_path):\n    # get the image\n    img = Image.open(image_path)\n    # get the image size\n    width, height = img.size\n    # get the pixel values for the center of the image\n    pixel_values = img.getpixel((int(width/2), int(height/2)))\n    # get the pixel values for the top left corner of the image\n    upper_left = img.getpixel((0, 0))\n    # get the pixel values for the top right corner of the image",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "check_for_updates",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def check_for_updates(buoy_update_rates_dict):\n    # Check the buoy_update_rates_dict to see if any of the buoys satistfy the update rate requirements:\n    # Requirements: the current time minus the last time we downloaded an image for this buoy must be greater than the update rate for this buoy. If it is, then we will add the buoy id to the list of buoys that need to be updated and return it to the main function.\n    # If the buoy_update_rates_dict is empty, then we will return an empty list.\n    # If the buoy_update_rates_dict is not empty, then we will check the update rates for each buoy and return a list of the buoy ids that need to be updated.\n    if len(buoy_update_rates_dict) == 0:\n        return []\n    else:\n        buoys_to_update = []\n        for buoy_id in buoy_update_rates_dict:",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "get_latest_data",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def get_latest_data():\n    url = \"https://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt\"\n    s=requests.get(url).content\n    # the table contains two rows that have header data. combine them into one row.\n    df = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\\s+')\n    df.columns = df.columns.str.strip()\n    # df = df.dropna(axis=1, how='all')\n    # df = df.dropna(axis=0, how='all')\n    # df = df.dropna(axis=0, how='any')\n    # df = df.reset_index(drop=True)",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "display_last_image",
+        "kind": 2,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "def display_last_image(buoys_to_update):\n    # get the last buoy in the list of buoys that need to be updated\n    buoy_id = buoys_to_update[-1]\n    # get the list of images in the folder\n    # sort the images by date\n    # make folder_path variable from relative path\n    # choose the last buoy in the list of buoy folders\n    last_buoy=buoys_to_update[-1]\n    folder_path = 'images/buoys/{}'.format(last_buoy)\n    images = os.listdir(folder_path)",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "cam_buoys",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "cam_buoys = []\n# %%\n# Set up #logging file\n#logging.basicConfig(filename='cam_finder.log', level=#logging.INFO)\n# %% [markdown]\n# Stage One\n# %%\nids = [\"21414\",\"21415\",\"21416\",\"21417\",\"21418\",\"21419\",\"32301\",\"32302\",\"32411\",\"32412\",\"32413\",\"41001\",\"41002\",\"41003\",\"41004\",\"41007\",\"41008\",\"41009\",\"41010\",\"41011\",\"41012\",\"41016\",\"41017\",\"41018\",\"41021\",\"41022\",\"41023\",\"41036\",\"41040\",\"41041\",\"41043\",\"41044\",\"41046\",\"41049\",\"41420\",\"41421\",\"41424\",\"41425\",\"42001\",\"42002\",\"42003\",\"42004\",\"42007\",\"42008\",\"42009\",\"42010\",\"42011\",\"42012\",\"42017\",\"42018\",\"42019\",\"42020\",\"42025\",\"42035\",\"42038\",\"42039\",\"42040\",\"42041\",\"42042\",\"42053\",\"42056\",\"42057\",\"42058\",\"42059\",\"42060\",\"42065\",\"42408\",\"42409\",\"42429\",\"42501\",\"42503\",\"42534\",\"44001\",\"44003\",\"44004\",\"44005\",\"44006\",\"44007\",\"44010\",\"44011\",\"44012\",\"44013\",\"44014\",\"44015\",\"44019\",\"44020\",\"44023\",\"44025\",\"44026\",\"44027\",\"44066\",\"44070\",\"44071\",\"44401\",\"44402\",\"44403\",\"45002\",\"45003\",\"45004\",\"45005\",\"45006\",\"45007\",\"45010\",\"45011\",\"45012\",\"46001\",\"46002\",\"46003\",\"46007\",\"46008\",\"46009\",\"46010\",\"46011\",\"46012\",\"46015\",\"46016\",\"46017\",\"46018\",\"46019\",\"46020\",\"46023\",\"46024\",\"46025\",\"46026\",\"46027\",\"46028\",\"46031\",\"46032\",\"46033\",\"46034\",\"46035\",\"46037\",\"46040\",\"46041\",\"46042\",\"46043\",\"46045\",\"46047\",\"46051\",\"46053\",\"46054\",\"46059\",\"46060\",\"46061\",\"46066\",\"46069\",\"46070\",\"46071\",\"46072\",\"46073\",\"46077\",\"46078\",\"46079\",\"46080\",\"46081\",\"46082\",\"46085\",\"46086\",\"46087\",\"46088\",\"46089\",\"46090\",\"46107\",\"46115\",\"46270\",\"46290\",\"46401\",\"46402\",\"46405\",\"46406\",\"46407\",\"46408\",\"46409\",\"46410\",\"46413\",\"46414\",\"46415\",\"46416\",\"46419\",\"46490\",\"46779\",\"46780\",\"46781\",\"46782\",\"46785\",\"51000\",\"51001\",\"51002\",\"51003\",\"51004\",\"51005\",\"51028\",\"51100\",\"51101\",\"51406\",\"51407\",\"51425\",\"52009\",\"52401\",\"52402\",\"52403\",\"52404\",\"52405\",\"91204\",\"91222\",\"91251\",\"91328\",\"91338\",\"91343\",\"91356\",\"91365\",\"91374\",\"91377\",\"91411\",\"91442\",\"46265\",\"41670\",\"41852\",\"41904\",\"41933\",\"48916\",\"48917\",\"52838\",\"52839\",\"52840\",\"52841\",\"52842\",\"52843\",\"52862\",\"55012\",\"55013\",\"55015\",\"55016\",\"55023\",\"55042\",\"58952\",\"31052\",\"31053\",\"41052\",\"41053\",\"41056\",\"41058\",\"41115\",\"41121\",\"41030\",\"44042\",\"44043\",\"44057\",\"44058\",\"44059\",\"44061\",\"44064\",\"44068\",\"45016\",\"45017\",\"45018\",\"45019\",\"45177\",\"45202\",\"45203\",\"45204\",\"45205\",\"45206\",\"45207\",\"46116\",\"46117\",\"46127\",\"42014\",\"42021\",\"42022\",\"42023\",\"42024\",\"42026\",\"32404\",\"41029\",\"41033\",\"41037\",\"41038\",\"41064\",\"41065\",\"41110\",\"41119\",\"41159\",\"32488\",\"41193\",\"44138\",\"44139\",\"44140\",\"44141\",\"44142\",\"44150\",\"44176\",\"44235\",\"44251\",\"44255\",\"44258\",\"44488\",\"45132\",\"45135\",\"45136\",\"45137\",\"45138\",\"45139\",\"45142\",\"45143\",\"45144\",\"45145\",\"45147\",\"45148\",\"45151\",\"45152\",\"45154\",\"45155\",\"45158\",\"45159\",\"46036\",\"46131\",\"46132\",\"46084\",\"46134\",\"46138\",\"46139\",\"46147\",\"46181\",\"46183\",\"46184\",\"46185\",\"46204\",\"46207\",\"46208\",\"46303\",\"46304\",\"48021\",\"45162\",\"45163\",\"45195\",\"23219\",\"23227\",\"32067\",\"32068\",\"42087\",\"42088\",\"42089\",\"42090\",\"46109\",\"46110\",\"46111\",\"46112\",\"21346\",\"21347\",\"21348\",\"21595\",\"21597\",\"21598\",\"21637\",\"21640\",\"22102\",\"22103\",\"22104\",\"22105\",\"22106\",\"22107\",\"45029\",\"45164\",\"45165\",\"45168\",\"45169\",\"45176\",\"46091\",\"46092\",\"62091\",\"62092\",\"62093\",\"62094\",\"41097\",\"41098\",\"41100\",\"41101\",\"41300\",\"61001\",\"45025\",\"45175\",\"44039\",\"44040\",\"44060\",\"23220\",\"23223\",\"23225\",\"46261\",\"46263\",\"48901\",\"48908\",\"48909\",\"48912\",\"44024\",\"44029\",\"44030\",\"44031\",\"44032\",\"44033\",\"44036\",\"44037\",\"45172\",\"45173\",\"46118\",\"46119\",\"46531\",\"46534\",\"46538\",\"46565\",\"44075\",\"44076\",\"44077\",\"44078\",\"46097\",\"46098\",\"51046\",\"51201\",\"51202\",\"51203\",\"51204\",\"51205\",\"51208\",\"51209\",\"51210\",\"51211\",\"51212\",\"51213\",\"52202\",\"52211\",\"13002\",\"13008\",\"13009\",\"13010\",\"15001\",\"15002\",\"31001\",\"31002\",\"31003\",\"31004\",\"31005\",\"31006\",\"62121\",\"62124\",\"62125\",\"62126\",\"62127\",\"62130\",\"62144\",\"62145\",\"62146\",\"62147\",\"62148\",\"62149\",\"62165\",\"62166\",\"63105\",\"63110\",\"63112\",\"63113\",\"14041\",\"14043\",\"14047\",\"23001\",\"23003\",\"23004\",\"23008\",\"23009\",\"23010\",\"23011\",\"23012\",\"23013\",\"23016\",\"23017\",\"53005\",\"53006\",\"53009\",\"53040\",\"56053\",\"01506\",\"01507\",\"01518\",\"01537\",\"48904\",\"48907\",\"01521\",\"01522\",\"01523\",\"01524\",\"01526\",\"01531\",\"01535\",\"01536\",\"01538\",\"01909\",\"01910\",\"31201\",\"41112\",\"41113\",\"41114\",\"41116\",\"41118\",\"41120\",\"42084\",\"42091\",\"42094\",\"42099\",\"44088\",\"44094\",\"44099\",\"44100\",\"44172\",\"46114\",\"46211\",\"46212\",\"46215\",\"46216\",\"46217\",\"46218\",\"46219\",\"46220\",\"46223\",\"46224\",\"46225\",\"46226\",\"46227\",\"46228\",\"46231\",\"46232\",\"46234\",\"46235\",\"46236\",\"46237\",\"46240\",\"46241\",\"46242\",\"46243\",\"46244\",\"46245\",\"46249\",\"46250\",\"46251\",\"46253\",\"46254\",\"46256\",\"46262\",\"46267\",\"46268\",\"46269\",\"46273\",\"46274\",\"51200\",\"48212\",\"48213\",\"48214\",\"48677\",\"48678\",\"48679\",\"48680\",\"48911\",\"42044\",\"42045\",\"42046\",\"42047\",\"42048\",\"42049\",\"42078\",\"42079\",\"42093\",\"42095\",\"42097\",\"44056\",\"45180\",\"46259\",\"46266\",\"62028\",\"62029\",\"62030\",\"62050\",\"62081\",\"62103\",\"62108\",\"62163\",\"62170\",\"62298\",\"62301\",\"62303\",\"62442\",\"64045\",\"44098\",\"46121\",\"46122\",\"46123\",\"46124\",\"28902\",\"28903\",\"28904\",\"28906\",\"28907\",\"28908\",\"58900\",\"58902\",\"58903\",\"58904\",\"58905\",\"58906\",\"58909\",\"68900\",\"78900\",\"45014\",\"45184\",\"44053\",\"01517\",\"32012\",\"41060\",\"41061\",\"21D20\",\"32D12\",\"32D13\",\"41A46\",\"41S43\",\"41S46\",\"46B35\",\"ALSN6\",\"AMAA2\",\"AUGA2\",\"BLIA2\",\"BURL1\",\"BUSL1\",\"CDRF1\",\"CHLV2\",\"CLKN7\",\"CSBF1\",\"DBLN6\",\"DESW1\",\"DRFA2\",\"DRYF1\",\"DSLN7\",\"DUCN7\",\"EB01\",\"EB10\",\"EB33\",\"EB35\",\"EB36\",\"EB43\",\"EB52\",\"EB53\",\"EB70\",\"EB90\",\"EB91\",\"EB92\",\"FARP2\",\"FBIS1\",\"FPSN7\",\"FWYF1\",\"GBCL1\",\"GDIL1\",\"GLLN6\",\"IOSN3\",\"LONF1\",\"LPOI1\",\"MDRM1\",\"MISM1\",\"MLRF1\",\"MPCL1\",\"PILA2\",\"PILM4\",\"PLSF1\",\"POTA2\",\"PTAC1\",\"PTAT2\",\"SANF1\",\"SAUF1\",\"SBIO1\",\"SGNW3\",\"SGOF1\",\"SISW1\",\"SPGF1\",\"SRST2\",\"STDM4\",\"SUPN6\",\"SVLS1\",\"THIN6\",\"VENF1\",\"HBXC1\",\"MYXC1\",\"TDPC1\",\"FSTI2\",\"DMNO3\",\"GPTW1\",\"HMNO3\",\"PRTO3\",\"SEFO3\",\"SETO3\",\"SRAW1\",\"SRFW1\",\"TANO3\",\"ANMF1\",\"ARPF1\",\"BGCF1\",\"CAMF1\",\"CLBF1\",\"EGKF1\",\"NFBF1\",\"PTRF1\",\"SHPF1\",\"MBIN7\",\"MBNN7\",\"OCPN7\",\"BSCA1\",\"CRTA1\",\"DPHA1\",\"KATA1\",\"MBLA1\",\"MHPA1\",\"SACV4\",\"BBSF1\",\"BDVF1\",\"BKYF1\",\"BNKF1\",\"BOBF1\",\"BSKF1\",\"CNBF1\",\"CWAF1\",\"DKKF1\",\"GBIF1\",\"GBTF1\",\"GKYF1\",\"JBYF1\",\"JKYF1\",\"LBRF1\",\"LBSF1\",\"LMDF1\",\"LMRF1\",\"LSNF1\",\"MDKF1\",\"MNBF1\",\"MUKF1\",\"NRRF1\",\"PKYF1\",\"TCVF1\",\"THRF1\",\"TPEF1\",\"TRRF1\",\"WIWF1\",\"WPLF1\",\"APNM4\",\"CHII2\",\"MCYI3\",\"SRLM4\",\"SVNM4\",\"TBIM4\",\"THLO1\",\"LCIY2\",\"LLBP7\",\"FWIC3\",\"MISC3\",\"MISN6\",\"NCSC3\",\"NOSC3\",\"OFPN6\",\"ILDL1\",\"MRSL1\",\"SIPM6\",\"SLPL1\",\"LUML1\",\"TAML1\",\"AKXA2\",\"APMA2\",\"BEXA2\",\"CDXA2\",\"CPXA2\",\"DHXA2\",\"DPXA2\",\"ERXA2\",\"GBXA2\",\"GEXA2\",\"GIXA2\",\"GPXA2\",\"HMSA2\",\"ICYA2\",\"JLXA2\",\"JMLA2\",\"JNGA2\",\"KEXA2\",\"KNXA2\",\"KOZA2\",\"LIXA2\",\"MIXA2\",\"MRNA2\",\"MRYA2\",\"NKLA2\",\"NKXA2\",\"NLXA2\",\"NMXA2\",\"NSXA2\",\"PAUA2\",\"PEXA2\",\"PGXA2\",\"PPXA2\",\"PTLA2\",\"RIXA2\",\"SCXA2\",\"SIXA2\",\"SKXA2\",\"SLXA2\",\"SPXA2\",\"SRXA2\",\"STXA2\",\"SXXA2\",\"TKEA2\",\"TPXA2\",\"UQXA2\",\"VDXA2\",\"WCXA2\",\"MSG10\",\"MSG12\",\"ACQS1\",\"ACXS1\",\"ANMN6\",\"ANRN6\",\"APQF1\",\"APXA2\",\"BILW3\",\"BRIM2\",\"BSLM2\",\"BVQW1\",\"CHNO3\",\"CHQO3\",\"CWQT2\",\"DBQS1\",\"DEQD1\",\"DRSD1\",\"EAZC1\",\"EHSC1\",\"EVMC1\",\"FFFC1\",\"GBHM6\",\"GBQN3\",\"GBRM6\",\"GDQM6\",\"GGGC1\",\"GTQF1\",\"GTXF1\",\"HBMN6\",\"HMRA2\",\"HUQN6\",\"JCTN4\",\"JOBP4\",\"JOQP4\",\"JOXP4\",\"KCHA2\",\"LTQM2\",\"MIST2\",\"MQMT2\",\"MWQT2\",\"NAQR1\",\"NAXR1\",\"NIQS1\",\"NOXN7\",\"NPQN6\",\"NPXN6\",\"OWDO1\",\"OWQO1\",\"OWSO1\",\"PBLW1\",\"PKBW3\",\"RKQF1\",\"RKXF1\",\"RYEC1\",\"SAQG1\",\"SCQC1\",\"SCQN6\",\"SEQA2\",\"SFXC1\",\"SKQN6\",\"SLOO3\",\"TCSV2\",\"TIQC1\",\"TIXC1\",\"TKPN6\",\"WAQM3\",\"WAXM3\",\"WELM1\",\"WEQM1\",\"WEXM1\",\"WKQA1\",\"WKXA1\",\"WYBS1\",\"NLMA3\",\"SBBN2\",\"SLMN2\",\"BAXC1\",\"BDRN4\",\"BDSP1\",\"BGNN6\",\"BKBF1\",\"BLIF1\",\"BRND1\",\"CHCM2\",\"CHYV2\",\"COVM2\",\"CPMW1\",\"CPNW1\",\"CRYV2\",\"DELD1\",\"DMSF1\",\"DOMV2\",\"DPXC1\",\"EBEF1\",\"FMOA1\",\"FRVM3\",\"FRXM3\",\"FSKM2\",\"FSNM2\",\"GCTF1\",\"LNDC1\",\"LQAT2\",\"LTJF1\",\"MBPA1\",\"MCGA1\",\"MHBT2\",\"MRCP1\",\"MTBF1\",\"MZXC1\",\"NBLP1\",\"NFDF1\",\"NWHC3\",\"OMHC1\",\"OPTF1\",\"PDVR1\",\"PEGF1\",\"PFDC1\",\"PFXC1\",\"PPTM2\",\"PPXC1\",\"PRJC1\",\"PRUR1\",\"PSBC1\",\"PSXC1\",\"PTOA1\",\"PVDR1\",\"PXAC1\",\"PXOC1\",\"PXSC1\",\"QPTR1\",\"RPLV2\",\"RTYC1\",\"SEIM1\",\"SJSN4\",\"SKCF1\",\"SWPM4\",\"TCNW1\",\"TLVT2\",\"TPAF1\",\"TSHF1\",\"TXVT2\",\"UPBC1\",\"WDSV2\",\"ACYN4\",\"ADKA2\",\"AGCM4\",\"ALIA2\",\"ALXN6\",\"AMRL1\",\"APAM2\",\"APCF1\",\"APRP7\",\"ASTO3\",\"ATGM1\",\"ATKA2\",\"BEPB6\",\"BFTN7\",\"BHBM3\",\"BISM2\",\"BKTL1\",\"BLTM2\",\"BYGL1\",\"BZBM3\",\"CAMM2\",\"CAPL1\",\"CARL1\",\"CASM1\",\"CECC1\",\"CFWM1\",\"CHAO3\",\"CHAV3\",\"CHBV2\",\"CHSV3\",\"CHYW1\",\"CLBP4\",\"CMAN4\",\"CMTI2\",\"CNDO1\",\"CRVA2\",\"DILA1\",\"DKCM6\",\"DTLM4\",\"DUKN7\",\"DULM5\",\"EBSW1\",\"ERTF1\",\"ESPP4\",\"FAIO1\",\"FCGT2\",\"FMRF1\",\"FOXR1\",\"FPTT2\",\"FRCB6\",\"FRDF1\",\"FRDW1\",\"FREL1\",\"FRPS1\",\"FTPC1\",\"GBWW3\",\"GCVF1\",\"GDMM5\",\"GISL1\",\"GNJT2\",\"GTOT2\",\"GWPM6\",\"HBYC1\",\"HCGN7\",\"HLNM4\",\"HMDO3\",\"ICAC1\",\"IIWC1\",\"ILOH1\",\"ITKA2\",\"JMPN7\",\"JNEA2\",\"KECA2\",\"KGCA2\",\"KLIH1\",\"KPTN6\",\"KPTV2\",\"KWHH1\",\"KYWF1\",\"LABL1\",\"LAMV3\",\"LAPW1\",\"LCLL1\",\"LDTM4\",\"LOPW1\",\"LPNM4\",\"LTBV3\",\"LTRM4\",\"LWSD1\",\"LWTV2\",\"MBRM4\",\"MCGM4\",\"MCYF1\",\"MEYC1\",\"MGIP4\",\"MGZP4\",\"MOKH1\",\"MQTT2\",\"MRHO1\",\"MROS1\",\"MTKN6\",\"MTYC1\",\"NEAW1\",\"NIAN6\",\"NJLC1\",\"NKTA2\",\"NLNC3\",\"NMTA2\",\"NTBC1\",\"NTKM3\",\"NUET2\",\"NWCL1\",\"NWPR1\",\"NWWH1\",\"OCIM2\",\"OHBC1\",\"OLSA2\",\"OOUH1\",\"ORIN7\",\"OSGN6\",\"PCBF1\",\"PCLF1\",\"PCOC1\",\"PGBP7\",\"PHBP1\",\"PLXA2\",\"PNLM6\",\"PORO3\",\"PRDA2\",\"PRYC1\",\"PSBM1\",\"PSLC1\",\"PTAW1\",\"PTIM4\",\"PTIT2\",\"PTWW1\",\"RARM6\",\"RCKM4\",\"RCYF1\",\"RDDA2\",\"RDYD1\",\"SAPF1\",\"SBEO3\",\"SBLF1\",\"SDBC1\",\"SDHN4\",\"SHBL1\",\"SJNP4\",\"SKTA2\",\"SLIM2\",\"SNDP5\",\"SWLA2\",\"SWPV2\",\"TESL1\",\"THRO1\",\"TLBO3\",\"TRDF1\",\"TXPT2\",\"ULAM6\",\"ULRA2\",\"UNLA2\",\"VAKF1\",\"VDZA2\",\"WAHV2\",\"WAKP8\",\"WASD2\",\"WAVM6\",\"WLON7\",\"WPTW1\",\"WYCM6\",\"YATA2\",\"BLTA2\",\"CDEA2\",\"EROA2\",\"LCNA2\",\"PBPA2\",\"PRTA2\",\"SDIA2\",\"AGMW3\",\"BHRI3\",\"BIGM4\",\"BSBM4\",\"CBRW3\",\"CLSM4\",\"FPTM4\",\"GBLW3\",\"GRMM4\",\"GSLM4\",\"GTLM4\",\"GTRM4\",\"KP53\",\"KP58\",\"KP59\",\"LSCM4\",\"MEEM4\",\"NABM4\",\"PCLM4\",\"PNGW3\",\"PRIM4\",\"PSCM4\",\"PWAW3\",\"SBLM4\",\"SPTM4\",\"SXHW3\",\"SYWW3\",\"TAWM4\",\"WFPM4\",\"BARN6\",\"CBLO1\",\"CHDS1\",\"CMPO1\",\"GELO1\",\"HHLO1\",\"LORO1\",\"NREP1\",\"OLCN6\",\"RPRN6\",\"WATS1\",\"AUDP4\",\"FRDP4\",\"PLSP4\",\"VQSP4\",\"CGCL1\",\"SKMG1\",\"SPAG1\",\"AVAN4\",\"BRBN4\",\"OCGN4\",\"AWRT2\",\"BABT2\",\"BZST2\",\"CLLT2\",\"CPNT2\",\"EMAT2\",\"GRRT2\",\"HIST2\",\"IRDT2\",\"LUIT2\",\"LYBT2\",\"MGPT2\",\"NWST2\",\"PACT2\",\"PCGT2\",\"PCNT2\",\"PMNT2\",\"PORT2\",\"RSJT2\",\"RTAT2\",\"RTOT2\",\"SDRT2\",\"SGNT2\",\"TAQT2\",\"BTHD1\",\"FRFN7\",\"JPRN7\",\"18CI3\",\"20CM4\",\"GDIV2\",\"32ST0\",\"41NT0\"]\nbuoy_ids = ids\nbuoy_ids_with_cameras = [] # blank list to store buoy ids with cameras",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "ids",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "ids = [\"21414\",\"21415\",\"21416\",\"21417\",\"21418\",\"21419\",\"32301\",\"32302\",\"32411\",\"32412\",\"32413\",\"41001\",\"41002\",\"41003\",\"41004\",\"41007\",\"41008\",\"41009\",\"41010\",\"41011\",\"41012\",\"41016\",\"41017\",\"41018\",\"41021\",\"41022\",\"41023\",\"41036\",\"41040\",\"41041\",\"41043\",\"41044\",\"41046\",\"41049\",\"41420\",\"41421\",\"41424\",\"41425\",\"42001\",\"42002\",\"42003\",\"42004\",\"42007\",\"42008\",\"42009\",\"42010\",\"42011\",\"42012\",\"42017\",\"42018\",\"42019\",\"42020\",\"42025\",\"42035\",\"42038\",\"42039\",\"42040\",\"42041\",\"42042\",\"42053\",\"42056\",\"42057\",\"42058\",\"42059\",\"42060\",\"42065\",\"42408\",\"42409\",\"42429\",\"42501\",\"42503\",\"42534\",\"44001\",\"44003\",\"44004\",\"44005\",\"44006\",\"44007\",\"44010\",\"44011\",\"44012\",\"44013\",\"44014\",\"44015\",\"44019\",\"44020\",\"44023\",\"44025\",\"44026\",\"44027\",\"44066\",\"44070\",\"44071\",\"44401\",\"44402\",\"44403\",\"45002\",\"45003\",\"45004\",\"45005\",\"45006\",\"45007\",\"45010\",\"45011\",\"45012\",\"46001\",\"46002\",\"46003\",\"46007\",\"46008\",\"46009\",\"46010\",\"46011\",\"46012\",\"46015\",\"46016\",\"46017\",\"46018\",\"46019\",\"46020\",\"46023\",\"46024\",\"46025\",\"46026\",\"46027\",\"46028\",\"46031\",\"46032\",\"46033\",\"46034\",\"46035\",\"46037\",\"46040\",\"46041\",\"46042\",\"46043\",\"46045\",\"46047\",\"46051\",\"46053\",\"46054\",\"46059\",\"46060\",\"46061\",\"46066\",\"46069\",\"46070\",\"46071\",\"46072\",\"46073\",\"46077\",\"46078\",\"46079\",\"46080\",\"46081\",\"46082\",\"46085\",\"46086\",\"46087\",\"46088\",\"46089\",\"46090\",\"46107\",\"46115\",\"46270\",\"46290\",\"46401\",\"46402\",\"46405\",\"46406\",\"46407\",\"46408\",\"46409\",\"46410\",\"46413\",\"46414\",\"46415\",\"46416\",\"46419\",\"46490\",\"46779\",\"46780\",\"46781\",\"46782\",\"46785\",\"51000\",\"51001\",\"51002\",\"51003\",\"51004\",\"51005\",\"51028\",\"51100\",\"51101\",\"51406\",\"51407\",\"51425\",\"52009\",\"52401\",\"52402\",\"52403\",\"52404\",\"52405\",\"91204\",\"91222\",\"91251\",\"91328\",\"91338\",\"91343\",\"91356\",\"91365\",\"91374\",\"91377\",\"91411\",\"91442\",\"46265\",\"41670\",\"41852\",\"41904\",\"41933\",\"48916\",\"48917\",\"52838\",\"52839\",\"52840\",\"52841\",\"52842\",\"52843\",\"52862\",\"55012\",\"55013\",\"55015\",\"55016\",\"55023\",\"55042\",\"58952\",\"31052\",\"31053\",\"41052\",\"41053\",\"41056\",\"41058\",\"41115\",\"41121\",\"41030\",\"44042\",\"44043\",\"44057\",\"44058\",\"44059\",\"44061\",\"44064\",\"44068\",\"45016\",\"45017\",\"45018\",\"45019\",\"45177\",\"45202\",\"45203\",\"45204\",\"45205\",\"45206\",\"45207\",\"46116\",\"46117\",\"46127\",\"42014\",\"42021\",\"42022\",\"42023\",\"42024\",\"42026\",\"32404\",\"41029\",\"41033\",\"41037\",\"41038\",\"41064\",\"41065\",\"41110\",\"41119\",\"41159\",\"32488\",\"41193\",\"44138\",\"44139\",\"44140\",\"44141\",\"44142\",\"44150\",\"44176\",\"44235\",\"44251\",\"44255\",\"44258\",\"44488\",\"45132\",\"45135\",\"45136\",\"45137\",\"45138\",\"45139\",\"45142\",\"45143\",\"45144\",\"45145\",\"45147\",\"45148\",\"45151\",\"45152\",\"45154\",\"45155\",\"45158\",\"45159\",\"46036\",\"46131\",\"46132\",\"46084\",\"46134\",\"46138\",\"46139\",\"46147\",\"46181\",\"46183\",\"46184\",\"46185\",\"46204\",\"46207\",\"46208\",\"46303\",\"46304\",\"48021\",\"45162\",\"45163\",\"45195\",\"23219\",\"23227\",\"32067\",\"32068\",\"42087\",\"42088\",\"42089\",\"42090\",\"46109\",\"46110\",\"46111\",\"46112\",\"21346\",\"21347\",\"21348\",\"21595\",\"21597\",\"21598\",\"21637\",\"21640\",\"22102\",\"22103\",\"22104\",\"22105\",\"22106\",\"22107\",\"45029\",\"45164\",\"45165\",\"45168\",\"45169\",\"45176\",\"46091\",\"46092\",\"62091\",\"62092\",\"62093\",\"62094\",\"41097\",\"41098\",\"41100\",\"41101\",\"41300\",\"61001\",\"45025\",\"45175\",\"44039\",\"44040\",\"44060\",\"23220\",\"23223\",\"23225\",\"46261\",\"46263\",\"48901\",\"48908\",\"48909\",\"48912\",\"44024\",\"44029\",\"44030\",\"44031\",\"44032\",\"44033\",\"44036\",\"44037\",\"45172\",\"45173\",\"46118\",\"46119\",\"46531\",\"46534\",\"46538\",\"46565\",\"44075\",\"44076\",\"44077\",\"44078\",\"46097\",\"46098\",\"51046\",\"51201\",\"51202\",\"51203\",\"51204\",\"51205\",\"51208\",\"51209\",\"51210\",\"51211\",\"51212\",\"51213\",\"52202\",\"52211\",\"13002\",\"13008\",\"13009\",\"13010\",\"15001\",\"15002\",\"31001\",\"31002\",\"31003\",\"31004\",\"31005\",\"31006\",\"62121\",\"62124\",\"62125\",\"62126\",\"62127\",\"62130\",\"62144\",\"62145\",\"62146\",\"62147\",\"62148\",\"62149\",\"62165\",\"62166\",\"63105\",\"63110\",\"63112\",\"63113\",\"14041\",\"14043\",\"14047\",\"23001\",\"23003\",\"23004\",\"23008\",\"23009\",\"23010\",\"23011\",\"23012\",\"23013\",\"23016\",\"23017\",\"53005\",\"53006\",\"53009\",\"53040\",\"56053\",\"01506\",\"01507\",\"01518\",\"01537\",\"48904\",\"48907\",\"01521\",\"01522\",\"01523\",\"01524\",\"01526\",\"01531\",\"01535\",\"01536\",\"01538\",\"01909\",\"01910\",\"31201\",\"41112\",\"41113\",\"41114\",\"41116\",\"41118\",\"41120\",\"42084\",\"42091\",\"42094\",\"42099\",\"44088\",\"44094\",\"44099\",\"44100\",\"44172\",\"46114\",\"46211\",\"46212\",\"46215\",\"46216\",\"46217\",\"46218\",\"46219\",\"46220\",\"46223\",\"46224\",\"46225\",\"46226\",\"46227\",\"46228\",\"46231\",\"46232\",\"46234\",\"46235\",\"46236\",\"46237\",\"46240\",\"46241\",\"46242\",\"46243\",\"46244\",\"46245\",\"46249\",\"46250\",\"46251\",\"46253\",\"46254\",\"46256\",\"46262\",\"46267\",\"46268\",\"46269\",\"46273\",\"46274\",\"51200\",\"48212\",\"48213\",\"48214\",\"48677\",\"48678\",\"48679\",\"48680\",\"48911\",\"42044\",\"42045\",\"42046\",\"42047\",\"42048\",\"42049\",\"42078\",\"42079\",\"42093\",\"42095\",\"42097\",\"44056\",\"45180\",\"46259\",\"46266\",\"62028\",\"62029\",\"62030\",\"62050\",\"62081\",\"62103\",\"62108\",\"62163\",\"62170\",\"62298\",\"62301\",\"62303\",\"62442\",\"64045\",\"44098\",\"46121\",\"46122\",\"46123\",\"46124\",\"28902\",\"28903\",\"28904\",\"28906\",\"28907\",\"28908\",\"58900\",\"58902\",\"58903\",\"58904\",\"58905\",\"58906\",\"58909\",\"68900\",\"78900\",\"45014\",\"45184\",\"44053\",\"01517\",\"32012\",\"41060\",\"41061\",\"21D20\",\"32D12\",\"32D13\",\"41A46\",\"41S43\",\"41S46\",\"46B35\",\"ALSN6\",\"AMAA2\",\"AUGA2\",\"BLIA2\",\"BURL1\",\"BUSL1\",\"CDRF1\",\"CHLV2\",\"CLKN7\",\"CSBF1\",\"DBLN6\",\"DESW1\",\"DRFA2\",\"DRYF1\",\"DSLN7\",\"DUCN7\",\"EB01\",\"EB10\",\"EB33\",\"EB35\",\"EB36\",\"EB43\",\"EB52\",\"EB53\",\"EB70\",\"EB90\",\"EB91\",\"EB92\",\"FARP2\",\"FBIS1\",\"FPSN7\",\"FWYF1\",\"GBCL1\",\"GDIL1\",\"GLLN6\",\"IOSN3\",\"LONF1\",\"LPOI1\",\"MDRM1\",\"MISM1\",\"MLRF1\",\"MPCL1\",\"PILA2\",\"PILM4\",\"PLSF1\",\"POTA2\",\"PTAC1\",\"PTAT2\",\"SANF1\",\"SAUF1\",\"SBIO1\",\"SGNW3\",\"SGOF1\",\"SISW1\",\"SPGF1\",\"SRST2\",\"STDM4\",\"SUPN6\",\"SVLS1\",\"THIN6\",\"VENF1\",\"HBXC1\",\"MYXC1\",\"TDPC1\",\"FSTI2\",\"DMNO3\",\"GPTW1\",\"HMNO3\",\"PRTO3\",\"SEFO3\",\"SETO3\",\"SRAW1\",\"SRFW1\",\"TANO3\",\"ANMF1\",\"ARPF1\",\"BGCF1\",\"CAMF1\",\"CLBF1\",\"EGKF1\",\"NFBF1\",\"PTRF1\",\"SHPF1\",\"MBIN7\",\"MBNN7\",\"OCPN7\",\"BSCA1\",\"CRTA1\",\"DPHA1\",\"KATA1\",\"MBLA1\",\"MHPA1\",\"SACV4\",\"BBSF1\",\"BDVF1\",\"BKYF1\",\"BNKF1\",\"BOBF1\",\"BSKF1\",\"CNBF1\",\"CWAF1\",\"DKKF1\",\"GBIF1\",\"GBTF1\",\"GKYF1\",\"JBYF1\",\"JKYF1\",\"LBRF1\",\"LBSF1\",\"LMDF1\",\"LMRF1\",\"LSNF1\",\"MDKF1\",\"MNBF1\",\"MUKF1\",\"NRRF1\",\"PKYF1\",\"TCVF1\",\"THRF1\",\"TPEF1\",\"TRRF1\",\"WIWF1\",\"WPLF1\",\"APNM4\",\"CHII2\",\"MCYI3\",\"SRLM4\",\"SVNM4\",\"TBIM4\",\"THLO1\",\"LCIY2\",\"LLBP7\",\"FWIC3\",\"MISC3\",\"MISN6\",\"NCSC3\",\"NOSC3\",\"OFPN6\",\"ILDL1\",\"MRSL1\",\"SIPM6\",\"SLPL1\",\"LUML1\",\"TAML1\",\"AKXA2\",\"APMA2\",\"BEXA2\",\"CDXA2\",\"CPXA2\",\"DHXA2\",\"DPXA2\",\"ERXA2\",\"GBXA2\",\"GEXA2\",\"GIXA2\",\"GPXA2\",\"HMSA2\",\"ICYA2\",\"JLXA2\",\"JMLA2\",\"JNGA2\",\"KEXA2\",\"KNXA2\",\"KOZA2\",\"LIXA2\",\"MIXA2\",\"MRNA2\",\"MRYA2\",\"NKLA2\",\"NKXA2\",\"NLXA2\",\"NMXA2\",\"NSXA2\",\"PAUA2\",\"PEXA2\",\"PGXA2\",\"PPXA2\",\"PTLA2\",\"RIXA2\",\"SCXA2\",\"SIXA2\",\"SKXA2\",\"SLXA2\",\"SPXA2\",\"SRXA2\",\"STXA2\",\"SXXA2\",\"TKEA2\",\"TPXA2\",\"UQXA2\",\"VDXA2\",\"WCXA2\",\"MSG10\",\"MSG12\",\"ACQS1\",\"ACXS1\",\"ANMN6\",\"ANRN6\",\"APQF1\",\"APXA2\",\"BILW3\",\"BRIM2\",\"BSLM2\",\"BVQW1\",\"CHNO3\",\"CHQO3\",\"CWQT2\",\"DBQS1\",\"DEQD1\",\"DRSD1\",\"EAZC1\",\"EHSC1\",\"EVMC1\",\"FFFC1\",\"GBHM6\",\"GBQN3\",\"GBRM6\",\"GDQM6\",\"GGGC1\",\"GTQF1\",\"GTXF1\",\"HBMN6\",\"HMRA2\",\"HUQN6\",\"JCTN4\",\"JOBP4\",\"JOQP4\",\"JOXP4\",\"KCHA2\",\"LTQM2\",\"MIST2\",\"MQMT2\",\"MWQT2\",\"NAQR1\",\"NAXR1\",\"NIQS1\",\"NOXN7\",\"NPQN6\",\"NPXN6\",\"OWDO1\",\"OWQO1\",\"OWSO1\",\"PBLW1\",\"PKBW3\",\"RKQF1\",\"RKXF1\",\"RYEC1\",\"SAQG1\",\"SCQC1\",\"SCQN6\",\"SEQA2\",\"SFXC1\",\"SKQN6\",\"SLOO3\",\"TCSV2\",\"TIQC1\",\"TIXC1\",\"TKPN6\",\"WAQM3\",\"WAXM3\",\"WELM1\",\"WEQM1\",\"WEXM1\",\"WKQA1\",\"WKXA1\",\"WYBS1\",\"NLMA3\",\"SBBN2\",\"SLMN2\",\"BAXC1\",\"BDRN4\",\"BDSP1\",\"BGNN6\",\"BKBF1\",\"BLIF1\",\"BRND1\",\"CHCM2\",\"CHYV2\",\"COVM2\",\"CPMW1\",\"CPNW1\",\"CRYV2\",\"DELD1\",\"DMSF1\",\"DOMV2\",\"DPXC1\",\"EBEF1\",\"FMOA1\",\"FRVM3\",\"FRXM3\",\"FSKM2\",\"FSNM2\",\"GCTF1\",\"LNDC1\",\"LQAT2\",\"LTJF1\",\"MBPA1\",\"MCGA1\",\"MHBT2\",\"MRCP1\",\"MTBF1\",\"MZXC1\",\"NBLP1\",\"NFDF1\",\"NWHC3\",\"OMHC1\",\"OPTF1\",\"PDVR1\",\"PEGF1\",\"PFDC1\",\"PFXC1\",\"PPTM2\",\"PPXC1\",\"PRJC1\",\"PRUR1\",\"PSBC1\",\"PSXC1\",\"PTOA1\",\"PVDR1\",\"PXAC1\",\"PXOC1\",\"PXSC1\",\"QPTR1\",\"RPLV2\",\"RTYC1\",\"SEIM1\",\"SJSN4\",\"SKCF1\",\"SWPM4\",\"TCNW1\",\"TLVT2\",\"TPAF1\",\"TSHF1\",\"TXVT2\",\"UPBC1\",\"WDSV2\",\"ACYN4\",\"ADKA2\",\"AGCM4\",\"ALIA2\",\"ALXN6\",\"AMRL1\",\"APAM2\",\"APCF1\",\"APRP7\",\"ASTO3\",\"ATGM1\",\"ATKA2\",\"BEPB6\",\"BFTN7\",\"BHBM3\",\"BISM2\",\"BKTL1\",\"BLTM2\",\"BYGL1\",\"BZBM3\",\"CAMM2\",\"CAPL1\",\"CARL1\",\"CASM1\",\"CECC1\",\"CFWM1\",\"CHAO3\",\"CHAV3\",\"CHBV2\",\"CHSV3\",\"CHYW1\",\"CLBP4\",\"CMAN4\",\"CMTI2\",\"CNDO1\",\"CRVA2\",\"DILA1\",\"DKCM6\",\"DTLM4\",\"DUKN7\",\"DULM5\",\"EBSW1\",\"ERTF1\",\"ESPP4\",\"FAIO1\",\"FCGT2\",\"FMRF1\",\"FOXR1\",\"FPTT2\",\"FRCB6\",\"FRDF1\",\"FRDW1\",\"FREL1\",\"FRPS1\",\"FTPC1\",\"GBWW3\",\"GCVF1\",\"GDMM5\",\"GISL1\",\"GNJT2\",\"GTOT2\",\"GWPM6\",\"HBYC1\",\"HCGN7\",\"HLNM4\",\"HMDO3\",\"ICAC1\",\"IIWC1\",\"ILOH1\",\"ITKA2\",\"JMPN7\",\"JNEA2\",\"KECA2\",\"KGCA2\",\"KLIH1\",\"KPTN6\",\"KPTV2\",\"KWHH1\",\"KYWF1\",\"LABL1\",\"LAMV3\",\"LAPW1\",\"LCLL1\",\"LDTM4\",\"LOPW1\",\"LPNM4\",\"LTBV3\",\"LTRM4\",\"LWSD1\",\"LWTV2\",\"MBRM4\",\"MCGM4\",\"MCYF1\",\"MEYC1\",\"MGIP4\",\"MGZP4\",\"MOKH1\",\"MQTT2\",\"MRHO1\",\"MROS1\",\"MTKN6\",\"MTYC1\",\"NEAW1\",\"NIAN6\",\"NJLC1\",\"NKTA2\",\"NLNC3\",\"NMTA2\",\"NTBC1\",\"NTKM3\",\"NUET2\",\"NWCL1\",\"NWPR1\",\"NWWH1\",\"OCIM2\",\"OHBC1\",\"OLSA2\",\"OOUH1\",\"ORIN7\",\"OSGN6\",\"PCBF1\",\"PCLF1\",\"PCOC1\",\"PGBP7\",\"PHBP1\",\"PLXA2\",\"PNLM6\",\"PORO3\",\"PRDA2\",\"PRYC1\",\"PSBM1\",\"PSLC1\",\"PTAW1\",\"PTIM4\",\"PTIT2\",\"PTWW1\",\"RARM6\",\"RCKM4\",\"RCYF1\",\"RDDA2\",\"RDYD1\",\"SAPF1\",\"SBEO3\",\"SBLF1\",\"SDBC1\",\"SDHN4\",\"SHBL1\",\"SJNP4\",\"SKTA2\",\"SLIM2\",\"SNDP5\",\"SWLA2\",\"SWPV2\",\"TESL1\",\"THRO1\",\"TLBO3\",\"TRDF1\",\"TXPT2\",\"ULAM6\",\"ULRA2\",\"UNLA2\",\"VAKF1\",\"VDZA2\",\"WAHV2\",\"WAKP8\",\"WASD2\",\"WAVM6\",\"WLON7\",\"WPTW1\",\"WYCM6\",\"YATA2\",\"BLTA2\",\"CDEA2\",\"EROA2\",\"LCNA2\",\"PBPA2\",\"PRTA2\",\"SDIA2\",\"AGMW3\",\"BHRI3\",\"BIGM4\",\"BSBM4\",\"CBRW3\",\"CLSM4\",\"FPTM4\",\"GBLW3\",\"GRMM4\",\"GSLM4\",\"GTLM4\",\"GTRM4\",\"KP53\",\"KP58\",\"KP59\",\"LSCM4\",\"MEEM4\",\"NABM4\",\"PCLM4\",\"PNGW3\",\"PRIM4\",\"PSCM4\",\"PWAW3\",\"SBLM4\",\"SPTM4\",\"SXHW3\",\"SYWW3\",\"TAWM4\",\"WFPM4\",\"BARN6\",\"CBLO1\",\"CHDS1\",\"CMPO1\",\"GELO1\",\"HHLO1\",\"LORO1\",\"NREP1\",\"OLCN6\",\"RPRN6\",\"WATS1\",\"AUDP4\",\"FRDP4\",\"PLSP4\",\"VQSP4\",\"CGCL1\",\"SKMG1\",\"SPAG1\",\"AVAN4\",\"BRBN4\",\"OCGN4\",\"AWRT2\",\"BABT2\",\"BZST2\",\"CLLT2\",\"CPNT2\",\"EMAT2\",\"GRRT2\",\"HIST2\",\"IRDT2\",\"LUIT2\",\"LYBT2\",\"MGPT2\",\"NWST2\",\"PACT2\",\"PCGT2\",\"PCNT2\",\"PMNT2\",\"PORT2\",\"RSJT2\",\"RTAT2\",\"RTOT2\",\"SDRT2\",\"SGNT2\",\"TAQT2\",\"BTHD1\",\"FRFN7\",\"JPRN7\",\"18CI3\",\"20CM4\",\"GDIV2\",\"32ST0\",\"41NT0\"]\nbuoy_ids = ids\nbuoy_ids_with_cameras = [] # blank list to store buoy ids with cameras\n# %%\n# Loop through the buoy ids\nfor buoy_id in tqdm(buoy_ids):\n    # if the page text needs to be retrieved then do so, else pull from the text files\n    if not os.path.exists('data/buoy_pages/{}.txt'.format(buoy_id)):\n        # get the page text\n        time.sleep(1)",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_ids",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "buoy_ids = ids\nbuoy_ids_with_cameras = [] # blank list to store buoy ids with cameras\n# %%\n# Loop through the buoy ids\nfor buoy_id in tqdm(buoy_ids):\n    # if the page text needs to be retrieved then do so, else pull from the text files\n    if not os.path.exists('data/buoy_pages/{}.txt'.format(buoy_id)):\n        # get the page text\n        time.sleep(1)\n        page = requests.get('https://www.ndbc.noaa.gov/station_page.php?station={}'.format(buoy_id))",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_ids_with_cameras",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "buoy_ids_with_cameras = [] # blank list to store buoy ids with cameras\n# %%\n# Loop through the buoy ids\nfor buoy_id in tqdm(buoy_ids):\n    # if the page text needs to be retrieved then do so, else pull from the text files\n    if not os.path.exists('data/buoy_pages/{}.txt'.format(buoy_id)):\n        # get the page text\n        time.sleep(1)\n        page = requests.get('https://www.ndbc.noaa.gov/station_page.php?station={}'.format(buoy_id))\n        # write the page text to a file",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "cam_buoys",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "cam_buoys = [] # blank list to store buoy ids with cameras\n# %%\n# Purpose: parse the page text to get the camera urls and save them to a file. The page is parsed using BeautifulSoup and the camera urls are extracted using regular expressions.\n# only do this once to get the camera urls and save them to a file for later use\n# if the file does not exist then do so, else pull from the file\n#note: uncomment below if error but it takes forever.\n# if not os.path.exists('data/cam_buoys.txt'):\n#     # open each buoy page text file in data/buoy_pages and parse the page text\n#     for buoy_page in tqdm(os.listdir('data/buoy_pages')):\n#         with open('data/buoy_pages/{}'.format(buoy_page), 'r') as f:",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "#cam_buoys",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "#cam_buoys = pd.read_csv('data/buoys.csv') # read the cam_buoys from data/buoys.csv\n# %%\n# Purpose: get the camera urls from the buoy pages and save them to a file\n# open each buoy page text file in data/buoy_pages and parse the page text to get the camera urls\n# print(f'Found {len(cam_buoys)} buoys with functional cameras.')\n# # save them to the file data/buoys.csv\n# with open('data/buoys.csv', 'w+') as f:\n#     f.write(\"'buoy_id',\\n\") # could add lat and lng later\n#     for buoy_id in cam_buoys: # loop through the buoy ids with cameras\n#         f.write('{},\\n'.format(buoy_id)) # write the buoy id to the file",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "cam_urls",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "cam_urls = pd.read_csv('data/camera_urls.csv') # read the cam_buoys from data/buoys.csv\ncam_buoys = pd.read_csv('data/buoy_ids_with_cameras.txt') # read the cam_buoys from data/buoys.csv\n# %%\ndef panel_sorter():\n    # Go into each panel directory and sort the images into folders by the date in their filename (if they haven't already been sorted)\n    # example unsorted directory: 'images/panels/46078/2022_11_5_15_44_panel_1.png'\n    # example sorted directory: images/panels/51000/2022_11_5_15_44/panel_1.png\n    for buoy_id in os.listdir('images/panels'):\n        if buoy_id != '.DS_Store' and '.' not in buoy_id:\n            for image in os.listdir('images/panels/{}'.format(buoy_id)):",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "cam_buoys",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "cam_buoys = pd.read_csv('data/buoy_ids_with_cameras.txt') # read the cam_buoys from data/buoys.csv\n# %%\ndef panel_sorter():\n    # Go into each panel directory and sort the images into folders by the date in their filename (if they haven't already been sorted)\n    # example unsorted directory: 'images/panels/46078/2022_11_5_15_44_panel_1.png'\n    # example sorted directory: images/panels/51000/2022_11_5_15_44/panel_1.png\n    for buoy_id in os.listdir('images/panels'):\n        if buoy_id != '.DS_Store' and '.' not in buoy_id:\n            for image in os.listdir('images/panels/{}'.format(buoy_id)):\n                if image != '.DS_Store' and '.' not in image:",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_update_rates_dict",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "buoy_update_rates_dict = {} # blank dictionary to store the update rates for each buoy (i.e. how often the buoy takes a picture (measured in seconds))\n# fill the dictionary with blank update rate arrays for each buoy.\n# these arrays will be averaged to get the average update rate for each buoy in real time.\nfor buoy_id in cam_buoys:\n    buoy_update_rates_dict[buoy_id] = 1 # set the initial update rate to 600 seconds (10 minutes)\n# %%\ndef image_has_changed(image_one,image_two):\n    # looks for changes between two images and returns True if there are changes and False if there are not.\n    # this function is used to determine what rate the images are being updated for each buoy.\n    # if the images are not changing, then the buoy is not updating the images.",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_update_rates_dict",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "buoy_update_rates_dict = {'46025': [600, datetime.datetime.now()]}\nprint(check_for_updates(buoy_update_rates_dict)) # should return an empty list\n# wait 10 seconds\ntime.sleep(10)\nprint(check_for_updates(buoy_update_rates_dict)) # should return ['46025']\n# %%\n# import shutil\n# from difPy import dif\n# # go through each buoy and check if there are duplicated images in the images/buoys folder\n# for folder in os.listdir('images/buoys'):",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "iteration_counter",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "iteration_counter = 0\nvincent = Artist() # create an instance of the Artist class\n# %%\n# print('Starting the download loop')\n# last_time_fetched = time.time() # get the current time\n# first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\n# while True:\n#     try:\n#         # turn on at 4 am CST and turn off at 11 pm CST\n#         if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "vincent",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "vincent = Artist() # create an instance of the Artist class\n# %%\n# print('Starting the download loop')\n# last_time_fetched = time.time() # get the current time\n# first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\n# while True:\n#     try:\n#         # turn on at 4 am CST and turn off at 11 pm CST\n#         if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n#             # wait to turn on until 4 am CST",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "kind": 5,
+        "importPath": "cam_backend",
+        "description": "cam_backend",
+        "peekOfCode": "path = 'images/panels/46066/2022_11_5_15_45/2022_11_5_15_45_panel_1.png'\nprint(is_it_daytime(path))",
+        "detail": "cam_backend",
+        "documentation": {}
+    },
+    {
+        "label": "Artist",
+        "kind": 6,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "class Artist:\n    def __init__(self):\n        self.folder = 'images'\n    def make_panorama(self, images):\n        # this function will take a list of images and make a panorama out of them\n        # resize image\n        scale_percent = 70 # percent of original size\n        images = [cv2.resize(images[i], (int(images[i].shape[1]*scale_percent/100), int(images[i].shape[0]*scale_percent/100)), interpolation= cv2.INTER_AREA) for i in range(len(images))]\n        # create a list of the images\n        # print('Making a panorama...')",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "panel_sorter",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def panel_sorter():\n    # Go into each panel directory and sort the images into folders by the date in their filename (if they haven't already been sorted)\n    # example unsorted directory: 'images/panels/46078/2022_11_5_15_44_panel_1.png'\n    # example sorted directory: images/panels/51000/2022_11_5_15_44/panel_1.png\n    for buoy_id in os.listdir('images/panels'):\n        if buoy_id != '.DS_Store' and '.' not in buoy_id:\n            for image in os.listdir('images/panels/{}'.format(buoy_id)):\n                if image != '.DS_Store' and '.' not in image:\n                    try:\n                        # find the 2022_11_5_15_44 (#_#_#_#_#) part of the filename and make a new folder with that name.",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "divide_into_panels",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def divide_into_panels(buoy_id, image_file):\n    # divide the image into six panels, as dictated in the image processing pipeline for NOAA Buoy Cameras Comments above.\n    # read the image\n    img = cv2.imread(image_file)\n    # get the name of the image file\n    image_name = image_file.split('/')[-1]\n    # get the dimensions of the image\n    height, width, channels = img.shape\n    # Before dividing into panels, crop the image to remove 30 pixels from the bottom of the image.\n    # This is to remove the \"Buoy Camera\" text from the image.",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "is_it_daytime",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def is_it_daytime(image_path):\n    # This function will take an image path and return True if it is daytime and False if it is nighttime.\n    # The image path should be a string.\n    # The image path should be the path to the image that was used to create the panels.\n    # The image path should be in the format 'images/buoys/46025/2019_12_12_12_12.jpg'\n    # get the image\n    img = Image.open(image_path)\n    # get the image size\n    width, height = img.size\n    # get the pixel values for the center of the image",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "image_has_changed",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def image_has_changed(image_one,image_two):\n    # looks for changes between two images and returns True if there are changes and False if there are not.\n    # this function is used to determine what rate the images are being updated for each buoy.\n    # if the images are not changing, then the buoy is not updating the images.\n    # if the images are changing, then the buoy is updating the images.\n    try:\n        image_one = cv2.imread(image_one)\n        image_two = cv2.imread(image_two)\n        difference = cv2.subtract(image_one, image_two)\n        result = not np.any(difference)",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "artist_eval",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def artist_eval(image_path):\n    # get the image\n    img = Image.open(image_path)\n    # get the image size\n    width, height = img.size\n    # get the pixel values for the center of the image\n    pixel_values = img.getpixel((int(width/2), int(height/2)))\n    # get the pixel values for the top left corner of the image\n    upper_left = img.getpixel((0, 0))\n    # get the pixel values for the top right corner of the image",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "check_for_updates",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def check_for_updates(buoy_update_rates_dict):\n    # Check the buoy_update_rates_dict to see if any of the buoys satistfy the update rate requirements:\n    # Requirements: the current time minus the last time we downloaded an image for this buoy must be greater than the update rate for this buoy. If it is, then we will add the buoy id to the list of buoys that need to be updated and return it to the main function.\n    # If the buoy_update_rates_dict is empty, then we will return an empty list.\n    # If the buoy_update_rates_dict is not empty, then we will check the update rates for each buoy and return a list of the buoy ids that need to be updated.\n    if len(buoy_update_rates_dict) == 0:\n        return []\n    else:\n        buoys_to_update = []\n        for buoy_id in buoy_update_rates_dict:",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "get_latest_data",
+        "kind": 2,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "def get_latest_data():\n    url = \"https://www.ndbc.noaa.gov/data/latest_obs/latest_obs.txt\"\n    s=requests.get(url).content\n    # the table contains two rows that have header data. combine them into one row.\n    df = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\\s+')\n    df.columns = df.columns.str.strip()\n    # df = df.dropna(axis=1, how='all')\n    # df = df.dropna(axis=0, how='all')\n    # df = df.dropna(axis=0, how='any')\n    # df = df.reset_index(drop=True)",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "cam_buoys",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "cam_buoys = []\n# %%\n# Set up #logging file\n#logging.basicConfig(filename='cam_finder.log', level=#logging.INFO)\n# %% [markdown]\n# Stage One\n# %%\nids = [\"21414\",\"21415\",\"21416\",\"21417\",\"21418\",\"21419\",\"32301\",\"32302\",\"32411\",\"32412\",\"32413\",\"41001\",\"41002\",\"41003\",\"41004\",\"41007\",\"41008\",\"41009\",\"41010\",\"41011\",\"41012\",\"41016\",\"41017\",\"41018\",\"41021\",\"41022\",\"41023\",\"41036\",\"41040\",\"41041\",\"41043\",\"41044\",\"41046\",\"41049\",\"41420\",\"41421\",\"41424\",\"41425\",\"42001\",\"42002\",\"42003\",\"42004\",\"42007\",\"42008\",\"42009\",\"42010\",\"42011\",\"42012\",\"42017\",\"42018\",\"42019\",\"42020\",\"42025\",\"42035\",\"42038\",\"42039\",\"42040\",\"42041\",\"42042\",\"42053\",\"42056\",\"42057\",\"42058\",\"42059\",\"42060\",\"42065\",\"42408\",\"42409\",\"42429\",\"42501\",\"42503\",\"42534\",\"44001\",\"44003\",\"44004\",\"44005\",\"44006\",\"44007\",\"44010\",\"44011\",\"44012\",\"44013\",\"44014\",\"44015\",\"44019\",\"44020\",\"44023\",\"44025\",\"44026\",\"44027\",\"44066\",\"44070\",\"44071\",\"44401\",\"44402\",\"44403\",\"45002\",\"45003\",\"45004\",\"45005\",\"45006\",\"45007\",\"45010\",\"45011\",\"45012\",\"46001\",\"46002\",\"46003\",\"46007\",\"46008\",\"46009\",\"46010\",\"46011\",\"46012\",\"46015\",\"46016\",\"46017\",\"46018\",\"46019\",\"46020\",\"46023\",\"46024\",\"46025\",\"46026\",\"46027\",\"46028\",\"46031\",\"46032\",\"46033\",\"46034\",\"46035\",\"46037\",\"46040\",\"46041\",\"46042\",\"46043\",\"46045\",\"46047\",\"46051\",\"46053\",\"46054\",\"46059\",\"46060\",\"46061\",\"46066\",\"46069\",\"46070\",\"46071\",\"46072\",\"46073\",\"46077\",\"46078\",\"46079\",\"46080\",\"46081\",\"46082\",\"46085\",\"46086\",\"46087\",\"46088\",\"46089\",\"46090\",\"46107\",\"46115\",\"46270\",\"46290\",\"46401\",\"46402\",\"46405\",\"46406\",\"46407\",\"46408\",\"46409\",\"46410\",\"46413\",\"46414\",\"46415\",\"46416\",\"46419\",\"46490\",\"46779\",\"46780\",\"46781\",\"46782\",\"46785\",\"51000\",\"51001\",\"51002\",\"51003\",\"51004\",\"51005\",\"51028\",\"51100\",\"51101\",\"51406\",\"51407\",\"51425\",\"52009\",\"52401\",\"52402\",\"52403\",\"52404\",\"52405\",\"91204\",\"91222\",\"91251\",\"91328\",\"91338\",\"91343\",\"91356\",\"91365\",\"91374\",\"91377\",\"91411\",\"91442\",\"46265\",\"41670\",\"41852\",\"41904\",\"41933\",\"48916\",\"48917\",\"52838\",\"52839\",\"52840\",\"52841\",\"52842\",\"52843\",\"52862\",\"55012\",\"55013\",\"55015\",\"55016\",\"55023\",\"55042\",\"58952\",\"31052\",\"31053\",\"41052\",\"41053\",\"41056\",\"41058\",\"41115\",\"41121\",\"41030\",\"44042\",\"44043\",\"44057\",\"44058\",\"44059\",\"44061\",\"44064\",\"44068\",\"45016\",\"45017\",\"45018\",\"45019\",\"45177\",\"45202\",\"45203\",\"45204\",\"45205\",\"45206\",\"45207\",\"46116\",\"46117\",\"46127\",\"42014\",\"42021\",\"42022\",\"42023\",\"42024\",\"42026\",\"32404\",\"41029\",\"41033\",\"41037\",\"41038\",\"41064\",\"41065\",\"41110\",\"41119\",\"41159\",\"32488\",\"41193\",\"44138\",\"44139\",\"44140\",\"44141\",\"44142\",\"44150\",\"44176\",\"44235\",\"44251\",\"44255\",\"44258\",\"44488\",\"45132\",\"45135\",\"45136\",\"45137\",\"45138\",\"45139\",\"45142\",\"45143\",\"45144\",\"45145\",\"45147\",\"45148\",\"45151\",\"45152\",\"45154\",\"45155\",\"45158\",\"45159\",\"46036\",\"46131\",\"46132\",\"46084\",\"46134\",\"46138\",\"46139\",\"46147\",\"46181\",\"46183\",\"46184\",\"46185\",\"46204\",\"46207\",\"46208\",\"46303\",\"46304\",\"48021\",\"45162\",\"45163\",\"45195\",\"23219\",\"23227\",\"32067\",\"32068\",\"42087\",\"42088\",\"42089\",\"42090\",\"46109\",\"46110\",\"46111\",\"46112\",\"21346\",\"21347\",\"21348\",\"21595\",\"21597\",\"21598\",\"21637\",\"21640\",\"22102\",\"22103\",\"22104\",\"22105\",\"22106\",\"22107\",\"45029\",\"45164\",\"45165\",\"45168\",\"45169\",\"45176\",\"46091\",\"46092\",\"62091\",\"62092\",\"62093\",\"62094\",\"41097\",\"41098\",\"41100\",\"41101\",\"41300\",\"61001\",\"45025\",\"45175\",\"44039\",\"44040\",\"44060\",\"23220\",\"23223\",\"23225\",\"46261\",\"46263\",\"48901\",\"48908\",\"48909\",\"48912\",\"44024\",\"44029\",\"44030\",\"44031\",\"44032\",\"44033\",\"44036\",\"44037\",\"45172\",\"45173\",\"46118\",\"46119\",\"46531\",\"46534\",\"46538\",\"46565\",\"44075\",\"44076\",\"44077\",\"44078\",\"46097\",\"46098\",\"51046\",\"51201\",\"51202\",\"51203\",\"51204\",\"51205\",\"51208\",\"51209\",\"51210\",\"51211\",\"51212\",\"51213\",\"52202\",\"52211\",\"13002\",\"13008\",\"13009\",\"13010\",\"15001\",\"15002\",\"31001\",\"31002\",\"31003\",\"31004\",\"31005\",\"31006\",\"62121\",\"62124\",\"62125\",\"62126\",\"62127\",\"62130\",\"62144\",\"62145\",\"62146\",\"62147\",\"62148\",\"62149\",\"62165\",\"62166\",\"63105\",\"63110\",\"63112\",\"63113\",\"14041\",\"14043\",\"14047\",\"23001\",\"23003\",\"23004\",\"23008\",\"23009\",\"23010\",\"23011\",\"23012\",\"23013\",\"23016\",\"23017\",\"53005\",\"53006\",\"53009\",\"53040\",\"56053\",\"01506\",\"01507\",\"01518\",\"01537\",\"48904\",\"48907\",\"01521\",\"01522\",\"01523\",\"01524\",\"01526\",\"01531\",\"01535\",\"01536\",\"01538\",\"01909\",\"01910\",\"31201\",\"41112\",\"41113\",\"41114\",\"41116\",\"41118\",\"41120\",\"42084\",\"42091\",\"42094\",\"42099\",\"44088\",\"44094\",\"44099\",\"44100\",\"44172\",\"46114\",\"46211\",\"46212\",\"46215\",\"46216\",\"46217\",\"46218\",\"46219\",\"46220\",\"46223\",\"46224\",\"46225\",\"46226\",\"46227\",\"46228\",\"46231\",\"46232\",\"46234\",\"46235\",\"46236\",\"46237\",\"46240\",\"46241\",\"46242\",\"46243\",\"46244\",\"46245\",\"46249\",\"46250\",\"46251\",\"46253\",\"46254\",\"46256\",\"46262\",\"46267\",\"46268\",\"46269\",\"46273\",\"46274\",\"51200\",\"48212\",\"48213\",\"48214\",\"48677\",\"48678\",\"48679\",\"48680\",\"48911\",\"42044\",\"42045\",\"42046\",\"42047\",\"42048\",\"42049\",\"42078\",\"42079\",\"42093\",\"42095\",\"42097\",\"44056\",\"45180\",\"46259\",\"46266\",\"62028\",\"62029\",\"62030\",\"62050\",\"62081\",\"62103\",\"62108\",\"62163\",\"62170\",\"62298\",\"62301\",\"62303\",\"62442\",\"64045\",\"44098\",\"46121\",\"46122\",\"46123\",\"46124\",\"28902\",\"28903\",\"28904\",\"28906\",\"28907\",\"28908\",\"58900\",\"58902\",\"58903\",\"58904\",\"58905\",\"58906\",\"58909\",\"68900\",\"78900\",\"45014\",\"45184\",\"44053\",\"01517\",\"32012\",\"41060\",\"41061\",\"21D20\",\"32D12\",\"32D13\",\"41A46\",\"41S43\",\"41S46\",\"46B35\",\"ALSN6\",\"AMAA2\",\"AUGA2\",\"BLIA2\",\"BURL1\",\"BUSL1\",\"CDRF1\",\"CHLV2\",\"CLKN7\",\"CSBF1\",\"DBLN6\",\"DESW1\",\"DRFA2\",\"DRYF1\",\"DSLN7\",\"DUCN7\",\"EB01\",\"EB10\",\"EB33\",\"EB35\",\"EB36\",\"EB43\",\"EB52\",\"EB53\",\"EB70\",\"EB90\",\"EB91\",\"EB92\",\"FARP2\",\"FBIS1\",\"FPSN7\",\"FWYF1\",\"GBCL1\",\"GDIL1\",\"GLLN6\",\"IOSN3\",\"LONF1\",\"LPOI1\",\"MDRM1\",\"MISM1\",\"MLRF1\",\"MPCL1\",\"PILA2\",\"PILM4\",\"PLSF1\",\"POTA2\",\"PTAC1\",\"PTAT2\",\"SANF1\",\"SAUF1\",\"SBIO1\",\"SGNW3\",\"SGOF1\",\"SISW1\",\"SPGF1\",\"SRST2\",\"STDM4\",\"SUPN6\",\"SVLS1\",\"THIN6\",\"VENF1\",\"HBXC1\",\"MYXC1\",\"TDPC1\",\"FSTI2\",\"DMNO3\",\"GPTW1\",\"HMNO3\",\"PRTO3\",\"SEFO3\",\"SETO3\",\"SRAW1\",\"SRFW1\",\"TANO3\",\"ANMF1\",\"ARPF1\",\"BGCF1\",\"CAMF1\",\"CLBF1\",\"EGKF1\",\"NFBF1\",\"PTRF1\",\"SHPF1\",\"MBIN7\",\"MBNN7\",\"OCPN7\",\"BSCA1\",\"CRTA1\",\"DPHA1\",\"KATA1\",\"MBLA1\",\"MHPA1\",\"SACV4\",\"BBSF1\",\"BDVF1\",\"BKYF1\",\"BNKF1\",\"BOBF1\",\"BSKF1\",\"CNBF1\",\"CWAF1\",\"DKKF1\",\"GBIF1\",\"GBTF1\",\"GKYF1\",\"JBYF1\",\"JKYF1\",\"LBRF1\",\"LBSF1\",\"LMDF1\",\"LMRF1\",\"LSNF1\",\"MDKF1\",\"MNBF1\",\"MUKF1\",\"NRRF1\",\"PKYF1\",\"TCVF1\",\"THRF1\",\"TPEF1\",\"TRRF1\",\"WIWF1\",\"WPLF1\",\"APNM4\",\"CHII2\",\"MCYI3\",\"SRLM4\",\"SVNM4\",\"TBIM4\",\"THLO1\",\"LCIY2\",\"LLBP7\",\"FWIC3\",\"MISC3\",\"MISN6\",\"NCSC3\",\"NOSC3\",\"OFPN6\",\"ILDL1\",\"MRSL1\",\"SIPM6\",\"SLPL1\",\"LUML1\",\"TAML1\",\"AKXA2\",\"APMA2\",\"BEXA2\",\"CDXA2\",\"CPXA2\",\"DHXA2\",\"DPXA2\",\"ERXA2\",\"GBXA2\",\"GEXA2\",\"GIXA2\",\"GPXA2\",\"HMSA2\",\"ICYA2\",\"JLXA2\",\"JMLA2\",\"JNGA2\",\"KEXA2\",\"KNXA2\",\"KOZA2\",\"LIXA2\",\"MIXA2\",\"MRNA2\",\"MRYA2\",\"NKLA2\",\"NKXA2\",\"NLXA2\",\"NMXA2\",\"NSXA2\",\"PAUA2\",\"PEXA2\",\"PGXA2\",\"PPXA2\",\"PTLA2\",\"RIXA2\",\"SCXA2\",\"SIXA2\",\"SKXA2\",\"SLXA2\",\"SPXA2\",\"SRXA2\",\"STXA2\",\"SXXA2\",\"TKEA2\",\"TPXA2\",\"UQXA2\",\"VDXA2\",\"WCXA2\",\"MSG10\",\"MSG12\",\"ACQS1\",\"ACXS1\",\"ANMN6\",\"ANRN6\",\"APQF1\",\"APXA2\",\"BILW3\",\"BRIM2\",\"BSLM2\",\"BVQW1\",\"CHNO3\",\"CHQO3\",\"CWQT2\",\"DBQS1\",\"DEQD1\",\"DRSD1\",\"EAZC1\",\"EHSC1\",\"EVMC1\",\"FFFC1\",\"GBHM6\",\"GBQN3\",\"GBRM6\",\"GDQM6\",\"GGGC1\",\"GTQF1\",\"GTXF1\",\"HBMN6\",\"HMRA2\",\"HUQN6\",\"JCTN4\",\"JOBP4\",\"JOQP4\",\"JOXP4\",\"KCHA2\",\"LTQM2\",\"MIST2\",\"MQMT2\",\"MWQT2\",\"NAQR1\",\"NAXR1\",\"NIQS1\",\"NOXN7\",\"NPQN6\",\"NPXN6\",\"OWDO1\",\"OWQO1\",\"OWSO1\",\"PBLW1\",\"PKBW3\",\"RKQF1\",\"RKXF1\",\"RYEC1\",\"SAQG1\",\"SCQC1\",\"SCQN6\",\"SEQA2\",\"SFXC1\",\"SKQN6\",\"SLOO3\",\"TCSV2\",\"TIQC1\",\"TIXC1\",\"TKPN6\",\"WAQM3\",\"WAXM3\",\"WELM1\",\"WEQM1\",\"WEXM1\",\"WKQA1\",\"WKXA1\",\"WYBS1\",\"NLMA3\",\"SBBN2\",\"SLMN2\",\"BAXC1\",\"BDRN4\",\"BDSP1\",\"BGNN6\",\"BKBF1\",\"BLIF1\",\"BRND1\",\"CHCM2\",\"CHYV2\",\"COVM2\",\"CPMW1\",\"CPNW1\",\"CRYV2\",\"DELD1\",\"DMSF1\",\"DOMV2\",\"DPXC1\",\"EBEF1\",\"FMOA1\",\"FRVM3\",\"FRXM3\",\"FSKM2\",\"FSNM2\",\"GCTF1\",\"LNDC1\",\"LQAT2\",\"LTJF1\",\"MBPA1\",\"MCGA1\",\"MHBT2\",\"MRCP1\",\"MTBF1\",\"MZXC1\",\"NBLP1\",\"NFDF1\",\"NWHC3\",\"OMHC1\",\"OPTF1\",\"PDVR1\",\"PEGF1\",\"PFDC1\",\"PFXC1\",\"PPTM2\",\"PPXC1\",\"PRJC1\",\"PRUR1\",\"PSBC1\",\"PSXC1\",\"PTOA1\",\"PVDR1\",\"PXAC1\",\"PXOC1\",\"PXSC1\",\"QPTR1\",\"RPLV2\",\"RTYC1\",\"SEIM1\",\"SJSN4\",\"SKCF1\",\"SWPM4\",\"TCNW1\",\"TLVT2\",\"TPAF1\",\"TSHF1\",\"TXVT2\",\"UPBC1\",\"WDSV2\",\"ACYN4\",\"ADKA2\",\"AGCM4\",\"ALIA2\",\"ALXN6\",\"AMRL1\",\"APAM2\",\"APCF1\",\"APRP7\",\"ASTO3\",\"ATGM1\",\"ATKA2\",\"BEPB6\",\"BFTN7\",\"BHBM3\",\"BISM2\",\"BKTL1\",\"BLTM2\",\"BYGL1\",\"BZBM3\",\"CAMM2\",\"CAPL1\",\"CARL1\",\"CASM1\",\"CECC1\",\"CFWM1\",\"CHAO3\",\"CHAV3\",\"CHBV2\",\"CHSV3\",\"CHYW1\",\"CLBP4\",\"CMAN4\",\"CMTI2\",\"CNDO1\",\"CRVA2\",\"DILA1\",\"DKCM6\",\"DTLM4\",\"DUKN7\",\"DULM5\",\"EBSW1\",\"ERTF1\",\"ESPP4\",\"FAIO1\",\"FCGT2\",\"FMRF1\",\"FOXR1\",\"FPTT2\",\"FRCB6\",\"FRDF1\",\"FRDW1\",\"FREL1\",\"FRPS1\",\"FTPC1\",\"GBWW3\",\"GCVF1\",\"GDMM5\",\"GISL1\",\"GNJT2\",\"GTOT2\",\"GWPM6\",\"HBYC1\",\"HCGN7\",\"HLNM4\",\"HMDO3\",\"ICAC1\",\"IIWC1\",\"ILOH1\",\"ITKA2\",\"JMPN7\",\"JNEA2\",\"KECA2\",\"KGCA2\",\"KLIH1\",\"KPTN6\",\"KPTV2\",\"KWHH1\",\"KYWF1\",\"LABL1\",\"LAMV3\",\"LAPW1\",\"LCLL1\",\"LDTM4\",\"LOPW1\",\"LPNM4\",\"LTBV3\",\"LTRM4\",\"LWSD1\",\"LWTV2\",\"MBRM4\",\"MCGM4\",\"MCYF1\",\"MEYC1\",\"MGIP4\",\"MGZP4\",\"MOKH1\",\"MQTT2\",\"MRHO1\",\"MROS1\",\"MTKN6\",\"MTYC1\",\"NEAW1\",\"NIAN6\",\"NJLC1\",\"NKTA2\",\"NLNC3\",\"NMTA2\",\"NTBC1\",\"NTKM3\",\"NUET2\",\"NWCL1\",\"NWPR1\",\"NWWH1\",\"OCIM2\",\"OHBC1\",\"OLSA2\",\"OOUH1\",\"ORIN7\",\"OSGN6\",\"PCBF1\",\"PCLF1\",\"PCOC1\",\"PGBP7\",\"PHBP1\",\"PLXA2\",\"PNLM6\",\"PORO3\",\"PRDA2\",\"PRYC1\",\"PSBM1\",\"PSLC1\",\"PTAW1\",\"PTIM4\",\"PTIT2\",\"PTWW1\",\"RARM6\",\"RCKM4\",\"RCYF1\",\"RDDA2\",\"RDYD1\",\"SAPF1\",\"SBEO3\",\"SBLF1\",\"SDBC1\",\"SDHN4\",\"SHBL1\",\"SJNP4\",\"SKTA2\",\"SLIM2\",\"SNDP5\",\"SWLA2\",\"SWPV2\",\"TESL1\",\"THRO1\",\"TLBO3\",\"TRDF1\",\"TXPT2\",\"ULAM6\",\"ULRA2\",\"UNLA2\",\"VAKF1\",\"VDZA2\",\"WAHV2\",\"WAKP8\",\"WASD2\",\"WAVM6\",\"WLON7\",\"WPTW1\",\"WYCM6\",\"YATA2\",\"BLTA2\",\"CDEA2\",\"EROA2\",\"LCNA2\",\"PBPA2\",\"PRTA2\",\"SDIA2\",\"AGMW3\",\"BHRI3\",\"BIGM4\",\"BSBM4\",\"CBRW3\",\"CLSM4\",\"FPTM4\",\"GBLW3\",\"GRMM4\",\"GSLM4\",\"GTLM4\",\"GTRM4\",\"KP53\",\"KP58\",\"KP59\",\"LSCM4\",\"MEEM4\",\"NABM4\",\"PCLM4\",\"PNGW3\",\"PRIM4\",\"PSCM4\",\"PWAW3\",\"SBLM4\",\"SPTM4\",\"SXHW3\",\"SYWW3\",\"TAWM4\",\"WFPM4\",\"BARN6\",\"CBLO1\",\"CHDS1\",\"CMPO1\",\"GELO1\",\"HHLO1\",\"LORO1\",\"NREP1\",\"OLCN6\",\"RPRN6\",\"WATS1\",\"AUDP4\",\"FRDP4\",\"PLSP4\",\"VQSP4\",\"CGCL1\",\"SKMG1\",\"SPAG1\",\"AVAN4\",\"BRBN4\",\"OCGN4\",\"AWRT2\",\"BABT2\",\"BZST2\",\"CLLT2\",\"CPNT2\",\"EMAT2\",\"GRRT2\",\"HIST2\",\"IRDT2\",\"LUIT2\",\"LYBT2\",\"MGPT2\",\"NWST2\",\"PACT2\",\"PCGT2\",\"PCNT2\",\"PMNT2\",\"PORT2\",\"RSJT2\",\"RTAT2\",\"RTOT2\",\"SDRT2\",\"SGNT2\",\"TAQT2\",\"BTHD1\",\"FRFN7\",\"JPRN7\",\"18CI3\",\"20CM4\",\"GDIV2\",\"32ST0\",\"41NT0\"]\nbuoy_ids = ids\nbuoy_ids_with_cameras = [] # blank list to store buoy ids with cameras",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "ids",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "ids = [\"21414\",\"21415\",\"21416\",\"21417\",\"21418\",\"21419\",\"32301\",\"32302\",\"32411\",\"32412\",\"32413\",\"41001\",\"41002\",\"41003\",\"41004\",\"41007\",\"41008\",\"41009\",\"41010\",\"41011\",\"41012\",\"41016\",\"41017\",\"41018\",\"41021\",\"41022\",\"41023\",\"41036\",\"41040\",\"41041\",\"41043\",\"41044\",\"41046\",\"41049\",\"41420\",\"41421\",\"41424\",\"41425\",\"42001\",\"42002\",\"42003\",\"42004\",\"42007\",\"42008\",\"42009\",\"42010\",\"42011\",\"42012\",\"42017\",\"42018\",\"42019\",\"42020\",\"42025\",\"42035\",\"42038\",\"42039\",\"42040\",\"42041\",\"42042\",\"42053\",\"42056\",\"42057\",\"42058\",\"42059\",\"42060\",\"42065\",\"42408\",\"42409\",\"42429\",\"42501\",\"42503\",\"42534\",\"44001\",\"44003\",\"44004\",\"44005\",\"44006\",\"44007\",\"44010\",\"44011\",\"44012\",\"44013\",\"44014\",\"44015\",\"44019\",\"44020\",\"44023\",\"44025\",\"44026\",\"44027\",\"44066\",\"44070\",\"44071\",\"44401\",\"44402\",\"44403\",\"45002\",\"45003\",\"45004\",\"45005\",\"45006\",\"45007\",\"45010\",\"45011\",\"45012\",\"46001\",\"46002\",\"46003\",\"46007\",\"46008\",\"46009\",\"46010\",\"46011\",\"46012\",\"46015\",\"46016\",\"46017\",\"46018\",\"46019\",\"46020\",\"46023\",\"46024\",\"46025\",\"46026\",\"46027\",\"46028\",\"46031\",\"46032\",\"46033\",\"46034\",\"46035\",\"46037\",\"46040\",\"46041\",\"46042\",\"46043\",\"46045\",\"46047\",\"46051\",\"46053\",\"46054\",\"46059\",\"46060\",\"46061\",\"46066\",\"46069\",\"46070\",\"46071\",\"46072\",\"46073\",\"46077\",\"46078\",\"46079\",\"46080\",\"46081\",\"46082\",\"46085\",\"46086\",\"46087\",\"46088\",\"46089\",\"46090\",\"46107\",\"46115\",\"46270\",\"46290\",\"46401\",\"46402\",\"46405\",\"46406\",\"46407\",\"46408\",\"46409\",\"46410\",\"46413\",\"46414\",\"46415\",\"46416\",\"46419\",\"46490\",\"46779\",\"46780\",\"46781\",\"46782\",\"46785\",\"51000\",\"51001\",\"51002\",\"51003\",\"51004\",\"51005\",\"51028\",\"51100\",\"51101\",\"51406\",\"51407\",\"51425\",\"52009\",\"52401\",\"52402\",\"52403\",\"52404\",\"52405\",\"91204\",\"91222\",\"91251\",\"91328\",\"91338\",\"91343\",\"91356\",\"91365\",\"91374\",\"91377\",\"91411\",\"91442\",\"46265\",\"41670\",\"41852\",\"41904\",\"41933\",\"48916\",\"48917\",\"52838\",\"52839\",\"52840\",\"52841\",\"52842\",\"52843\",\"52862\",\"55012\",\"55013\",\"55015\",\"55016\",\"55023\",\"55042\",\"58952\",\"31052\",\"31053\",\"41052\",\"41053\",\"41056\",\"41058\",\"41115\",\"41121\",\"41030\",\"44042\",\"44043\",\"44057\",\"44058\",\"44059\",\"44061\",\"44064\",\"44068\",\"45016\",\"45017\",\"45018\",\"45019\",\"45177\",\"45202\",\"45203\",\"45204\",\"45205\",\"45206\",\"45207\",\"46116\",\"46117\",\"46127\",\"42014\",\"42021\",\"42022\",\"42023\",\"42024\",\"42026\",\"32404\",\"41029\",\"41033\",\"41037\",\"41038\",\"41064\",\"41065\",\"41110\",\"41119\",\"41159\",\"32488\",\"41193\",\"44138\",\"44139\",\"44140\",\"44141\",\"44142\",\"44150\",\"44176\",\"44235\",\"44251\",\"44255\",\"44258\",\"44488\",\"45132\",\"45135\",\"45136\",\"45137\",\"45138\",\"45139\",\"45142\",\"45143\",\"45144\",\"45145\",\"45147\",\"45148\",\"45151\",\"45152\",\"45154\",\"45155\",\"45158\",\"45159\",\"46036\",\"46131\",\"46132\",\"46084\",\"46134\",\"46138\",\"46139\",\"46147\",\"46181\",\"46183\",\"46184\",\"46185\",\"46204\",\"46207\",\"46208\",\"46303\",\"46304\",\"48021\",\"45162\",\"45163\",\"45195\",\"23219\",\"23227\",\"32067\",\"32068\",\"42087\",\"42088\",\"42089\",\"42090\",\"46109\",\"46110\",\"46111\",\"46112\",\"21346\",\"21347\",\"21348\",\"21595\",\"21597\",\"21598\",\"21637\",\"21640\",\"22102\",\"22103\",\"22104\",\"22105\",\"22106\",\"22107\",\"45029\",\"45164\",\"45165\",\"45168\",\"45169\",\"45176\",\"46091\",\"46092\",\"62091\",\"62092\",\"62093\",\"62094\",\"41097\",\"41098\",\"41100\",\"41101\",\"41300\",\"61001\",\"45025\",\"45175\",\"44039\",\"44040\",\"44060\",\"23220\",\"23223\",\"23225\",\"46261\",\"46263\",\"48901\",\"48908\",\"48909\",\"48912\",\"44024\",\"44029\",\"44030\",\"44031\",\"44032\",\"44033\",\"44036\",\"44037\",\"45172\",\"45173\",\"46118\",\"46119\",\"46531\",\"46534\",\"46538\",\"46565\",\"44075\",\"44076\",\"44077\",\"44078\",\"46097\",\"46098\",\"51046\",\"51201\",\"51202\",\"51203\",\"51204\",\"51205\",\"51208\",\"51209\",\"51210\",\"51211\",\"51212\",\"51213\",\"52202\",\"52211\",\"13002\",\"13008\",\"13009\",\"13010\",\"15001\",\"15002\",\"31001\",\"31002\",\"31003\",\"31004\",\"31005\",\"31006\",\"62121\",\"62124\",\"62125\",\"62126\",\"62127\",\"62130\",\"62144\",\"62145\",\"62146\",\"62147\",\"62148\",\"62149\",\"62165\",\"62166\",\"63105\",\"63110\",\"63112\",\"63113\",\"14041\",\"14043\",\"14047\",\"23001\",\"23003\",\"23004\",\"23008\",\"23009\",\"23010\",\"23011\",\"23012\",\"23013\",\"23016\",\"23017\",\"53005\",\"53006\",\"53009\",\"53040\",\"56053\",\"01506\",\"01507\",\"01518\",\"01537\",\"48904\",\"48907\",\"01521\",\"01522\",\"01523\",\"01524\",\"01526\",\"01531\",\"01535\",\"01536\",\"01538\",\"01909\",\"01910\",\"31201\",\"41112\",\"41113\",\"41114\",\"41116\",\"41118\",\"41120\",\"42084\",\"42091\",\"42094\",\"42099\",\"44088\",\"44094\",\"44099\",\"44100\",\"44172\",\"46114\",\"46211\",\"46212\",\"46215\",\"46216\",\"46217\",\"46218\",\"46219\",\"46220\",\"46223\",\"46224\",\"46225\",\"46226\",\"46227\",\"46228\",\"46231\",\"46232\",\"46234\",\"46235\",\"46236\",\"46237\",\"46240\",\"46241\",\"46242\",\"46243\",\"46244\",\"46245\",\"46249\",\"46250\",\"46251\",\"46253\",\"46254\",\"46256\",\"46262\",\"46267\",\"46268\",\"46269\",\"46273\",\"46274\",\"51200\",\"48212\",\"48213\",\"48214\",\"48677\",\"48678\",\"48679\",\"48680\",\"48911\",\"42044\",\"42045\",\"42046\",\"42047\",\"42048\",\"42049\",\"42078\",\"42079\",\"42093\",\"42095\",\"42097\",\"44056\",\"45180\",\"46259\",\"46266\",\"62028\",\"62029\",\"62030\",\"62050\",\"62081\",\"62103\",\"62108\",\"62163\",\"62170\",\"62298\",\"62301\",\"62303\",\"62442\",\"64045\",\"44098\",\"46121\",\"46122\",\"46123\",\"46124\",\"28902\",\"28903\",\"28904\",\"28906\",\"28907\",\"28908\",\"58900\",\"58902\",\"58903\",\"58904\",\"58905\",\"58906\",\"58909\",\"68900\",\"78900\",\"45014\",\"45184\",\"44053\",\"01517\",\"32012\",\"41060\",\"41061\",\"21D20\",\"32D12\",\"32D13\",\"41A46\",\"41S43\",\"41S46\",\"46B35\",\"ALSN6\",\"AMAA2\",\"AUGA2\",\"BLIA2\",\"BURL1\",\"BUSL1\",\"CDRF1\",\"CHLV2\",\"CLKN7\",\"CSBF1\",\"DBLN6\",\"DESW1\",\"DRFA2\",\"DRYF1\",\"DSLN7\",\"DUCN7\",\"EB01\",\"EB10\",\"EB33\",\"EB35\",\"EB36\",\"EB43\",\"EB52\",\"EB53\",\"EB70\",\"EB90\",\"EB91\",\"EB92\",\"FARP2\",\"FBIS1\",\"FPSN7\",\"FWYF1\",\"GBCL1\",\"GDIL1\",\"GLLN6\",\"IOSN3\",\"LONF1\",\"LPOI1\",\"MDRM1\",\"MISM1\",\"MLRF1\",\"MPCL1\",\"PILA2\",\"PILM4\",\"PLSF1\",\"POTA2\",\"PTAC1\",\"PTAT2\",\"SANF1\",\"SAUF1\",\"SBIO1\",\"SGNW3\",\"SGOF1\",\"SISW1\",\"SPGF1\",\"SRST2\",\"STDM4\",\"SUPN6\",\"SVLS1\",\"THIN6\",\"VENF1\",\"HBXC1\",\"MYXC1\",\"TDPC1\",\"FSTI2\",\"DMNO3\",\"GPTW1\",\"HMNO3\",\"PRTO3\",\"SEFO3\",\"SETO3\",\"SRAW1\",\"SRFW1\",\"TANO3\",\"ANMF1\",\"ARPF1\",\"BGCF1\",\"CAMF1\",\"CLBF1\",\"EGKF1\",\"NFBF1\",\"PTRF1\",\"SHPF1\",\"MBIN7\",\"MBNN7\",\"OCPN7\",\"BSCA1\",\"CRTA1\",\"DPHA1\",\"KATA1\",\"MBLA1\",\"MHPA1\",\"SACV4\",\"BBSF1\",\"BDVF1\",\"BKYF1\",\"BNKF1\",\"BOBF1\",\"BSKF1\",\"CNBF1\",\"CWAF1\",\"DKKF1\",\"GBIF1\",\"GBTF1\",\"GKYF1\",\"JBYF1\",\"JKYF1\",\"LBRF1\",\"LBSF1\",\"LMDF1\",\"LMRF1\",\"LSNF1\",\"MDKF1\",\"MNBF1\",\"MUKF1\",\"NRRF1\",\"PKYF1\",\"TCVF1\",\"THRF1\",\"TPEF1\",\"TRRF1\",\"WIWF1\",\"WPLF1\",\"APNM4\",\"CHII2\",\"MCYI3\",\"SRLM4\",\"SVNM4\",\"TBIM4\",\"THLO1\",\"LCIY2\",\"LLBP7\",\"FWIC3\",\"MISC3\",\"MISN6\",\"NCSC3\",\"NOSC3\",\"OFPN6\",\"ILDL1\",\"MRSL1\",\"SIPM6\",\"SLPL1\",\"LUML1\",\"TAML1\",\"AKXA2\",\"APMA2\",\"BEXA2\",\"CDXA2\",\"CPXA2\",\"DHXA2\",\"DPXA2\",\"ERXA2\",\"GBXA2\",\"GEXA2\",\"GIXA2\",\"GPXA2\",\"HMSA2\",\"ICYA2\",\"JLXA2\",\"JMLA2\",\"JNGA2\",\"KEXA2\",\"KNXA2\",\"KOZA2\",\"LIXA2\",\"MIXA2\",\"MRNA2\",\"MRYA2\",\"NKLA2\",\"NKXA2\",\"NLXA2\",\"NMXA2\",\"NSXA2\",\"PAUA2\",\"PEXA2\",\"PGXA2\",\"PPXA2\",\"PTLA2\",\"RIXA2\",\"SCXA2\",\"SIXA2\",\"SKXA2\",\"SLXA2\",\"SPXA2\",\"SRXA2\",\"STXA2\",\"SXXA2\",\"TKEA2\",\"TPXA2\",\"UQXA2\",\"VDXA2\",\"WCXA2\",\"MSG10\",\"MSG12\",\"ACQS1\",\"ACXS1\",\"ANMN6\",\"ANRN6\",\"APQF1\",\"APXA2\",\"BILW3\",\"BRIM2\",\"BSLM2\",\"BVQW1\",\"CHNO3\",\"CHQO3\",\"CWQT2\",\"DBQS1\",\"DEQD1\",\"DRSD1\",\"EAZC1\",\"EHSC1\",\"EVMC1\",\"FFFC1\",\"GBHM6\",\"GBQN3\",\"GBRM6\",\"GDQM6\",\"GGGC1\",\"GTQF1\",\"GTXF1\",\"HBMN6\",\"HMRA2\",\"HUQN6\",\"JCTN4\",\"JOBP4\",\"JOQP4\",\"JOXP4\",\"KCHA2\",\"LTQM2\",\"MIST2\",\"MQMT2\",\"MWQT2\",\"NAQR1\",\"NAXR1\",\"NIQS1\",\"NOXN7\",\"NPQN6\",\"NPXN6\",\"OWDO1\",\"OWQO1\",\"OWSO1\",\"PBLW1\",\"PKBW3\",\"RKQF1\",\"RKXF1\",\"RYEC1\",\"SAQG1\",\"SCQC1\",\"SCQN6\",\"SEQA2\",\"SFXC1\",\"SKQN6\",\"SLOO3\",\"TCSV2\",\"TIQC1\",\"TIXC1\",\"TKPN6\",\"WAQM3\",\"WAXM3\",\"WELM1\",\"WEQM1\",\"WEXM1\",\"WKQA1\",\"WKXA1\",\"WYBS1\",\"NLMA3\",\"SBBN2\",\"SLMN2\",\"BAXC1\",\"BDRN4\",\"BDSP1\",\"BGNN6\",\"BKBF1\",\"BLIF1\",\"BRND1\",\"CHCM2\",\"CHYV2\",\"COVM2\",\"CPMW1\",\"CPNW1\",\"CRYV2\",\"DELD1\",\"DMSF1\",\"DOMV2\",\"DPXC1\",\"EBEF1\",\"FMOA1\",\"FRVM3\",\"FRXM3\",\"FSKM2\",\"FSNM2\",\"GCTF1\",\"LNDC1\",\"LQAT2\",\"LTJF1\",\"MBPA1\",\"MCGA1\",\"MHBT2\",\"MRCP1\",\"MTBF1\",\"MZXC1\",\"NBLP1\",\"NFDF1\",\"NWHC3\",\"OMHC1\",\"OPTF1\",\"PDVR1\",\"PEGF1\",\"PFDC1\",\"PFXC1\",\"PPTM2\",\"PPXC1\",\"PRJC1\",\"PRUR1\",\"PSBC1\",\"PSXC1\",\"PTOA1\",\"PVDR1\",\"PXAC1\",\"PXOC1\",\"PXSC1\",\"QPTR1\",\"RPLV2\",\"RTYC1\",\"SEIM1\",\"SJSN4\",\"SKCF1\",\"SWPM4\",\"TCNW1\",\"TLVT2\",\"TPAF1\",\"TSHF1\",\"TXVT2\",\"UPBC1\",\"WDSV2\",\"ACYN4\",\"ADKA2\",\"AGCM4\",\"ALIA2\",\"ALXN6\",\"AMRL1\",\"APAM2\",\"APCF1\",\"APRP7\",\"ASTO3\",\"ATGM1\",\"ATKA2\",\"BEPB6\",\"BFTN7\",\"BHBM3\",\"BISM2\",\"BKTL1\",\"BLTM2\",\"BYGL1\",\"BZBM3\",\"CAMM2\",\"CAPL1\",\"CARL1\",\"CASM1\",\"CECC1\",\"CFWM1\",\"CHAO3\",\"CHAV3\",\"CHBV2\",\"CHSV3\",\"CHYW1\",\"CLBP4\",\"CMAN4\",\"CMTI2\",\"CNDO1\",\"CRVA2\",\"DILA1\",\"DKCM6\",\"DTLM4\",\"DUKN7\",\"DULM5\",\"EBSW1\",\"ERTF1\",\"ESPP4\",\"FAIO1\",\"FCGT2\",\"FMRF1\",\"FOXR1\",\"FPTT2\",\"FRCB6\",\"FRDF1\",\"FRDW1\",\"FREL1\",\"FRPS1\",\"FTPC1\",\"GBWW3\",\"GCVF1\",\"GDMM5\",\"GISL1\",\"GNJT2\",\"GTOT2\",\"GWPM6\",\"HBYC1\",\"HCGN7\",\"HLNM4\",\"HMDO3\",\"ICAC1\",\"IIWC1\",\"ILOH1\",\"ITKA2\",\"JMPN7\",\"JNEA2\",\"KECA2\",\"KGCA2\",\"KLIH1\",\"KPTN6\",\"KPTV2\",\"KWHH1\",\"KYWF1\",\"LABL1\",\"LAMV3\",\"LAPW1\",\"LCLL1\",\"LDTM4\",\"LOPW1\",\"LPNM4\",\"LTBV3\",\"LTRM4\",\"LWSD1\",\"LWTV2\",\"MBRM4\",\"MCGM4\",\"MCYF1\",\"MEYC1\",\"MGIP4\",\"MGZP4\",\"MOKH1\",\"MQTT2\",\"MRHO1\",\"MROS1\",\"MTKN6\",\"MTYC1\",\"NEAW1\",\"NIAN6\",\"NJLC1\",\"NKTA2\",\"NLNC3\",\"NMTA2\",\"NTBC1\",\"NTKM3\",\"NUET2\",\"NWCL1\",\"NWPR1\",\"NWWH1\",\"OCIM2\",\"OHBC1\",\"OLSA2\",\"OOUH1\",\"ORIN7\",\"OSGN6\",\"PCBF1\",\"PCLF1\",\"PCOC1\",\"PGBP7\",\"PHBP1\",\"PLXA2\",\"PNLM6\",\"PORO3\",\"PRDA2\",\"PRYC1\",\"PSBM1\",\"PSLC1\",\"PTAW1\",\"PTIM4\",\"PTIT2\",\"PTWW1\",\"RARM6\",\"RCKM4\",\"RCYF1\",\"RDDA2\",\"RDYD1\",\"SAPF1\",\"SBEO3\",\"SBLF1\",\"SDBC1\",\"SDHN4\",\"SHBL1\",\"SJNP4\",\"SKTA2\",\"SLIM2\",\"SNDP5\",\"SWLA2\",\"SWPV2\",\"TESL1\",\"THRO1\",\"TLBO3\",\"TRDF1\",\"TXPT2\",\"ULAM6\",\"ULRA2\",\"UNLA2\",\"VAKF1\",\"VDZA2\",\"WAHV2\",\"WAKP8\",\"WASD2\",\"WAVM6\",\"WLON7\",\"WPTW1\",\"WYCM6\",\"YATA2\",\"BLTA2\",\"CDEA2\",\"EROA2\",\"LCNA2\",\"PBPA2\",\"PRTA2\",\"SDIA2\",\"AGMW3\",\"BHRI3\",\"BIGM4\",\"BSBM4\",\"CBRW3\",\"CLSM4\",\"FPTM4\",\"GBLW3\",\"GRMM4\",\"GSLM4\",\"GTLM4\",\"GTRM4\",\"KP53\",\"KP58\",\"KP59\",\"LSCM4\",\"MEEM4\",\"NABM4\",\"PCLM4\",\"PNGW3\",\"PRIM4\",\"PSCM4\",\"PWAW3\",\"SBLM4\",\"SPTM4\",\"SXHW3\",\"SYWW3\",\"TAWM4\",\"WFPM4\",\"BARN6\",\"CBLO1\",\"CHDS1\",\"CMPO1\",\"GELO1\",\"HHLO1\",\"LORO1\",\"NREP1\",\"OLCN6\",\"RPRN6\",\"WATS1\",\"AUDP4\",\"FRDP4\",\"PLSP4\",\"VQSP4\",\"CGCL1\",\"SKMG1\",\"SPAG1\",\"AVAN4\",\"BRBN4\",\"OCGN4\",\"AWRT2\",\"BABT2\",\"BZST2\",\"CLLT2\",\"CPNT2\",\"EMAT2\",\"GRRT2\",\"HIST2\",\"IRDT2\",\"LUIT2\",\"LYBT2\",\"MGPT2\",\"NWST2\",\"PACT2\",\"PCGT2\",\"PCNT2\",\"PMNT2\",\"PORT2\",\"RSJT2\",\"RTAT2\",\"RTOT2\",\"SDRT2\",\"SGNT2\",\"TAQT2\",\"BTHD1\",\"FRFN7\",\"JPRN7\",\"18CI3\",\"20CM4\",\"GDIV2\",\"32ST0\",\"41NT0\"]\nbuoy_ids = ids\nbuoy_ids_with_cameras = [] # blank list to store buoy ids with cameras\n# %%\n# Loop through the buoy ids\nfor buoy_id in tqdm(buoy_ids):\n    # if the page text needs to be retrieved then do so, else pull from the text files\n    if not os.path.exists('data/buoy_pages/{}.txt'.format(buoy_id)):\n        # get the page text\n        time.sleep(1)",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_ids",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "buoy_ids = ids\nbuoy_ids_with_cameras = [] # blank list to store buoy ids with cameras\n# %%\n# Loop through the buoy ids\nfor buoy_id in tqdm(buoy_ids):\n    # if the page text needs to be retrieved then do so, else pull from the text files\n    if not os.path.exists('data/buoy_pages/{}.txt'.format(buoy_id)):\n        # get the page text\n        time.sleep(1)\n        page = requests.get('https://www.ndbc.noaa.gov/station_page.php?station={}'.format(buoy_id))",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_ids_with_cameras",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "buoy_ids_with_cameras = [] # blank list to store buoy ids with cameras\n# %%\n# Loop through the buoy ids\nfor buoy_id in tqdm(buoy_ids):\n    # if the page text needs to be retrieved then do so, else pull from the text files\n    if not os.path.exists('data/buoy_pages/{}.txt'.format(buoy_id)):\n        # get the page text\n        time.sleep(1)\n        page = requests.get('https://www.ndbc.noaa.gov/station_page.php?station={}'.format(buoy_id))\n        # write the page text to a file",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "cam_buoys",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "cam_buoys = [] # blank list to store buoy ids with cameras\n# %%\n# Purpose: parse the page text to get the camera urls and save them to a file. The page is parsed using BeautifulSoup and the camera urls are extracted using regular expressions.\n# only do this once to get the camera urls and save them to a file for later use\n# if the file does not exist then do so, else pull from the file\nif not os.path.exists('data/buoy_ids_with_cameras.txt'):\n    # open each buoy page text file in data/buoy_pages and parse the page text\n    for buoy_page in tqdm(os.listdir('data/buoy_pages')):\n        with open('data/buoy_pages/{}'.format(buoy_page), 'r') as f:\n            page = f.read() # read the page text",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "cam_urls",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "cam_urls = [] # blank list to store the camera urls\nfor buoy_id in tqdm(cam_buoys):\n    cam_url = 'https://www.ndbc.noaa.gov/buoycam.php?station={}'.format(buoy_id)\n    cam_urls.append(cam_url) # add the camera url to the list of camera urls\n# save the camera urls to the file data/camera_urls.csv\nwith open('data/camera_urls.csv', 'w+') as f:\n    f.write(\"'cam_url',\\n\")\n    for cam_url in cam_urls: # loop through the camera urls\n        f.write('{},\\n'.format(cam_url)) # write the camera url to the file\nprint('These have been saved in the cam_urls array.')",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_update_rates_dict",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "buoy_update_rates_dict = {} # blank dictionary to store the update rates for each buoy (i.e. how often the buoy takes a picture (measured in seconds))\n# fill the dictionary with blank update rate arrays for each buoy.\n# these arrays will be averaged to get the average update rate for each buoy in real time.\nfor buoy_id in cam_buoys:\n    buoy_update_rates_dict[buoy_id] = 1 # set the initial update rate to 600 seconds (10 minutes)\n# %%\ndef image_has_changed(image_one,image_two):\n    # looks for changes between two images and returns True if there are changes and False if there are not.\n    # this function is used to determine what rate the images are being updated for each buoy.\n    # if the images are not changing, then the buoy is not updating the images.",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_update_rates_dict",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "buoy_update_rates_dict = {'46025': [600, datetime.datetime.now()]}\nprint(check_for_updates(buoy_update_rates_dict)) # should return an empty list\n# wait 10 seconds\ntime.sleep(10)\nprint(check_for_updates(buoy_update_rates_dict)) # should return ['46025']\n# %%\n# import shutil\n# from difPy import dif\n# go through each buoy and check if there are duplicated images in the images/buoys folder\nfor folder in os.listdir('images/buoys'):",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "iteration_counter",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "iteration_counter = 0\nvincent = Artist() # create an instance of the Artist class\n# %%\nprint('Starting the download loop')\nlast_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "vincent",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "vincent = Artist() # create an instance of the Artist class\n# %%\nprint('Starting the download loop')\nlast_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "last_time_fetched",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "first_run",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes\n            continue",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "kind": 5,
+        "importPath": "cam_finder_raw",
+        "description": "cam_finder_raw",
+        "peekOfCode": "path = 'images/panels/46066/2022_11_5_15_45/2022_11_5_15_45_panel_1.png'\nprint(is_it_daytime(path))",
+        "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "last_time_fetched",
+        "kind": 5,
+        "importPath": "camfinder",
+        "description": "camfinder",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes",
+        "detail": "camfinder",
+        "documentation": {}
+    },
+    {
+        "label": "first_run",
+        "kind": 5,
+        "importPath": "camfinder",
+        "description": "camfinder",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes\n            continue",
+        "detail": "camfinder",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_links",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def buoy_links():\n    links = [\"https://www.ndbc.noaa.gov/buoycam.php?station=42001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41044\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46071\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46072\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41046\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46088\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46089\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41043\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42039\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42060\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41009\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46028\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41008\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46015\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44013\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46026\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51000\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42040\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41010\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46078\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46087\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51101\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46086\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46053\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46047\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46084\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46085\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46042\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42019\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46069\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46054\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41049\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45005\"]\n    return links\n# Notes:\n# Buoy 42002 Has good sunsets\ndef chunk_images(buoy_id,foldername):\n    \"\"\"\n    chunk_images takes a folder of images and splits them into sets of 6 images\n    _extended_summary_\n    :param buoy_id: The id of the buoy",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_images",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def chunk_images(buoy_id,foldername):\n    \"\"\"\n    chunk_images takes a folder of images and splits them into sets of 6 images\n    _extended_summary_\n    :param buoy_id: The id of the buoy\n    :type buoy_id: int\n    :param foldername: The name of the folder containing the images\n    :type foldername: str\n    # \"\"\"\n    # #buoy_id = str(foldername)",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "last_time_fetched",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\ndef buoy_links():\n    links = [\"https://www.ndbc.noaa.gov/buoycam.php?station=42001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41044\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46071\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46072\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41046\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46088\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46089\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41043\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42039\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42060\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41009\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46028\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41008\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46015\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44013\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46026\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51000\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42040\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41010\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46078\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46087\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51101\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46086\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46053\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46047\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46084\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46085\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46042\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42019\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46069\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46054\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41049\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45005\"]\n    return links\n# Notes:\n# Buoy 42002 Has good sunsets\ndef chunk_images(buoy_id,foldername):\n    \"\"\"\n    chunk_images takes a folder of images and splits them into sets of 6 images",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "first_run",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\ndef buoy_links():\n    links = [\"https://www.ndbc.noaa.gov/buoycam.php?station=42001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41044\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46071\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46072\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41046\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46088\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46089\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41043\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42039\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42060\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41009\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46028\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41008\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46015\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44013\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46026\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51000\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42040\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41010\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46078\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46087\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51101\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46086\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46053\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46047\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46084\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46085\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46042\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42019\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46069\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46054\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41049\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45005\"]\n    return links\n# Notes:\n# Buoy 42002 Has good sunsets\ndef chunk_images(buoy_id,foldername):\n    \"\"\"\n    chunk_images takes a folder of images and splits them into sets of 6 images\n    _extended_summary_",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "cam_urls",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "cam_urls = buoy_links() # get the links to the cameras\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes\n            continue",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "model_filepath",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "model_filepath = 'models/converted_keras/keras_model.h5'\nimport tensorflow as tf\ntry:\n    model = tf.keras.models.load_model(model_filepath)\nexcept:\n    print('Model not found')\ntf.keras.models.load_model(\n    model_filepath, custom_objects=None, compile=True, options=None\n)\nprint('Model loaded')",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "image_path",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "image_path = 'images/panels/41001/2022_11_5_19_27.jpg_panel_1.jpg'\nimg = cv2.imread(image_path) # Reading the image\nimg = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # Converting the image to RGB\nimg = cv2.resize(img, (224, 224)) # Resizing the image\nimg = img / 255 # Normalizing the image\nimg = np.array(img).reshape(-1, 224, 224, 3) # Reshaping the image\nprint('image loaded')\n# Predicting the class\nprediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "img = cv2.imread(image_path) # Reading the image\nimg = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # Converting the image to RGB\nimg = cv2.resize(img, (224, 224)) # Resizing the image\nimg = img / 255 # Normalizing the image\nimg = np.array(img).reshape(-1, 224, 224, 3) # Reshaping the image\nprint('image loaded')\n# Predicting the class\nprediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # Converting the image to RGB\nimg = cv2.resize(img, (224, 224)) # Resizing the image\nimg = img / 255 # Normalizing the image\nimg = np.array(img).reshape(-1, 224, 224, 3) # Reshaping the image\nprint('image loaded')\n# Predicting the class\nprediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "img = cv2.resize(img, (224, 224)) # Resizing the image\nimg = img / 255 # Normalizing the image\nimg = np.array(img).reshape(-1, 224, 224, 3) # Reshaping the image\nprint('image loaded')\n# Predicting the class\nprediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "img = img / 255 # Normalizing the image\nimg = np.array(img).reshape(-1, 224, 224, 3) # Reshaping the image\nprint('image loaded')\n# Predicting the class\nprediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "img = np.array(img).reshape(-1, 224, 224, 3) # Reshaping the image\nprint('image loaded')\n# Predicting the class\nprediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
+        "documentation": {}
+    },
+    {
+        "label": "prediction",
+        "kind": 5,
+        "importPath": "using_keras_modeling",
+        "description": "using_keras_modeling",
+        "peekOfCode": "prediction = model.predict(img)\nprint(prediction)",
+        "detail": "using_keras_modeling",
         "documentation": {}
     }
 ]

@@ -1,0 +1,7 @@
+0 Direct Sun
+1 Stormy Weather
+2 Interesting
+3 Object Detected
+4 Sunset
+5 Clouds
+6 Night

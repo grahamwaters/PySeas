@@ -12,6 +12,83 @@ import imutils
 import cv2
 
 
+
+
+
+# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.
+# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.
+
+# # import the necessary packages
+# from imutils import paths
+# import numpy as np
+# import cv2
+
+# # import the load_model function from keras
+# from keras.models import load_model
+
+# # load the model from disk
+# print("[INFO] loading model...")
+# model = load_model('models/buoy_model/keras_model.h5')
+# Labels for this model are shown below
+# 0 Direct Sun
+# 1 Stormy Weather
+# 2 Interesting
+# 3 Object Detected
+# 4 Sunset
+# 5 Clouds
+# 6 Night
+
+
+
+# def check_image(image):
+#     global model # load the model from disk
+#     # load the image and show it
+#     image = cv2.imread('images/panels/44020/2022_11_6_10_54/panel_1.jpg')
+#     cv2.imshow("image", image)
+#     cv2.waitKey(0) # show image
+#     # feed the image to the model and get the prediction
+#     prediction = model.predict(image) # predict the image
+#     print(prediction) # print the prediction
+
+#     # Return the predicted class of the image (0-6)
+#     return np.argmax(prediction) # return the predicted class i.e. the type of scene in the image 'Stormy Weather' or 'Direct Sun' etc.
+#     # We return the np.argmax of the prediction because the prediction is a list of probabilities for each class. The class with the highest probability is the predicted class.
+
+
+
+# # Do a test run of the check_image function to see if it works on a single image
+# test_image = 'images/panels/42002/2022_11_6_18_30/panel_3.png'
+# validation_class = 'Sunset' # we know that this image is a sunset image, so we can use this to test the model
+# # we can use this to test the model
+
+# # Testing Model:
+# print("Testing Keras Model")
+# assert(os.path.exists(test_image)) # check if file exists
+# pred = check_image(test_image) # get the predicted class of the image
+# if pred != 4:
+#     print("The image is not a sunset image")
+#     print(pred) # print the predicted class
+# else:
+#     print("The image is a sunset image")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def buoy_links():
     links = ["https://www.ndbc.noaa.gov/buoycam.php?station=42001","https://www.ndbc.noaa.gov/buoycam.php?station=46059","https://www.ndbc.noaa.gov/buoycam.php?station=41044","https://www.ndbc.noaa.gov/buoycam.php?station=46071","https://www.ndbc.noaa.gov/buoycam.php?station=42002","https://www.ndbc.noaa.gov/buoycam.php?station=46072","https://www.ndbc.noaa.gov/buoycam.php?station=46066","https://www.ndbc.noaa.gov/buoycam.php?station=41046","https://www.ndbc.noaa.gov/buoycam.php?station=46088","https://www.ndbc.noaa.gov/buoycam.php?station=44066","https://www.ndbc.noaa.gov/buoycam.php?station=46089","https://www.ndbc.noaa.gov/buoycam.php?station=41043","https://www.ndbc.noaa.gov/buoycam.php?station=42012","https://www.ndbc.noaa.gov/buoycam.php?station=42039","https://www.ndbc.noaa.gov/buoycam.php?station=46012","https://www.ndbc.noaa.gov/buoycam.php?station=46011","https://www.ndbc.noaa.gov/buoycam.php?station=42060","https://www.ndbc.noaa.gov/buoycam.php?station=41009","https://www.ndbc.noaa.gov/buoycam.php?station=46028","https://www.ndbc.noaa.gov/buoycam.php?station=44011","https://www.ndbc.noaa.gov/buoycam.php?station=41008","https://www.ndbc.noaa.gov/buoycam.php?station=46015","https://www.ndbc.noaa.gov/buoycam.php?station=42059","https://www.ndbc.noaa.gov/buoycam.php?station=44013","https://www.ndbc.noaa.gov/buoycam.php?station=44007","https://www.ndbc.noaa.gov/buoycam.php?station=46002","https://www.ndbc.noaa.gov/buoycam.php?station=51003","https://www.ndbc.noaa.gov/buoycam.php?station=46027","https://www.ndbc.noaa.gov/buoycam.php?station=46026","https://www.ndbc.noaa.gov/buoycam.php?station=51002","https://www.ndbc.noaa.gov/buoycam.php?station=51000","https://www.ndbc.noaa.gov/buoycam.php?station=42040","https://www.ndbc.noaa.gov/buoycam.php?station=44020","https://www.ndbc.noaa.gov/buoycam.php?station=46025","https://www.ndbc.noaa.gov/buoycam.php?station=41010","https://www.ndbc.noaa.gov/buoycam.php?station=41004","https://www.ndbc.noaa.gov/buoycam.php?station=51001","https://www.ndbc.noaa.gov/buoycam.php?station=44025","https://www.ndbc.noaa.gov/buoycam.php?station=41001","https://www.ndbc.noaa.gov/buoycam.php?station=51004","https://www.ndbc.noaa.gov/buoycam.php?station=44027","https://www.ndbc.noaa.gov/buoycam.php?station=41002","https://www.ndbc.noaa.gov/buoycam.php?station=42020","https://www.ndbc.noaa.gov/buoycam.php?station=46078","https://www.ndbc.noaa.gov/buoycam.php?station=46087","https://www.ndbc.noaa.gov/buoycam.php?station=51101","https://www.ndbc.noaa.gov/buoycam.php?station=46086","https://www.ndbc.noaa.gov/buoycam.php?station=45002","https://www.ndbc.noaa.gov/buoycam.php?station=46053","https://www.ndbc.noaa.gov/buoycam.php?station=46047","https://www.ndbc.noaa.gov/buoycam.php?station=46084","https://www.ndbc.noaa.gov/buoycam.php?station=46085","https://www.ndbc.noaa.gov/buoycam.php?station=45003","https://www.ndbc.noaa.gov/buoycam.php?station=45007","https://www.ndbc.noaa.gov/buoycam.php?station=46042","https://www.ndbc.noaa.gov/buoycam.php?station=45012","https://www.ndbc.noaa.gov/buoycam.php?station=42019","https://www.ndbc.noaa.gov/buoycam.php?station=46069","https://www.ndbc.noaa.gov/buoycam.php?station=46054","https://www.ndbc.noaa.gov/buoycam.php?station=41049","https://www.ndbc.noaa.gov/buoycam.php?station=45005"]
     return links
@@ -245,6 +322,8 @@ while True:
             if 'images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute) not in os.listdir('images/buoys/{}'.format(buoy_id)): # if the image has not already been downloaded
                 time.sleep(0.25) # wait 0.25 seconds to avoid getting blocked by the server
                 img = requests.get(cam_url) # get the image
+                # Print the name of the image we are downloading
+                print('Downloading image: {}'.format('images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute)))
                 # save the image
                 with open('images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute), 'wb+') as f:
                     f.write(img.content) # write the image to the file

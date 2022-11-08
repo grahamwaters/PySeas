@@ -92,6 +92,7 @@ ENV/
 #hazel file
 .hazellock
 
+/images/cv_ml_model_data
 /images/buoys
 /images/panels
 /images/keepers

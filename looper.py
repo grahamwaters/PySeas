@@ -3,6 +3,8 @@ from cam_backend import *
 print('Starting the download loop')
 last_time_fetched = time.time() # get the current time
 first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)
+duplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy
+#note: bugs are present in difPy, so this flag is set to false
 
 # import the necessary packages
 from imutils import paths
@@ -516,59 +518,56 @@ while True:
             print("Error with White Image Detection: {}".format(e))
             pass
         # Remove duplicate images (preferably before paneling but for now after)
-        for folder in os.listdir('images/buoys'):
-            if folder == '.DS_Store':
-                continue
-            # get the list of images in the folder
-            # sort the images by date
-            # make folder_path variable from relative path
-            folder_path = 'images/buoys/{}'.format(folder)
-            search = dif(folder_path, similarity='high', show_output=False, show_progress=True) # returns a list of lists of similar images
-            # for each list of similar images, move all but the first image to the deleted_images folder
-            file_results_dict = search.result # get the list of file names
-            # {20220824212437767808 : {"filename" : "image1.jpg",
-            #                         "location" : "C:/Path/to/Image/image1.jpg"},
-            #                         "duplicates" : ["C:/Path/to/Image/duplicate_image1.jpg",
-            #                                         "C:/Path/to/Image/duplicate_image2.jpg"]},
-            # This is the format of the dictionary returned by the dif.search() method
-            # I want to the filename, location, and duplicates
-            # I want to move the duplicates to the deleted_images folder
+        if duplicate_removal_flag == True:
+
+            for folder in os.listdir('images/buoys'):
+                if folder == '.DS_Store':
+                    continue
+                # get the list of images in the folder
+                # sort the images by date
+                # make folder_path variable from relative path
+                folder_path = 'images/buoys/{}'.format(folder)
+                search = dif(folder_path, similarity='high', show_output=False, show_progress=True) # returns a list of lists of similar images
+                # for each list of similar images, move all but the first image to the deleted_images folder
+                file_results_dict = search.result # get the list of file names
+                # {20220824212437767808 : {"filename" : "image1.jpg",
+                #                         "location" : "C:/Path/to/Image/image1.jpg"},
+                #                         "duplicates" : ["C:/Path/to/Image/duplicate_image1.jpg",
+                #                                         "C:/Path/to/Image/duplicate_image2.jpg"]},
+                # This is the format of the dictionary returned by the dif.search() method
+                # I want to the filename, location, and duplicates
+                # I want to move the duplicates to the deleted_images folder
 
 
 
 
 
-            # make the deleted_images folder if it doesn't exist
-            if not os.path.exists('images/deleted_images'):
-                os.makedirs('images/deleted_images')
+                # make the deleted_images folder if it doesn't exist
+                if not os.path.exists('images/deleted_images'):
+                    os.makedirs('images/deleted_images')
 
-            # counter should be how many files are in the deleted folder before we start
-            counter = len(os.listdir('images/deleted_images'))
-            # move the duplicates to the deleted_images folder
-            for key in file_results_dict: # iterate through the keys in the dictionary
-                # get the duplicates
-                value = file_results_dict[key]
-                duplicates = value['duplicates']
-                for duplicate in duplicates:
-                    # move the duplicate to the deleted_images folder
-                    # os.rename(duplicate, 'images/deleted_images/{}_{}'.format(counter,duplicate.split('/')[-1]))
-                    # remove the duplicate
-                    # full dupe path
-                    #full_dupe_path = 'images/buoys/{}/{}'.format(folder, duplicate.split('/')[-1])
+                # counter should be how many files are in the deleted folder before we start
+                counter = len(os.listdir('images/deleted_images'))
+                # move the duplicates to the deleted_images folder
+                for key in file_results_dict: # iterate through the keys in the dictionary
+                    # get the duplicates
+                    value = file_results_dict[key]
+                    duplicates = value['duplicates']
+                    for duplicate in duplicates:
+                        # move the duplicate to the deleted_images folder
+                        # os.rename(duplicate, 'images/deleted_images/{}_{}'.format(counter,duplicate.split('/')[-1]))
+                        # remove the duplicate
+                        # full dupe path
+                        #full_dupe_path = 'images/buoys/{}/{}'.format(folder, duplicate.split('/')[-1])
 
-                    # first add "duplicate_" to the beginning of the file name
-                    new_name =  'duplicate_' + duplicate # duplicate_20220824212437767808.jpg (for example)
-                    os.rename(duplicate, new_name) # rename the file
-                    # then move the file to the deleted_images folder
-                    print('Renamed {} to {}'.format(duplicate, new_name))
-                    # os.rename(duplicate, str(duplicate).replace('images/buoys', 'images/deleted_images'))
-                    counter += 1
-                # counter += 1 # increment the counter
-                # # get the filename of the duplicate
-                # filename = duplicate.split('/')[-1]
-                # # move the duplicate to the deleted_images folder
-                # os.rename(duplicate, 'images/deleted_images/{}_{}'.format(counter, filename))
-                #print('Moved duplicate image {} to deleted_images folder'.format(filename))
+                        # first add "duplicate_" to the beginning of the file name
+                        new_name =  'duplicate_' + duplicate # duplicate_20220824212437767808.jpg (for example)
+                        os.rename(duplicate, new_name) # rename the file
+                        # then move the file to the deleted_images folder
+                        print('Renamed {} to {}'.format(duplicate, new_name))
+                        # os.rename(duplicate, str(duplicate).replace('images/buoys', 'images/deleted_images'))
+                        counter += 1
+
 
         ignoring_panel_optimimal = True # note: this is a temporary fix to the problem of the panel images not being generated
         # final step: make sure that all the previous buoy images have been panelled and saved to the images/panels directory

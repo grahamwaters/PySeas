@@ -1659,7 +1659,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2",
         "detail": "looper",
         "documentation": {}
     },
@@ -1668,7 +1668,16 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.\n# # import the necessary packages",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "duplicate_removal_flag",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "duplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.",
         "detail": "looper",
         "documentation": {}
     },

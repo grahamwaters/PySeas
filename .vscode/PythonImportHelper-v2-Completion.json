@@ -324,6 +324,32 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "Self",
+        "importPath": "typing_extensions",
+        "description": "typing_extensions",
+        "isExtraImport": true,
+        "detail": "typing_extensions",
+        "documentation": {}
+    },
+    {
         "label": "setup",
         "importPath": "setuptools",
         "description": "setuptools",
@@ -1408,6 +1434,78 @@
         "description": "looper",
         "peekOfCode": "stitch_switch = False # make false if you don't want to stitch the images.\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes\n            continue",
         "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "BasePafy",
+        "kind": 6,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "class BasePafy(object):\n    \"\"\" Class to represent a YouTube video. \"\"\"\n    def __init__(self, video_url, basic=True, gdata=False,\n                 size=False, callback=None, ydl_opts=None):\n        \"\"\" Set initial values. \"\"\"\n        self.version = __version__\n        self.videoid = extract_video_id(video_url)\n        self.watchv_url = g.urls['watchv'] % self.videoid\n        self.callback = callback\n        self._have_basic = False",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "BaseStream",
+        "kind": 6,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "class BaseStream(object):\n    \"\"\" YouTube video stream class. \"\"\"\n    def __init__(self, parent):\n        \"\"\" Set initial values. \"\"\"\n        self._itag = None\n        self._mediatype = None\n        self._threed = None\n        self._rawbitrate = None\n        self._resolution = None\n        self._quality = None",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "extract_video_id",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def extract_video_id(url):\n    \"\"\" Extract the video id from a url, return video id as str. \"\"\"\n    idregx = re.compile(r'[\\w-]{11}$')\n    url = str(url).strip()\n    if idregx.match(url):\n        return url # ID of video\n    if '://' not in url:\n        url = '//' + url\n    parsedurl = urlparse(url)\n    if parsedurl.netloc in ('youtube.com', 'www.youtube.com', 'm.youtube.com', 'gaming.youtube.com'):",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "remux",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def remux(infile, outfile, quiet=False, muxer=\"ffmpeg\"):\n    \"\"\" Remux audio. \"\"\"\n    muxer = muxer if isinstance(muxer, str) else \"ffmpeg\"\n    for tool in set([muxer, \"ffmpeg\", \"avconv\"]):\n        cmd = [tool, \"-y\", \"-i\", infile, \"-acodec\", \"copy\", \"-vn\", outfile]\n        try:\n            with open(os.devnull, \"w\") as devnull:\n                subprocess.call(cmd, stdout=devnull, stderr=subprocess.STDOUT)\n        except OSError:\n            dbg(\"Failed to remux audio using %s\", tool)",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "get_size_done",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def get_size_done(bytesdone, progress):\n    _progress_dict = {'KB': 1024.0, 'MB': 1048576.0, 'GB': 1073741824.0}\n    return round(bytesdone/_progress_dict.get(progress, 1.0), 2)\ndef get_status_string(progress):\n    status_string = ('  {:,} ' + progress + ' [{:.2%}] received. Rate: [{:4.0f} '\n                     'KB/s].  ETA: [{:.0f} secs]')\n    if early_py_version:\n        status_string = ('  {0:} ' + progress + ' [{1:.2%}] received. Rate:'\n                         ' [{2:4.0f} KB/s].  ETA: [{3:.0f} secs]')\n    return status_string",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "get_status_string",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def get_status_string(progress):\n    status_string = ('  {:,} ' + progress + ' [{:.2%}] received. Rate: [{:4.0f} '\n                     'KB/s].  ETA: [{:.0f} secs]')\n    if early_py_version:\n        status_string = ('  {0:} ' + progress + ' [{1:.2%}] received. Rate:'\n                         ' [{2:4.0f} KB/s].  ETA: [{3:.0f} secs]')\n    return status_string",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "early_py_version",
+        "kind": 5,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "early_py_version = sys.version_info[:2] < (2, 7)\nfrom . import __version__, g\nfrom .pafy import call_gdata\nfrom .playlist import get_playlist2\nfrom .util import xenc\ndbg = logging.debug\ndef extract_video_id(url):\n    \"\"\" Extract the video id from a url, return video id as str. \"\"\"\n    idregx = re.compile(r'[\\w-]{11}$')\n    url = str(url).strip()",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "dbg",
+        "kind": 5,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "dbg = logging.debug\ndef extract_video_id(url):\n    \"\"\" Extract the video id from a url, return video id as str. \"\"\"\n    idregx = re.compile(r'[\\w-]{11}$')\n    url = str(url).strip()\n    if idregx.match(url):\n        return url # ID of video\n    if '://' not in url:\n        url = '//' + url\n    parsedurl = urlparse(url)",
+        "detail": "reformat",
         "documentation": {}
     },
     {

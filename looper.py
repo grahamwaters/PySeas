@@ -3,7 +3,7 @@ from cam_backend import *
 print('Starting the download loop')
 last_time_fetched = time.time() # get the current time
 first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)
-duplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy
+duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy
 #note: bugs are present in difPy, so this flag is set to false
 
 # import the necessary packages
@@ -328,6 +328,7 @@ def chunk_images(buoy_id,foldername):
 
 from difPy import dif
 cam_urls = buoy_links() # get the links to the cameras
+all_buoy_urls = create_buoy_links(ids)
 stitch_switch = False # make false if you don't want to stitch the images.
 
 # open the blacklist file
@@ -348,7 +349,7 @@ def pull_data(cam_url, buoy_id, now):
 while True:
     try:
         # turn on at 4 am CST and turn off at 11 pm CST
-        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm
+        if datetime.datetime.now().hour < 3 or datetime.datetime.now().hour > 24: # if it is before 3 am or after 12 am
             # wait to turn on until 4 am CST
             # keep the computer awake
             print('The computer is sleeping')
@@ -438,6 +439,7 @@ while True:
         # Save the panels to the images/panels directory
         list_of_buoys = os.listdir('images/buoys') # get the list of buoy ids by their directory names
 
+        # sample a random 20 extras from the
         print('Creating panels...')
         for buoy_id in tqdm(list_of_buoys):
             # get the list of images for the buoy
@@ -554,20 +556,25 @@ while True:
                     value = file_results_dict[key]
                     duplicates = value['duplicates']
                     for duplicate in duplicates:
-                        # move the duplicate to the deleted_images folder
-                        # os.rename(duplicate, 'images/deleted_images/{}_{}'.format(counter,duplicate.split('/')[-1]))
-                        # remove the duplicate
-                        # full dupe path
-                        #full_dupe_path = 'images/buoys/{}/{}'.format(folder, duplicate.split('/')[-1])
+                        try:
+                            # move the duplicate to the deleted_images folder
+                            # os.rename(duplicate, 'images/deleted_images/{}_{}'.format(counter,duplicate.split('/')[-1]))
+                            # remove the duplicate
+                            # full dupe path
+                            #full_dupe_path = 'images/buoys/{}/{}'.format(folder, duplicate.split('/')[-1])
 
-                        # first add "duplicate_" to the beginning of the file name
-                        new_name =  'duplicate_' + duplicate # duplicate_20220824212437767808.jpg (for example)
-                        os.rename(duplicate, new_name) # rename the file
-                        # then move the file to the deleted_images folder
-                        print('Renamed {} to {}'.format(duplicate, new_name))
-                        # os.rename(duplicate, str(duplicate).replace('images/buoys', 'images/deleted_images'))
-                        counter += 1
-
+                            # first add "duplicate_" to the beginning of the file name
+                            new_name = duplicate.split('/')[-1] # get the file name
+                            new_name = 'duplicate_{}'.format(new_name) # add duplicate_ to the beginning of the file name
+                            # then rename it in the same directory as the original
+                            os.rename(duplicate, 'images/buoys/{}/{}'.format(folder, new_name))
+                            # then move the file to the deleted_images folder
+                            print('Renamed {} to {}'.format(duplicate, new_name))
+                            # os.rename(duplicate, str(duplicate).replace('images/buoys', 'images/deleted_images'))
+                            counter += 1
+                        except Exception as e:
+                            print("Error moving duplicate image: {}".format(e))
+                            pass
 
         ignoring_panel_optimimal = True # note: this is a temporary fix to the problem of the panel images not being generated
         # final step: make sure that all the previous buoy images have been panelled and saved to the images/panels directory

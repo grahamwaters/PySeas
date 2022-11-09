@@ -1659,7 +1659,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2",
         "detail": "looper",
         "documentation": {}
     },
@@ -1668,7 +1668,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.",
         "detail": "looper",
         "documentation": {}
     },
@@ -1677,7 +1677,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "duplicate_removal_flag = False # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.",
+        "peekOfCode": "duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.",
         "detail": "looper",
         "documentation": {}
     },
@@ -1686,7 +1686,16 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "cam_urls = buoy_links() # get the links to the cameras\nstitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img",
+        "peekOfCode": "cam_urls = buoy_links() # get the links to the cameras\nall_buoy_urls = create_buoy_links(ids)\nstitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "all_buoy_urls",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "all_buoy_urls = create_buoy_links(ids)\nstitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img",
         "detail": "looper",
         "documentation": {}
     },

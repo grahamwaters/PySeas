@@ -5,6 +5,7 @@ last_time_fetched = time.time() # get the current time
 first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)
 duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy
 #note: bugs are present in difPy, so this flag is set to false
+exper_1 = False # flag for dupe detect in panels
 
 # import the necessary packages
 from imutils import paths
@@ -14,6 +15,52 @@ import imutils
 import cv2
 
 
+def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):
+    # get the image size
+    img_width, img_height = get_image_size(panel1)
+    # get the ratio of the width to height
+    r = float(img_width)/float(img_height)
+    # get the aspect ratio of the image
+    ar = round(r, 2)
+    # calculate the rotation angle
+    rot = math.degrees(math.atan2(-panel1.get_top(), -panel1.get_left()))
+    # get the rotation matrix for this angle
+    m = cv2.getRotationMatrix2D((img_width/2, img_height/2), rot, 1)
+    # multiply the two matrices together to get the final transformation
+    new_im = cv2.warpAffine(panel1, m, (img_width, img_height))
+    # find the top-left corner of the image
+    pos = np.array((new_im.shape.width/2, new_im.shape.height/2))
+    # crop the image to the correct size
+    new_im = new_im.copy()
+    cropped_im = new_im.crop(pos)
+    # rotate the image back
+    rotated_im = cv2.rotate(cropped_im, 90, pos, 0, 0, 360)
+    # resize the image to the right size
+    resized_im = cv2.resize(rotated_im, (int(round(ar*img_width)), int(round(ar*img_height))))
+    return resized_im
+
+def get_image_size(image):
+    # get the image width and height
+    w, h = image.shape
+    # get the ratio of the width to height
+    r = float(w)/float(h)
+    # get the aspect ratio of the image
+    ar = round(r, 2)
+    # calculate the rotation angle
+    rot = math.degrees(math.atan2(-image.get_top(), -image.get_left()))
+    # get the rotation matrix for this angle
+    m = cv2.getRotationMatrix2D((w/2, h/2), rot, 1)
+    # multiply the two matrices together to get the final transformation
+    new_im = cv2.warpAffine(image, m, (w, h))
+    # find the top-left corner of the image
+    pos = np.array((new_im.shape.width/2, new_im.shape.height/2))
+    # crop the image to the correct size
+    new_im = new_im.crop(pos)
+    # rotate the image back
+    rotated_im = cv2.rotate(new_im, 90, pos, 0, 0, 360)
+    # resize the image to the right size
+    resized_im = cv2.resize(rotated_im, (int(round(ar*w)), int(round(ar*h))))
+    return resized_im
 
 
 
@@ -208,6 +255,16 @@ def refine_view(stitched_image):
     (x, y, w, h) = cv2.boundingRect(c)
     cv2.rectangle(mask, (x, y), (x + w, y + h), 255, -1)
 
+
+# given a list of images, create a pano image
+def create_pano_image(image_list, pano_path):
+    # create a pano image from the images in image_list
+    # image_list is a list of image paths
+    # pano_path is the path to save the pano image
+    # create the pano image
+    ocean_stitching(image_list, pano_path)
+    # refine the pano image
+    #refine_view(pano_path)
 
 
 
@@ -456,18 +513,35 @@ while True:
                     # If the panels directory for the buoy doesn't exist, create it.
                     if not os.path.exists('images/panels/{}'.format(buoy_id)):
                         os.makedirs('images/panels/{}'.format(buoy_id))
-                    if 'images/buoys/{}/{}'.format(buoy_id, image) in os.listdir('images/panels/{}'.format(buoy_id)):
-                        print('This image has already been used to create panels.')
-                        continue
-                    if image == '.DS_Store' and buoy_id != '.DS_Store':
-                        continue # skip the .DS_Store file
+                    if 'images/buoys/{}/{}'.format(buoy_id, image) in os.listdir('images/panels/{}'.format(buoy_id)) and image == '.DS_Store' and buoy_id != '.DS_Store':
+                        print('This image has already been used to create panels. Or it is a hidden file.')
+                    else:
+                        # get the panels
+                        panel_1, panel_2, panel_3, panel_4, panel_5, panel_6 = divide_into_panels(buoy_id, 'images/buoys/{}/{}'.format(buoy_id, image))
+
                     #print('Processing image: {}'.format(image))
 
-                    # get the panels
-                    panel_1, panel_2, panel_3, panel_4, panel_5, panel_6 = divide_into_panels(buoy_id, 'images/buoys/{}/{}'.format(buoy_id, image))
                     ##logging.info("Saved panels for buoy {}".format(buoy_id))
                     # print('Saving panels...')
                     # save the panels to the images/panels directory
+                    # now, stitch these images together (correcting for the misalignment of the cameras) and save the result to the images/panoramas directory
+                    # print('Stitching panels...')
+                    # stitch the panels together using stitched_panoramas
+
+                    try:
+                        stitched = stitched_panoramas(panel_1, panel_2, panel_3, panel_4, panel_5, panel_6)
+                        # save the stitched panorama to the images/panoramas directory
+                        # print('Saving stitched panorama...')
+                        if not os.path.exists('images/panoramas/{}'.format(buoy_id)):
+                            os.makedirs('images/panoramas/{}'.format(buoy_id))
+                        # print('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute))
+                        cv2.imwrite('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute), stitched)
+                        # move the image to the images/panels directory
+                        os.rename('images/buoys/{}/{}'.format(buoy_id, image), 'images/panels/{}/{}'.format(buoy_id, image))
+                        ##logging.info("Moved image to panels directory for buoy {}".format(buoy_id))
+                    except Exception as e:
+                        print(e)
+                        pass
 
 
         # Stage 4: save buoy_update_rates_dict to a csv file
@@ -519,6 +593,52 @@ while True:
         except Exception as e:
             print("Error with White Image Detection: {}".format(e))
             pass
+
+        if exper_1:
+            # run DifPy on the images in the images/panels directory
+            try:
+                buoy_folders = os.listdir('images/panels')
+                for buoy_folder in buoy_folders:
+                    if buoy_folder != '.DS_Store':
+                        images = os.listdir('images/panels/{}'.format(buoy_folder))
+                        for image in images:
+                            if image != '.DS_Store':
+                                # get the image path
+                                image_path = 'images/panels/{}/{}'.format(buoy_folder, image)
+                                # get the image
+                                image = cv2.imread(image_path)
+                                white_image = cv2.imread('images/white_blank.jpg')
+                                # we need these images to be the same size, so we will resize the white image to the size of the image
+                                white_image = cv2.resize(white_image, (image.shape[1], image.shape[0]))
+                                # are they ndarrays?
+                                # print(type(image))
+                                # print(type(white_image))
+
+                                # get the difference between the image and the white_blank.jpg image
+                                # calculate the difference between pixel values of the image and a pure white image using numpy
+                                diff = np.sum(np.abs(image - white_image)) # get the sum of the absolute difference between the two images
+                                # if the difference is less than 1000, then we will delete the image
+                                if diff < 1000:
+                                    print('Deleting image: {}'.format(image_path))
+                                    # move the images instead of literally deleting them to a folder called 'deleted_images' in the images directory
+                                    if not os.path.exists('images/deleted_images'):
+                                        os.makedirs('images/deleted_images')
+                                    os.rename(image_path, 'images/deleted_images/{}_{}'.format(image_path.split('/')[-1].split('.')[0], buoy_folder))
+                                    # os.remove(image_path)
+                                # dif.
+                                # # get the difference score from the difference image
+                                # difference_score = dif.get_difference_score()
+                                # # if the difference score is less than 0.1, then delete the image
+
+                                # # if the difference is less than 0.1, then delete the image
+                                # if difference_score < 0.1:
+                                #     os.remove(image_path)
+                                #     print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
+            except Exception as e:
+                print("Error with White Image Detection: {}".format(e))
+                pass
+
+
         # Remove duplicate images (preferably before paneling but for now after)
         if duplicate_removal_flag == True:
 

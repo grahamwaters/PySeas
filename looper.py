@@ -3,6 +3,9 @@ from cam_backend import *
 print('Starting the download loop')
 last_time_fetched = time.time() # get the current time
 first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)
+duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy
+#note: bugs are present in difPy, so this flag is set to false
+exper_1 = False # flag for dupe detect in panels
 
 # import the necessary packages
 from imutils import paths
@@ -12,6 +15,52 @@ import imutils
 import cv2
 
 
+def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):
+    # get the image size
+    img_width, img_height = get_image_size(panel1)
+    # get the ratio of the width to height
+    r = float(img_width)/float(img_height)
+    # get the aspect ratio of the image
+    ar = round(r, 2)
+    # calculate the rotation angle
+    rot = math.degrees(math.atan2(-panel1.get_top(), -panel1.get_left()))
+    # get the rotation matrix for this angle
+    m = cv2.getRotationMatrix2D((img_width/2, img_height/2), rot, 1)
+    # multiply the two matrices together to get the final transformation
+    new_im = cv2.warpAffine(panel1, m, (img_width, img_height))
+    # find the top-left corner of the image
+    pos = np.array((new_im.shape.width/2, new_im.shape.height/2))
+    # crop the image to the correct size
+    new_im = new_im.copy()
+    cropped_im = new_im.crop(pos)
+    # rotate the image back
+    rotated_im = cv2.rotate(cropped_im, 90, pos, 0, 0, 360)
+    # resize the image to the right size
+    resized_im = cv2.resize(rotated_im, (int(round(ar*img_width)), int(round(ar*img_height))))
+    return resized_im
+
+def get_image_size(image):
+    # get the image width and height
+    w, h = image.shape
+    # get the ratio of the width to height
+    r = float(w)/float(h)
+    # get the aspect ratio of the image
+    ar = round(r, 2)
+    # calculate the rotation angle
+    rot = math.degrees(math.atan2(-image.get_top(), -image.get_left()))
+    # get the rotation matrix for this angle
+    m = cv2.getRotationMatrix2D((w/2, h/2), rot, 1)
+    # multiply the two matrices together to get the final transformation
+    new_im = cv2.warpAffine(image, m, (w, h))
+    # find the top-left corner of the image
+    pos = np.array((new_im.shape.width/2, new_im.shape.height/2))
+    # crop the image to the correct size
+    new_im = new_im.crop(pos)
+    # rotate the image back
+    rotated_im = cv2.rotate(new_im, 90, pos, 0, 0, 360)
+    # resize the image to the right size
+    resized_im = cv2.resize(rotated_im, (int(round(ar*w)), int(round(ar*h))))
+    return resized_im
 
 
 
@@ -90,13 +139,55 @@ import cv2
 
 
 def buoy_links():
+    global ids
     links = ["https://www.ndbc.noaa.gov/buoycam.php?station=42001","https://www.ndbc.noaa.gov/buoycam.php?station=46059","https://www.ndbc.noaa.gov/buoycam.php?station=41044","https://www.ndbc.noaa.gov/buoycam.php?station=46071","https://www.ndbc.noaa.gov/buoycam.php?station=42002","https://www.ndbc.noaa.gov/buoycam.php?station=46072","https://www.ndbc.noaa.gov/buoycam.php?station=46066","https://www.ndbc.noaa.gov/buoycam.php?station=41046","https://www.ndbc.noaa.gov/buoycam.php?station=46088","https://www.ndbc.noaa.gov/buoycam.php?station=44066","https://www.ndbc.noaa.gov/buoycam.php?station=46089","https://www.ndbc.noaa.gov/buoycam.php?station=41043","https://www.ndbc.noaa.gov/buoycam.php?station=42012","https://www.ndbc.noaa.gov/buoycam.php?station=42039","https://www.ndbc.noaa.gov/buoycam.php?station=46012","https://www.ndbc.noaa.gov/buoycam.php?station=46011","https://www.ndbc.noaa.gov/buoycam.php?station=42060","https://www.ndbc.noaa.gov/buoycam.php?station=41009","https://www.ndbc.noaa.gov/buoycam.php?station=46028","https://www.ndbc.noaa.gov/buoycam.php?station=44011","https://www.ndbc.noaa.gov/buoycam.php?station=41008","https://www.ndbc.noaa.gov/buoycam.php?station=46015","https://www.ndbc.noaa.gov/buoycam.php?station=42059","https://www.ndbc.noaa.gov/buoycam.php?station=44013","https://www.ndbc.noaa.gov/buoycam.php?station=44007","https://www.ndbc.noaa.gov/buoycam.php?station=46002","https://www.ndbc.noaa.gov/buoycam.php?station=51003","https://www.ndbc.noaa.gov/buoycam.php?station=46027","https://www.ndbc.noaa.gov/buoycam.php?station=46026","https://www.ndbc.noaa.gov/buoycam.php?station=51002","https://www.ndbc.noaa.gov/buoycam.php?station=51000","https://www.ndbc.noaa.gov/buoycam.php?station=42040","https://www.ndbc.noaa.gov/buoycam.php?station=44020","https://www.ndbc.noaa.gov/buoycam.php?station=46025","https://www.ndbc.noaa.gov/buoycam.php?station=41010","https://www.ndbc.noaa.gov/buoycam.php?station=41004","https://www.ndbc.noaa.gov/buoycam.php?station=51001","https://www.ndbc.noaa.gov/buoycam.php?station=44025","https://www.ndbc.noaa.gov/buoycam.php?station=41001","https://www.ndbc.noaa.gov/buoycam.php?station=51004","https://www.ndbc.noaa.gov/buoycam.php?station=44027","https://www.ndbc.noaa.gov/buoycam.php?station=41002","https://www.ndbc.noaa.gov/buoycam.php?station=42020","https://www.ndbc.noaa.gov/buoycam.php?station=46078","https://www.ndbc.noaa.gov/buoycam.php?station=46087","https://www.ndbc.noaa.gov/buoycam.php?station=51101","https://www.ndbc.noaa.gov/buoycam.php?station=46086","https://www.ndbc.noaa.gov/buoycam.php?station=45002","https://www.ndbc.noaa.gov/buoycam.php?station=46053","https://www.ndbc.noaa.gov/buoycam.php?station=46047","https://www.ndbc.noaa.gov/buoycam.php?station=46084","https://www.ndbc.noaa.gov/buoycam.php?station=46085","https://www.ndbc.noaa.gov/buoycam.php?station=45003","https://www.ndbc.noaa.gov/buoycam.php?station=45007","https://www.ndbc.noaa.gov/buoycam.php?station=46042","https://www.ndbc.noaa.gov/buoycam.php?station=45012","https://www.ndbc.noaa.gov/buoycam.php?station=42019","https://www.ndbc.noaa.gov/buoycam.php?station=46069","https://www.ndbc.noaa.gov/buoycam.php?station=46054","https://www.ndbc.noaa.gov/buoycam.php?station=41049","https://www.ndbc.noaa.gov/buoycam.php?station=45005"]
+
+    #note: undo this to go with the established buoy list
+    # links_2 = create_buoy_links(ids)
+
+    # # append the links_2 to links if they are not already in links
+    # for link in links_2:
+    #     if link not in links:
+    #         links.append(link)
+
+    return links
+
+
+# ids from cam_backend
+
+def create_buoy_links(ids):
+    # for each id in ids, create a link
+    links = []
+    for id in ids:
+        link = "https://www.ndbc.noaa.gov/buoycam.php?station=" + id
+        links.append(link)
     return links
 
 # Notes:
 # Buoy 42002 Has good sunsets
 
+def check_buoy_image_ifwhite(image):
+    """
+    check_buoy_image_ifwhite checks if the image is white
 
+    This function checks if the image is white. If the image is white, then the image is not valid and should be deleted.
+
+    :param image: the image to check
+    :type image: result of requests library get request for image url
+    :return: True if the image is white, False if the image is not white
+    :rtype: bool
+    """
+    # some buoys do not have a camera or the camera is not working. In these cases the image is white with only the text "No Image Available"
+    # determine if the image is white
+    # get the image in numpy array format
+    img = np.asarray(bytearray(image.content), dtype="uint8")
+    # convert the image to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # check if the image is white
+    if np.mean(gray) > 250:
+        return True
+    else:
+        return False
 
 def ocean_stitching(imagePaths, pano_path):
     images = []
@@ -164,6 +255,16 @@ def refine_view(stitched_image):
     (x, y, w, h) = cv2.boundingRect(c)
     cv2.rectangle(mask, (x, y), (x + w, y + h), 255, -1)
 
+
+# given a list of images, create a pano image
+def create_pano_image(image_list, pano_path):
+    # create a pano image from the images in image_list
+    # image_list is a list of image paths
+    # pano_path is the path to save the pano image
+    # create the pano image
+    ocean_stitching(image_list, pano_path)
+    # refine the pano image
+    #refine_view(pano_path)
 
 
 
@@ -282,20 +383,47 @@ def chunk_images(buoy_id,foldername):
 # 46006 - Amazing Sunset
 # 46089 - Tillamook Oregon.
 
-
+from difPy import dif
 cam_urls = buoy_links() # get the links to the cameras
+all_buoy_urls = create_buoy_links(ids)
 stitch_switch = False # make false if you don't want to stitch the images.
+
+# open the blacklist file
+
+from ratelimit import limits, sleep_and_retry
+
+# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.
+@sleep_and_retry
+def pull_data(cam_url, buoy_id, now):
+    img = requests.get(cam_url) # get the image
+    if img.status_code == 200:
+        return img
+    else:
+        print("status code", img.status_code, "for buoy", buoy_id)
+    return img
 
 
 while True:
     try:
         # turn on at 4 am CST and turn off at 11 pm CST
-        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm
+        if datetime.datetime.now().hour < 3 or datetime.datetime.now().hour > 24: # if it is before 3 am or after 12 am
             # wait to turn on until 4 am CST
             # keep the computer awake
             print('The computer is sleeping')
             time.sleep(240) # sleep for 4 minutes
             continue
+
+        # updated blacklist file
+        blacklist = open('data/blacklisted_buoy_ids.csv').read().splitlines() # get the list of buoy ids that are blacklisted.
+        # parse blacklist to remove extra ' and " characters
+        blacklist = [x.replace('"','') for x in blacklist]
+        blacklist = [x.replace("'",'') for x in blacklist]
+        # create a blacklist list of strings from blacklist
+        blacklist = [str(x) for x in blacklist][0].replace(' ','').split(',')
+
+
+
+
         # # if the time is between 4 am and 11 am pacific time, then your wait_period is 100 seconds
         # if datetime.datetime.now().hour >= 4 and datetime.datetime.now().hour < 11:
         #     wait_period = 100
@@ -307,9 +435,13 @@ while True:
         start_time = datetime.datetime.now() # use this to calculate the next time to download images (every ten minutes)
         #!print('Starting the download loop at {}'.format(start_time))
         # print('I can still see things! Downloading images...')
+        chunk_size = 30 # download 30 images at a time then pause for 10 seconds.
+        chunk_size_current = 0 # the current number of images downloaded in the current chunk.
         for cam_url in tqdm(cam_urls):
             # get the buoy id from the camera url
             buoy_id = re.search('station=(.*)', cam_url).group(1)
+            if buoy_id in blacklist: # if the buoy id is in the blacklist, then skip it.
+                continue # skip this buoy id
             # get the current time
             now = datetime.datetime.now()
             # create a directory for the buoy id if it doesn't already exist
@@ -320,8 +452,27 @@ while True:
             # get the image
             ##logging.info("Checking buoy {}".format(buoy_id)) # log the buoy id
             if 'images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute) not in os.listdir('images/buoys/{}'.format(buoy_id)): # if the image has not already been downloaded
-                time.sleep(0.25) # wait 0.25 seconds to avoid getting blocked by the server
-                img = requests.get(cam_url) # get the image
+                time.sleep(0.15) # wait 0.25 seconds to avoid getting blocked by the server
+                if chunk_size_current < chunk_size: # if we have not downloaded 30 images yet
+                    chunk_size_current += 1 # add one to the chunk size
+                else:
+                    time.sleep(15) # wait 15 seconds
+                    chunk_size_current = 0 # reset the chunk size
+
+                wait = True # set the wait variable to true
+                while wait: # while we are waiting
+                    try: # try to get the image
+                        img = pull_data(cam_url, buoy_id, now) # download the image
+                        wait = False
+                    except Exception as e:
+                        # print(e)
+                        wait = True
+                        time.sleep(1)
+                        continue
+
+                # check if the image is white
+
+
                 # Print the name of the image we are downloading
                 print('Downloading image: {}'.format('images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute)))
                 # save the image
@@ -334,12 +485,19 @@ while True:
                     #*print(f'Deleting image for buoy {buoy_id} because it is nighttime.')
                     #*os.remove('images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute))
                 #    pass
+
+                #^ check image to see if it is just a white screen or not. If it is then we want to add this buoy id to the blacklist so that we don't download images from it anymore.
+
             else:
+                print('Image already exists: {}'.format('images/buoys/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute)))
                 pass # if the image already exists, don't download it again
 
         ##logging.INFO("Beginning to panel images (line 24)") #! at {}".format(datetime.datetime.now()))
         # Save the panels to the images/panels directory
         list_of_buoys = os.listdir('images/buoys') # get the list of buoy ids by their directory names
+
+        # sample a random 20 extras from the
+        print('Creating panels...')
         for buoy_id in tqdm(list_of_buoys):
             # get the list of images for the buoy
             #print(f'Paneling images for buoy {buoy_id}')
@@ -355,37 +513,188 @@ while True:
                     # If the panels directory for the buoy doesn't exist, create it.
                     if not os.path.exists('images/panels/{}'.format(buoy_id)):
                         os.makedirs('images/panels/{}'.format(buoy_id))
-                    if 'images/buoys/{}/{}'.format(buoy_id, image) in os.listdir('images/panels/{}'.format(buoy_id)):
-                        print('This image has already been used to create panels.')
-                        continue
-                    if image == '.DS_Store' and buoy_id != '.DS_Store':
-                        continue # skip the .DS_Store file
+                    if 'images/buoys/{}/{}'.format(buoy_id, image) in os.listdir('images/panels/{}'.format(buoy_id)) and image == '.DS_Store' and buoy_id != '.DS_Store':
+                        print('This image has already been used to create panels. Or it is a hidden file.')
+                    else:
+                        # get the panels
+                        panel_1, panel_2, panel_3, panel_4, panel_5, panel_6 = divide_into_panels(buoy_id, 'images/buoys/{}/{}'.format(buoy_id, image))
+
                     #print('Processing image: {}'.format(image))
 
-                    # get the panels
-                    panel_1, panel_2, panel_3, panel_4, panel_5, panel_6 = divide_into_panels(buoy_id, 'images/buoys/{}/{}'.format(buoy_id, image))
                     ##logging.info("Saved panels for buoy {}".format(buoy_id))
                     # print('Saving panels...')
                     # save the panels to the images/panels directory
+                    # now, stitch these images together (correcting for the misalignment of the cameras) and save the result to the images/panoramas directory
+                    # print('Stitching panels...')
+                    # stitch the panels together using stitched_panoramas
+
+                    try:
+                        stitched = stitched_panoramas(panel_1, panel_2, panel_3, panel_4, panel_5, panel_6)
+                        # save the stitched panorama to the images/panoramas directory
+                        # print('Saving stitched panorama...')
+                        if not os.path.exists('images/panoramas/{}'.format(buoy_id)):
+                            os.makedirs('images/panoramas/{}'.format(buoy_id))
+                        # print('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute))
+                        cv2.imwrite('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute), stitched)
+                        # move the image to the images/panels directory
+                        os.rename('images/buoys/{}/{}'.format(buoy_id, image), 'images/panels/{}/{}'.format(buoy_id, image))
+                        ##logging.info("Moved image to panels directory for buoy {}".format(buoy_id))
+                    except Exception as e:
+                        print(e)
+                        pass
 
 
         # Stage 4: save buoy_update_rates_dict to a csv file
         buoy_update_rates_dict_df = pd.DataFrame.from_dict(buoy_update_rates_dict, orient='index')
         buoy_update_rates_dict_df.to_csv('data/buoy_update_rates_dict.csv')
 
-        # Stage 5: Remove any duplicate images in the images/buoys directory with DifPy
+        # Stage 5: Using DifPy, find any images that are similar 'normal' to white_blank.jpg and delete them.
+        # parse the buoy folders and their images
 
+
+        try:
+            buoy_folders = os.listdir('images/buoys')
+            for buoy_folder in buoy_folders:
+                if buoy_folder != '.DS_Store':
+                    images = os.listdir('images/buoys/{}'.format(buoy_folder))
+                    for image in images:
+                        if image != '.DS_Store':
+                            # get the image path
+                            image_path = 'images/buoys/{}/{}'.format(buoy_folder, image)
+                            # get the image
+                            #image = cv2.imread(image_path)
+                            #white_image = cv2.imread('images/white_blank.jpg')
+                            # we need these images to be the same size, so we will resize the white image to the size of the image
+                            # white_image = cv2.resize(white_image, (image.shape[1], image.shape[0]))
+                            # are they ndarrays?
+                            # print(type(image))
+                            # print(type(white_image))
+
+                            # get the difference between the image and the white_blank.jpg image
+                            # calculate the difference between pixel values of the image and a pure white image using numpy
+                            #diff = np.sum(np.abs(image - white_image)) # get the sum of the absolute difference between the two images
+                            # if the difference is less than 1000, then we will delete the image
+                            #if diff < 1000:
+                                #print('Deleting image: {}'.format(image_path))
+                                # move the images instead of literally deleting them to a folder called 'deleted_images' in the images directory
+                                #if not os.path.exists('images/deleted_images'):
+                                #    os.makedirs('images/deleted_images')
+                                #os.rename(image_path, 'images/deleted_images/{}_{}'.format(image_path.split('/')[-1].split('.')[0], buoy_folder))
+                                # os.remove(image_path)
+                            # dif.
+                            # # get the difference score from the difference image
+                            # difference_score = dif.get_difference_score()
+                            # # if the difference score is less than 0.1, then delete the image
+
+                            # # if the difference is less than 0.1, then delete the image
+                            # if difference_score < 0.1:
+                            #     os.remove(image_path)
+                            #     print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
+        except Exception as e:
+            print("Error with White Image Detection: {}".format(e))
+            pass
+
+        if exper_1:
+            # run DifPy on the images in the images/panels directory
+            try:
+                buoy_folders = os.listdir('images/panels')
+                for buoy_folder in buoy_folders:
+                    if buoy_folder != '.DS_Store':
+                        images = os.listdir('images/panels/{}'.format(buoy_folder))
+                        for image in images:
+                            if image != '.DS_Store':
+                                # get the image path
+                                image_path = 'images/panels/{}/{}'.format(buoy_folder, image)
+                                # get the image
+                                image = cv2.imread(image_path)
+                                white_image = cv2.imread('images/white_blank.jpg')
+                                # we need these images to be the same size, so we will resize the white image to the size of the image
+                                white_image = cv2.resize(white_image, (image.shape[1], image.shape[0]))
+                                # are they ndarrays?
+                                # print(type(image))
+                                # print(type(white_image))
+
+                                # get the difference between the image and the white_blank.jpg image
+                                # calculate the difference between pixel values of the image and a pure white image using numpy
+                                diff = np.sum(np.abs(image - white_image)) # get the sum of the absolute difference between the two images
+                                # if the difference is less than 1000, then we will delete the image
+                                if diff < 1000:
+                                    print('Deleting image: {}'.format(image_path))
+                                    # move the images instead of literally deleting them to a folder called 'deleted_images' in the images directory
+                                    if not os.path.exists('images/deleted_images'):
+                                        os.makedirs('images/deleted_images')
+                                    os.rename(image_path, 'images/deleted_images/{}_{}'.format(image_path.split('/')[-1].split('.')[0], buoy_folder))
+                                    # os.remove(image_path)
+                                # dif.
+                                # # get the difference score from the difference image
+                                # difference_score = dif.get_difference_score()
+                                # # if the difference score is less than 0.1, then delete the image
+
+                                # # if the difference is less than 0.1, then delete the image
+                                # if difference_score < 0.1:
+                                #     os.remove(image_path)
+                                #     print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
+            except Exception as e:
+                print("Error with White Image Detection: {}".format(e))
+                pass
 
 
         # Remove duplicate images (preferably before paneling but for now after)
-        for folder in os.listdir('images/buoys'):
-            if folder == '.DS_Store':
-                continue
-            # get the list of images in the folder
-            # sort the images by date
-            # make folder_path variable from relative path
-            folder_path = 'images/buoys/{}'.format(folder)
-            search = dif(folder_path, similarity='high', show_output=False, show_progress=True, silent_del=True, delete=True)
+        if duplicate_removal_flag == True:
+
+            for folder in os.listdir('images/buoys'):
+                if folder == '.DS_Store':
+                    continue
+                # get the list of images in the folder
+                # sort the images by date
+                # make folder_path variable from relative path
+                folder_path = 'images/buoys/{}'.format(folder)
+                search = dif(folder_path, similarity='high', show_output=False, show_progress=True) # returns a list of lists of similar images
+                # for each list of similar images, move all but the first image to the deleted_images folder
+                file_results_dict = search.result # get the list of file names
+                # {20220824212437767808 : {"filename" : "image1.jpg",
+                #                         "location" : "C:/Path/to/Image/image1.jpg"},
+                #                         "duplicates" : ["C:/Path/to/Image/duplicate_image1.jpg",
+                #                                         "C:/Path/to/Image/duplicate_image2.jpg"]},
+                # This is the format of the dictionary returned by the dif.search() method
+                # I want to the filename, location, and duplicates
+                # I want to move the duplicates to the deleted_images folder
+
+
+
+
+
+                # make the deleted_images folder if it doesn't exist
+                if not os.path.exists('images/deleted_images'):
+                    os.makedirs('images/deleted_images')
+
+                # counter should be how many files are in the deleted folder before we start
+                counter = len(os.listdir('images/deleted_images'))
+                # move the duplicates to the deleted_images folder
+                for key in file_results_dict: # iterate through the keys in the dictionary
+                    # get the duplicates
+                    value = file_results_dict[key]
+                    duplicates = value['duplicates']
+                    for duplicate in duplicates:
+                        try:
+                            # move the duplicate to the deleted_images folder
+                            # os.rename(duplicate, 'images/deleted_images/{}_{}'.format(counter,duplicate.split('/')[-1]))
+                            # remove the duplicate
+                            # full dupe path
+                            #full_dupe_path = 'images/buoys/{}/{}'.format(folder, duplicate.split('/')[-1])
+
+                            # first add "duplicate_" to the beginning of the file name
+                            new_name = duplicate.split('/')[-1] # get the file name
+                            new_name = 'duplicate_{}'.format(new_name) # add duplicate_ to the beginning of the file name
+                            # then rename it in the same directory as the original
+                            os.rename(duplicate, 'images/buoys/{}/{}'.format(folder, new_name))
+                            # then move the file to the deleted_images folder
+                            print('Renamed {} to {}'.format(duplicate, new_name))
+                            # os.rename(duplicate, str(duplicate).replace('images/buoys', 'images/deleted_images'))
+                            counter += 1
+                        except Exception as e:
+                            print("Error moving duplicate image: {}".format(e))
+                            pass
 
         ignoring_panel_optimimal = True # note: this is a temporary fix to the problem of the panel images not being generated
         # final step: make sure that all the previous buoy images have been panelled and saved to the images/panels directory
@@ -485,7 +794,7 @@ while True:
                 #print('Could not create panels for buoy: {}'.format(folder))
                 #print('The images in the images/buoys/{} directory have not been panelled yet.'.format(folder))
                 #print('line 139') # line 139
-                continue
+                pass
         # for each folder in the images/panels folder, stitch the images together and save them to the images/panoramas folder with the same name as the folder + panorama.png
 
         #//: the for loop below does not account for the fact that there are multiple captures with 6 frames per capture. This means that the images will be stitched together incorrectly. This is a problem that needs to be fixed. Find a way to select only the sets of 6 images that go together to stitch together.
@@ -520,7 +829,12 @@ while True:
     except Exception as e:
         print(e)
         print('Error occurred.')
-        continue
+        # how much time has passed since the start of the loop?
+        time_elapsed = datetime.datetime.now() - start_time
+        #* wait till the ten minute mark is reached.
+        for i in tqdm(range(wait_period - time_elapsed.seconds)):
+            time.sleep(1)
+        iteration_counter += 1
 
 
 

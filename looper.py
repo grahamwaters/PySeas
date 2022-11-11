@@ -41,12 +41,12 @@ def deal_with_white_images_and_populate_tapestry():
     # blank_image = np.zeros((height*10, width, channels), np.uint8)
     # get the ten images that have the most orange in them
     # make the blank image the same size as the images
-    blank_image = np.zeros((height*10, width, channels), np.uint8)
-    cv2.imwrite('images/tapestry.png', blank_image)
+
 
     # shuffle the files so we don't always get the same ten images
     random.shuffle(files)
 
+    add_list = []
 
     for file in tqdm(files):
         # read the image
@@ -74,6 +74,52 @@ def deal_with_white_images_and_populate_tapestry():
                 continue
 
             blue_value = np.mean(image[:,:,1]) # blue value
+            # print(orange_value, red_value, blue_value)
+            # show the image and annotate it with the orange, red, and blue values
+            # plt.imshow(image)
+            # plt.title("Orange: " + str(orange_value) + " Red: " + str(red_value) + " Blue: " + str(blue_value))
+            # plt.show()
+
+            # save the filename to a list if the image is to be added to the tapestry
+            add_list.append(file)
+
+        except Exception as e:
+            print(e)
+            continue
+
+
+    blank_image = np.zeros((height*len(add_list), width, channels), np.uint8)
+    cv2.imwrite('images/tapestry.png', blank_image)
+
+
+
+
+    for file in tqdm(add_list):
+        # read the image
+        try:
+            image = cv2.imread(file)
+            # get the average orange value
+            # print(np.mean(image[:,:,2]))
+            #orange_value = np.mean(image[:,:,2]) # the orange channel is the third channel
+
+            #red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
+
+
+            # daytime images always have higher values than 10 for all three channels
+            # values less than 10 are usually night
+            # skip the image if it is night
+            # if orange_value < 10 and red_value < 10: # higher than 250 for all means it is a white imag
+            #     continue
+            # # if the values are all higher than 250 then it is a white image and we want to remove it
+            # if orange_value > 250 and red_value > 250:
+            #     os.remove(file)
+            #     print("Removed white image")
+            #     continue
+            # # if the image was not taken in the last x hours, skip it
+            # if not is_recent(file, 60): # 60 minutes
+            #     continue
+
+            #blue_value = np.mean(image[:,:,1]) # blue value
             # print(orange_value, red_value, blue_value)
             # show the image and annotate it with the orange, red, and blue values
             # plt.imshow(image)

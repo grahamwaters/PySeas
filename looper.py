@@ -13,6 +13,69 @@ import numpy as np
 import argparse
 import imutils
 import cv2
+import glob
+
+def deal_with_white_images_and_populate_tapestry():
+    sunsets_found = 0 # keep track of how many sunsets we find
+    files =glob.glob('images/buoys/*/*')
+    # without glob
+    #files = []
+    #for file in os.listdir('images/buoys/'):
+    #   files.append('images/buoys/' + file)
+    #print(files)
+    height, width, channels = cv2.imread(files[0]).shape
+    # blank_image = np.zeros((height*10, width, channels), np.uint8)
+    # get the ten images that have the most orange in them
+    # make the blank image the same size as the images
+    blank_image = np.zeros((height*10, width, channels), np.uint8)
+    cv2.imwrite('images/tapestry.png', blank_image)
+
+    # shuffle the files so we don't always get the same ten images
+    random.shuffle(files)
+
+
+    for file in tqdm(files):
+        # read the image
+        try:
+            image = cv2.imread(file)
+            # get the average orange value
+            # print(np.mean(image[:,:,2]))
+            orange_value = np.mean(image[:,:,2]) # the orange channel is the third channel
+
+            red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
+
+
+            # daytime images always have higher values than 10 for all three channels
+            # values less than 10 are usually night
+            # skip the image if it is night
+            if orange_value < 10 and red_value < 10: # higher than 250 for all means it is a white imag
+                continue
+            # if the values are all higher than 250 then it is a white image and we want to remove it
+            if orange_value > 250 and red_value > 250:
+                os.remove(file)
+                print("Removed white image")
+                continue
+
+            blue_value = np.mean(image[:,:,1]) # blue value
+            # print(orange_value, red_value, blue_value)
+            # show the image and annotate it with the orange, red, and blue values
+            # plt.imshow(image)
+            # plt.title("Orange: " + str(orange_value) + " Red: " + str(red_value) + " Blue: " + str(blue_value))
+            # plt.show()
+
+            # if we reached this point the image can be added to the tapestry unless the tapestry has already been filled then just keep going without adding the image
+            if sunsets_found == 10:
+                continue
+            else:
+                blank_image[sunsets_found*height:(sunsets_found+1)*height, 0:width] = image
+                # show progress by printing out the blank image
+                cv2.imwrite('images/tapestry.png', blank_image)
+                #print("Sunset found!")
+                sunsets_found += 1 # increment the number of sunsets found
+
+        except:
+            print("Error reading image")
+            pass
 
 
 def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):
@@ -817,6 +880,13 @@ while True:
         except:
             pass
         #* ====== End Show Buoy Image Snippet
+
+
+        print('Running White Elimiination and populating the Tapestry')
+        deal_with_white_images_and_populate_tapestry() # run the white elimination and populate the tapestry
+
+
+
 
         # how much time has passed since the start of the loop?
         time_elapsed = datetime.datetime.now() - start_time

@@ -71,5 +71,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for mor
 # The Sunset Tapestry
 
 <div align="center">
+
 ![The Tapestry of the Ocean's Life](images/tapestry.png)
+
 </div>

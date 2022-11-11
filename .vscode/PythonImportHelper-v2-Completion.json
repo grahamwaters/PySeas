@@ -534,6 +534,15 @@
         "documentation": {}
     },
     {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
         "label": "limits",
         "importPath": "ratelimit",
         "description": "ratelimit",
@@ -1609,6 +1618,15 @@
         "documentation": {}
     },
     {
+        "label": "deal_with_white_images_and_populate_tapestry",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def deal_with_white_images_and_populate_tapestry():\n    sunsets_found = 0 # keep track of how many sunsets we find\n    files =glob.glob('images/buoys/*/*')\n    # without glob\n    #files = []\n    #for file in os.listdir('images/buoys/'):\n    #   files.append('images/buoys/' + file)\n    #print(files)\n    height, width, channels = cv2.imread(files[0]).shape\n    # blank_image = np.zeros((height*10, width, channels), np.uint8)",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "stitched_panoramas",
         "kind": 2,
         "importPath": "looper",
@@ -1721,7 +1739,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\ndef stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):",
+        "peekOfCode": "duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob",
         "detail": "looper",
         "documentation": {}
     },
@@ -1730,7 +1748,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\ndef stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):\n    # get the image size\n    img_width, img_height = get_image_size(panel1)",
+        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\ndef deal_with_white_images_and_populate_tapestry():\n    sunsets_found = 0 # keep track of how many sunsets we find",
         "detail": "looper",
         "documentation": {}
     },

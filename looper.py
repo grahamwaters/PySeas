@@ -40,6 +40,66 @@ def crop_the_bottom_off(images):
             # save the image
             cropped_image.save(image)
 
+def check_colors_of_six_panels(image):
+    # there are six panels in the image (side by side) and we want to check the colors of each panel
+    # get the image size
+    img_width, img_height = get_image_size(image)
+    # get the width of each panel
+    panel_width = img_width/6
+    # get the height of each panel (remove botttom 20 pixels)
+    panel_height = img_height-20
+    # get the colors of each panel
+    panel_1 = image.getpixel((panel_width/2, panel_height/2))
+    panel_2 = image.getpixel((panel_width*1.5, panel_height/2))
+    panel_3 = image.getpixel((panel_width*2.5, panel_height/2))
+    panel_4 = image.getpixel((panel_width*3.5, panel_height/2))
+    panel_5 = image.getpixel((panel_width*4.5, panel_height/2))
+    panel_6 = image.getpixel((panel_width*5.5, panel_height/2))
+    # return the number of panels that meet the color criteria:
+    # criteria:
+    # red = less than 250 and greater than 170
+    # green = less than 250 and greater than 170
+    # blue = less than 250 and greater than 170
+    # orange = less than 250 and greater than 170
+
+    # check panel 1
+    # if panel_1[0] < 250 and panel_1[0] > 170 and panel_1[1] < 250 and panel_1[1] > 170 and panel_1[2] < 250 and panel_1[2] > 170:
+    #     panel_1_color = 'white'
+    # elif panel_1[0] < 250 and panel_1[0] > 170 and panel_1[1] < 250 and panel_1[1] > 170 and panel_1[2] < 170:
+    #     panel_1_color = 'yellow'
+    # elif panel_1[0] < 250 and panel_1[0] > 170 and panel_1[1] < 170 and panel_1[2] < 250 and panel_1[2] > 170:
+    #     panel_1_color = 'green'
+    # elif panel_1[0] < 170 and panel_1[1] < 250 and panel_1[1] > 170 and panel_1[2] < 250 and panel_1[2] > 170:
+    #     panel_1_color = 'blue'
+    # elif panel_1[0] < 250 and panel_1[0] > 170 and panel_1[1] < 170 and panel_1[2] < 170:
+    #     panel_1_color = 'red'
+    # else:
+    #     panel_1_color = 'other'
+    # this is an interesting code but let's do something simpler, I want to isolate images that have sunsets in them, so let's just check the red and blue values
+    if panel_1[0] > 200 and panel_1[2] > 200: # if the red and blue values are greater than 200, then it's a sunset?
+        panel_1_result = True # set the result to true
+    else:
+        panel_1_result = False
+    # check panel 2
+    if panel_2[0] > 200 and panel_2[2] > 200:
+        panel_2_result = True
+    else:
+        panel_2_result = False
+    # check panel 3
+    if panel_3[0] > 200 and panel_3[2] > 200:
+        panel_3_result = True
+    # check panel 4
+    if panel_4[0] > 200 and panel_4[2] > 200:
+        panel_4_result = True
+    # check panel 5
+    if panel_5[0] > 200 and panel_5[2] > 200:
+        panel_5_result = True
+    # check panel 6
+    if panel_6[0] > 200 and panel_6[2] > 200:
+        panel_6_result = True
+    # return the results
+    panels_collection = [panel_1, panel_2, panel_3, panel_4, panel_5, panel_6] # put the panels into a list
+    return [[panel_1_result, panel_2_result, panel_3_result, panel_4_result, panel_5_result, panel_6_result],panels_collection] # return the results
 
 def deal_with_white_images_and_populate_tapestry():
     sunsets_found = 0 # keep track of how many sunsets we find
@@ -64,12 +124,32 @@ def deal_with_white_images_and_populate_tapestry():
         # read the image
         try:
             image = cv2.imread(file)
-            # get the average orange value
-            # print(np.mean(image[:,:,2]))
-            orange_value = np.mean(image[:,:,2]) # the orange channel is the third channel
 
-            red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
+            # get the image details for panels 1-6
+            panel_results, panels_collection = check_colors_of_six_panels(image)
+            # explanation of results:
+            # panel_results - a list of true or false values for each panel (true if the panel is orange, false if not).
+            # panels_collection - a list of the colors of each panel (in RGB format) (this is for debugging purposes)
+            # if the image has at least 4 panels that are orange, then we want to add it to the tapestry
+            if panel_results.count(True) >= 4:
+                add_list.append(file)
+                sunsets_found += 1
+                # print('found a sunset!')
+                # print(panel_results)
+                # print(panels_collection)
+                # print(file)
+            else:
+                continue # if the image doesn't have at least 4 panels that are orange, then we don't want to add it to the tapestry
 
+            #note: uncomment below if the check_colors_of_six_panels function is not working
+            # # get the average orange value
+            # orange_value = np.mean(image[:,:,2]) # the orange channel is the third channel
+            # red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
+
+            # get the median orange value across the panels
+            orange_value = np.median([panels_collection[0][2], panels_collection[1][2], panels_collection[2][2], panels_collection[3][2], panels_collection[4][2], panels_collection[5][2]])
+            # get the median red value across the panels
+            red_value = np.median([panels_collection[0][0], panels_collection[1][0], panels_collection[2][0], panels_collection[3][0], panels_collection[4][0], panels_collection[5][0]])
 
             # daytime images always have higher values than 10 for all three channels
             # values less than 10 are usually night

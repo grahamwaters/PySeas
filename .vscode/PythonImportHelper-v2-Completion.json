@@ -1636,6 +1636,15 @@
         "documentation": {}
     },
     {
+        "label": "check_colors_of_six_panels",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def check_colors_of_six_panels(image):\n    # there are six panels in the image (side by side) and we want to check the colors of each panel\n    # get the image size\n    img_width, img_height = get_image_size(image)\n    # get the width of each panel\n    panel_width = img_width/6\n    # get the height of each panel (remove botttom 20 pixels)\n    panel_height = img_height-20\n    # get the colors of each panel\n    panel_1 = image.getpixel((panel_width/2, panel_height/2))",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "deal_with_white_images_and_populate_tapestry",
         "kind": 2,
         "importPath": "looper",

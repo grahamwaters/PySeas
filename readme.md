@@ -24,11 +24,13 @@ PySeas
 - [PySeas for Researchers](#pyseas-for-researchers)
 - [PySeas for Machine Learning and Data Science](#pyseas-for-machine-learning-and-data-science)
 - [PySeas as a random data generator](#pyseas-as-a-random-data-generator)
+- [PySeas as the Artist of the World](#pyseas-as-the-artist-of-the-world)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
+- [The Sunset Tapestry](#the-sunset-tapestry)
 
 
 # Introduction
@@ -38,9 +40,13 @@ PySeas is a Python package that allows you to easily access the NOAA's National 
 One use-case for PySeas is as a way for scientists to gain greater insight from the images captured by Buoys and find correlations with the other forms of data that are measured from these buoys. For example, a scientist may want to find out if there is a correlation between the amount of sunlight that a buoy receives and the amount of algae that is present in the water. This is a very interesting question, but it is difficult to answer without access to the data. PySeas makes it easy to access the data and to find correlations between the data.
 
 # PySeas for Machine Learning and Data Science
-
+For computer vision challenges, a successful model will need to be able to recognize patterns in the images that are captured by the buoys. PySeas makes it easy to access the data and to find correlations between the data. Questions that would be interesting to answer include: what does a storm look like across six panels of images taken concurrently? What colors are most present in the days prior to a large storm? What colors are most present in the days after a large storm? These are all questions that can be answered using PySeas.
 # PySeas as a random data generator
 The world is the best generator of random data. The oceans are the best generator of random data. PySeas is the best way to access the oceans and generate random data. Synthetic data is a great way to test your machine learning models. PySeas is a great way to generate synthetic data.
+
+# PySeas as the Artist of the World
+One of the visions that I have for this project is a tapestry of sunsets. I think that it would be amazing to take the images of the sunset in real-time from the buoys and stitch them into rows (one buoy per row) to show the sunset across the ocean from the perspective of the buoys. I think that this would be a beautiful piece of art. This can be done and I think that CV2 can be used to stitch the images together. I will begin the tapestry at the end of this readme.
+
 # Installation
 PySeas is available on PyPI and can be installed using pip:
 ```
@@ -59,3 +65,10 @@ PySeas is licensed under the MIT License. See [LICENSE](LICENSE) for more inform
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 # Acknowledgements
+
+
+# The Sunset Tapestry
+
+<div align="center">
+![The Tapestry of the Ocean's Life](images/tapestry.png)
+</div>

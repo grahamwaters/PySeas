@@ -1627,6 +1627,15 @@
         "documentation": {}
     },
     {
+        "label": "crop_the_bottom_off",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def crop_the_bottom_off(images):\n    # for each of the images crop the bottom off (20 pixels)\n    for image in image_list:\n        try:\n            # get the image size\n            img_width, img_height = get_image_size(image)\n            # crop the bottom off\n            cropped_image = image.crop((0, 0, img_width, img_height-20))\n            # save the image\n            cropped_image.save(image)",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "deal_with_white_images_and_populate_tapestry",
         "kind": 2,
         "importPath": "looper",

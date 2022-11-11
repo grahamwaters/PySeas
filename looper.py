@@ -29,6 +29,18 @@ def is_recent(file, minutes):
     else:
         return False
 
+def crop_the_bottom_off(images):
+    # for each of the images crop the bottom off (20 pixels)
+    for image in image_list:
+        try:
+            # get the image size
+            img_width, img_height = get_image_size(image)
+            # crop the bottom off
+            cropped_image = image.crop((0, 0, img_width, img_height-20))
+            # save the image
+            cropped_image.save(image)
+
+
 def deal_with_white_images_and_populate_tapestry():
     sunsets_found = 0 # keep track of how many sunsets we find
     files =glob.glob('images/buoys/*/*')
@@ -62,18 +74,21 @@ def deal_with_white_images_and_populate_tapestry():
             # daytime images always have higher values than 10 for all three channels
             # values less than 10 are usually night
             # skip the image if it is night
-            if orange_value < 10 and red_value < 10: # higher than 250 for all means it is a white imag
+            if orange_value < 10 and red_value < 10: # if the image is night
                 continue
             # if the values are all higher than 250 then it is a white image and we want to remove it
             if orange_value > 250 and red_value > 250:
                 os.remove(file)
                 print("Removed white image")
                 continue
+            # interesting photos have high red values
+            if red_value > 147 or (orange_value > 147 and red_value > 100): # if the image is interesting
+                add_list.append(file)
             # if the image was not taken in the last x hours, skip it
             if not is_recent(file, 60): # 60 minutes
                 continue
 
-            blue_value = np.mean(image[:,:,1]) # blue value
+            #blue_value = np.mean(image[:,:,1]) # blue value
             # print(orange_value, red_value, blue_value)
             # show the image and annotate it with the orange, red, and blue values
             # plt.imshow(image)
@@ -81,7 +96,7 @@ def deal_with_white_images_and_populate_tapestry():
             # plt.show()
 
             # save the filename to a list if the image is to be added to the tapestry
-            add_list.append(file)
+
 
         except Exception as e:
             print(e)
@@ -137,13 +152,13 @@ def deal_with_white_images_and_populate_tapestry():
                     # add the new image to the bottom of the tapestry
                     blank_image = np.concatenate((blank_image, image), axis=0)
                     cv2.imwrite('images/tapestry.png', blank_image)
-                    time.sleep(0.5)
                 else:
                     blank_image[sunsets_found*height:(sunsets_found+1)*height, 0:width] = image
                     # show progress by printing out the blank image
                     cv2.imwrite('images/tapestry.png', blank_image)
                     #print("Sunset found!")
                     sunsets_found += 1 # increment the number of sunsets found
+
             else:
                 blank_image[sunsets_found*height:(sunsets_found+1)*height, 0:width] = image
                 # show progress by printing out the blank image

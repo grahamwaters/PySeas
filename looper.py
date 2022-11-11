@@ -14,6 +14,20 @@ import argparse
 import imutils
 import cv2
 import glob
+rotating = False # flag to indicate if the tapestry is rotating
+
+def is_recent(file, minutes):
+    # get the time the image was taken
+    image_time = os.path.getmtime(file)
+    # get the current time
+    current_time = time.time()
+    # get the difference between the two times
+    time_difference = current_time - image_time
+    # if the time difference is less than minutes, return true
+    if time_difference < minutes*60:
+        return True
+    else:
+        return False
 
 def deal_with_white_images_and_populate_tapestry():
     sunsets_found = 0 # keep track of how many sunsets we find
@@ -55,6 +69,9 @@ def deal_with_white_images_and_populate_tapestry():
                 os.remove(file)
                 print("Removed white image")
                 continue
+            # if the image was not taken in the last x hours, skip it
+            if not is_recent(file, 60): # 60 minutes
+                continue
 
             blue_value = np.mean(image[:,:,1]) # blue value
             # print(orange_value, red_value, blue_value)
@@ -64,15 +81,29 @@ def deal_with_white_images_and_populate_tapestry():
             # plt.show()
 
             # if we reached this point the image can be added to the tapestry unless the tapestry has already been filled then just keep going without adding the image
-            if sunsets_found == 10:
-                continue
+            if rotating: # if the tapestry is rotating, we take an image and add it to the tapestry as well as remove the oldest image otherwise we just add the image to the tapestry
+                if sunsets_found == 10:
+                    # remove the top image from the tapestry
+                    # get the image at the top of the tapestry which has a height of total_height/10
+                    top_image = blank_image[0:height, 0:width]
+                    # crop the image to remove the top 1/10th of the image
+                    blank_image = blank_image[height:height*10, 0:width]
+                    # add the new image to the bottom of the tapestry
+                    blank_image = np.concatenate((blank_image, image), axis=0)
+                    cv2.imwrite('images/tapestry.png', blank_image)
+                    time.sleep(0.5)
+                else:
+                    blank_image[sunsets_found*height:(sunsets_found+1)*height, 0:width] = image
+                    # show progress by printing out the blank image
+                    cv2.imwrite('images/tapestry.png', blank_image)
+                    #print("Sunset found!")
+                    sunsets_found += 1 # increment the number of sunsets found
             else:
                 blank_image[sunsets_found*height:(sunsets_found+1)*height, 0:width] = image
                 # show progress by printing out the blank image
                 cv2.imwrite('images/tapestry.png', blank_image)
                 #print("Sunset found!")
                 sunsets_found += 1 # increment the number of sunsets found
-
         except:
             print("Error reading image")
             pass

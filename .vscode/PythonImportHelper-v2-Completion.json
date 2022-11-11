@@ -1631,7 +1631,7 @@
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def crop_the_bottom_off(images):\n    # for each of the images crop the bottom off (20 pixels)\n    for image in image_list:\n        try:\n            # get the image size\n            img_width, img_height = get_image_size(image)\n            # crop the bottom off\n            cropped_image = image.crop((0, 0, img_width, img_height-20))\n            # save the image\n            cropped_image.save(image)",
+        "peekOfCode": "def crop_the_bottom_off(images):\n    # for each of the images crop the bottom off (20 pixels)\n    for image in images:\n        try:\n            # get the image size\n            img_width, img_height = get_image_size(image)\n            # crop the bottom off\n            cropped_image = image.crop((0, 0, img_width, img_height-20))\n            # save the image\n            cropped_image.save(image)",
         "detail": "looper",
         "documentation": {}
     },
@@ -1640,7 +1640,34 @@
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def check_colors_of_six_panels(image):\n    # there are six panels in the image (side by side) and we want to check the colors of each panel\n    # get the image size\n    img_width, img_height = get_image_size(image)\n    # get the width of each panel\n    panel_width = img_width/6\n    # get the height of each panel (remove botttom 20 pixels)\n    panel_height = img_height-20\n    # get the colors of each panel\n    panel_1 = image.getpixel((panel_width/2, panel_height/2))",
+        "peekOfCode": "def check_colors_of_six_panels(image):\n    # there are six panels in the image (side by side) and we want to check the colors of each panel\n    # get the image size\n    # the input image should be an image object\n    img_width, img_height = get_image_size(image)\n    # get the width of each panel\n    panel_width = img_width/6\n    # get the height of each panel (remove botttom 20 pixels)\n    panel_height = img_height-20\n    # get the colors of each panel",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "get_panel_segments",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def get_panel_segments(image):\n    \"\"\"\n    get_panel_segments takes an image and returns the segments of the image that are the panels\n    :param image: the image to be segmented\n    :param image: the image to be segmented\n    :type image: image object (from PIL) or numpy array (from OpenCV)\n    :return: the segments of the image that are the panels\n    :rtype: list of image objects\n    \"\"\"\n    # get the image size",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "get_average_color",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def get_average_color(image):\n    \"\"\"\n    get_average_color takes an image and returns the average color of the image\n    :param image: the image to be segmented\n    :type image: image object (from PIL) or numpy array (from OpenCV)\n    :return: the average color of the image\n    :rtype: tuple of integers\n    \"\"\"\n    # get the image size\n    img_width, img_height = image.shape[0], image.shape[1]",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "detect_red",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def detect_red(image):\n    \"\"\"\n    detect_red _summary_\n    _extended_summary_\n    :param image: _description_\n    :type image:\n    :return: _description_\n    :rtype: _type_\n    \"\"\"\n    lower_red = np.array([0, 0, 200], dtype = \"uint8\")",
         "detail": "looper",
         "documentation": {}
     },
@@ -1658,7 +1685,7 @@
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):\n    # get the image size\n    img_width, img_height = get_image_size(panel1)\n    # get the ratio of the width to height\n    r = float(img_width)/float(img_height)\n    # get the aspect ratio of the image\n    ar = round(r, 2)\n    # calculate the rotation angle\n    rot = math.degrees(math.atan2(-panel1.get_top(), -panel1.get_left()))\n    # get the rotation matrix for this angle",
+        "peekOfCode": "def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):\n    # get the image size\n    img_width, img_height = panel1.shape[1], panel1.shape[0]\n    # get the ratio of the width to height\n    r = float(img_width)/float(img_height)\n    # get the aspect ratio of the image\n    ar = round(r, 2)\n    # calculate the rotation angle\n    rot = math.degrees(math.atan2(-panel1.get_top(), -panel1.get_left()))\n    # get the rotation matrix for this angle",
         "detail": "looper",
         "documentation": {}
     },
@@ -1667,7 +1694,7 @@
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def get_image_size(image):\n    # get the image width and height\n    w, h = image.shape\n    # get the ratio of the width to height\n    r = float(w)/float(h)\n    # get the aspect ratio of the image\n    ar = round(r, 2)\n    # calculate the rotation angle\n    rot = math.degrees(math.atan2(-image.get_top(), -image.get_left()))\n    # get the rotation matrix for this angle",
+        "peekOfCode": "def get_image_size(image):\n    \"\"\"\n    get_image_size returns the width and height of an image\n    _extended_summary_\n    :param image: the image to get the size of\n    :type image: cv2 image\n    :return: the width and height of the image\n    :rtype: tuple\n    \"\"\"\n    # get the image width and height",
         "detail": "looper",
         "documentation": {}
     },

@@ -31,7 +31,7 @@ def is_recent(file, minutes):
 
 def crop_the_bottom_off(images):
     # for each of the images crop the bottom off (20 pixels)
-    for image in image_list:
+    for image in images:
         try:
             # get the image size
             img_width, img_height = get_image_size(image)
@@ -39,10 +39,14 @@ def crop_the_bottom_off(images):
             cropped_image = image.crop((0, 0, img_width, img_height-20))
             # save the image
             cropped_image.save(image)
+        except Exception as e:
+            print("Error cropping the bottom off of the image: " + str(e))
 
 def check_colors_of_six_panels(image):
     # there are six panels in the image (side by side) and we want to check the colors of each panel
     # get the image size
+    # the input image should be an image object
+
     img_width, img_height = get_image_size(image)
     # get the width of each panel
     panel_width = img_width/6
@@ -99,7 +103,92 @@ def check_colors_of_six_panels(image):
         panel_6_result = True
     # return the results
     panels_collection = [panel_1, panel_2, panel_3, panel_4, panel_5, panel_6] # put the panels into a list
-    return [[panel_1_result, panel_2_result, panel_3_result, panel_4_result, panel_5_result, panel_6_result],panels_collection] # return the results
+    return panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, panel_1_result, panel_2_result, panel_3_result, panel_4_result, panel_5_result, panel_6_result
+
+
+def get_panel_segments(image):
+    """
+    get_panel_segments takes an image and returns the segments of the image that are the panels
+
+    :param image: the image to be segmented
+
+    :param image: the image to be segmented
+    :type image: image object (from PIL) or numpy array (from OpenCV)
+    :return: the segments of the image that are the panels
+    :rtype: list of image objects
+    """
+    # get the image size
+    img_width, img_height = image.shape[0], image.shape[1]
+    # get the width of each panel
+    panel_width = img_width/6
+    # get the height of each panel (remove botttom 20 pixels)
+    panel_height = img_height-20
+    # cast them to integers
+    panel_width = int(panel_width)
+    panel_height = int(panel_height)
+
+    # get the segments of the image that are the panels
+    panel_1 = image[0:panel_height, 0:panel_width] # to overcome the error: slice indices must be integers or None or have an __index__ method
+    # we have to convert the panel_1 to an image object
+    panel_2 = image[0:panel_height, panel_width:panel_width*2]
+    panel_3 = image[0:panel_height, panel_width*2:panel_width*3]
+    panel_4 = image[0:panel_height, panel_width*3:panel_width*4]
+    panel_5 = image[0:panel_height, panel_width*4:panel_width*5]
+    panel_6 = image[0:panel_height, panel_width*5:panel_width*6]
+    # return the segments
+    panels = [panel_1, panel_2, panel_3, panel_4, panel_5, panel_6]
+    return panels
+
+def get_average_color(image):
+    """
+    get_average_color takes an image and returns the average color of the image
+
+    :param image: the image to be segmented
+    :type image: image object (from PIL) or numpy array (from OpenCV)
+    :return: the average color of the image
+    :rtype: tuple of integers
+    """
+    # get the image size
+    img_width, img_height = image.shape[0], image.shape[1]
+    # get the average color of the image
+    average_color = image.getpixel((img_width/2, img_height/2))
+    # return the average color
+    return average_color
+
+def detect_red(image):
+    """
+    detect_red _summary_
+
+    _extended_summary_
+
+    :param image: _description_
+    :type image:
+    :return: _description_
+    :rtype: _type_
+    """
+    lower_red = np.array([0, 0, 200], dtype = "uint8")
+
+    upper_red= np.array([0, 0, 255], dtype = "uint8")
+    mask = cv2.inRange(image, lower_red, upper_red) # create a mask for the red color
+    detected_red = cv2.bitwise_and(image, image, mask = mask) # apply the mask to the image
+    # what percentage of the image is red?
+    # get the image size
+    img_width, img_height = image.shape[0], image.shape[1] # get the image size
+    # get the number of pixels in the image
+    num_pixels = img_width*img_height
+    # get the number of red pixels
+    num_red_pixels = np.count_nonzero(detected_red)
+    # get the percentage of red pixels
+    percent_red = num_red_pixels/num_pixels
+    # return the percentage of red pixels
+
+    # if there is more than 10% red, then return true
+    if percent_red > 0.1:
+        return True
+    else:
+        return False
+
+
 
 def deal_with_white_images_and_populate_tapestry():
     sunsets_found = 0 # keep track of how many sunsets we find
@@ -116,7 +205,7 @@ def deal_with_white_images_and_populate_tapestry():
 
 
     # shuffle the files so we don't always get the same ten images
-    random.shuffle(files)
+    random.shuffle(files)nc
 
     add_list = []
 
@@ -126,20 +215,55 @@ def deal_with_white_images_and_populate_tapestry():
             image = cv2.imread(file)
 
             # get the image details for panels 1-6
-            panel_results, panels_collection = check_colors_of_six_panels(image)
+            panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, = get_panel_segments(image)
             # explanation of results:
-            # panel_results - a list of true or false values for each panel (true if the panel is orange, false if not).
-            # panels_collection - a list of the colors of each panel (in RGB format) (this is for debugging purposes)
-            # if the image has at least 4 panels that are orange, then we want to add it to the tapestry
-            if panel_results.count(True) >= 4:
+            panels_collection = [panel_1, panel_2, panel_3, panel_4, panel_5,panel_6] # put the panels into a list
+
+
+            # put True into panel_results once for each panel (1/6 of the width of the image) that has an average red value greater than 180 and an average blue value greater than 180
+
+            # the image passed to get_panel_segments should be a cv2 image
+            assert(type(image) == np.ndarray)
+
+            panel_segments = get_panel_segments(image)
+
+            positive_panel_count = 0 # keep track of how many panels have a sunset in them
+            # get the average color of each panel
+            for panel in panel_segments:
+                panel_average_color = get_average_color(panel)
+                #check if the panel is a sunset
+                if panel_average_color[0] > 200 and panel_average_color[2] > 200:
+                    # increment the positive_panel_count by 1
+                    positive_panel_count += 1
+
+            # now check if the positive_panel_count is greater than 3 (i.e. more than half of the panels have a sunset in them)
+            if positive_panel_count > 3:
                 add_list.append(file)
                 sunsets_found += 1
-                # print('found a sunset!')
-                # print(panel_results)
-                # print(panels_collection)
-                # print(file)
             else:
-                continue # if the image doesn't have at least 4 panels that are orange, then we don't want to add it to the tapestry
+                continue # if the positive_panel_count is not greater than 3, then continue on to the next image
+
+            # what is the average amount of red in the image?
+            # what is the average amount of blue in the image?
+            # what is the average amount of green in the image?
+            # what is the average amount of orange in the image?
+
+            # if the average amount of orange is greater than 200, then add the image to the add_list
+            red_flag = detect_red(image)
+            if red_flag: # if the image has more than 10% red in it
+                add_list.append(file)
+                sunsets_found += 1
+            # if the average amount of orange is greater than 200:
+                # add_list.append(file)
+                # sunsets_found += 1
+            # else:
+                # continue # if the average amount of orange is not greater than 200, then continue on to the next image
+
+
+            x = [[panel_1_result, panel_2_result, panel_3_result, panel_4_result, panel_5_result, panel_6_result],panels_collection] # return the results
+            #panel_results - a list of true or false values for each panel (true if the panel is orange, false if not).
+            #panels_collection - a list of the colors of each panel (in RGB format) (this is for debugging purposes)
+            #if the image has at least 4 panels that are orange, then we want to add it to the tapestry
 
             #note: uncomment below if the check_colors_of_six_panels function is not working
             # # get the average orange value
@@ -147,8 +271,9 @@ def deal_with_white_images_and_populate_tapestry():
             # red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
 
             # get the median orange value across the panels
+            panels_collection = panel_segments # put the panels into a list
             orange_value = np.median([panels_collection[0][2], panels_collection[1][2], panels_collection[2][2], panels_collection[3][2], panels_collection[4][2], panels_collection[5][2]])
-            # get the median red value across the panels
+            # # get the median red value across the panels
             red_value = np.median([panels_collection[0][0], panels_collection[1][0], panels_collection[2][0], panels_collection[3][0], panels_collection[4][0], panels_collection[5][0]])
 
             # daytime images always have higher values than 10 for all three channels
@@ -183,8 +308,8 @@ def deal_with_white_images_and_populate_tapestry():
             continue
 
 
-    blank_image = np.zeros((height*len(add_list), width, channels), np.uint8)
-    cv2.imwrite('images/tapestry.png', blank_image)
+        blank_image = np.zeros((height*len(add_list), width, channels), np.uint8)
+        cv2.imwrite('images/tapestry.png', blank_image)
 
 
 
@@ -252,7 +377,7 @@ def deal_with_white_images_and_populate_tapestry():
 
 def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):
     # get the image size
-    img_width, img_height = get_image_size(panel1)
+    img_width, img_height = panel1.shape[1], panel1.shape[0]
     # get the ratio of the width to height
     r = float(img_width)/float(img_height)
     # get the aspect ratio of the image
@@ -267,16 +392,31 @@ def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):
     pos = np.array((new_im.shape.width/2, new_im.shape.height/2))
     # crop the image to the correct size
     new_im = new_im.copy()
-    cropped_im = new_im.crop(pos)
+    #!cropped_im = new_im.crop(pos)
     # rotate the image back
-    rotated_im = cv2.rotate(cropped_im, 90, pos, 0, 0, 360)
+    rotated_im = cv2.rotate(new_im, 90, pos, 0, 0, 360)
     # resize the image to the right size
     resized_im = cv2.resize(rotated_im, (int(round(ar*img_width)), int(round(ar*img_height))))
     return resized_im
 
 def get_image_size(image):
+    """
+    get_image_size returns the width and height of an image
+
+    _extended_summary_
+
+    :param image: the image to get the size of
+    :type image: cv2 image
+    :return: the width and height of the image
+    :rtype: tuple
+    """
     # get the image width and height
-    w, h = image.shape
+    w, h = image.shape[:2]
+    # I am getting Exception has occurred: ValueError
+    # too many values to unpack (expected 2)
+    # the way to fix this is...
+    # w, h = image.shape[:2]
+
     # get the ratio of the width to height
     r = float(w)/float(h)
     # get the aspect ratio of the image
@@ -763,20 +903,20 @@ while True:
                     # print('Stitching panels...')
                     # stitch the panels together using stitched_panoramas
 
-                    try:
-                        stitched = stitched_panoramas(panel_1, panel_2, panel_3, panel_4, panel_5, panel_6)
-                        # save the stitched panorama to the images/panoramas directory
-                        # print('Saving stitched panorama...')
-                        if not os.path.exists('images/panoramas/{}'.format(buoy_id)):
-                            os.makedirs('images/panoramas/{}'.format(buoy_id))
-                        # print('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute))
-                        cv2.imwrite('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute), stitched)
-                        # move the image to the images/panels directory
-                        os.rename('images/buoys/{}/{}'.format(buoy_id, image), 'images/panels/{}/{}'.format(buoy_id, image))
-                        ##logging.info("Moved image to panels directory for buoy {}".format(buoy_id))
-                    except Exception as e:
-                        print(e)
-                        pass
+                    # try:
+                    #     stitched = stitched_panoramas(panel_1, panel_2, panel_3, panel_4, panel_5, panel_6)
+                    #     # save the stitched panorama to the images/panoramas directory
+                    #     # print('Saving stitched panorama...')
+                    #     if not os.path.exists('images/panoramas/{}'.format(buoy_id)):
+                    #         os.makedirs('images/panoramas/{}'.format(buoy_id))
+                    #     # print('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute))
+                    #     cv2.imwrite('images/panoramas/{}/{}_{}_{}_{}_{}.jpg'.format(buoy_id, now.year, now.month, now.day, now.hour, now.minute), stitched)
+                    #     # move the image to the images/panels directory
+                    #     os.rename('images/buoys/{}/{}'.format(buoy_id, image), 'images/panels/{}/{}'.format(buoy_id, image))
+                    #     ##logging.info("Moved image to panels directory for buoy {}".format(buoy_id))
+                    # except Exception as e:
+                    #     print(e)
+                    #     pass
 
 
         # Stage 4: save buoy_update_rates_dict to a csv file
@@ -797,34 +937,33 @@ while True:
                             # get the image path
                             image_path = 'images/buoys/{}/{}'.format(buoy_folder, image)
                             # get the image
-                            #image = cv2.imread(image_path)
-                            #white_image = cv2.imread('images/white_blank.jpg')
-                            # we need these images to be the same size, so we will resize the white image to the size of the image
-                            # white_image = cv2.resize(white_image, (image.shape[1], image.shape[0]))
+                            image = cv2.imread(image_path)
+                            white_image = cv2.imread('images/white_blank.jpg')
+                            #we need these images to be the same size, so we will resize the white image to the size of the image
+                            white_image = cv2.resize(white_image, (image.shape[1], image.shape[0]))
                             # are they ndarrays?
-                            # print(type(image))
-                            # print(type(white_image))
+                            print(type(image))
+                            print(type(white_image))
 
-                            # get the difference between the image and the white_blank.jpg image
-                            # calculate the difference between pixel values of the image and a pure white image using numpy
-                            #diff = np.sum(np.abs(image - white_image)) # get the sum of the absolute difference between the two images
-                            # if the difference is less than 1000, then we will delete the image
-                            #if diff < 1000:
-                                #print('Deleting image: {}'.format(image_path))
-                                # move the images instead of literally deleting them to a folder called 'deleted_images' in the images directory
-                                #if not os.path.exists('images/deleted_images'):
-                                #    os.makedirs('images/deleted_images')
-                                #os.rename(image_path, 'images/deleted_images/{}_{}'.format(image_path.split('/')[-1].split('.')[0], buoy_folder))
-                                # os.remove(image_path)
-                            # dif.
-                            # # get the difference score from the difference image
-                            # difference_score = dif.get_difference_score()
-                            # # if the difference score is less than 0.1, then delete the image
+                            #get the difference between the image and the white_blank.jpg image
+                            #calculate the difference between pixel values of the image and a pure white image using numpy
+                            diff = np.sum(np.abs(image - white_image)) # get the sum of the absolute difference between the two images
+                            #if the difference is less than 1000, then we will delete the image
+                            if diff < 1000:
+                                print('Deleting image: {}'.format(image_path))
+                                #move the images instead of literally deleting them to a folder called 'deleted_images' in the images directory
+                                if not os.path.exists('images/deleted_images'):
+                                   os.makedirs('images/deleted_images')
+                                os.rename(image_path, 'images/deleted_images/{}_{}'.format(image_path.split('/')[-1].split('.')[0], buoy_folder))
+                                os.remove(image_path)
+                            # get the difference score from the difference image
+                            difference_score = dif.get_difference_score()
+                            # if the difference score is less than 0.1, then delete the image
 
-                            # # if the difference is less than 0.1, then delete the image
-                            # if difference_score < 0.1:
-                            #     os.remove(image_path)
-                            #     print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
+                            # if the difference is less than 0.1, then delete the image
+                            if difference_score < 0.1:
+                                os.remove(image_path)
+                                print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
         except Exception as e:
             print("Error with White Image Detection: {}".format(e))
             pass

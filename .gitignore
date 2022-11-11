@@ -97,5 +97,8 @@ ENV/
 /images/panels
 /images/keepers
 /images/webcam_captures
+<<<<<<< HEAD
 /images/deleted_images
 /images/cv_ml_model_data
+=======
+/images/deleted_images

@@ -795,5 +795,5 @@ vincent = Artist() # create an instance of the Artist class
 #
 
 # %%
-path = 'images/panels/46066/2022_11_5_15_45/2022_11_5_15_45_panel_1.png'
-print(is_it_daytime(path))
+#path = 'images/panels/46066/2022_11_5_15_45/2022_11_5_15_45_panel_1.png'
+#print(is_it_daytime(path))

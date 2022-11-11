@@ -205,6 +205,14 @@
         "documentation": {}
     },
     {
+        "label": "dif",
+        "importPath": "difPy",
+        "description": "difPy",
+        "isExtraImport": true,
+        "detail": "difPy",
+        "documentation": {}
+    },
+    {
         "label": "cv2",
         "kind": 6,
         "isExtraImport": true,
@@ -237,6 +245,14 @@
         "description": "imutils",
         "isExtraImport": true,
         "detail": "imutils",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
         "documentation": {}
     },
     {
@@ -307,6 +323,200 @@
         "documentation": {}
     },
     {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "keras",
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "isExtraImport": true,
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "backend",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "optimizers",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "regularizers",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "initializers",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "constraints",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "activations",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "metrics",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "losses",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "utils",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "callbacks",
+        "importPath": "keras",
+        "description": "keras",
+        "isExtraImport": true,
+        "detail": "keras",
+        "documentation": {}
+    },
+    {
+        "label": "Sequential",
+        "importPath": "keras.models",
+        "description": "keras.models",
+        "isExtraImport": true,
+        "detail": "keras.models",
+        "documentation": {}
+    },
+    {
+        "label": "load_model",
+        "importPath": "keras.models",
+        "description": "keras.models",
+        "isExtraImport": true,
+        "detail": "keras.models",
+        "documentation": {}
+    },
+    {
+        "label": "Dense",
+        "importPath": "keras.layers",
+        "description": "keras.layers",
+        "isExtraImport": true,
+        "detail": "keras.layers",
+        "documentation": {}
+    },
+    {
+        "label": "Dropout",
+        "importPath": "keras.layers",
+        "description": "keras.layers",
+        "isExtraImport": true,
+        "detail": "keras.layers",
+        "documentation": {}
+    },
+    {
+        "label": "Flatten",
+        "importPath": "keras.layers",
+        "description": "keras.layers",
+        "isExtraImport": true,
+        "detail": "keras.layers",
+        "documentation": {}
+    },
+    {
+        "label": "Conv2D",
+        "importPath": "keras.layers",
+        "description": "keras.layers",
+        "isExtraImport": true,
+        "detail": "keras.layers",
+        "documentation": {}
+    },
+    {
+        "label": "MaxPooling2D",
+        "importPath": "keras.layers",
+        "description": "keras.layers",
+        "isExtraImport": true,
+        "detail": "keras.layers",
+        "documentation": {}
+    },
+    {
+        "label": "ImageDataGenerator",
+        "importPath": "keras.preprocessing.image",
+        "description": "keras.preprocessing.image",
+        "isExtraImport": true,
+        "detail": "keras.preprocessing.image",
+        "documentation": {}
+    },
+    {
+        "label": "image",
+        "importPath": "keras.preprocessing",
+        "description": "keras.preprocessing",
+        "isExtraImport": true,
+        "detail": "keras.preprocessing",
+        "documentation": {}
+    },
+    {
         "label": "*",
         "importPath": "cam_backend",
         "description": "cam_backend",
@@ -321,6 +531,57 @@
         "importPath": "argparse",
         "description": "argparse",
         "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "limits",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "sleep_and_retry",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow_hub",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow_hub",
+        "description": "tensorflow_hub",
+        "detail": "tensorflow_hub",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "Self",
+        "importPath": "typing_extensions",
+        "description": "typing_extensions",
+        "isExtraImport": true,
+        "detail": "typing_extensions",
         "documentation": {}
     },
     {
@@ -340,30 +601,12 @@
         "documentation": {}
     },
     {
-        "label": "matplotlib.pyplot",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "matplotlib.pyplot",
-        "description": "matplotlib.pyplot",
-        "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
         "label": "pickle",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "pickle",
         "description": "pickle",
         "detail": "pickle",
-        "documentation": {}
-    },
-    {
-        "label": "tensorflow",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "tensorflow",
-        "description": "tensorflow",
-        "detail": "tensorflow",
         "documentation": {}
     },
     {
@@ -1123,11 +1366,11 @@
         "documentation": {}
     },
     {
-        "label": "path",
+        "label": "#path",
         "kind": 5,
         "importPath": "cam_backend",
         "description": "cam_backend",
-        "peekOfCode": "path = 'images/panels/46066/2022_11_5_15_45/2022_11_5_15_45_panel_1.png'\nprint(is_it_daytime(path))",
+        "peekOfCode": "#path = 'images/panels/46066/2022_11_5_15_45/2022_11_5_15_45_panel_1.png'\n#print(is_it_daytime(path))",
         "detail": "cam_backend",
         "documentation": {}
     },
@@ -1339,11 +1582,74 @@
         "documentation": {}
     },
     {
+        "label": "model",
+        "kind": 5,
+        "importPath": "finding_sunrise",
+        "description": "finding_sunrise",
+        "peekOfCode": "model = load_model('models/buoy_model/keras_model.h5')\n# load the images\n# we will load the images from the webcam_captures folder\n# we will then run the model on each image and return a prediction for if the image contains a sunrise or not\n# we will then save the predictions to a csv file\n# get the list of locations\nlocations = os.listdir('images/webcam_captures')\n# create a dataframe to store the predictions\npredictions = pd.DataFrame(columns=['location', 'prediction'])\n# loop through the locations",
+        "detail": "finding_sunrise",
+        "documentation": {}
+    },
+    {
+        "label": "locations",
+        "kind": 5,
+        "importPath": "finding_sunrise",
+        "description": "finding_sunrise",
+        "peekOfCode": "locations = os.listdir('images/webcam_captures')\n# create a dataframe to store the predictions\npredictions = pd.DataFrame(columns=['location', 'prediction'])\n# loop through the locations\nfor location in locations:\n    # get the list of images\n    images = os.listdir('images/webcam_captures/' + location)\n    # loop through the images\n    for image in images:\n        # load the image",
+        "detail": "finding_sunrise",
+        "documentation": {}
+    },
+    {
+        "label": "predictions",
+        "kind": 5,
+        "importPath": "finding_sunrise",
+        "description": "finding_sunrise",
+        "peekOfCode": "predictions = pd.DataFrame(columns=['location', 'prediction'])\n# loop through the locations\nfor location in locations:\n    # get the list of images\n    images = os.listdir('images/webcam_captures/' + location)\n    # loop through the images\n    for image in images:\n        # load the image\n        img = image.load_img('images/webcam_captures/' + location + '/' + image, target_size=(256, 256))\n        # convert the image to an array",
+        "detail": "finding_sunrise",
+        "documentation": {}
+    },
+    {
+        "label": "stitched_panoramas",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):\n    # get the image size\n    img_width, img_height = get_image_size(panel1)\n    # get the ratio of the width to height\n    r = float(img_width)/float(img_height)\n    # get the aspect ratio of the image\n    ar = round(r, 2)\n    # calculate the rotation angle\n    rot = math.degrees(math.atan2(-panel1.get_top(), -panel1.get_left()))\n    # get the rotation matrix for this angle",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "get_image_size",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def get_image_size(image):\n    # get the image width and height\n    w, h = image.shape\n    # get the ratio of the width to height\n    r = float(w)/float(h)\n    # get the aspect ratio of the image\n    ar = round(r, 2)\n    # calculate the rotation angle\n    rot = math.degrees(math.atan2(-image.get_top(), -image.get_left()))\n    # get the rotation matrix for this angle",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "buoy_links",
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def buoy_links():\n    links = [\"https://www.ndbc.noaa.gov/buoycam.php?station=42001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41044\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46071\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46072\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41046\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46088\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46089\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41043\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42039\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42060\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41009\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46028\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41008\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46015\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44013\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46026\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51000\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42040\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41010\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46078\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46087\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51101\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46086\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46053\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46047\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46084\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46085\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46042\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42019\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46069\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46054\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41049\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45005\"]\n    return links\n# Notes:\n# Buoy 42002 Has good sunsets\ndef ocean_stitching(imagePaths, pano_path):\n    images = []\n    # loop over the image paths, load each one, and add them to our\n    # images to stitch list\n    # open each image with cv2 and append to images list",
+        "peekOfCode": "def buoy_links():\n    global ids\n    links = [\"https://www.ndbc.noaa.gov/buoycam.php?station=42001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41044\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46071\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46072\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41046\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46088\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44066\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46089\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41043\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42039\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42060\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41009\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46028\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44011\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41008\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46015\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42059\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44013\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46026\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51000\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42040\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41010\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44025\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41001\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51004\",\"https://www.ndbc.noaa.gov/buoycam.php?station=44027\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42020\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46078\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46087\",\"https://www.ndbc.noaa.gov/buoycam.php?station=51101\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46086\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45002\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46053\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46047\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46084\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46085\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45003\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45007\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46042\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45012\",\"https://www.ndbc.noaa.gov/buoycam.php?station=42019\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46069\",\"https://www.ndbc.noaa.gov/buoycam.php?station=46054\",\"https://www.ndbc.noaa.gov/buoycam.php?station=41049\",\"https://www.ndbc.noaa.gov/buoycam.php?station=45005\"]\n    #note: undo this to go with the established buoy list\n    # links_2 = create_buoy_links(ids)\n    # # append the links_2 to links if they are not already in links\n    # for link in links_2:\n    #     if link not in links:\n    #         links.append(link)\n    return links",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "create_buoy_links",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def create_buoy_links(ids):\n    # for each id in ids, create a link\n    links = []\n    for id in ids:\n        link = \"https://www.ndbc.noaa.gov/buoycam.php?station=\" + id\n        links.append(link)\n    return links\n# Notes:\n# Buoy 42002 Has good sunsets\ndef check_buoy_image_ifwhite(image):",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "check_buoy_image_ifwhite",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def check_buoy_image_ifwhite(image):\n    \"\"\"\n    check_buoy_image_ifwhite checks if the image is white\n    This function checks if the image is white. If the image is white, then the image is not valid and should be deleted.\n    :param image: the image to check\n    :type image: result of requests library get request for image url\n    :return: True if the image is white, False if the image is not white\n    :rtype: bool\n    \"\"\"\n    # some buoys do not have a camera or the camera is not working. In these cases the image is white with only the text \"No Image Available\"",
         "detail": "looper",
         "documentation": {}
     },
@@ -1366,6 +1672,15 @@
         "documentation": {}
     },
     {
+        "label": "create_pano_image",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def create_pano_image(image_list, pano_path):\n    # create a pano image from the images in image_list\n    # image_list is a list of image paths\n    # pano_path is the path to save the pano image\n    # create the pano image\n    ocean_stitching(image_list, pano_path)\n    # refine the pano image\n    #refine_view(pano_path)\ndef chunk_images(buoy_id,foldername):\n    \"\"\"",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "chunk_images",
         "kind": 2,
         "importPath": "looper",
@@ -1375,11 +1690,20 @@
         "documentation": {}
     },
     {
+        "label": "pull_data",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img\n    else:\n        print(\"status code\", img.status_code, \"for buoy\", buoy_id)\n    return img\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "last_time_fetched",
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils",
         "detail": "looper",
         "documentation": {}
     },
@@ -1388,7 +1712,25 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\n# Implementing the trained h5 model in real-time using OpenCV and Python to detect scene elements or types in panel images from the cameras on the buoys.\n# The model is already trained and saved in the models/buoy_model/keras_model.h5 file.\n# # import the necessary packages",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "duplicate_removal_flag",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\ndef stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "exper_1",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\ndef stitched_panoramas(panel1, panel2, panel3, panel4, panel5, panel6):\n    # get the image size\n    img_width, img_height = get_image_size(panel1)",
         "detail": "looper",
         "documentation": {}
     },
@@ -1397,7 +1739,16 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "cam_urls = buoy_links() # get the links to the cameras\nstitch_switch = False # make false if you don't want to stitch the images.\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes",
+        "peekOfCode": "cam_urls = buoy_links() # get the links to the cameras\nall_buoy_urls = create_buoy_links(ids)\nstitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "all_buoy_urls",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "all_buoy_urls = create_buoy_links(ids)\nstitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img",
         "detail": "looper",
         "documentation": {}
     },
@@ -1406,8 +1757,269 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "stitch_switch = False # make false if you don't want to stitch the images.\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes\n            continue",
+        "peekOfCode": "stitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img\n    else:",
         "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_image",
+        "kind": 2,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "def preprocess_image(image_path):\n  \"\"\" Loads image from path and preprocesses to make it model ready\n      Args:\n        image_path: Path to the image file\n  \"\"\"\n  hr_image = tf.image.decode_image(tf.io.read_file(image_path))\n  # If PNG, remove the alpha channel. The model only supports\n  # images with 3 color channels.\n  if hr_image.shape[-1] == 4:\n    hr_image = hr_image[...,:-1]",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "save_image",
+        "kind": 2,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "def save_image(image, filename):\n  \"\"\"\n    Saves unscaled Tensor Images.\n    Args:\n      image: 3D image tensor. [height, width, channels]\n      filename: Name of the file to save.\n  \"\"\"\n  if not isinstance(image, Image.Image):\n    image = tf.clip_by_value(image, 0, 255)\n    image = Image.fromarray(tf.cast(image, tf.uint8).numpy())",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "plot_image",
+        "kind": 2,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "def plot_image(image, title=\"\"):\n  \"\"\"\n    Plots images from image tensors.\n    Args:\n      image: 3D image tensor. [height, width, channels].\n      title: Title to display in the plot.\n  \"\"\"\n  image = np.asarray(image)\n  image = tf.clip_by_value(image, 0, 255)\n  image = Image.fromarray(tf.cast(image, tf.uint8).numpy())",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "downscale_image",
+        "kind": 2,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "def downscale_image(image):\n  \"\"\"\n      Scales down images using bicubic downsampling.\n      Args:\n          image: 3D or 4D tensor of preprocessed image\n  \"\"\"\n  image_size = []\n  if len(image.shape) == 3:\n    image_size = [image.shape[1], image.shape[0]]\n  else:",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"TFHUB_DOWNLOAD_PROGRESS\"]",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "os.environ[\"TFHUB_DOWNLOAD_PROGRESS\"] = \"True\"\n# %%\n# !wget \"https://user-images.githubusercontent.com/12981474/40157448-eff91f06-5953-11e8-9a37-f6b5693fa03f.png\" -O original.png\n# %%\n# Declaring Constants\nIMAGE_PATH = \"images/keepers/2022_11_5_18_3_panel_3 copy.png\"\nSAVED_MODEL_PATH = \"https://tfhub.dev/captain-pool/esrgan-tf2/1\"\n# %% [markdown]\n# **Defining Helper Functions**\n# %%",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE_PATH",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "IMAGE_PATH = \"images/keepers/2022_11_5_18_3_panel_3 copy.png\"\nSAVED_MODEL_PATH = \"https://tfhub.dev/captain-pool/esrgan-tf2/1\"\n# %% [markdown]\n# **Defining Helper Functions**\n# %%\ndef preprocess_image(image_path):\n  \"\"\" Loads image from path and preprocesses to make it model ready\n      Args:\n        image_path: Path to the image file\n  \"\"\"",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "SAVED_MODEL_PATH",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "SAVED_MODEL_PATH = \"https://tfhub.dev/captain-pool/esrgan-tf2/1\"\n# %% [markdown]\n# **Defining Helper Functions**\n# %%\ndef preprocess_image(image_path):\n  \"\"\" Loads image from path and preprocesses to make it model ready\n      Args:\n        image_path: Path to the image file\n  \"\"\"\n  hr_image = tf.image.decode_image(tf.io.read_file(image_path))",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "hr_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "hr_image = preprocess_image(IMAGE_PATH)\n# %%\n# Plotting Original Resolution image\nplot_image(tf.squeeze(hr_image), title=\"Original Image\")\nsave_image(tf.squeeze(hr_image), filename=\"Original Image\")\n# %%\nmodel = hub.load(SAVED_MODEL_PATH)\n# %%\nstart = time.time()\nfake_image = model(hr_image)",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "model = hub.load(SAVED_MODEL_PATH)\n# %%\nstart = time.time()\nfake_image = model(hr_image)\nfake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\n# Plotting Super Resolution Image\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\nsave_image(tf.squeeze(fake_image), filename=\"Super Resolution\")",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "start = time.time()\nfake_image = model(hr_image)\nfake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\n# Plotting Super Resolution Image\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\nsave_image(tf.squeeze(fake_image), filename=\"Super Resolution\")\n# %% [markdown]\n# ### Evaluating Performance of the Model",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "fake_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "fake_image = model(hr_image)\nfake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\n# Plotting Super Resolution Image\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\nsave_image(tf.squeeze(fake_image), filename=\"Super Resolution\")\n# %% [markdown]\n# ### Evaluating Performance of the Model\n# %%",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "fake_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "fake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\n# Plotting Super Resolution Image\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\nsave_image(tf.squeeze(fake_image), filename=\"Super Resolution\")\n# %% [markdown]\n# ### Evaluating Performance of the Model\n# %%\n# !wget \"https://lh4.googleusercontent.com/-Anmw5df4gj0/AAAAAAAAAAI/AAAAAAAAAAc/6HxU8XFLnQE/photo.jpg64\" -O test.jpg",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE_PATH",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "IMAGE_PATH = \"test.jpg\"\n# %%\n# Defining helper functions\ndef downscale_image(image):\n  \"\"\"\n      Scales down images using bicubic downsampling.\n      Args:\n          image: 3D or 4D tensor of preprocessed image\n  \"\"\"\n  image_size = []",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "hr_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "hr_image = preprocess_image(IMAGE_PATH)\n# %%\nlr_image = downscale_image(tf.squeeze(hr_image))\n# %%\n# Plotting Low Resolution Image\nplot_image(tf.squeeze(lr_image), title=\"Low Resolution\")\n# %%\nmodel = hub.load(SAVED_MODEL_PATH)\n# %%\nstart = time.time()",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "lr_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "lr_image = downscale_image(tf.squeeze(hr_image))\n# %%\n# Plotting Low Resolution Image\nplot_image(tf.squeeze(lr_image), title=\"Low Resolution\")\n# %%\nmodel = hub.load(SAVED_MODEL_PATH)\n# %%\nstart = time.time()\nfake_image = model(lr_image)\nfake_image = tf.squeeze(fake_image)",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "model = hub.load(SAVED_MODEL_PATH)\n# %%\nstart = time.time()\nfake_image = model(lr_image)\nfake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\n# Calculating PSNR wrt Original Image\npsnr = tf.image.psnr(",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "start = time.time()\nfake_image = model(lr_image)\nfake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\n# Calculating PSNR wrt Original Image\npsnr = tf.image.psnr(\n    tf.clip_by_value(fake_image, 0, 255),\n    tf.clip_by_value(hr_image, 0, 255), max_val=255)",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "fake_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "fake_image = model(lr_image)\nfake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\n# Calculating PSNR wrt Original Image\npsnr = tf.image.psnr(\n    tf.clip_by_value(fake_image, 0, 255),\n    tf.clip_by_value(hr_image, 0, 255), max_val=255)\nprint(\"PSNR Achieved: %f\" % psnr)",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "fake_image",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "fake_image = tf.squeeze(fake_image)\nprint(\"Time Taken: %f\" % (time.time() - start))\n# %%\nplot_image(tf.squeeze(fake_image), title=\"Super Resolution\")\n# Calculating PSNR wrt Original Image\npsnr = tf.image.psnr(\n    tf.clip_by_value(fake_image, 0, 255),\n    tf.clip_by_value(hr_image, 0, 255), max_val=255)\nprint(\"PSNR Achieved: %f\" % psnr)\n# %% [markdown]",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "psnr",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "psnr = tf.image.psnr(\n    tf.clip_by_value(fake_image, 0, 255),\n    tf.clip_by_value(hr_image, 0, 255), max_val=255)\nprint(\"PSNR Achieved: %f\" % psnr)\n# %% [markdown]\n# **Comparing Outputs size by side.**\n# %%\nplt.rcParams['figure.figsize'] = [15, 10]\nfig, axes = plt.subplots(1, 3)\nfig.tight_layout()",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "plt.rcParams['figure.figsize']",
+        "kind": 5,
+        "importPath": "one",
+        "description": "one",
+        "peekOfCode": "plt.rcParams['figure.figsize'] = [15, 10]\nfig, axes = plt.subplots(1, 3)\nfig.tight_layout()\nplt.subplot(131)\nplot_image(tf.squeeze(hr_image), title=\"Original\")\nplt.subplot(132)\nfig.tight_layout()\nplot_image(tf.squeeze(lr_image), \"x4 Bicubic\")\nplt.subplot(133)\nfig.tight_layout()",
+        "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "BasePafy",
+        "kind": 6,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "class BasePafy(object):\n    \"\"\" Class to represent a YouTube video. \"\"\"\n    def __init__(self, video_url, basic=True, gdata=False,\n                 size=False, callback=None, ydl_opts=None):\n        \"\"\" Set initial values. \"\"\"\n        self.version = __version__\n        self.videoid = extract_video_id(video_url)\n        self.watchv_url = g.urls['watchv'] % self.videoid\n        self.callback = callback\n        self._have_basic = False",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "BaseStream",
+        "kind": 6,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "class BaseStream(object):\n    \"\"\" YouTube video stream class. \"\"\"\n    def __init__(self, parent):\n        \"\"\" Set initial values. \"\"\"\n        self._itag = None\n        self._mediatype = None\n        self._threed = None\n        self._rawbitrate = None\n        self._resolution = None\n        self._quality = None",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "extract_video_id",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def extract_video_id(url):\n    \"\"\" Extract the video id from a url, return video id as str. \"\"\"\n    idregx = re.compile(r'[\\w-]{11}$')\n    url = str(url).strip()\n    if idregx.match(url):\n        return url # ID of video\n    if '://' not in url:\n        url = '//' + url\n    parsedurl = urlparse(url)\n    if parsedurl.netloc in ('youtube.com', 'www.youtube.com', 'm.youtube.com', 'gaming.youtube.com'):",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "remux",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def remux(infile, outfile, quiet=False, muxer=\"ffmpeg\"):\n    \"\"\" Remux audio. \"\"\"\n    muxer = muxer if isinstance(muxer, str) else \"ffmpeg\"\n    for tool in set([muxer, \"ffmpeg\", \"avconv\"]):\n        cmd = [tool, \"-y\", \"-i\", infile, \"-acodec\", \"copy\", \"-vn\", outfile]\n        try:\n            with open(os.devnull, \"w\") as devnull:\n                subprocess.call(cmd, stdout=devnull, stderr=subprocess.STDOUT)\n        except OSError:\n            dbg(\"Failed to remux audio using %s\", tool)",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "get_size_done",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def get_size_done(bytesdone, progress):\n    _progress_dict = {'KB': 1024.0, 'MB': 1048576.0, 'GB': 1073741824.0}\n    return round(bytesdone/_progress_dict.get(progress, 1.0), 2)\ndef get_status_string(progress):\n    status_string = ('  {:,} ' + progress + ' [{:.2%}] received. Rate: [{:4.0f} '\n                     'KB/s].  ETA: [{:.0f} secs]')\n    if early_py_version:\n        status_string = ('  {0:} ' + progress + ' [{1:.2%}] received. Rate:'\n                         ' [{2:4.0f} KB/s].  ETA: [{3:.0f} secs]')\n    return status_string",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "get_status_string",
+        "kind": 2,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "def get_status_string(progress):\n    status_string = ('  {:,} ' + progress + ' [{:.2%}] received. Rate: [{:4.0f} '\n                     'KB/s].  ETA: [{:.0f} secs]')\n    if early_py_version:\n        status_string = ('  {0:} ' + progress + ' [{1:.2%}] received. Rate:'\n                         ' [{2:4.0f} KB/s].  ETA: [{3:.0f} secs]')\n    return status_string",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "early_py_version",
+        "kind": 5,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "early_py_version = sys.version_info[:2] < (2, 7)\nfrom . import __version__, g\nfrom .pafy import call_gdata\nfrom .playlist import get_playlist2\nfrom .util import xenc\ndbg = logging.debug\ndef extract_video_id(url):\n    \"\"\" Extract the video id from a url, return video id as str. \"\"\"\n    idregx = re.compile(r'[\\w-]{11}$')\n    url = str(url).strip()",
+        "detail": "reformat",
+        "documentation": {}
+    },
+    {
+        "label": "dbg",
+        "kind": 5,
+        "importPath": "reformat",
+        "description": "reformat",
+        "peekOfCode": "dbg = logging.debug\ndef extract_video_id(url):\n    \"\"\" Extract the video id from a url, return video id as str. \"\"\"\n    idregx = re.compile(r'[\\w-]{11}$')\n    url = str(url).strip()\n    if idregx.match(url):\n        return url # ID of video\n    if '://' not in url:\n        url = '//' + url\n    parsedurl = urlparse(url)",
+        "detail": "reformat",
         "documentation": {}
     },
     {

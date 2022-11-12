@@ -1829,7 +1829,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = False # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection",
+        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = True # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection",
         "detail": "looper",
         "documentation": {}
     },
@@ -1838,7 +1838,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "rotating = False # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):\n    # get the time the image was taken\n    image_time = os.path.getmtime(file)\n    # get the current time\n    current_time = time.time()\n    # get the difference between the two times\n    time_difference = current_time - image_time\n    # if the time difference is less than minutes, return true",
+        "peekOfCode": "rotating = True # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):\n    # get the time the image was taken\n    image_time = os.path.getmtime(file)\n    # get the current time\n    current_time = time.time()\n    # get the difference between the two times\n    time_difference = current_time - image_time\n    # if the time difference is less than minutes, return true",
         "detail": "looper",
         "documentation": {}
     },

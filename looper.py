@@ -14,7 +14,7 @@ import argparse
 import imutils
 import cv2
 import glob
-rotating = False # flag to indicate if the tapestry is rotating
+rotating = True # flag to indicate if the tapestry is rotating
 panel_mode = False # flag to indicate if we want to use panels for color detection
 def is_recent(file, minutes):
     # get the time the image was taken
@@ -421,12 +421,19 @@ def deal_with_white_images_and_populate_tapestry():
             green_score = np.mean(image[:,:,1])
             blue_score = np.mean(image[:,:,2])
             if red_score < 20 and green_score < 20 and blue_score < 20:
-                print('Night image detected')
+                # print('Night image detected')
                 continue
             else:
                 print('Day image detected')
                 red_val = detect_red_v4(image)
                 if red_val > 0.10:
+                    print(' ---- > Sunset detected?') # print the sunset detected message
+                    # save the image to the sunset folder under the appropriate buoy
+                    buoy_name = file.split('/')[2]
+                    buoy_folder = 'images/sunsets/' + buoy_name
+                    if not os.path.exists(buoy_folder):
+                        os.makedirs(buoy_folder)
+                    cv2.imwrite(buoy_folder + '/' + file.split('/')[3], image)
                     red_flag = True
                 else:
                     red_flag = False

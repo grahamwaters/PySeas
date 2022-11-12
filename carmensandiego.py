@@ -138,3 +138,22 @@ def scrape_links(timezone, page):
 for timezone in timezones:
     # get the html of the first page
     page = 1
+    url = f'http://www.insecam.org/en/bytimezone/{timezone}/?page={page}'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # find all the links with 'view' in them
+    links = soup.find_all('a', href=re.compile('view'))
+    # add the links to the dataframe
+    for link in links:
+        cameras_df.loc[len(cameras_df)] = [link['href'], timezone, link['title']]
+    # get the number of pages in the timezone
+    pages = soup.find('ul', class_='pagination')
+    pages = pages.find_all('li')
+    pages = pages[-2]
+    pages = pages.find('a')
+    pages = pages['href']
+    pages = re.findall(r'\d+', pages)[0]
+    pages = int(pages)
+    # loop through each page and scrape the links
+    for page in range(2, pages+1):
+        scrape_links(timezone, page)

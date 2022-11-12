@@ -139,6 +139,14 @@
         "documentation": {}
     },
     {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
         "label": "tqdm",
         "importPath": "tqdm",
         "description": "tqdm",
@@ -227,6 +235,14 @@
         "isExtraImport": true,
         "importPath": "random",
         "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "randint",
+        "importPath": "random",
+        "description": "random",
+        "isExtraImport": true,
         "detail": "random",
         "documentation": {}
     },
@@ -320,6 +336,47 @@
         "description": "cam_finder_raw",
         "isExtraImport": true,
         "detail": "cam_finder_raw",
+        "documentation": {}
+    },
+    {
+        "label": "ratelimit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "limits",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "sleep_and_retry",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "limits",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
+        "documentation": {}
+    },
+    {
+        "label": "sleep_and_retry",
+        "importPath": "ratelimit",
+        "description": "ratelimit",
+        "isExtraImport": true,
+        "detail": "ratelimit",
         "documentation": {}
     },
     {
@@ -540,22 +597,6 @@
         "importPath": "glob",
         "description": "glob",
         "detail": "glob",
-        "documentation": {}
-    },
-    {
-        "label": "limits",
-        "importPath": "ratelimit",
-        "description": "ratelimit",
-        "isExtraImport": true,
-        "detail": "ratelimit",
-        "documentation": {}
-    },
-    {
-        "label": "sleep_and_retry",
-        "importPath": "ratelimit",
-        "description": "ratelimit",
-        "isExtraImport": true,
-        "detail": "ratelimit",
         "documentation": {}
     },
     {
@@ -1588,6 +1629,42 @@
         "description": "camfinder",
         "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 4 or datetime.datetime.now().hour > 22: # if it is before 4 am or after 11 pm\n            # wait to turn on until 4 am CST\n            # keep the computer awake\n            print('The computer is sleeping')\n            time.sleep(240) # sleep for 4 minutes\n            continue",
         "detail": "camfinder",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_links",
+        "kind": 2,
+        "importPath": "carmensandiego",
+        "description": "carmensandiego",
+        "peekOfCode": "def scrape_links(timezone, page):\n    # get the html of the page\n    url = f'http://www.insecam.org/en/bytimezone/{timezone}/?page={page}'\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, 'html.parser')\n    # find all the links with 'view' in them\n    links = soup.find_all('a', href=re.compile('view'))\n    # add the links to the dataframe\n    for link in links:\n        cameras_df.loc[len(cameras_df)] = [link['href'], timezone, link['title']]",
+        "detail": "carmensandiego",
+        "documentation": {}
+    },
+    {
+        "label": "imageurls[0]",
+        "kind": 5,
+        "importPath": "carmensandiego",
+        "description": "carmensandiego",
+        "peekOfCode": "imageurls[0] = new String(\"http://80.56.142.202:83/mjpg/video.mjpg\");\n</script>\n<script async=\"\" src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n<ins class=\"adsbygoogle\" style=\"display:block; text-align:center;\" data-ad-layout=\"in-article\" data-ad-format=\"fluid\" data-ad-client=\"ca-pub-9642036526375612\" data-ad-slot=\"8439664353\"></ins>\n<script>\n     (adsbygoogle = window.adsbygoogle || []).push({});\n</script>\n```\nSo, if you find the `nofollow` a rel and retrieve the href attribute, you will get the url for the stream.\nThe `title` attribute contains the location of the camera which is also useful to keep in the dataframe.",
+        "detail": "carmensandiego",
+        "documentation": {}
+    },
+    {
+        "label": "cameras_df",
+        "kind": 5,
+        "importPath": "carmensandiego",
+        "description": "carmensandiego",
+        "peekOfCode": "cameras_df = pd.DataFrame(columns=['url', 'timezone', 'location'])\n# what else could I get from the page? location, time, etc. Within the html of the `view` page there is a table in a the div with class'camera-details' which contains the location, time, etc. I could scrape that and add it to the dataframe. This includes Country, Country Code, Region, City, Latitude, Longitude, Zip, and Timezone.\n# the css selector for this table is '.camera-details'\n# Step One A. Request the html of each timezone page and scrape the links from the html.\n# The timezones are: +01:00, +02:00, +03:00, +04:00, +05:00, +06:00, +07:00, +08:00, +09:00, +10:00, +11:00, +12:00, -01:00, -02:00, -03:00, -04:00, -05:00, -06:00, -07:00, -08:00, -09:00, -10:00, -11:00, -12:00, +13:00\ntimezones = ['+01:00', '+02:00', '+03:00', '+04:00', '+05:00', '+06:00', '+07:00', '+08:00', '+09:00', '+10:00', '+11:00', '+12:00', '-01:00', '-02:00', '-03:00', '-04:00', '-05:00', '-06:00', '-07:00', '-08:00', '-09:00', '-10:00', '-11:00', '-12:00', '+13:00']\n# make a function to perform the scraping so we can use it for each timezone and use ratelimit to limit the number of requests per second.\n@sleep_and_retry\n@limits(calls=20, period=600)\ndef scrape_links(timezone, page):",
+        "detail": "carmensandiego",
+        "documentation": {}
+    },
+    {
+        "label": "timezones",
+        "kind": 5,
+        "importPath": "carmensandiego",
+        "description": "carmensandiego",
+        "peekOfCode": "timezones = ['+01:00', '+02:00', '+03:00', '+04:00', '+05:00', '+06:00', '+07:00', '+08:00', '+09:00', '+10:00', '+11:00', '+12:00', '-01:00', '-02:00', '-03:00', '-04:00', '-05:00', '-06:00', '-07:00', '-08:00', '-09:00', '-10:00', '-11:00', '-12:00', '+13:00']\n# make a function to perform the scraping so we can use it for each timezone and use ratelimit to limit the number of requests per second.\n@sleep_and_retry\n@limits(calls=20, period=600)\ndef scrape_links(timezone, page):\n    # get the html of the page\n    url = f'http://www.insecam.org/en/bytimezone/{timezone}/?page={page}'\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, 'html.parser')\n    # find all the links with 'view' in them",
+        "detail": "carmensandiego",
         "documentation": {}
     },
     {

@@ -344,7 +344,7 @@ def deal_with_white_images_and_populate_tapestry():
 
 
     # shuffle the files so we don't always get the same ten images
-    random.shuffle(files) #note: this could be a problem later
+    #!random.shuffle(files) #note: this could be a problem later
 
     add_list = []
 
@@ -353,6 +353,8 @@ def deal_with_white_images_and_populate_tapestry():
         # read the image
         try:
             image = cv2.imread(file)
+            if not is_recent(file, 60): # 60 minutes
+                continue
 
             if panel_mode:
                 # get the image details for panels 1-6
@@ -424,13 +426,22 @@ def deal_with_white_images_and_populate_tapestry():
                 # print('Night image detected')
                 continue
             else:
-                print('Day image detected')
+                #print('Day image detected')
                 red_val = detect_red_v4(image)
-                if red_val > 0.10:
-                    print(' ---- > Sunset detected?') # print the sunset detected message
+                if red_val > 2.5:
+                    print(' ---- > Sunset detected? ', red_val) # print the sunset detected message
                     # save the image to the sunset folder under the appropriate buoy
                     buoy_name = file.split('/')[2]
                     buoy_folder = 'images/sunsets/' + buoy_name
+                    if not os.path.exists(buoy_folder):
+                        os.makedirs(buoy_folder)
+                    cv2.imwrite(buoy_folder + '/' + file.split('/')[3], image)
+                    red_flag = True
+                elif red_val > 15:
+                    print(' ---- > super sunset detected? ', red_val) # print the sunset detected message
+                    # save the image to the keepers folder under the appropriate buoy
+                    buoy_name = file.split('/')[2]
+                    buoy_folder = 'images/keepers/' + buoy_name
                     if not os.path.exists(buoy_folder):
                         os.makedirs(buoy_folder)
                     cv2.imwrite(buoy_folder + '/' + file.split('/')[3], image)
@@ -442,8 +453,6 @@ def deal_with_white_images_and_populate_tapestry():
                     sunsets_found += 1
 
 
-            if not is_recent(file, 60): # 60 minutes
-                continue
 
             #blue_value = np.mean(image[:,:,1]) # blue value
             # print(orange_value, red_value, blue_value)

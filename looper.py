@@ -15,7 +15,7 @@ import imutils
 import cv2
 import glob
 rotating = False # flag to indicate if the tapestry is rotating
-
+panel_mode = False # flag to indicate if we want to use panels for color detection
 def is_recent(file, minutes):
     # get the time the image was taken
     image_time = os.path.getmtime(file)
@@ -151,11 +151,90 @@ def get_average_color(image):
     # get the image size
     img_width, img_height = image.shape[0], image.shape[1]
     # get the average color of the image
-    average_color = image.getpixel((img_width/2, img_height/2))
+    # to do this we have to convert the image from a numpy array to a PIL image
+    image = Image.fromarray(image)
+    average_color = image.getpixel((img_width//2, img_height//2))
     # return the average color
     return average_color
 
-def detect_red(image):
+
+### Testing To find Red
+
+def finding_red_version_two(image):
+    img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    image_height = image.shape[0]
+    image_width = image.shape[1]
+    # https://stackoverflow.com/questions/30331944/finding-red-color-in-image-using-python-opencv
+    image_result = np.zeros((image_height,image_width,3),np.uint8)
+    for i in range(image_height):  #those are set elsewhere
+        for j in range(image_width): #those are set elsewhere
+            if img_hsv[i][j][1]>=50 \
+                and img_hsv[i][j][2]>=50 \
+                and (img_hsv[i][j][0] <= 10 or img_hsv[i][j][0]>=170):
+                image_result[i][j]=img_hsv[i][j] # this is the red (above is saturation, value, and hue)
+    return image_result
+
+def finding_red_version_three(image_path):
+    """
+    finding_red_version_three takes an image and returns the red pixels in the image
+
+    :param image_path: the path to the image to be segmented
+
+    :param image_path: the path to the image to be segmented
+    :type image_path: string
+    :return: the red pixels in the image
+    :rtype: image object
+    """
+    img=cv2.imread(image_path)
+    img_hsv=cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+    # lower mask (0-10)
+    lower_red = np.array([0,50,50])
+    upper_red = np.array([10,255,255])
+    mask0 = cv2.inRange(img_hsv, lower_red, upper_red)
+
+    # upper mask (170-180)
+    lower_red = np.array([170,50,50])
+    upper_red = np.array([180,255,255])
+    mask1 = cv2.inRange(img_hsv, lower_red, upper_red)
+
+    # join my masks
+    mask = mask0+mask1
+
+    # set my output img to zero everywhere except my mask
+    #output_img = img.copy()
+    #output_img[np.where(mask==0)] = 0
+
+    # or your HSV image, which I *believe* is what you want
+    output_hsv = img_hsv.copy()
+    output_hsv[np.where(mask==0)] = 0
+
+    # save the output_img to 'test.png' in images folder
+    #cv2.imwrite('images/test.png', output_img)
+    # save the output_hsv to 'test_hsv.png' in images folder
+    cv2.imwrite('images/test_hsv.png', output_hsv)
+    # why is the output_hsv image all black?
+    # because the output_hsv image is in HSV format and not RGB format
+    # so we have to convert it to RGB format
+    # https://stackoverflow.com/questions/15007348/convert-hsv-to-rgb-using-python-and-opencv
+    # converting the image from HSV to RGB
+    output_hsv = cv2.cvtColor(output_hsv, cv2.COLOR_HSV2RGB)
+    # save the output_hsv to 'test_hsv.png' in images folder
+    cv2.imwrite('images/test_hsv.png', output_hsv)
+
+
+def detect_red_v4(image):
+    # Red color
+    if type(image) == str:
+        image = cv2.imread(image) # read the image
+    low_red = np.array([161, 155, 84])
+    high_red = np.array([179, 255, 255])
+    red_mask = cv2.inRange(image, low_red, high_red)
+    percent_pixels_red = np.sum(red_mask) / (image.shape[0] * image.shape[1])
+    return percent_pixels_red
+
+
+def detect_red(img):
     """
     detect_red _summary_
 
@@ -166,29 +245,89 @@ def detect_red(image):
     :return: _description_
     :rtype: _type_
     """
-    lower_red = np.array([0, 0, 200], dtype = "uint8")
+    try:
+        #hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-    upper_red= np.array([0, 0, 255], dtype = "uint8")
-    mask = cv2.inRange(image, lower_red, upper_red) # create a mask for the red color
-    detected_red = cv2.bitwise_and(image, image, mask = mask) # apply the mask to the image
-    # what percentage of the image is red?
-    # get the image size
-    img_width, img_height = image.shape[0], image.shape[1] # get the image size
-    # get the number of pixels in the image
-    num_pixels = img_width*img_height
-    # get the number of red pixels
-    num_red_pixels = np.count_nonzero(detected_red)
-    # get the percentage of red pixels
-    percent_red = num_red_pixels/num_pixels
-    # return the percentage of red pixels
-
-    # if there is more than 10% red, then return true
-    if percent_red > 0.1:
-        return True
-    else:
-        return False
+        # creating a mask to catch the color red in the image
+        # Here, you define your target color as
+        # a tuple of three values: RGB
+        # red = [130, 158, 0]
+        red = [0, 0, 255] # this is the color of the red in the image
 
 
+        # You define an interval that covers the values
+        # in the tuple and are below and above them by 20
+        diff = 20
+
+        # Be aware that opencv loads image in BGR format,
+        # that's why the color values have been adjusted here:
+        boundaries = [([red[2], red[1]-diff, red[0]-diff],
+                [red[2]+diff, red[1]+diff, red[0]+diff])]
+
+        # Scale your BIG image into a small one:
+        scalePercent = 0.3
+
+        # Calculate the new dimensions
+        width = int(img.shape[1] * scalePercent)
+        height = int(img.shape[0] * scalePercent)
+        newSize = (width, height)
+
+        # Resize the image:
+        img = cv2.resize(img, newSize, None, None, None, cv2.INTER_AREA)
+
+        # check out the image resized:
+        #!cv2.imshow("img resized", img)
+        #!cv2.waitKey(0)
+
+
+        # for each range in your boundary list:
+        for (lower, upper) in boundaries:
+
+            # You get the lower and upper part of the interval:
+            lower = np.array(lower, dtype=np.uint8)
+            upper = np.array(upper, dtype=np.uint8)
+
+            # cv2.inRange is used to binarize (i.e., render in white/black) an image
+            # All the pixels that fall inside your interval [lower, uipper] will be white
+            # All the pixels that do not fall inside this interval will
+            # be rendered in black, for all three channels:
+            mask = cv2.inRange(img, lower, upper)
+
+            # Check out the binary mask:
+            #!cv2.imshow("binary mask", mask)
+            #cv2.waitKey(0)
+
+            # Now, you AND the mask and the input image
+            # All the pixels that are white in the mask will
+            # survive the AND operation, all the black pixels
+            # will remain black
+            output = cv2.bitwise_and(img, img, mask=mask)
+
+            # Check out the ANDed mask:
+            #!cv2.imshow("ANDed mask", output)
+            #cv2.waitKey(0)
+
+            # You can use the mask to count the number of white pixels.
+            # Remember that the white pixels in the mask are those that
+            # fall in your defined range, that is, every white pixel corresponds
+            # to a red pixel. Divide by the image size and you got the
+            # percentage of red pixels in the original image:
+            ratio_red = cv2.countNonZero(mask)/(img.size/3)
+
+            # This is the color percent calculation, considering the resize I did earlier.
+            colorPercent = (ratio_red * 100) / scalePercent
+
+            # Print the color percent, use 2 figures past the decimal point
+            print('red pixel percentage:', np.round(colorPercent, 2))
+
+            # numpy's hstack is used to stack two images horizontally,
+            # so you see the various images generated in one figure:
+            #!cv2.imshow("images", np.hstack([img, output]))
+            # save the image as 'test.png' in the images folder
+            cv2.imwrite('images/test.png', np.hstack([img, output]))
+            #cv2.waitKey(0)
+    except Exception as e:
+        print("Error in detect_red: ", e)
 
 def deal_with_white_images_and_populate_tapestry():
     sunsets_found = 0 # keep track of how many sunsets we find
@@ -205,91 +344,97 @@ def deal_with_white_images_and_populate_tapestry():
 
 
     # shuffle the files so we don't always get the same ten images
-    random.shuffle(files)nc
+    random.shuffle(files) #note: this could be a problem later
 
     add_list = []
+
 
     for file in tqdm(files):
         # read the image
         try:
             image = cv2.imread(file)
 
-            # get the image details for panels 1-6
-            panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, = get_panel_segments(image)
-            # explanation of results:
-            panels_collection = [panel_1, panel_2, panel_3, panel_4, panel_5,panel_6] # put the panels into a list
+            if panel_mode:
+                # get the image details for panels 1-6
+                panel_1, panel_2, panel_3, panel_4, panel_5, panel_6, = get_panel_segments(image)
+                # explanation of results:
+                panels_collection = [panel_1, panel_2, panel_3, panel_4, panel_5,panel_6] # put the panels into a list
 
 
-            # put True into panel_results once for each panel (1/6 of the width of the image) that has an average red value greater than 180 and an average blue value greater than 180
+                # put True into panel_results once for each panel (1/6 of the width of the image) that has an average red value greater than 180 and an average blue value greater than 180
 
-            # the image passed to get_panel_segments should be a cv2 image
-            assert(type(image) == np.ndarray)
+                # the image passed to get_panel_segments should be a cv2 image
+                assert(type(image) == np.ndarray)
 
-            panel_segments = get_panel_segments(image)
+                panel_segments = get_panel_segments(image)
 
-            positive_panel_count = 0 # keep track of how many panels have a sunset in them
-            # get the average color of each panel
-            for panel in panel_segments:
-                panel_average_color = get_average_color(panel)
-                #check if the panel is a sunset
-                if panel_average_color[0] > 200 and panel_average_color[2] > 200:
-                    # increment the positive_panel_count by 1
-                    positive_panel_count += 1
+                positive_panel_count = 0 # keep track of how many panels have a sunset in them
+                # get the average color of each panel
+                for panel in panel_segments:
+                    panel_average_color = get_average_color(panel)
+                    #check if the panel is a sunset
+                    if panel_average_color[0] > 200 and panel_average_color[2] > 200:
+                        # increment the positive_panel_count by 1
+                        positive_panel_count += 1
 
-            # now check if the positive_panel_count is greater than 3 (i.e. more than half of the panels have a sunset in them)
-            if positive_panel_count > 3:
-                add_list.append(file)
-                sunsets_found += 1
-            else:
-                continue # if the positive_panel_count is not greater than 3, then continue on to the next image
+                # now check if the positive_panel_count is greater than 3 (i.e. more than half of the panels have a sunset in them)
+                if positive_panel_count > 3:
+                    add_list.append(file)
+                    sunsets_found += 1
+                else:
+                    continue # if the positive_panel_count is not greater than 3, then continue on to the next image
 
-            # what is the average amount of red in the image?
-            # what is the average amount of blue in the image?
-            # what is the average amount of green in the image?
-            # what is the average amount of orange in the image?
+                # what is the average amount of red in the image?
+                # what is the average amount of blue in the image?
+                # what is the average amount of green in the image?
+                # what is the average amount of orange in the image?
+
+
+                #x = [[panel_1_result, panel_2_result, panel_3_result, panel_4_result, panel_5_result, panel_6_result],panels_collection] # return the results
+                #panel_results - a list of true or false values for each panel (true if the panel is orange, false if not).
+                #panels_collection - a list of the colors of each panel (in RGB format) (this is for debugging purposes)
+                #if the image has at least 4 panels that are orange, then we want to add it to the tapestry
+
+                #note: uncomment below if the check_colors_of_six_panels function is not working
+                # # get the average orange value
+                # orange_value = np.mean(image[:,:,2]) # the orange channel is the third channel
+                # red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
+
+                # get the median orange value across the panels
+                panels_collection = panel_segments # put the panels into a list
+                orange_value = np.median([panels_collection[0][2], panels_collection[1][2], panels_collection[2][2], panels_collection[3][2], panels_collection[4][2], panels_collection[5][2]])
+                # # get the median red value across the panels
+                red_value = np.median([panels_collection[0][0], panels_collection[1][0], panels_collection[2][0], panels_collection[3][0], panels_collection[4][0], panels_collection[5][0]])
 
             # if the average amount of orange is greater than 200, then add the image to the add_list
-            red_flag = detect_red(image)
-            if red_flag: # if the image has more than 10% red in it
-                add_list.append(file)
-                sunsets_found += 1
+
             # if the average amount of orange is greater than 200:
                 # add_list.append(file)
                 # sunsets_found += 1
             # else:
                 # continue # if the average amount of orange is not greater than 200, then continue on to the next image
 
+            #* just check the image to see if red is less than 20, green is less than 20, and blue is less than 20
+            #* if so then skip the image
 
-            x = [[panel_1_result, panel_2_result, panel_3_result, panel_4_result, panel_5_result, panel_6_result],panels_collection] # return the results
-            #panel_results - a list of true or false values for each panel (true if the panel is orange, false if not).
-            #panels_collection - a list of the colors of each panel (in RGB format) (this is for debugging purposes)
-            #if the image has at least 4 panels that are orange, then we want to add it to the tapestry
-
-            #note: uncomment below if the check_colors_of_six_panels function is not working
-            # # get the average orange value
-            # orange_value = np.mean(image[:,:,2]) # the orange channel is the third channel
-            # red_value = np.mean(image[:,:,0]) # get the average red value when over 147 then save the image
-
-            # get the median orange value across the panels
-            panels_collection = panel_segments # put the panels into a list
-            orange_value = np.median([panels_collection[0][2], panels_collection[1][2], panels_collection[2][2], panels_collection[3][2], panels_collection[4][2], panels_collection[5][2]])
-            # # get the median red value across the panels
-            red_value = np.median([panels_collection[0][0], panels_collection[1][0], panels_collection[2][0], panels_collection[3][0], panels_collection[4][0], panels_collection[5][0]])
-
-            # daytime images always have higher values than 10 for all three channels
-            # values less than 10 are usually night
-            # skip the image if it is night
-            if orange_value < 10 and red_value < 10: # if the image is night
+            red_score = np.mean(image[:,:,0])
+            green_score = np.mean(image[:,:,1])
+            blue_score = np.mean(image[:,:,2])
+            if red_score < 20 and green_score < 20 and blue_score < 20:
+                print('Night image detected')
                 continue
-            # if the values are all higher than 250 then it is a white image and we want to remove it
-            if orange_value > 250 and red_value > 250:
-                os.remove(file)
-                print("Removed white image")
-                continue
-            # interesting photos have high red values
-            if red_value > 147 or (orange_value > 147 and red_value > 100): # if the image is interesting
-                add_list.append(file)
-            # if the image was not taken in the last x hours, skip it
+            else:
+                print('Day image detected')
+                red_val = detect_red_v4(image)
+                if red_val > 0.10:
+                    red_flag = True
+                else:
+                    red_flag = False
+                if red_flag: # if the image has more than 10% red in it
+                    add_list.append(file)
+                    sunsets_found += 1
+
+
             if not is_recent(file, 60): # 60 minutes
                 continue
 
@@ -309,7 +454,13 @@ def deal_with_white_images_and_populate_tapestry():
 
 
         blank_image = np.zeros((height*len(add_list), width, channels), np.uint8)
-        cv2.imwrite('images/tapestry.png', blank_image)
+        try:
+            cv2.imwrite('images/tapestry.png', blank_image)
+        except Exception as e:
+            print(e)
+            print('Could not write blank image')
+            print('line 322')
+            continue
 
 
 
@@ -372,6 +523,7 @@ def deal_with_white_images_and_populate_tapestry():
                 sunsets_found += 1 # increment the number of sunsets found
         except:
             print("Error reading image")
+            print('line 386')
             pass
 
 
@@ -778,6 +930,51 @@ def pull_data(cam_url, buoy_id, now):
     return img
 
 
+
+
+### Testing the code
+# detect red in an image
+# load the image
+image = cv2.imread('images/buoys/46072/2022_11_5_19_27.jpg')
+image_path = 'images/buoys/46072/2022_11_5_19_27.jpg'
+#* Test 2.
+# result = finding_red_version_two(image) # find the red in the image
+# print(result)
+
+#* Test 3. hsv and npwhere
+output_img = finding_red_version_three(image_path) # find the red in the image
+print(output_img)
+#print(output_hsv)
+
+
+#Notes to self: remove functions for tests up to this point.
+#* Test 4. Just red percent
+#& Successful!
+percent_red = detect_red_v4(image_path)
+print(percent_red)
+
+
+# test with the function to see if it detects red.
+
+detect_red_v4(image_path)# returns True if it detects red, False if it doesn't.
+
+
+
+
+
+
+
+
+
+
+do_loop = True
+
+if do_loop:
+    pass
+else:
+    exit() # exit the program if do_loop is False.
+
+
 while True:
     try:
         # turn on at 4 am CST and turn off at 11 pm CST
@@ -933,7 +1130,7 @@ while True:
                 if buoy_folder != '.DS_Store':
                     images = os.listdir('images/buoys/{}'.format(buoy_folder))
                     for image in images:
-                        if image != '.DS_Store':
+                        if image != '.DS_Store' and image != 'None':
                             # get the image path
                             image_path = 'images/buoys/{}/{}'.format(buoy_folder, image)
                             # get the image
@@ -942,8 +1139,8 @@ while True:
                             #we need these images to be the same size, so we will resize the white image to the size of the image
                             white_image = cv2.resize(white_image, (image.shape[1], image.shape[0]))
                             # are they ndarrays?
-                            print(type(image))
-                            print(type(white_image))
+                            #print(type(image))
+                            #print(type(white_image))
 
                             #get the difference between the image and the white_blank.jpg image
                             #calculate the difference between pixel values of the image and a pure white image using numpy
@@ -957,13 +1154,13 @@ while True:
                                 os.rename(image_path, 'images/deleted_images/{}_{}'.format(image_path.split('/')[-1].split('.')[0], buoy_folder))
                                 os.remove(image_path)
                             # get the difference score from the difference image
-                            difference_score = dif.get_difference_score()
+                            #difference_score = dif.get_difference_score()
                             # if the difference score is less than 0.1, then delete the image
 
                             # if the difference is less than 0.1, then delete the image
-                            if difference_score < 0.1:
-                                os.remove(image_path)
-                                print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
+                            # if difference_score < 0.1:
+                            #     os.remove(image_path)
+                            #     print('Deleted image {} because it was too similar to white_blank.jpg'.format(image_path))
         except Exception as e:
             print("Error with White Image Detection: {}".format(e))
             pass
@@ -1256,6 +1453,19 @@ These predictions will determine which buoys the model will follow closest and w
 
 
 
-
+            # daytime images always have higher values than 10 for all three channels
+            # values less than 10 are usually night
+            # skip the image if it is night
+            #if orange_value < 10 and red_value < 10: # if the image is night
+            #    continue
+            # if the values are all higher than 250 then it is a white image and we want to remove it
+            #if orange_value > 250 and red_value > 250:
+            #    os.remove(file)
+            #    print("Removed white image")
+            #    continue
+            # interesting photos have high red values
+            #if red_value > 147 or (orange_value > 147 and #red_value > 100): # if the image is interesting
+            #    add_list.append(file)
+            # if the image was not taken in the last x hours, skip it
 
 """

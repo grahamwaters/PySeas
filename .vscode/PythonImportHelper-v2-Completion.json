@@ -1663,11 +1663,38 @@
         "documentation": {}
     },
     {
+        "label": "finding_red_version_two",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def finding_red_version_two(image):\n    img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)\n    image_height = image.shape[0]\n    image_width = image.shape[1]\n    # https://stackoverflow.com/questions/30331944/finding-red-color-in-image-using-python-opencv\n    image_result = np.zeros((image_height,image_width,3),np.uint8)\n    for i in range(image_height):  #those are set elsewhere\n        for j in range(image_width): #those are set elsewhere\n            if img_hsv[i][j][1]>=50 \\\n                and img_hsv[i][j][2]>=50 \\",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "finding_red_version_three",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def finding_red_version_three(image_path):\n    \"\"\"\n    finding_red_version_three takes an image and returns the red pixels in the image\n    :param image_path: the path to the image to be segmented\n    :param image_path: the path to the image to be segmented\n    :type image_path: string\n    :return: the red pixels in the image\n    :rtype: image object\n    \"\"\"\n    img=cv2.imread(image_path)",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "detect_red_v4",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def detect_red_v4(image):\n    # Red color\n    if type(image) == str:\n        image = cv2.imread(image) # read the image\n    low_red = np.array([161, 155, 84])\n    high_red = np.array([179, 255, 255])\n    red_mask = cv2.inRange(image, low_red, high_red)\n    percent_pixels_red = np.sum(red_mask) / (image.shape[0] * image.shape[1])\n    return percent_pixels_red\ndef detect_red(img):",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "detect_red",
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def detect_red(image):\n    \"\"\"\n    detect_red _summary_\n    _extended_summary_\n    :param image: _description_\n    :type image:\n    :return: _description_\n    :rtype: _type_\n    \"\"\"\n    lower_red = np.array([0, 0, 200], dtype = \"uint8\")",
+        "peekOfCode": "def detect_red(img):\n    \"\"\"\n    detect_red _summary_\n    _extended_summary_\n    :param image: _description_\n    :type image:\n    :return: _description_\n    :rtype: _type_\n    \"\"\"\n    try:",
         "detail": "looper",
         "documentation": {}
     },
@@ -1766,7 +1793,7 @@
         "kind": 2,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "def pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img\n    else:\n        print(\"status code\", img.status_code, \"for buoy\", buoy_id)\n    return img\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST",
+        "peekOfCode": "def pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img\n    else:\n        print(\"status code\", img.status_code, \"for buoy\", buoy_id)\n    return img\n### Testing the code\n# detect red in an image\n# load the image",
         "detail": "looper",
         "documentation": {}
     },
@@ -1802,7 +1829,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = False # flag to indicate if the tapestry is rotating\ndef is_recent(file, minutes):",
+        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = False # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection",
         "detail": "looper",
         "documentation": {}
     },
@@ -1811,7 +1838,16 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "rotating = False # flag to indicate if the tapestry is rotating\ndef is_recent(file, minutes):\n    # get the time the image was taken\n    image_time = os.path.getmtime(file)\n    # get the current time\n    current_time = time.time()\n    # get the difference between the two times\n    time_difference = current_time - image_time\n    # if the time difference is less than minutes, return true\n    if time_difference < minutes*60:",
+        "peekOfCode": "rotating = False # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):\n    # get the time the image was taken\n    image_time = os.path.getmtime(file)\n    # get the current time\n    current_time = time.time()\n    # get the difference between the two times\n    time_difference = current_time - image_time\n    # if the time difference is less than minutes, return true",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "panel_mode",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "panel_mode = False # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):\n    # get the time the image was taken\n    image_time = os.path.getmtime(file)\n    # get the current time\n    current_time = time.time()\n    # get the difference between the two times\n    time_difference = current_time - image_time\n    # if the time difference is less than minutes, return true\n    if time_difference < minutes*60:",
         "detail": "looper",
         "documentation": {}
     },
@@ -1839,6 +1875,51 @@
         "importPath": "looper",
         "description": "looper",
         "peekOfCode": "stitch_switch = False # make false if you don't want to stitch the images.\n# open the blacklist file\nfrom ratelimit import limits, sleep_and_retry\n# @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.\n@sleep_and_retry\ndef pull_data(cam_url, buoy_id, now):\n    img = requests.get(cam_url) # get the image\n    if img.status_code == 200:\n        return img\n    else:",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "image",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "image = cv2.imread('images/buoys/46072/2022_11_5_19_27.jpg')\nimage_path = 'images/buoys/46072/2022_11_5_19_27.jpg'\n#* Test 2.\n# result = finding_red_version_two(image) # find the red in the image\n# print(result)\n#* Test 3. hsv and npwhere\noutput_img = finding_red_version_three(image_path) # find the red in the image\nprint(output_img)\n#print(output_hsv)\n#Notes to self: remove functions for tests up to this point.",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "image_path",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "image_path = 'images/buoys/46072/2022_11_5_19_27.jpg'\n#* Test 2.\n# result = finding_red_version_two(image) # find the red in the image\n# print(result)\n#* Test 3. hsv and npwhere\noutput_img = finding_red_version_three(image_path) # find the red in the image\nprint(output_img)\n#print(output_hsv)\n#Notes to self: remove functions for tests up to this point.\n#* Test 4. Just red percent",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "output_img",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "output_img = finding_red_version_three(image_path) # find the red in the image\nprint(output_img)\n#print(output_hsv)\n#Notes to self: remove functions for tests up to this point.\n#* Test 4. Just red percent\n#& Successful!\npercent_red = detect_red_v4(image_path)\nprint(percent_red)\n# test with the function to see if it detects red.\ndetect_red_v4(image_path)# returns True if it detects red, False if it doesn't.",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "percent_red",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "percent_red = detect_red_v4(image_path)\nprint(percent_red)\n# test with the function to see if it detects red.\ndetect_red_v4(image_path)# returns True if it detects red, False if it doesn't.\ndo_loop = True\nif do_loop:",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "do_loop",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "do_loop = True\nif do_loop:\n    pass\nelse:\n    exit() # exit the program if do_loop is False.\nwhile True:\n    try:\n        # turn on at 4 am CST and turn off at 11 pm CST\n        if datetime.datetime.now().hour < 3 or datetime.datetime.now().hour > 24: # if it is before 3 am or after 12 am\n            # wait to turn on until 4 am CST",
         "detail": "looper",
         "documentation": {}
     },

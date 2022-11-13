@@ -354,7 +354,7 @@ def deal_with_white_images_and_populate_tapestry():
         # read the image
         try:
             image = cv2.imread(file)
-            if not is_recent(file, 60): # 60 minutes
+            if not is_recent(file, 300): # 300 minutes
                 continue
 
             if panel_mode:

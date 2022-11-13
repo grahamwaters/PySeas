@@ -6,6 +6,7 @@ first_run = True # set a flag to indicate that this is the first run of the loop
 duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy
 #note: bugs are present in difPy, so this flag is set to false
 exper_1 = False # flag for dupe detect in panels
+verbose_wait = False # flag that makes waiting show a progress bar.
 
 # import the necessary packages
 from imutils import paths
@@ -1416,10 +1417,17 @@ while True:
         time_elapsed = datetime.datetime.now() - start_time
         # wait until the time elapsed is 15 minutes from the start of the loop
         print("Waiting for the remainder of the minutes...")
-        # wait_period = 100 # was 900 (15 minutes)
-        for i in tqdm(range(wait_period - time_elapsed.seconds)):
-            time.sleep(1)
-        iteration_counter += 1
+
+        if verbose_wait:
+            # wait_period = 100 # was 900 (15 minutes)
+            for i in tqdm(range(wait_period - time_elapsed.seconds)):
+                time.sleep(1)
+            iteration_counter += 1
+        else:
+            print('Waiting for the remaining {} seconds'.format(wait_period - time_elapsed.seconds))
+            time.sleep(wait_period - time_elapsed.seconds)
+            iteration_counter += 1
+
     except Exception as e:
         print(e)
         print('Error occurred.')

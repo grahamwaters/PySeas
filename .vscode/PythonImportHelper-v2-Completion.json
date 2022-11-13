@@ -1879,7 +1879,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils",
+        "peekOfCode": "last_time_fetched = time.time() # get the current time\nfirst_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\nverbose_wait = False # flag that makes waiting show a progress bar.\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse",
         "detail": "looper",
         "documentation": {}
     },
@@ -1888,7 +1888,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2",
+        "peekOfCode": "first_run = True # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\nverbose_wait = False # flag that makes waiting show a progress bar.\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils",
         "detail": "looper",
         "documentation": {}
     },
@@ -1897,7 +1897,7 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob",
+        "peekOfCode": "duplicate_removal_flag = True # set this flag to true if we want to remove duplicated images with difPy\n#note: bugs are present in difPy, so this flag is set to false\nexper_1 = False # flag for dupe detect in panels\nverbose_wait = False # flag that makes waiting show a progress bar.\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2",
         "detail": "looper",
         "documentation": {}
     },
@@ -1906,7 +1906,16 @@
         "kind": 5,
         "importPath": "looper",
         "description": "looper",
-        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = True # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection",
+        "peekOfCode": "exper_1 = False # flag for dupe detect in panels\nverbose_wait = False # flag that makes waiting show a progress bar.\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = True # flag to indicate if the tapestry is rotating",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
+        "label": "verbose_wait",
+        "kind": 5,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "verbose_wait = False # flag that makes waiting show a progress bar.\n# import the necessary packages\nfrom imutils import paths\nimport numpy as np\nimport argparse\nimport imutils\nimport cv2\nimport glob\nrotating = True # flag to indicate if the tapestry is rotating\npanel_mode = False # flag to indicate if we want to use panels for color detection",
         "detail": "looper",
         "documentation": {}
     },

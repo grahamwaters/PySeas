@@ -1740,6 +1740,15 @@
         "documentation": {}
     },
     {
+        "label": "generate_one_full_day",
+        "kind": 2,
+        "importPath": "looper",
+        "description": "looper",
+        "peekOfCode": "def generate_one_full_day(buoy_id, day_number, month_number, year_number):\n    # concatenate one image for each hour of the day and save it as a new image called 'full_day.png'\n    # get the images from the buoy_id folder and sort them\n    images = os.listdir(buoy_id)\n    images.sort()\n    # the names of the images are in the format: '2019-01-01_00.png'\n    # images/buoys/41004/2022_11_5_15_44.jpg\n    # where the day is the 3rd element in the list\n    # and the hour is the 4th element in the list\n    # so we can use a list comprehension to get the images for each hour of the day if we sort the images first.",
+        "detail": "looper",
+        "documentation": {}
+    },
+    {
         "label": "finding_red_version_two",
         "kind": 2,
         "importPath": "looper",

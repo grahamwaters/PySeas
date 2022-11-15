@@ -72,6 +72,6 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for mor
 
 <div align="center">
 
-![The Tapestry of the Ocean's Life](images/tapestry.png)
+![The Tapestry of the Ocean's Life](images/full_days/6_11_2022_46087.png)
 
 </div>

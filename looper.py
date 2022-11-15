@@ -158,6 +158,51 @@ def get_average_color(image):
     # return the average color
     return average_color
 
+def generate_one_full_day(buoy_id, day_number, month_number, year_number):
+    # concatenate one image for each hour of the day and save it as a new image called 'full_day.png'
+    # get the images from the buoy_id folder and sort them
+    images = os.listdir(buoy_id)
+    images.sort()
+    # the names of the images are in the format: '2019-01-01_00.png'
+    # images/buoys/41004/2022_11_5_15_44.jpg
+    # where the day is the 3rd element in the list
+    # and the hour is the 4th element in the list
+    # so we can use a list comprehension to get the images for each hour of the day if we sort the images first.
+    # go through the folder and add the filenames to the list if the day is the same as the day_number
+    # and the month is the same as the month_number
+    # and the year is the same as the year_number
+
+    # get the images for the day
+    images_for_day = [image for image in images if image.split('_')[2] == str(day_number) and image.split('_')[1] == str(month_number) and image.split('_')[0] == str(year_number)]
+    # get the images for the day and sort them
+    images_for_day.sort()
+    # get one image for each hour of the day
+    images_for_day = [image for image in images_for_day if image.split('_')[3] == '00' or image.split('_')[3] == '01' or image.split('_')[3] == '02' or image.split('_')[3] == '03' or image.split('_')[3] == '04' or image.split('_')[3] == '05' or image.split('_')[3] == '06' or image.split('_')[3] == '07' or image.split('_')[3] == '08' or image.split('_')[3] == '09' or image.split('_')[3] == '10' or image.split('_')[3] == '11' or image.split('_')[3] == '12' or image.split('_')[3] == '13' or image.split('_')[3] == '14' or image.split('_')[3] == '15' or image.split('_')[3] == '16' or image.split('_')[3] == '17' or image.split('_')[3] == '18' or image.split('_')[3] == '19' or image.split('_')[3] == '20' or image.split('_')[3] == '21' or image.split('_')[3] == '22' or image.split('_')[3] == '23']
+    # get the images for the day and sort them
+    images_for_day.sort()
+    # add the images one after the other by concatenating them vertically and save the result as a new image called 'full_day.png' in the buoy_id folder
+    # get the first image
+    first_image = images_for_day[0]
+    # open the first image
+    first_image = Image.open(buoy_id + '/' + first_image)
+    # get the width and height of the first image
+    width, height = first_image.size
+    # create a new image with the same width as the first image and the height of the first image multiplied by the number of images
+    new_image = Image.new('RGB', (width, height*len(images_for_day)))
+    # paste the first image in the new image
+    new_image.paste(first_image, (0, 0))
+    # go through the rest of the images and add them to the bottom of the new image one after the other
+    for i in range(1, len(images_for_day)):
+        # get the image
+        image = images_for_day[i]
+        # open the image
+        image = Image.open(buoy_id + '/' + image)
+        # paste the image in the new image
+        new_image.paste(image, (0, height*i))
+    # save the new image
+    new_image.save(buoy_id + '/full_day.png')
+
+
 
 ### Testing To find Red
 

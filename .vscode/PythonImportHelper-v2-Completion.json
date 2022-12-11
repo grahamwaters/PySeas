@@ -9,6 +9,42 @@
         "documentation": {}
     },
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sample",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sample",
+        "description": "sample",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
         "label": "urldefrag",
         "importPath": "urllib.parse",
         "description": "urllib.parse",
@@ -108,15 +144,6 @@
         "description": "bs4",
         "isExtraImport": true,
         "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -557,15 +584,6 @@
         "documentation": {}
     },
     {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
         "label": "logging",
         "kind": 6,
         "isExtraImport": true,
@@ -614,24 +632,6 @@
         "importPath": "pickle",
         "description": "pickle",
         "detail": "pickle",
-        "documentation": {}
-    },
-    {
-        "label": "sample",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sample",
-        "description": "sample",
-        "detail": "sample",
-        "documentation": {}
-    },
-    {
-        "label": "unittest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "unittest",
-        "description": "unittest",
-        "detail": "unittest",
         "documentation": {}
     },
     {
@@ -1136,6 +1136,51 @@
         "description": "docs.conf",
         "peekOfCode": "#texinfo_show_urls = 'footnote'",
         "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "get_hmm",
+        "kind": 2,
+        "importPath": "old.sample.core",
+        "description": "old.sample.core",
+        "peekOfCode": "def get_hmm():\n    \"\"\"Get a thought.\"\"\"\n    return 'hmmm...'\ndef hmm():\n    \"\"\"Contemplation...\"\"\"\n    if helpers.get_answer():\n        print(get_hmm())",
+        "detail": "old.sample.core",
+        "documentation": {}
+    },
+    {
+        "label": "hmm",
+        "kind": 2,
+        "importPath": "old.sample.core",
+        "description": "old.sample.core",
+        "peekOfCode": "def hmm():\n    \"\"\"Contemplation...\"\"\"\n    if helpers.get_answer():\n        print(get_hmm())",
+        "detail": "old.sample.core",
+        "documentation": {}
+    },
+    {
+        "label": "get_answer",
+        "kind": 2,
+        "importPath": "old.sample.helpers",
+        "description": "old.sample.helpers",
+        "peekOfCode": "def get_answer():\n    \"\"\"Get an answer.\"\"\"\n    return True",
+        "detail": "old.sample.helpers",
+        "documentation": {}
+    },
+    {
+        "label": "AdvancedTestSuite",
+        "kind": 6,
+        "importPath": "old.tests.test_advanced",
+        "description": "old.tests.test_advanced",
+        "peekOfCode": "class AdvancedTestSuite(unittest.TestCase):\n    \"\"\"Advanced test cases.\"\"\"\n    def test_thoughts(self):\n        self.assertIsNone(sample.hmm())\nif __name__ == '__main__':\n    unittest.main()",
+        "detail": "old.tests.test_advanced",
+        "documentation": {}
+    },
+    {
+        "label": "BasicTestSuite",
+        "kind": 6,
+        "importPath": "old.tests.test_basic",
+        "description": "old.tests.test_basic",
+        "peekOfCode": "class BasicTestSuite(unittest.TestCase):\n    \"\"\"Basic test cases.\"\"\"\n    def test_absolute_truth_and_meaning(self):\n        assert True\nif __name__ == '__main__':\n    unittest.main()",
+        "detail": "old.tests.test_basic",
         "documentation": {}
     },
     {
@@ -1827,7 +1872,7 @@
         "kind": 5,
         "importPath": "old.looper",
         "description": "old.looper",
-        "peekOfCode": "last_time_fetched = time.time()  # get the current time\nfirst_run = True  # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = (\n    True  # set this flag to true if we want to remove duplicated images with difPy\n)\n# note: bugs are present in difPy, so this flag is set to false\nexper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\n# import the necessary packages\nimport numpy as np",
+        "peekOfCode": "last_time_fetched = time.time()  # get the current time\nfirst_run = True  # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = (\n    True  # set this flag to true if we want to remove duplicated images with difPy\n)\n# note: bugs are present in difPy, so this flag is set to false\nexper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\nimport glob\nimport cv2",
         "detail": "old.looper",
         "documentation": {}
     },
@@ -1836,7 +1881,7 @@
         "kind": 5,
         "importPath": "old.looper",
         "description": "old.looper",
-        "peekOfCode": "first_run = True  # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = (\n    True  # set this flag to true if we want to remove duplicated images with difPy\n)\n# note: bugs are present in difPy, so this flag is set to false\nexper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\n# import the necessary packages\nimport numpy as np\nimport imutils",
+        "peekOfCode": "first_run = True  # set a flag to indicate that this is the first run of the loop (for the first run, we will download rss feeds for all the buoys)\nduplicate_removal_flag = (\n    True  # set this flag to true if we want to remove duplicated images with difPy\n)\n# note: bugs are present in difPy, so this flag is set to false\nexper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\nimport glob\nimport cv2\nimport imutils",
         "detail": "old.looper",
         "documentation": {}
     },
@@ -1845,7 +1890,7 @@
         "kind": 5,
         "importPath": "old.looper",
         "description": "old.looper",
-        "peekOfCode": "duplicate_removal_flag = (\n    True  # set this flag to true if we want to remove duplicated images with difPy\n)\n# note: bugs are present in difPy, so this flag is set to false\nexper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\n# import the necessary packages\nimport numpy as np\nimport imutils\nimport cv2",
+        "peekOfCode": "duplicate_removal_flag = (\n    True  # set this flag to true if we want to remove duplicated images with difPy\n)\n# note: bugs are present in difPy, so this flag is set to false\nexper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\nimport glob\nimport cv2\nimport imutils\n# import the necessary packages",
         "detail": "old.looper",
         "documentation": {}
     },
@@ -1854,7 +1899,7 @@
         "kind": 5,
         "importPath": "old.looper",
         "description": "old.looper",
-        "peekOfCode": "exper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\n# import the necessary packages\nimport numpy as np\nimport imutils\nimport cv2\nimport glob\nrotating = True  # flag to indicate if the tapestry is rotating\npanel_mode = False  # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):",
+        "peekOfCode": "exper_1 = False  # flag for dupe detect in panels\nverbose_wait = False  # flag that makes waiting show a progress bar.\nimport glob\nimport cv2\nimport imutils\n# import the necessary packages\nimport numpy as np\nrotating = True  # flag to indicate if the tapestry is rotating\npanel_mode = False  # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):",
         "detail": "old.looper",
         "documentation": {}
     },
@@ -1863,7 +1908,7 @@
         "kind": 5,
         "importPath": "old.looper",
         "description": "old.looper",
-        "peekOfCode": "verbose_wait = False  # flag that makes waiting show a progress bar.\n# import the necessary packages\nimport numpy as np\nimport imutils\nimport cv2\nimport glob\nrotating = True  # flag to indicate if the tapestry is rotating\npanel_mode = False  # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):\n    # get the time the image was taken",
+        "peekOfCode": "verbose_wait = False  # flag that makes waiting show a progress bar.\nimport glob\nimport cv2\nimport imutils\n# import the necessary packages\nimport numpy as np\nrotating = True  # flag to indicate if the tapestry is rotating\npanel_mode = False  # flag to indicate if we want to use panels for color detection\ndef is_recent(file, minutes):\n    # get the time the image was taken",
         "detail": "old.looper",
         "documentation": {}
     },
@@ -2291,48 +2336,12 @@
         "documentation": {}
     },
     {
-        "label": "get_hmm",
-        "kind": 2,
-        "importPath": "sample.core",
-        "description": "sample.core",
-        "peekOfCode": "def get_hmm():\n    \"\"\"Get a thought.\"\"\"\n    return 'hmmm...'\ndef hmm():\n    \"\"\"Contemplation...\"\"\"\n    if helpers.get_answer():\n        print(get_hmm())",
-        "detail": "sample.core",
-        "documentation": {}
-    },
-    {
-        "label": "hmm",
-        "kind": 2,
-        "importPath": "sample.core",
-        "description": "sample.core",
-        "peekOfCode": "def hmm():\n    \"\"\"Contemplation...\"\"\"\n    if helpers.get_answer():\n        print(get_hmm())",
-        "detail": "sample.core",
-        "documentation": {}
-    },
-    {
-        "label": "get_answer",
-        "kind": 2,
-        "importPath": "sample.helpers",
-        "description": "sample.helpers",
-        "peekOfCode": "def get_answer():\n    \"\"\"Get an answer.\"\"\"\n    return True",
-        "detail": "sample.helpers",
-        "documentation": {}
-    },
-    {
-        "label": "AdvancedTestSuite",
+        "label": "BuoyData",
         "kind": 6,
-        "importPath": "tests.test_advanced",
-        "description": "tests.test_advanced",
-        "peekOfCode": "class AdvancedTestSuite(unittest.TestCase):\n    \"\"\"Advanced test cases.\"\"\"\n    def test_thoughts(self):\n        self.assertIsNone(sample.hmm())\nif __name__ == '__main__':\n    unittest.main()",
-        "detail": "tests.test_advanced",
-        "documentation": {}
-    },
-    {
-        "label": "BasicTestSuite",
-        "kind": 6,
-        "importPath": "tests.test_basic",
-        "description": "tests.test_basic",
-        "peekOfCode": "class BasicTestSuite(unittest.TestCase):\n    \"\"\"Basic test cases.\"\"\"\n    def test_absolute_truth_and_meaning(self):\n        assert True\nif __name__ == '__main__':\n    unittest.main()",
-        "detail": "tests.test_basic",
+        "importPath": "src.BuoyData",
+        "description": "src.BuoyData",
+        "peekOfCode": "class BuoyData:\n    \"\"\"\n        A download_data method that uses the NOAA API to download the data for a particular buoy. This method could take the buoy ID as an input and use it to query the API and retrieve the data for that buoy.\n        A store_data method that saves the data for a particular buoy to a local database or file system. This method could take the buoy data as an input and use it to create a new entry in the database or save the data to a file.\n        A get_data method that retrieves the data for a particular buoy from the local database or file system. This method could take the buoy ID as an input and use it to query the database or read the data from the file, and then return the data for that buoy.\n    \"\"\"\n    def __init__(self, buoy_id, buoy_name, buoy_lat, buoy_lon, buoy_data):\n        self.buoy_id = buoy_id\n        self.buoy_name = buoy_name\n        self.buoy_lat = buoy_lat",
+        "detail": "src.BuoyData",
         "documentation": {}
     }
 ]

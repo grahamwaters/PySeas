@@ -10,11 +10,12 @@ duplicate_removal_flag = (
 exper_1 = False  # flag for dupe detect in panels
 verbose_wait = False  # flag that makes waiting show a progress bar.
 
+import glob
+
+import cv2
+import imutils
 # import the necessary packages
 import numpy as np
-import imutils
-import cv2
-import glob
 
 rotating = True  # flag to indicate if the tapestry is rotating
 panel_mode = False  # flag to indicate if we want to use panels for color detection
@@ -1127,6 +1128,7 @@ stitch_switch = False  # make false if you don't want to stitch the images.
 # open the blacklist file
 
 from ratelimit import sleep_and_retry
+
 
 # @limits(calls=1, period=4) # limit the number of calls to the function to 1 every 4 seconds.
 @sleep_and_retry

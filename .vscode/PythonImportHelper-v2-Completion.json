@@ -390,6 +390,22 @@
         "documentation": {}
     },
     {
+        "label": "layers",
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "isExtraImport": true,
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "isExtraImport": true,
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
         "label": "keras",
         "importPath": "tensorflow",
         "description": "tensorflow",
@@ -700,131 +716,19 @@
         "documentation": {}
     },
     {
-        "label": "keras",
-        "importPath": "tf",
-        "description": "tf",
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
         "isExtraImport": true,
-        "detail": "tf",
+        "detail": "tensorflow.keras",
         "documentation": {}
     },
     {
-        "label": "name_scope",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
         "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "global_variables_initializer",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "Session",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "Graph",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "variable_scope",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "global_variables_initializer",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "Session",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "Graph",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "variable_scope",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "global_variables_initializer",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "Session",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "Graph",
-        "importPath": "tensorflow.compat.v1",
-        "description": "tensorflow.compat.v1",
-        "isExtraImport": true,
-        "detail": "tensorflow.compat.v1",
-        "documentation": {}
-    },
-    {
-        "label": "gfile",
-        "importPath": "tensorflow.io",
-        "description": "tensorflow.io",
-        "isExtraImport": true,
-        "detail": "tensorflow.io",
-        "documentation": {}
-    },
-    {
-        "label": "gfile",
-        "importPath": "tensorflow.io",
-        "description": "tensorflow.io",
-        "isExtraImport": true,
-        "detail": "tensorflow.io",
-        "documentation": {}
-    },
-    {
-        "label": "gfile",
-        "importPath": "tensorflow.io",
-        "description": "tensorflow.io",
-        "isExtraImport": true,
-        "detail": "tensorflow.io",
+        "detail": "tensorflow.keras",
         "documentation": {}
     },
     {
@@ -945,6 +849,86 @@
         "description": "tensorflow.keras",
         "isExtraImport": true,
         "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "gfile",
+        "importPath": "tensorflow.io",
+        "description": "tensorflow.io",
+        "isExtraImport": true,
+        "detail": "tensorflow.io",
+        "documentation": {}
+    },
+    {
+        "label": "gfile",
+        "importPath": "tensorflow.io",
+        "description": "tensorflow.io",
+        "isExtraImport": true,
+        "detail": "tensorflow.io",
+        "documentation": {}
+    },
+    {
+        "label": "variable_scope",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "global_variables_initializer",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Graph",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "variable_scope",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "global_variables_initializer",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Graph",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
         "documentation": {}
     },
     {
@@ -2779,7 +2763,7 @@
         "kind": 2,
         "importPath": "main_file",
         "description": "main_file",
-        "peekOfCode": "def generator(z):\n    \"\"\"\n    generator This code defines the generator function, which represents the architecture of the generator network in the GAN. It uses fully-connected and transposed convolutional layers to transform the input noise vector into a generated image. The generated image is produced by upsampling the noise vector using transposed convolutional layers, and then applying a final convolutional layer to produce the final output image. You can customize this code as needed to suit the specific requirements of your GAN, such as the size and resolution of the generated images, and the specific types of layers and activation functions used.\n    Args:\n        z: The input noise vector\n    Returns:\n        gen_images: The generated images\n    \"\"\"\n    # Define the generator network architecture here\n    with tf.name_scope(\"generator\"):",
+        "peekOfCode": "def generator(z):\n    with tf.name_scope(\"generator\"):\n        h1 = layers.dense(z, units=4 * 4 * 256, activation=tf.nn.relu)\n        h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])\n        h2 = [layers.conv2d_transpose(h1, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu) for f in [128, 64, 32, 16]]\n        gen_images = layers.conv2d_transpose(h2[-1], filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)\n    return gen_images\ndef discriminator(x):\n    with tf.name_scope(\"discriminator\"):\n        h1 = [layers.conv2d(x, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu) for f in [16, 32, 64, 128, 256]]",
         "detail": "main_file",
         "documentation": {}
     },
@@ -2788,7 +2772,7 @@
         "kind": 2,
         "importPath": "main_file",
         "description": "main_file",
-        "peekOfCode": "def discriminator(x):\n    \"\"\"\n    discriminator This code defines the discriminator function, which represents the architecture of the discriminator network in the GAN. It uses convolutional layers to extract features from the input image, and then applies a fully-connected layer to produce the output logits. The logits represent the probability that the input image is real, and are used by the GAN to calculate the loss and optimize the model. You can customize this code as needed to suit the specific requirements of your GAN, such as the specific types of layers and activation functions used.\n    \"\"\"\n    # Define the discriminator network architecture here\n    with tf.name_scope(\"discriminator\"):\n        # Use convolutional layers to extract features from the input image\n        h1 = layers.conv2d(\n            x,\n            filters=16,",
+        "peekOfCode": "def discriminator(x):\n    with tf.name_scope(\"discriminator\"):\n        h1 = [layers.conv2d(x, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu) for f in [16, 32, 64, 128, 256]]\n        logits = layers.dense(h1[-1], units=1, activation=None)\n    return logits\ndef load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)",
         "detail": "main_file",
         "documentation": {}
     },
@@ -2797,25 +2781,7 @@
         "kind": 2,
         "importPath": "main_file",
         "description": "main_file",
-        "peekOfCode": "def load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\n# # * option 2 for this function\n# def split_dataset(images, ratio):\n#     \"\"\"\n#     Split the images into training and evaluation sets.\n#     Args:\n#     images: A NumPy array of images to split.\n#     ratio: A float value representing the ratio of the evaluation set size to the total dataset size.\n#     Returns:",
-        "detail": "main_file",
-        "documentation": {}
-    },
-    {
-        "label": "split_dataset",
-        "kind": 2,
-        "importPath": "main_file",
-        "description": "main_file",
-        "peekOfCode": "def split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\n#! Step 3\n# This code defines the gan_loss and gan_optimizer functions, which represent the loss function and optimization algorithm for the GAN. The gan_loss function defines the loss function for the GAN, which measures the difference between the generated and true images. The gan_optimizer function defines the optimization algorithm, which adjusts the model weights and biases in order to minimize the loss. You can customize these functions as needed to suit the specific requirements of your GAN, such as the type of GAN (ACGAN or WGAN) and the desired properties of the generated images.\n# Import necessary libraries\n# def gan_loss(logits_real, logits_fake):\n#     \"\"\"\n#     Define the GAN loss function. This code defines the gan_loss function, which defines the loss function for the GAN. It computes the cross-entropy loss for the real and generated images, and returns the total GAN loss as a TensorFlow tensor. The loss function measures the difference between the generated and true images, and is used to optimize the GAN model during training. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of loss function used, and the specific parameters and settings for the loss function.",
-        "detail": "main_file",
-        "documentation": {}
-    },
-    {
-        "label": "gan_loss",
-        "kind": 2,
-        "importPath": "main_file",
-        "description": "main_file",
-        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\n# def gan_optimizer(loss, learning_rate):\n#     \"\"\"\n#     Define the GAN optimization algorithm. This code defines the gan_optimizer function, which defines the optimization algorithm for the GAN. It uses the Adam optimizer to compute the gradients for the model weights and biases, and applies the gradients to adjust the model in order to minimize the loss. The function returns the optimizer as a TensorFlow optimizer. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of optimizer used, and the specific parameters and settings for the optimizer.\n#     Args:\n#     loss: A TensorFlow tensor representing the GAN loss.",
+        "peekOfCode": "def load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))",
         "detail": "main_file",
         "documentation": {}
     },
@@ -2824,7 +2790,25 @@
         "kind": 2,
         "importPath": "main_file",
         "description": "main_file",
-        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef main():\n    # Define the input and output placeholders for the GAN\n    z = tf.compat.v1.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\n    x = tf.compat.v1.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\n    # Define the generator, discriminator, loss, and optimizer",
+        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\ndef gan_loss(logits_real, logits_fake):",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "split_dataset",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\ndef gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\ndef main():",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_loss",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\ndef main():\n    # Define the input and output placeholders for the GAN\n    z = tf.compat.v1.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\n    x = tf.compat.v1.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\n    # Define the generator, discriminator, loss, and optimizer",
         "detail": "main_file",
         "documentation": {}
     },
@@ -2834,6 +2818,195 @@
         "importPath": "main_file",
         "description": "main_file",
         "peekOfCode": "def main():\n    # Define the input and output placeholders for the GAN\n    z = tf.compat.v1.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\n    x = tf.compat.v1.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\n    # Define the generator, discriminator, loss, and optimizer\n    with tf.name_scope(\"generator\"), tf.name_scope(\"discriminator\"):\n        gen_images = generator(z)\n        logits_real = discriminator(x)\n        logits_fake = discriminator(gen_images, reuse=True)\n        loss = gan_loss(logits_real, logits_fake)",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "generator",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def generator(z):\n    with tf.name_scope(\"generator\"):\n        h1 = layers.dense(z, units=4 * 4 * 256, activation=tf.nn.relu)\n        h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])\n        h2 = [layers.conv2d_transpose(h1, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu) for f in [128, 64, 32, 16]]\n        gen_images = layers.conv2d_transpose(h2[-1], filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)\n    return gen_images\ndef discriminator(x):\n    with tf.name_scope(\"discriminator\"):\n        h1 = [layers.conv2d(x, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu) for f in [16, 32, 64, 128, 256]]",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "discriminator",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def discriminator(x):\n    with tf.name_scope(\"discriminator\"):\n        h1 = [layers.conv2d(x, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu) for f in [16, 32, 64, 128, 256]]\n        logits = layers.dense(h1[-1], units=1, activation=None)\n    return logits\ndef load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_optimizer",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\ndef gan_loss(logits_real, logits_fake):",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "split_dataset",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\ndef gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\ndef main():",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_loss",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\ndef main():\n    num_iterations  = 10000 # Number of training iterations\n    train_images = load_data(data_dir, 28)\n    train_images = train_images / 127.5 - 1\n    train_images = train_images.astype(np.float32)",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def main():\n    num_iterations  = 10000 # Number of training iterations\n    train_images = load_data(data_dir, 28)\n    train_images = train_images / 127.5 - 1\n    train_images = train_images.astype(np.float32)\n    train_images, test_images = split_dataset(train_images, 0.8)\n    train_dataset = tf.data.Dataset.from_tensor_slices(train_images)\n    train_dataset = train_dataset.shuffle(1000)\n    train_dataset = train_dataset.batch(64)\n    # Create a TensorFlow iterator object",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "generator",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def generator(z):\n    h1 = layers.Dense(units=4 * 4 * 256, activation=tf.nn.relu)(z)\n    h2 = [layers.Conv2DTranspose(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu)(h1) for f in [128, 64, 32, 16]]\n    gen_images = layers.Conv2DTranspose(filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)(h2[-1])\n    return gen_images\ndef discriminator(x):\n    h1 = [layers.Conv2D(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)(x) for f in [16, 32, 64, 128, 256]]\n    logits = layers.Dense(units=1, activation=None)(h1[-1])\n    return logits\ndef load_data(data_dir, img_size):",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "discriminator",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def discriminator(x):\n    h1 = [layers.Conv2D(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)(x) for f in [16, 32, 64, 128, 256]]\n    logits = layers.Dense(units=1, activation=None)(h1[-1])\n    return logits\ndef load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_optimizer",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\ndef gan_loss(logits_real, logits_fake):",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "split_dataset",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\ndef gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\n@tf.function",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_loss",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\n@tf.function\ndef gan_optimizer(model, loss, learning_rate):\n    # Define the optimizer\n    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)\n    # Compute the gradients of the loss with respect to the model weights and biases",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_optimizer",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_optimizer(model, loss, learning_rate):\n    # Define the optimizer\n    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)\n    # Compute the gradients of the loss with respect to the model weights and biases\n    with tf.GradientTape() as tape:\n        if loss is not None:\n            gradients = tape.gradient(loss, model.trainable_variables)\n    # Apply the gradients to the model weights and biases\n    if loss is not None:\n        optimizer.apply_gradients(zip(gradients, model.trainable_variables))",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def main():\n    num_iterations  = 10000 # Number of training iterations\n    train_images = load_data(data_dir, 28)\n    train_images = train_images / 127.5 - 1\n    train_images = train_images.astype(np.float32)\n    train_images, test_images = split_dataset(train_images, 0.8)\n    train_dataset = tf.data.Dataset.from_tensor_slices(train_images)\n    train_dataset = train_dataset.shuffle(1000)\n    train_dataset = train_dataset.batch(64)\n    # Create a TensorFlow iterator object",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "z_dim",
+        "kind": 5,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "z_dim = 100 # Size of the noise vector\nlearning_rate = 0.0001 # Learning rate for the optimizer\ndata_dir = \"../data\" # Directory where the data is stored\n# import tensorflow as tf\n# from tensorflow import layers\n# import numpy as np\ndef generator(z):\n    with tf.name_scope(\"generator\"):\n        h1 = layers.dense(z, units=4 * 4 * 256, activation=tf.nn.relu)\n        h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "learning_rate",
+        "kind": 5,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "learning_rate = 0.0001 # Learning rate for the optimizer\ndata_dir = \"../data\" # Directory where the data is stored\n# import tensorflow as tf\n# from tensorflow import layers\n# import numpy as np\ndef generator(z):\n    with tf.name_scope(\"generator\"):\n        h1 = layers.dense(z, units=4 * 4 * 256, activation=tf.nn.relu)\n        h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])\n        h2 = [layers.conv2d_transpose(h1, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu) for f in [128, 64, 32, 16]]",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "data_dir",
+        "kind": 5,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "data_dir = \"../data\" # Directory where the data is stored\n# import tensorflow as tf\n# from tensorflow import layers\n# import numpy as np\ndef generator(z):\n    with tf.name_scope(\"generator\"):\n        h1 = layers.dense(z, units=4 * 4 * 256, activation=tf.nn.relu)\n        h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])\n        h2 = [layers.conv2d_transpose(h1, filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu) for f in [128, 64, 32, 16]]\n        gen_images = layers.conv2d_transpose(h2[-1], filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "z_dim",
+        "kind": 5,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "z_dim = 100 # Size of the noise vector\nlearning_rate = 0.0001 # Learning rate for the optimizer\ndata_dir = \"../data\" # Directory where the data is stored\ndef generator(z):\n    h1 = layers.Dense(units=4 * 4 * 256, activation=tf.nn.relu)(z)\n    h2 = [layers.Conv2DTranspose(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu)(h1) for f in [128, 64, 32, 16]]\n    gen_images = layers.Conv2DTranspose(filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)(h2[-1])\n    return gen_images\ndef discriminator(x):\n    h1 = [layers.Conv2D(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)(x) for f in [16, 32, 64, 128, 256]]",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "learning_rate",
+        "kind": 5,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "learning_rate = 0.0001 # Learning rate for the optimizer\ndata_dir = \"../data\" # Directory where the data is stored\ndef generator(z):\n    h1 = layers.Dense(units=4 * 4 * 256, activation=tf.nn.relu)(z)\n    h2 = [layers.Conv2DTranspose(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu)(h1) for f in [128, 64, 32, 16]]\n    gen_images = layers.Conv2DTranspose(filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)(h2[-1])\n    return gen_images\ndef discriminator(x):\n    h1 = [layers.Conv2D(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)(x) for f in [16, 32, 64, 128, 256]]\n    logits = layers.Dense(units=1, activation=None)(h1[-1])",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "data_dir",
+        "kind": 5,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "data_dir = \"../data\" # Directory where the data is stored\ndef generator(z):\n    h1 = layers.Dense(units=4 * 4 * 256, activation=tf.nn.relu)(z)\n    h2 = [layers.Conv2DTranspose(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.relu)(h1) for f in [128, 64, 32, 16]]\n    gen_images = layers.Conv2DTranspose(filters=3, kernel_size=5, strides=1, padding=\"same\", activation=tf.tanh)(h2[-1])\n    return gen_images\ndef discriminator(x):\n    h1 = [layers.Conv2D(filters=f, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)(x) for f in [16, 32, 64, 128, 256]]\n    logits = layers.Dense(units=1, activation=None)(h1[-1])\n    return logits",
         "detail": "main_file",
         "documentation": {}
     },

@@ -65,32 +65,103 @@ def discriminator(x):
 import numpy as np
 
 # Load the dataset of images
-def load_data(data_dir):
-  # Use TensorFlow or other libraries to load the images from data_dir
-  # Preprocess the images as needed (resize, convert to grayscale, etc.)
-  # Return the preprocessed images as a NumPy array
+# Import necessary libraries
 
-# Split the dataset into training and evaluation sets
+def load_data(data_dir):
+    """
+    This code defines the load_data function, which loads the images from the specified data directory and preprocesses them as needed. It uses TensorFlow to load the images from the data directory, decode them, convert them to grayscale, resize them, and convert them to a NumPy array. You can customize this code as needed to suit the specific requirements of your GAN, such as the format and location of the images, the preprocessing steps applied to the images, and the desired size and resolution of the images.
+
+    """
+    # Load the images from the specified data directory
+    filenames = tf.gfile.Glob(data_dir + '/*.jpg') #note: this does not find .png files yet.
+    images = [tf.gfile.FastGFile(filename, 'rb').read() for filename in filenames]
+
+    # Decode the images and convert them to grayscale
+    images = [tf.image.decode_jpeg(image, channels=1) for image in images]
+
+    # Resize the images to a common size
+    images = [tf.image.resize_images(image, [img_size, img_size]) for image in images]
+
+    # Convert the images to a NumPy array
+    images = np.array(images)
+
+    return images
+
 def split_dataset(images):
-  # Use TensorFlow or other libraries to split the images into training and evaluation sets
-  # Return the training and evaluation sets as separate NumPy arrays
+    # Shuffle the images and split them into training and evaluation sets
+    np.random.shuffle(images)
+    train_images = images[:int(0.8*len(images))]
+    eval_images = images[int(0.8*len(images)):]
+
+    return train_images, eval_images
+
+#* option 2 for this function
+def split_dataset(images, ratio):
+    """
+        Split the images into training and evaluation sets.
+        Args:
+        images: A NumPy array of images to split.
+        ratio: A float value representing the ratio of the evaluation set size to the total dataset size.
+        Returns:
+        train_images: A NumPy array of training images.
+        eval_images: A NumPy array of evaluation images.
+    """
+
+    # Shuffle the images and split them into training and evaluation sets
+    indices = np.random.permutation(len(images))
+    split_index = int(len(images) * (1 - ratio))
+    train_images = images[indices[:split_index]]
+    eval_images = images[indices[split_index:]]
+
+    return train_images, eval_images
 
 #! Step 3
 # This code defines the gan_loss and gan_optimizer functions, which represent the loss function and optimization algorithm for the GAN. The gan_loss function defines the loss function for the GAN, which measures the difference between the generated and true images. The gan_optimizer function defines the optimization algorithm, which adjusts the model weights and biases in order to minimize the loss. You can customize these functions as needed to suit the specific requirements of your GAN, such as the type of GAN (ACGAN or WGAN) and the desired properties of the generated images.
 # Import necessary libraries
 
 
-# Define the loss function
 def gan_loss(logits_real, logits_fake):
-  # Use TensorFlow or other libraries to define the loss function for the GAN
-  # The loss function should measure the difference between the generated and true images
-  # Return the loss as a TensorFlow tensor
+  """
+  Define the GAN loss function. This code defines the gan_loss function, which defines the loss function for the GAN. It computes the cross-entropy loss for the real and generated images, and returns the total GAN loss as a TensorFlow tensor. The loss function measures the difference between the generated and true images, and is used to optimize the GAN model during training. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of loss function used, and the specific parameters and settings for the loss function.
+  Args:
+    logits_real: A TensorFlow tensor representing the logits for the real images.
+    logits_fake: A TensorFlow tensor representing the logits for the generated images.
+  Returns:
+    loss: A TensorFlow tensor representing the loss for the GAN.
+  """
 
-# Define the optimization algorithm
+  # Compute the cross-entropy loss for the real and fake images
+  loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))
+  loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))
+
+  # Compute the total GAN loss
+  loss = loss_real + loss_fake
+
+  return loss
+
+
+
 def gan_optimizer(loss, learning_rate):
-  # Use TensorFlow or other libraries to define the optimization algorithm for the GAN
-  # The optimization algorithm should adjust the model weights and biases in order to minimize the loss
-  # Return the optimizer as a TensorFlow optimizer
+    """
+    Define the GAN optimization algorithm. This code defines the gan_optimizer function, which defines the optimization algorithm for the GAN. It uses the Adam optimizer to compute the gradients for the model weights and biases, and applies the gradients to adjust the model in order to minimize the loss. The function returns the optimizer as a TensorFlow optimizer. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of optimizer used, and the specific parameters and settings for the optimizer.
+    Args:
+    loss: A TensorFlow tensor representing the GAN loss.
+    learning_rate: A float value representing the learning rate for the optimizer.
+    Returns:
+    optimizer: A TensorFlow optimizer for the GAN.
+    """
+
+    # Define the optimization algorithm
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+
+    # Compute the gradients
+    grads_and_vars = optimizer.compute_gradients(loss)
+
+    # Apply the gradients to adjust the model weights and biases
+    train_op = optimizer.apply_gradients(grads_and_vars)
+
+    return train_op
+
 
 #! Step 4 - Computation Graph
 # This code builds the TensorFlow computation graph for the GAN. It defines the input and output placeholders for the GAN, and uses the generator and discriminator networks to compute the generated and true images. It also defines the loss function and optimization algorithm for the GAN, and creates a TensorFlow session to run the computation graph. You can customize this code as needed to suit the specific requirements of your GAN, such as the model architecture, data, and training settings.
@@ -140,3 +211,44 @@ for i in range(num_iterations):
 # Evaluate the GAN on the evaluation set
 eval_loss = sess.run(loss, feed_dict={z: sample_noise(batch_size, z_dim), x: eval_images})
 print('Evaluation loss: %f' % eval_loss)
+
+
+#! Step 6 - Generating Images
+# This code defines the generator function, which generates images using the trained generator network. The function takes as input a set of noise vectors, and returns a set of generated images. You can customize this code as needed to suit the specific requirements of your GAN, such as the model architecture, data, and training settings.
+
+
+#! Step 7 - Style Transfer from the Titian Paintings Folder
+# This code defines the style_transfer function, which performs style transfer on a set of images. The function takes as input a set of images, and returns a set of images that have been transformed to match the style of the images in the style_images folder. You can customize this code as needed to suit the specific requirements of your style transfer model, such as the model architecture, data, and training settings.
+
+# Import necessary libraries
+import tensorflow as tf
+
+# Load the pre-trained style transfer model
+model = tf.keras.models.load_model('style_transfer_model.h5')
+
+# Load the Titian images
+titian_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/titian/')
+
+# Preprocess the images
+titian_images = tf.image.resize(titian_images, (256, 256))
+
+"""
+You can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.
+"""
+
+titian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)
+
+# Load the generated ocean images from the BuoyGAN
+ocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/ocean/')
+
+# Preprocess the images
+ocean_images = tf.image.resize(ocean_images, (256, 256))
+
+# Use the model to apply the style of the Titian paintings to the generated ocean images
+stylized_images = model.predict([titian_images, ocean_images])
+
+# Save the stylized images
+tf.keras.preprocessing.image.save_img('stylized_image.jpg', stylized_images)
+"""
+This code uses the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. It then saves the stylized images as new image files that can be used as needed. You can customize this code as needed to suit the specific requirements of your project. For example, you could adjust the model settings, save the images to a different location, or apply the style transfer to a different set of images.
+"""

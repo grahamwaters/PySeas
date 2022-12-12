@@ -2509,5 +2509,167 @@
         "peekOfCode": "panorama = panorama_generator.generate(noise)\n# save the generated panoramic image to a file\npanorama_generator.save(panorama, \"panorama.jpg\")",
         "detail": "src.pyseas_main",
         "documentation": {}
+    },
+    {
+        "label": "generator",
+        "kind": 2,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "def generator(z):\n    \"\"\"\n    generator This code defines the generator function, which represents the architecture of the generator network in the GAN. It uses fully-connected and transposed convolutional layers to transform the input noise vector into a generated image. The generated image is produced by upsampling the noise vector using transposed convolutional layers, and then applying a final convolutional layer to produce the final output image. You can customize this code as needed to suit the specific requirements of your GAN, such as the size and resolution of the generated images, and the specific types of layers and activation functions used.\n    Args:\n        z: The input noise vector\n    Returns:\n        gen_images: The generated images\n    \"\"\"\n  # Define the generator network architecture here\n  with tf.variable_scope('generator'):",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "discriminator",
+        "kind": 2,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "def discriminator(x):\n  # Define the discriminator network architecture here\n  # x is the input image\n  # The output of the discriminator is a score indicating the probability that the input image is real\n  pass\n#! Step 2 - Gather\n# This code defines two functions, load_data and split_dataset, which can be used to prepare the dataset of images for use in training the GAN. The load_data function loads the images from a specified directory, performs any necessary preprocessing steps, and returns the preprocessed images as a NumPy array. The split_dataset function then splits the images into training and evaluation sets, which can be used for training and evaluating the GAN respectively. You can customize these functions as needed to suit the specific requirements of your dataset and the GAN.\n# Import necessary libraries\nimport numpy as np\n# Load the dataset of images",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "def load_data(data_dir):\n  # Use TensorFlow or other libraries to load the images from data_dir\n  # Preprocess the images as needed (resize, convert to grayscale, etc.)\n  # Return the preprocessed images as a NumPy array\n# Split the dataset into training and evaluation sets\ndef split_dataset(images):\n  # Use TensorFlow or other libraries to split the images into training and evaluation sets\n  # Return the training and evaluation sets as separate NumPy arrays\n#! Step 3\n# This code defines the gan_loss and gan_optimizer functions, which represent the loss function and optimization algorithm for the GAN. The gan_loss function defines the loss function for the GAN, which measures the difference between the generated and true images. The gan_optimizer function defines the optimization algorithm, which adjusts the model weights and biases in order to minimize the loss. You can customize these functions as needed to suit the specific requirements of your GAN, such as the type of GAN (ACGAN or WGAN) and the desired properties of the generated images.",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "split_dataset",
+        "kind": 2,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "def split_dataset(images):\n  # Use TensorFlow or other libraries to split the images into training and evaluation sets\n  # Return the training and evaluation sets as separate NumPy arrays\n#! Step 3\n# This code defines the gan_loss and gan_optimizer functions, which represent the loss function and optimization algorithm for the GAN. The gan_loss function defines the loss function for the GAN, which measures the difference between the generated and true images. The gan_optimizer function defines the optimization algorithm, which adjusts the model weights and biases in order to minimize the loss. You can customize these functions as needed to suit the specific requirements of your GAN, such as the type of GAN (ACGAN or WGAN) and the desired properties of the generated images.\n# Import necessary libraries\n# Define the loss function\ndef gan_loss(logits_real, logits_fake):\n  # Use TensorFlow or other libraries to define the loss function for the GAN\n  # The loss function should measure the difference between the generated and true images",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "gan_loss",
+        "kind": 2,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n  # Use TensorFlow or other libraries to define the loss function for the GAN\n  # The loss function should measure the difference between the generated and true images\n  # Return the loss as a TensorFlow tensor\n# Define the optimization algorithm\ndef gan_optimizer(loss, learning_rate):\n  # Use TensorFlow or other libraries to define the optimization algorithm for the GAN\n  # The optimization algorithm should adjust the model weights and biases in order to minimize the loss\n  # Return the optimizer as a TensorFlow optimizer\n#! Step 4 - Computation Graph",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "gan_optimizer",
+        "kind": 2,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n  # Use TensorFlow or other libraries to define the optimization algorithm for the GAN\n  # The optimization algorithm should adjust the model weights and biases in order to minimize the loss\n  # Return the optimizer as a TensorFlow optimizer\n#! Step 4 - Computation Graph\n# This code builds the TensorFlow computation graph for the GAN. It defines the input and output placeholders for the GAN, and uses the generator and discriminator networks to compute the generated and true images. It also defines the loss function and optimization algorithm for the GAN, and creates a TensorFlow session to run the computation graph. You can customize this code as needed to suit the specific requirements of your GAN, such as the model architecture, data, and training settings.\n# Import necessary libraries\n# Define the input and output placeholders for the GAN\nz = tf.placeholder(tf.float32, shape=[None, z_dim]) # Noise vector\nx = tf.placeholder(tf.float32, shape=[None, img_size, img_size, channels]) # Real images",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "z",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "z = tf.placeholder(tf.float32, shape=[None, z_dim]) # Noise vector\nx = tf.placeholder(tf.float32, shape=[None, img_size, img_size, channels]) # Real images\n# Define the generator and discriminator networks\ngen_images = generator(z)\nlogits_real, logits_fake = discriminator(x), discriminator(gen_images)\n# Define the loss function and optimization algorithm\nloss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "x = tf.placeholder(tf.float32, shape=[None, img_size, img_size, channels]) # Real images\n# Define the generator and discriminator networks\ngen_images = generator(z)\nlogits_real, logits_fake = discriminator(x), discriminator(gen_images)\n# Define the loss function and optimization algorithm\nloss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "gen_images",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "gen_images = generator(z)\nlogits_real, logits_fake = discriminator(x), discriminator(gen_images)\n# Define the loss function and optimization algorithm\nloss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "loss",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "loss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "optimizer",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "optimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "sess",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "sess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):\n  # Sample a batch of noise vectors and real images from the dataset",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "images",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "images = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):\n  # Sample a batch of noise vectors and real images from the dataset\n  z_batch = sample_noise(batch_size, z_dim)\n  x_batch = sample_images(train_images, batch_size)\n  # Run the optimizer to update the model weights and biases based on the loss function\n  _, loss_val = sess.run([optimizer, loss], feed_dict={z: z_batch, x: x_batch})\n  # Print the loss and generate some sample images at regular intervals",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "eval_loss",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "eval_loss = sess.run(loss, feed_dict={z: sample_noise(batch_size, z_dim), x: eval_images})\nprint('Evaluation loss: %f' % eval_loss)",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "BuoyImage",
+        "kind": 6,
+        "importPath": "sea_art",
+        "description": "sea_art",
+        "peekOfCode": "class BuoyImage:\n    def __init__(self, location, weather_conditions, image_data):\n        self.location = location\n        self.weather_conditions = weather_conditions\n        self.image_data = image_data\n    def get_images(self):\n        # Retrieve the images from the NOAA API\n        pass\n    def stitch_images(self):\n        # Stitch the images together",
+        "detail": "sea_art",
+        "documentation": {}
+    },
+    {
+        "label": "GAN",
+        "kind": 6,
+        "importPath": "sea_art",
+        "description": "sea_art",
+        "peekOfCode": "class GAN:\n    def __init__(self, image_data):\n        self.image_data = image_data\n    def generate_images(self):\n        # Generate images using a GAN\n        pass\n    def blend_images(self):\n        # Blend the images over time\n        pass\nclass PanoramicImage:",
+        "detail": "sea_art",
+        "documentation": {}
+    },
+    {
+        "label": "PanoramicImage",
+        "kind": 6,
+        "importPath": "sea_art",
+        "description": "sea_art",
+        "peekOfCode": "class PanoramicImage:\n    def __init__(self, stitched_image_data, horizon_line, time_lapse_data):\n        self.stitched_image_data = stitched_image_data\n        self.horizon_line = horizon_line\n        self.time_lapse_data = time_lapse_data\n    def blend_images(self):\n        # Blend the images over time\n        pass\n    def detect_horizon(self):\n        # Detect the horizon line",
+        "detail": "sea_art",
+        "documentation": {}
+    },
+    {
+        "label": "Website",
+        "kind": 6,
+        "importPath": "sea_art",
+        "description": "sea_art",
+        "peekOfCode": "class Website:\n    def __init__(self, layout, content):\n        self.layout = layout\n        self.content = content\n    def generate_html(self):\n        # Generate the HTML for the website\n        pass\n    def generate_css(self):\n        # Generate the CSS for the website\n        pass",
+        "detail": "sea_art",
+        "documentation": {}
     }
 ]

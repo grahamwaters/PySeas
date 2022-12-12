@@ -635,6 +635,46 @@
         "documentation": {}
     },
     {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "BuoyData",
+        "importPath": "BuoyData",
+        "description": "BuoyData",
+        "isExtraImport": true,
+        "detail": "BuoyData",
+        "documentation": {}
+    },
+    {
+        "label": "ImageProcessor",
+        "importPath": "ImageProcessor",
+        "description": "ImageProcessor",
+        "isExtraImport": true,
+        "detail": "ImageProcessor",
+        "documentation": {}
+    },
+    {
+        "label": "Classifier",
+        "importPath": "Classifier",
+        "description": "Classifier",
+        "isExtraImport": true,
+        "detail": "Classifier",
+        "documentation": {}
+    },
+    {
+        "label": "PanoramaGenerator",
+        "importPath": "PanoramaGenerator",
+        "description": "PanoramaGenerator",
+        "isExtraImport": true,
+        "detail": "PanoramaGenerator",
+        "documentation": {}
+    },
+    {
         "label": "argparse",
         "kind": 6,
         "isExtraImport": true,
@@ -2342,6 +2382,132 @@
         "description": "src.BuoyData",
         "peekOfCode": "class BuoyData:\n    \"\"\"\n        A download_data method that uses the NOAA API to download the data for a particular buoy. This method could take the buoy ID as an input and use it to query the API and retrieve the data for that buoy.\n        A store_data method that saves the data for a particular buoy to a local database or file system. This method could take the buoy data as an input and use it to create a new entry in the database or save the data to a file.\n        A get_data method that retrieves the data for a particular buoy from the local database or file system. This method could take the buoy ID as an input and use it to query the database or read the data from the file, and then return the data for that buoy.\n    \"\"\"\n    def __init__(self, buoy_id, buoy_name, buoy_lat, buoy_lon, buoy_data):\n        self.buoy_id = buoy_id\n        self.buoy_name = buoy_name\n        self.buoy_lat = buoy_lat",
         "detail": "src.BuoyData",
+        "documentation": {}
+    },
+    {
+        "label": "Classifier",
+        "kind": 6,
+        "importPath": "src.Classifier",
+        "description": "src.Classifier",
+        "peekOfCode": "class Classifier:\n    def __init__(self, model_type=\"SVM\", learning_rate=0.1):\n        # initialize the type of model to use and the learning rate\n        self.model_type = model_type\n        self.learning_rate = learning_rate\n    def train(self, X, y):\n        # if the model type is SVM, use an SVM classifier\n        if self.model_type == \"SVM\":\n            self.model = SVC(gamma=\"auto\", learning_rate=self.learning_rate)\n            self.model.fit(X, y)",
+        "detail": "src.Classifier",
+        "documentation": {}
+    },
+    {
+        "label": "ImageProcessor",
+        "kind": 6,
+        "importPath": "src.ImageProcessor",
+        "description": "src.ImageProcessor",
+        "peekOfCode": "class ImageProcessor:\n    \"\"\"\n     the ImageProcessor class includes three methods: resize_image, crop_image, and color_correct. These methods use the cv2 module to perform the specified image processing tasks, and return the processed images as output.\n        The resize_image method takes an image and the desired width and height as inputs, and uses the cv2.resize function to resize the image to the specified dimensions. The crop_image method takes an image and the coordinates of the top-left and bottom-right corners of the region to be cropped, and uses array slicing to crop the image. The color_correct method takes an image as input and uses the cv2.cvtColor function to apply color correction to the image.\n        By implementing these methods in your ImageProcessor class, you can create a useful tool for preprocessing and color correcting the images from the NOAA buoys. You can then use this class in your other code to improve the quality of the images and make them more suitable for training or generating panoramic images.\n    \"\"\"\n    def __init__(self):\n        pass\n    def resize_image(self, image, width, height):\n        # use cv2 to resize the image",
+        "detail": "src.ImageProcessor",
+        "documentation": {}
+    },
+    {
+        "label": "PanoramaGenerator",
+        "kind": 6,
+        "importPath": "src.PanoramaGenerator",
+        "description": "src.PanoramaGenerator",
+        "peekOfCode": "class PanoramaGenerator:\n    def __init__(self):\n        # initialize the TensorFlow session\n        self.sess = tf.Session()\n    def train(self, dataset, latent_space_size, num_iterations):\n        # define the inputs to the GAN\n        input_data = tf.placeholder(tf.float32, shape=(None, dataset.shape[1]))\n        input_noise = tf.placeholder(tf.float32, shape=(None, latent_space_size))\n        # define the generator network\n        generator = self.build_generator(input_noise)",
+        "detail": "src.PanoramaGenerator",
+        "documentation": {}
+    },
+    {
+        "label": "batch_size",
+        "kind": 5,
+        "importPath": "src.PanoramaGenerator",
+        "description": "src.PanoramaGenerator",
+        "peekOfCode": "batch_size = 32\nclass PanoramaGenerator:\n    def __init__(self):\n        # initialize the TensorFlow session\n        self.sess = tf.Session()\n    def train(self, dataset, latent_space_size, num_iterations):\n        # define the inputs to the GAN\n        input_data = tf.placeholder(tf.float32, shape=(None, dataset.shape[1]))\n        input_noise = tf.placeholder(tf.float32, shape=(None, latent_space_size))\n        # define the generator network",
+        "detail": "src.PanoramaGenerator",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_data",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "buoy_data = BuoyData(\"44011\", \"Buoy Name\", \"37.75\", \"-122.37\", \"Buoy Data\")\nprint(f'Step 1: Downloading data for buoy {buoy_data.buoy_id}...')\n# download the data for a particular buoy using the NOAA API\nbuoy_data.download_data()\nprint(f'Step 2: Storing data for buoy {buoy_data.buoy_id}...')\n# store the downloaded data in a local database\nbuoy_data.store_data()\n# retrieve the data for the buoy from the local database\ndata = buoy_data.get_data()\nprint(f'Number of images: {len(data)}')",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "data = buoy_data.get_data()\nprint(f'Number of images: {len(data)}')\n# create an ImageProcessor instance to pre-process the images\nimage_processor = ImageProcessor()\n# pre-process the images in the buoy data\ndata = image_processor.pre_process(data)\n# print(f'classes: {data.classes}'')\n# create a Classifier instance to classify the images as sunsets or non-sunsets\nclassifier = Classifier()\nprint(f'training the ')",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "image_processor",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "image_processor = ImageProcessor()\n# pre-process the images in the buoy data\ndata = image_processor.pre_process(data)\n# print(f'classes: {data.classes}'')\n# create a Classifier instance to classify the images as sunsets or non-sunsets\nclassifier = Classifier()\nprint(f'training the ')\n# train the classifier on the pre-processed images\nclassifier.train(data)\n# classify the images in the buoy data as sunsets or non-sunsets",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "data = image_processor.pre_process(data)\n# print(f'classes: {data.classes}'')\n# create a Classifier instance to classify the images as sunsets or non-sunsets\nclassifier = Classifier()\nprint(f'training the ')\n# train the classifier on the pre-processed images\nclassifier.train(data)\n# classify the images in the buoy data as sunsets or non-sunsets\ndata = classifier.classify(data)\n# select the sunset images from the buoy data",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "classifier",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "classifier = Classifier()\nprint(f'training the ')\n# train the classifier on the pre-processed images\nclassifier.train(data)\n# classify the images in the buoy data as sunsets or non-sunsets\ndata = classifier.classify(data)\n# select the sunset images from the buoy data\nsunset_images = data.filter(is_sunset=True)\n# create a PanoramaGenerator instance to generate panoramic images from the sunset images\npanorama_generator = PanoramaGenerator()",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "data = classifier.classify(data)\n# select the sunset images from the buoy data\nsunset_images = data.filter(is_sunset=True)\n# create a PanoramaGenerator instance to generate panoramic images from the sunset images\npanorama_generator = PanoramaGenerator()\n# train the panorama generator on the sunset images\npanorama_generator.train(sunset_images, latent_space_size=100, num_iterations=10000)\n# generate a panoramic image using the trained generator\nnoise = np.random.randn(100)\npanorama = panorama_generator.generate(noise)",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "sunset_images",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "sunset_images = data.filter(is_sunset=True)\n# create a PanoramaGenerator instance to generate panoramic images from the sunset images\npanorama_generator = PanoramaGenerator()\n# train the panorama generator on the sunset images\npanorama_generator.train(sunset_images, latent_space_size=100, num_iterations=10000)\n# generate a panoramic image using the trained generator\nnoise = np.random.randn(100)\npanorama = panorama_generator.generate(noise)\n# save the generated panoramic image to a file\npanorama_generator.save(panorama, \"panorama.jpg\")",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "panorama_generator",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "panorama_generator = PanoramaGenerator()\n# train the panorama generator on the sunset images\npanorama_generator.train(sunset_images, latent_space_size=100, num_iterations=10000)\n# generate a panoramic image using the trained generator\nnoise = np.random.randn(100)\npanorama = panorama_generator.generate(noise)\n# save the generated panoramic image to a file\npanorama_generator.save(panorama, \"panorama.jpg\")",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "noise",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "noise = np.random.randn(100)\npanorama = panorama_generator.generate(noise)\n# save the generated panoramic image to a file\npanorama_generator.save(panorama, \"panorama.jpg\")",
+        "detail": "src.pyseas_main",
+        "documentation": {}
+    },
+    {
+        "label": "panorama",
+        "kind": 5,
+        "importPath": "src.pyseas_main",
+        "description": "src.pyseas_main",
+        "peekOfCode": "panorama = panorama_generator.generate(noise)\n# save the generated panoramic image to a file\npanorama_generator.save(panorama, \"panorama.jpg\")",
+        "detail": "src.pyseas_main",
         "documentation": {}
     }
 ]

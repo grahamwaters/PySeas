@@ -1,7 +1,3 @@
-"""
-    class that manages the data from the NOAA buoys, including the images and other metadata. This class could provide methods for downloading the data from the NOAA API, storing it in a local database or file system, and accessing it for further processing.
-"""
-
 class BuoyData:
     """
         A download_data method that uses the NOAA API to download the data for a particular buoy. This method could take the buoy ID as an input and use it to query the API and retrieve the data for that buoy.
@@ -19,7 +15,7 @@ class BuoyData:
         self.buoy_data = buoy_data
 
     def __str__(self):
-        return "Buoy ID: " + self.buoy_id + "
+        return "Buoy ID: " + self.buoy_id + " Buoy Name: " + self.buoy_name + " Buoy Latitude: " + self.buoy_lat + " Buoy Longitude: " + self.buoy_lon + " Buoy Data: " + self.buoy_data
 
     def download_data(self):
         pass

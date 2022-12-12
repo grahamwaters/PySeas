@@ -21,28 +21,42 @@ def generator(z):
     Returns:
         gen_images: The generated images
     """
-  # Define the generator network architecture here
-  with tf.variable_scope('generator'):
-    # Use fully-connected layers to transform the noise vector into a latent space
-    h1 = tf.layers.dense(z, units=4*4*256, activation=tf.nn.relu)
-    h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])
+    # Define the generator network architecture here
+    with tf.variable_scope('generator'):
+        # Use fully-connected layers to transform the noise vector into a latent space
+        h1 = tf.layers.dense(z, units=4*4*256, activation=tf.nn.relu)
+        h1 = tf.reshape(h1, shape=[-1, 4, 4, 256])
 
-    # Use transposed convolutional layers to upsample the image
-    h2 = tf.layers.conv2d_transpose(h1, filters=128, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
-    h3 = tf.layers.conv2d_transpose(h2, filters=64, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
-    h4 = tf.layers.conv2d_transpose(h3, filters=32, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
-    h5 = tf.layers.conv2d_transpose(h4, filters=16, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
+        # Use transposed convolutional layers to upsample the image
+        h2 = tf.layers.conv2d_transpose(h1, filters=128, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
+        h3 = tf.layers.conv2d_transpose(h2, filters=64, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
+        h4 = tf.layers.conv2d_transpose(h3, filters=32, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
+        h5 = tf.layers.conv2d_transpose(h4, filters=16, kernel_size=5, strides=2, padding='same', activation=tf.nn.relu)
 
-    # Use a convolutional layer to produce the final output image
-    gen_images = tf.layers.conv2d_transpose(h5, filters=3, kernel_size=5, strides=1, padding='same', activation=tf.tanh)
+        # Use a convolutional layer to produce the final output image
+        gen_images = tf.layers.conv2d_transpose(h5, filters=3, kernel_size=5, strides=1, padding='same', activation=tf.tanh)
 
-  return gen_images
+    return gen_images
+
 
 def discriminator(x):
-  # Define the discriminator network architecture here
-  # x is the input image
-  # The output of the discriminator is a score indicating the probability that the input image is real
-  pass
+    """
+    discriminator This code defines the discriminator function, which represents the architecture of the discriminator network in the GAN. It uses convolutional layers to extract features from the input image, and then applies a fully-connected layer to produce the output logits. The logits represent the probability that the input image is real, and are used by the GAN to calculate the loss and optimize the model. You can customize this code as needed to suit the specific requirements of your GAN, such as the specific types of layers and activation functions used.
+    """
+    # Define the discriminator network architecture here
+    with tf.variable_scope('discriminator'):
+        # Use convolutional layers to extract features from the input image
+        h1 = tf.layers.conv2d(x, filters=16, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)
+        h2 = tf.layers.conv2d(h1, filters=32, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)
+        h3 = tf.layers.conv2d(h2, filters=64, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)
+        h4 = tf.layers.conv2d(h3, filters=128, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)
+        h5 = tf.layers.conv2d(h4, filters=256, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)
+
+        # Use a fully-connected layer to produce the output logits
+        logits = tf.layers.dense(h5, units=1, activation=None)
+
+    return logits
+
 
 #! Step 2 - Gather
 # This code defines two functions, load_data and split_dataset, which can be used to prepare the dataset of images for use in training the GAN. The load_data function loads the images from a specified directory, performs any necessary preprocessing steps, and returns the preprocessed images as a NumPy array. The split_dataset function then splits the images into training and evaluation sets, which can be used for training and evaluating the GAN respectively. You can customize these functions as needed to suit the specific requirements of your dataset and the GAN.

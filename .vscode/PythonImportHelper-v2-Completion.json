@@ -390,6 +390,22 @@
         "documentation": {}
     },
     {
+        "label": "keras",
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "isExtraImport": true,
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "keras",
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "isExtraImport": true,
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
         "label": "layers",
         "importPath": "keras",
         "description": "keras",
@@ -681,6 +697,254 @@
         "importPath": "argparse",
         "description": "argparse",
         "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "keras",
+        "importPath": "tf",
+        "description": "tf",
+        "isExtraImport": true,
+        "detail": "tf",
+        "documentation": {}
+    },
+    {
+        "label": "name_scope",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "global_variables_initializer",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Graph",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "variable_scope",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "global_variables_initializer",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Graph",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "variable_scope",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "global_variables_initializer",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "Graph",
+        "importPath": "tensorflow.compat.v1",
+        "description": "tensorflow.compat.v1",
+        "isExtraImport": true,
+        "detail": "tensorflow.compat.v1",
+        "documentation": {}
+    },
+    {
+        "label": "gfile",
+        "importPath": "tensorflow.io",
+        "description": "tensorflow.io",
+        "isExtraImport": true,
+        "detail": "tensorflow.io",
+        "documentation": {}
+    },
+    {
+        "label": "gfile",
+        "importPath": "tensorflow.io",
+        "description": "tensorflow.io",
+        "isExtraImport": true,
+        "detail": "tensorflow.io",
+        "documentation": {}
+    },
+    {
+        "label": "gfile",
+        "importPath": "tensorflow.io",
+        "description": "tensorflow.io",
+        "isExtraImport": true,
+        "detail": "tensorflow.io",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "optimizers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "losses",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "metrics",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "utils",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "backend",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "layers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "optimizers",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "losses",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "metrics",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "utils",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
+        "documentation": {}
+    },
+    {
+        "label": "backend",
+        "importPath": "tensorflow.keras",
+        "description": "tensorflow.keras",
+        "isExtraImport": true,
+        "detail": "tensorflow.keras",
         "documentation": {}
     },
     {
@@ -2513,9 +2777,72 @@
     {
         "label": "generator",
         "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def generator(z):\n    \"\"\"\n    generator This code defines the generator function, which represents the architecture of the generator network in the GAN. It uses fully-connected and transposed convolutional layers to transform the input noise vector into a generated image. The generated image is produced by upsampling the noise vector using transposed convolutional layers, and then applying a final convolutional layer to produce the final output image. You can customize this code as needed to suit the specific requirements of your GAN, such as the size and resolution of the generated images, and the specific types of layers and activation functions used.\n    Args:\n        z: The input noise vector\n    Returns:\n        gen_images: The generated images\n    \"\"\"\n    # Define the generator network architecture here\n    with tf.name_scope(\"generator\"):",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "discriminator",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def discriminator(x):\n    \"\"\"\n    discriminator This code defines the discriminator function, which represents the architecture of the discriminator network in the GAN. It uses convolutional layers to extract features from the input image, and then applies a fully-connected layer to produce the output logits. The logits represent the probability that the input image is real, and are used by the GAN to calculate the loss and optimize the model. You can customize this code as needed to suit the specific requirements of your GAN, such as the specific types of layers and activation functions used.\n    \"\"\"\n    # Define the discriminator network architecture here\n    with tf.name_scope(\"discriminator\"):\n        # Use convolutional layers to extract features from the input image\n        h1 = layers.conv2d(\n            x,\n            filters=16,",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def load_data(data_dir, img_size):\n    return np.array([tf.image.resize(tf.image.decode_jpeg(tf.io.gfile.GFile(filename, \"rb\").read(), channels=1), [img_size, img_size]) for filename in tf.io.gfile.glob(data_dir + \"/*.jpg\")])\n# # * option 2 for this function\n# def split_dataset(images, ratio):\n#     \"\"\"\n#     Split the images into training and evaluation sets.\n#     Args:\n#     images: A NumPy array of images to split.\n#     ratio: A float value representing the ratio of the evaluation set size to the total dataset size.\n#     Returns:",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "split_dataset",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def split_dataset(images, ratio):\n    indices = np.random.permutation(len(images))\n    split_index = int(len(images) * (1 - ratio))\n    return images[indices[:split_index]], images[indices[split_index:]]\n#! Step 3\n# This code defines the gan_loss and gan_optimizer functions, which represent the loss function and optimization algorithm for the GAN. The gan_loss function defines the loss function for the GAN, which measures the difference between the generated and true images. The gan_optimizer function defines the optimization algorithm, which adjusts the model weights and biases in order to minimize the loss. You can customize these functions as needed to suit the specific requirements of your GAN, such as the type of GAN (ACGAN or WGAN) and the desired properties of the generated images.\n# Import necessary libraries\n# def gan_loss(logits_real, logits_fake):\n#     \"\"\"\n#     Define the GAN loss function. This code defines the gan_loss function, which defines the loss function for the GAN. It computes the cross-entropy loss for the real and generated images, and returns the total GAN loss as a TensorFlow tensor. The loss function measures the difference between the generated and true images, and is used to optimize the GAN model during training. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of loss function used, and the specific parameters and settings for the loss function.",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_loss",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\n# def gan_optimizer(loss, learning_rate):\n#     \"\"\"\n#     Define the GAN optimization algorithm. This code defines the gan_optimizer function, which defines the optimization algorithm for the GAN. It uses the Adam optimizer to compute the gradients for the model weights and biases, and applies the gradients to adjust the model in order to minimize the loss. The function returns the optimizer as a TensorFlow optimizer. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of optimizer used, and the specific parameters and settings for the optimizer.\n#     Args:\n#     loss: A TensorFlow tensor representing the GAN loss.",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "gan_optimizer",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\ndef main():\n    # Define the input and output placeholders for the GAN\n    z = tf.compat.v1.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\n    x = tf.compat.v1.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\n    # Define the generator, discriminator, loss, and optimizer",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main_file",
+        "description": "main_file",
+        "peekOfCode": "def main():\n    # Define the input and output placeholders for the GAN\n    z = tf.compat.v1.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\n    x = tf.compat.v1.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\n    # Define the generator, discriminator, loss, and optimizer\n    with tf.name_scope(\"generator\"), tf.name_scope(\"discriminator\"):\n        gen_images = generator(z)\n        logits_real = discriminator(x)\n        logits_fake = discriminator(gen_images, reuse=True)\n        loss = gan_loss(logits_real, logits_fake)",
+        "detail": "main_file",
+        "documentation": {}
+    },
+    {
+        "label": "generator",
+        "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def generator(z):\n    \"\"\"\n    generator This code defines the generator function, which represents the architecture of the generator network in the GAN. It uses fully-connected and transposed convolutional layers to transform the input noise vector into a generated image. The generated image is produced by upsampling the noise vector using transposed convolutional layers, and then applying a final convolutional layer to produce the final output image. You can customize this code as needed to suit the specific requirements of your GAN, such as the size and resolution of the generated images, and the specific types of layers and activation functions used.\n    Args:\n        z: The input noise vector\n    Returns:\n        gen_images: The generated images\n    \"\"\"\n    # Define the generator network architecture here\n    with tf.variable_scope('generator'):",
+        "peekOfCode": "def generator(z):\n    \"\"\"\n    generator This code defines the generator function, which represents the architecture of the generator network in the GAN. It uses fully-connected and transposed convolutional layers to transform the input noise vector into a generated image. The generated image is produced by upsampling the noise vector using transposed convolutional layers, and then applying a final convolutional layer to produce the final output image. You can customize this code as needed to suit the specific requirements of your GAN, such as the size and resolution of the generated images, and the specific types of layers and activation functions used.\n    Args:\n        z: The input noise vector\n    Returns:\n        gen_images: The generated images\n    \"\"\"\n    with variable_scope(\"generator\"):\n        h1 = tf.keras.layers.dense(z, units=4 * 4 * 256, activation=tf.nn.relu)",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2524,7 +2851,7 @@
         "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def discriminator(x):\n    \"\"\"\n    discriminator This code defines the discriminator function, which represents the architecture of the discriminator network in the GAN. It uses convolutional layers to extract features from the input image, and then applies a fully-connected layer to produce the output logits. The logits represent the probability that the input image is real, and are used by the GAN to calculate the loss and optimize the model. You can customize this code as needed to suit the specific requirements of your GAN, such as the specific types of layers and activation functions used.\n    \"\"\"\n    # Define the discriminator network architecture here\n    with tf.variable_scope('discriminator'):\n        # Use convolutional layers to extract features from the input image\n        h1 = tf.layers.conv2d(x, filters=16, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)\n        h2 = tf.layers.conv2d(h1, filters=32, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)\n        h3 = tf.layers.conv2d(h2, filters=64, kernel_size=5, strides=2, padding='same', activation=tf.nn.leaky_relu)",
+        "peekOfCode": "def discriminator(x):\n    \"\"\"\n    discriminator This code defines the discriminator function, which represents the architecture of the discriminator network in the GAN. It uses convolutional layers to extract features from the input image, and then applies a fully-connected layer to produce the output logits. The logits represent the probability that the input image is real, and are used by the GAN to calculate the loss and optimize the model. You can customize this code as needed to suit the specific requirements of your GAN, such as the specific types of layers and activation functions used.\n    \"\"\"\n    with tf.variable_scope(\"discriminator\"):\n        h1 = tf.keras.layers.conv2d(x, filters=16, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)\n        h2 = tf.keras.layers.conv2d(h1, filters=32, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)\n        h3 = tf.keras.layers.conv2d(h2, filters=64, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)\n        h4 = tf.keras.layers.conv2d(h3, filters=128, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)\n        h5 = tf.keras.layers.conv2d(h4, filters=256, kernel_size=5, strides=2, padding=\"same\", activation=tf.nn.leaky_relu)",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2533,7 +2860,7 @@
         "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def load_data(data_dir):\n    \"\"\"\n    This code defines the load_data function, which loads the images from the specified data directory and preprocesses them as needed. It uses TensorFlow to load the images from the data directory, decode them, convert them to grayscale, resize them, and convert them to a NumPy array. You can customize this code as needed to suit the specific requirements of your GAN, such as the format and location of the images, the preprocessing steps applied to the images, and the desired size and resolution of the images.\n    \"\"\"\n    # Load the images from the specified data directory\n    filenames = tf.gfile.Glob(data_dir + '/*.jpg') #note: this does not find .png files yet.\n    images = [tf.gfile.FastGFile(filename, 'rb').read() for filename in filenames]\n    # Decode the images and convert them to grayscale\n    images = [tf.image.decode_jpeg(image, channels=1) for image in images]\n    # Resize the images to a common size",
+        "peekOfCode": "def load_data(data_dir):\n    \"\"\"\n    This code defines the load_data function, which loads the images from the specified data directory and preprocesses them as needed. It uses TensorFlow to load the images from the data directory, decode them, convert them to grayscale, resize them, and convert them to a NumPy array. You can customize this code as needed to suit the specific requirements of your GAN, such as the format and location of the images, the preprocessing steps applied to the images, and the desired size and resolution of the images.\n    \"\"\"\n    # Load the images from the specified data directory\n    filenames = tf.gfile.Glob(\n        data_dir + \"/*.jpg\"\n    )  # note: this does not find .png files yet.\n    images = [tf.gfile.FastGFile(filename, \"rb\").read() for filename in filenames]\n    # Decode the images and convert them to grayscale",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2542,7 +2869,7 @@
         "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def split_dataset(images):\n    # Shuffle the images and split them into training and evaluation sets\n    np.random.shuffle(images)\n    train_images = images[:int(0.8*len(images))]\n    eval_images = images[int(0.8*len(images)):]\n    return train_images, eval_images\n#* option 2 for this function\ndef split_dataset(images, ratio):\n    \"\"\"\n        Split the images into training and evaluation sets.",
+        "peekOfCode": "def split_dataset(images):\n    # Shuffle the images and split them into training and evaluation sets\n    np.random.shuffle(images)\n    train_images = images[: int(0.8 * len(images))]\n    eval_images = images[int(0.8 * len(images)) :]\n    return train_images, eval_images\n# * option 2 for this function\ndef split_dataset(images, ratio):\n    \"\"\"\n    Split the images into training and evaluation sets.",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2551,7 +2878,7 @@
         "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def split_dataset(images, ratio):\n    \"\"\"\n        Split the images into training and evaluation sets.\n        Args:\n        images: A NumPy array of images to split.\n        ratio: A float value representing the ratio of the evaluation set size to the total dataset size.\n        Returns:\n        train_images: A NumPy array of training images.\n        eval_images: A NumPy array of evaluation images.\n    \"\"\"",
+        "peekOfCode": "def split_dataset(images, ratio):\n    \"\"\"\n    Split the images into training and evaluation sets.\n    Args:\n    images: A NumPy array of images to split.\n    ratio: A float value representing the ratio of the evaluation set size to the total dataset size.\n    Returns:\n    train_images: A NumPy array of training images.\n    eval_images: A NumPy array of evaluation images.\n    \"\"\"",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2560,7 +2887,7 @@
         "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n  \"\"\"\n  Define the GAN loss function. This code defines the gan_loss function, which defines the loss function for the GAN. It computes the cross-entropy loss for the real and generated images, and returns the total GAN loss as a TensorFlow tensor. The loss function measures the difference between the generated and true images, and is used to optimize the GAN model during training. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of loss function used, and the specific parameters and settings for the loss function.\n  Args:\n    logits_real: A TensorFlow tensor representing the logits for the real images.\n    logits_fake: A TensorFlow tensor representing the logits for the generated images.\n  Returns:\n    loss: A TensorFlow tensor representing the loss for the GAN.\n  \"\"\"\n  # Compute the cross-entropy loss for the real and fake images",
+        "peekOfCode": "def gan_loss(logits_real, logits_fake):\n    loss_real = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_real, labels=tf.ones_like(logits_real)))\n    loss_fake = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits_fake, labels=tf.zeros_like(logits_fake)))\n    loss = loss_real + loss_fake\n    return loss\ndef gan_optimizer(loss, learning_rate):\n    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2569,7 +2896,7 @@
         "kind": 2,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    \"\"\"\n    Define the GAN optimization algorithm. This code defines the gan_optimizer function, which defines the optimization algorithm for the GAN. It uses the Adam optimizer to compute the gradients for the model weights and biases, and applies the gradients to adjust the model in order to minimize the loss. The function returns the optimizer as a TensorFlow optimizer. You can customize this code as needed to suit the specific requirements of your GAN, such as the type of optimizer used, and the specific parameters and settings for the optimizer.\n    Args:\n    loss: A TensorFlow tensor representing the GAN loss.\n    learning_rate: A float value representing the learning rate for the optimizer.\n    Returns:\n    optimizer: A TensorFlow optimizer for the GAN.\n    \"\"\"\n    # Define the optimization algorithm",
+        "peekOfCode": "def gan_optimizer(loss, learning_rate):\n    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)\n    grads_and_vars = optimizer.compute_gradients(loss)\n    train_op = optimizer.apply_gradients(grads_and_vars)\n    return train_op\n# step 4 - Build the GAN model\nz = tf.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\nx = tf.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\nGz = generator(z)\nDx_logits = discriminator(x)",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2578,7 +2905,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "z = tf.placeholder(tf.float32, shape=[None, z_dim]) # Noise vector\nx = tf.placeholder(tf.float32, shape=[None, img_size, img_size, channels]) # Real images\n# Define the generator and discriminator networks\ngen_images = generator(z)\nlogits_real, logits_fake = discriminator(x), discriminator(gen_images)\n# Define the loss function and optimization algorithm\nloss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()",
+        "peekOfCode": "z = tf.placeholder(tf.float32, shape=[None, z_dim], name=\"z\")\nx = tf.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\nGz = generator(z)\nDx_logits = discriminator(x)\nDg_logits = discriminator(Gz, reuse=True)\nloss = gan_loss(Dx_logits, Dg_logits)\noptimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2587,16 +2914,34 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "x = tf.placeholder(tf.float32, shape=[None, img_size, img_size, channels]) # Real images\n# Define the generator and discriminator networks\ngen_images = generator(z)\nlogits_real, logits_fake = discriminator(x), discriminator(gen_images)\n# Define the loss function and optimization algorithm\nloss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())",
+        "peekOfCode": "x = tf.placeholder(tf.float32, shape=[None, 28, 28, 1], name=\"x\")\nGz = generator(z)\nDx_logits = discriminator(x)\nDg_logits = discriminator(Gz, reuse=True)\nloss = gan_loss(Dx_logits, Dg_logits)\noptimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries",
         "detail": "pyseas_engine",
         "documentation": {}
     },
     {
-        "label": "gen_images",
+        "label": "Gz",
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "gen_images = generator(z)\nlogits_real, logits_fake = discriminator(x), discriminator(gen_images)\n# Define the loss function and optimization algorithm\nloss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries",
+        "peekOfCode": "Gz = generator(z)\nDx_logits = discriminator(x)\nDg_logits = discriminator(Gz, reuse=True)\nloss = gan_loss(Dx_logits, Dg_logits)\noptimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "Dx_logits",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "Dx_logits = discriminator(x)\nDg_logits = discriminator(Gz, reuse=True)\nloss = gan_loss(Dx_logits, Dg_logits)\noptimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)",
+        "detail": "pyseas_engine",
+        "documentation": {}
+    },
+    {
+        "label": "Dg_logits",
+        "kind": 5,
+        "importPath": "pyseas_engine",
+        "description": "pyseas_engine",
+        "peekOfCode": "Dg_logits = discriminator(Gz, reuse=True)\nloss = gan_loss(Dx_logits, Dg_logits)\noptimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2605,7 +2950,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "loss = gan_loss(logits_real, logits_fake)\noptimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)",
+        "peekOfCode": "loss = gan_loss(Dx_logits, Dg_logits)\noptimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2614,7 +2959,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "optimizer = gan_optimizer(loss, learning_rate)\n# Define the TensorFlow session and initialize the variables\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations",
+        "peekOfCode": "optimizer = gan_optimizer(loss, learning_rate)\nsess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2623,7 +2968,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "sess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):\n  # Sample a batch of noise vectors and real images from the dataset",
+        "peekOfCode": "sess = tf.Session()\nsess.run(tf.global_variables_initializer())\n#! Step 5 - Training the GAN\n# Import necessary libraries\n# Load the dataset of images and split it into training and evaluation sets\nimages = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):\n    # Sample a batch of noise vectors and real images from the dataset",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2632,7 +2977,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "images = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):\n  # Sample a batch of noise vectors and real images from the dataset\n  z_batch = sample_noise(batch_size, z_dim)\n  x_batch = sample_images(train_images, batch_size)\n  # Run the optimizer to update the model weights and biases based on the loss function\n  _, loss_val = sess.run([optimizer, loss], feed_dict={z: z_batch, x: x_batch})\n  # Print the loss and generate some sample images at regular intervals",
+        "peekOfCode": "images = load_data(data_dir)\ntrain_images, eval_images = split_dataset(images)\n# Train the GAN for a specified number of iterations\nfor i in range(num_iterations):\n    # Sample a batch of noise vectors and real images from the dataset\n    z_batch = sample_noise(batch_size, z_dim)\n    x_batch = sample_images(train_images, batch_size)\n    # Run the optimizer to update the model weights and biases based on the loss function\n    _, loss_val = sess.run([optimizer, loss], feed_dict={z: z_batch, x: x_batch})\n    # Print the loss and generate some sample images at regular intervals",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2641,7 +2986,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "eval_loss = sess.run(loss, feed_dict={z: sample_noise(batch_size, z_dim), x: eval_images})\nprint('Evaluation loss: %f' % eval_loss)\n#! Step 6 - Generating Images\n# This code defines the generator function, which generates images using the trained generator network. The function takes as input a set of noise vectors, and returns a set of generated images. You can customize this code as needed to suit the specific requirements of your GAN, such as the model architecture, data, and training settings.\n#! Step 7 - Style Transfer from the Titian Paintings Folder\n# This code defines the style_transfer function, which performs style transfer on a set of images. The function takes as input a set of images, and returns a set of images that have been transformed to match the style of the images in the style_images folder. You can customize this code as needed to suit the specific requirements of your style transfer model, such as the model architecture, data, and training settings.\n# Import necessary libraries\nimport tensorflow as tf\n# Load the pre-trained style transfer model\nmodel = tf.keras.models.load_model('style_transfer_model.h5')",
+        "peekOfCode": "eval_loss = sess.run(\n    loss, feed_dict={z: sample_noise(batch_size, z_dim), x: eval_images}\n)\nprint(\"Evaluation loss: %f\" % eval_loss)\n#! Step 6 - Generating Images\n# This code defines the generator function, which generates images using the trained generator network. The function takes as input a set of noise vectors, and returns a set of generated images. You can customize this code as needed to suit the specific requirements of your GAN, such as the model architecture, data, and training settings.\n#! Step 7 - Style Transfer from the Titian Paintings Folder\n# This code defines the style_transfer function, which performs style transfer on a set of images. The function takes as input a set of images, and returns a set of images that have been transformed to match the style of the images in the style_images folder. You can customize this code as needed to suit the specific requirements of your style transfer model, such as the model architecture, data, and training settings.\n# Import necessary libraries\nimport tensorflow as tf",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2650,7 +2995,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "model = tf.keras.models.load_model('style_transfer_model.h5')\n# Load the Titian images\ntitian_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/titian/')\n# Preprocess the images\ntitian_images = tf.image.resize(titian_images, (256, 256))\n\"\"\"\nYou can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.\n\"\"\"\ntitian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN",
+        "peekOfCode": "model = tf.keras.models.load_model(\"style_transfer_model.h5\")\n# Load the Titian images\ntitian_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory(\n    \"../images/titian/\"\n)\n# Preprocess the images\ntitian_images = tf.image.resize(titian_images, (256, 256))\n\"\"\"\nYou can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.\n\"\"\"",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2659,7 +3004,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "titian_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/titian/')\n# Preprocess the images\ntitian_images = tf.image.resize(titian_images, (256, 256))\n\"\"\"\nYou can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.\n\"\"\"\ntitian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN\nocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/ocean/')\n# Preprocess the images",
+        "peekOfCode": "titian_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory(\n    \"../images/titian/\"\n)\n# Preprocess the images\ntitian_images = tf.image.resize(titian_images, (256, 256))\n\"\"\"\nYou can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.\n\"\"\"\ntitian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2668,7 +3013,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "titian_images = tf.image.resize(titian_images, (256, 256))\n\"\"\"\nYou can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.\n\"\"\"\ntitian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN\nocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/ocean/')\n# Preprocess the images\nocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images",
+        "peekOfCode": "titian_images = tf.image.resize(titian_images, (256, 256))\n\"\"\"\nYou can then use the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. This is typically done by feeding the style and content images to the model, and then running the model to generate the stylized output image. Here is an example of how this might look in Python 3 using TensorFlow.\n\"\"\"\ntitian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN\nocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory(\n    \"../images/ocean/\"\n)\n# Preprocess the images",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2677,7 +3022,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "titian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN\nocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/ocean/')\n# Preprocess the images\nocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images\nstylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img('stylized_image.jpg', stylized_images)\n\"\"\"",
+        "peekOfCode": "titian_images = tf.keras.applications.mobilenet_v2.preprocess_input(titian_images)\n# Load the generated ocean images from the BuoyGAN\nocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory(\n    \"../images/ocean/\"\n)\n# Preprocess the images\nocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images\nstylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2686,7 +3031,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "ocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory('../images/ocean/')\n# Preprocess the images\nocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images\nstylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img('stylized_image.jpg', stylized_images)\n\"\"\"\nThis code uses the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. It then saves the stylized images as new image files that can be used as needed. You can customize this code as needed to suit the specific requirements of your project. For example, you could adjust the model settings, save the images to a different location, or apply the style transfer to a different set of images.\n\"\"\"",
+        "peekOfCode": "ocean_images = tf.keras.preprocessing.image.ImageDataGenerator().flow_from_directory(\n    \"../images/ocean/\"\n)\n# Preprocess the images\nocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images\nstylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img(\"stylized_image.jpg\", stylized_images)\n\"\"\"",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2695,7 +3040,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "ocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images\nstylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img('stylized_image.jpg', stylized_images)\n\"\"\"\nThis code uses the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. It then saves the stylized images as new image files that can be used as needed. You can customize this code as needed to suit the specific requirements of your project. For example, you could adjust the model settings, save the images to a different location, or apply the style transfer to a different set of images.\n\"\"\"",
+        "peekOfCode": "ocean_images = tf.image.resize(ocean_images, (256, 256))\n# Use the model to apply the style of the Titian paintings to the generated ocean images\nstylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img(\"stylized_image.jpg\", stylized_images)\n\"\"\"\nThis code uses the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. It then saves the stylized images as new image files that can be used as needed. You can customize this code as needed to suit the specific requirements of your project. For example, you could adjust the model settings, save the images to a different location, or apply the style transfer to a different set of images.\n\"\"\"",
         "detail": "pyseas_engine",
         "documentation": {}
     },
@@ -2704,7 +3049,7 @@
         "kind": 5,
         "importPath": "pyseas_engine",
         "description": "pyseas_engine",
-        "peekOfCode": "stylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img('stylized_image.jpg', stylized_images)\n\"\"\"\nThis code uses the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. It then saves the stylized images as new image files that can be used as needed. You can customize this code as needed to suit the specific requirements of your project. For example, you could adjust the model settings, save the images to a different location, or apply the style transfer to a different set of images.\n\"\"\"",
+        "peekOfCode": "stylized_images = model.predict([titian_images, ocean_images])\n# Save the stylized images\ntf.keras.preprocessing.image.save_img(\"stylized_image.jpg\", stylized_images)\n\"\"\"\nThis code uses the pre-trained style transfer model to apply the style of the Titian paintings to the generated ocean images. It then saves the stylized images as new image files that can be used as needed. You can customize this code as needed to suit the specific requirements of your project. For example, you could adjust the model settings, save the images to a different location, or apply the style transfer to a different set of images.\n\"\"\"",
         "detail": "pyseas_engine",
         "documentation": {}
     },

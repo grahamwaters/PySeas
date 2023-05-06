@@ -106,3 +106,5 @@ ENV/
 /images/deleted_images
 setup.py
 .DS_Store
+
+/images/output_test

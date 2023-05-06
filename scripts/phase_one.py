@@ -14,154 +14,206 @@ Logic Outline:
 - Split the image into the panels there should be 6 panels horizontally divided. The bottom 30 px should be discarded.
 
 """
-# Import necessary libraries
 import requests
 import cv2
 import numpy as np
 import os
-from helper_functions import make_panorama, artist_eval, display_last_image, crop_the_bottom_off, get_panel_segments, stitched_panoramas
-
-
-import numpy as np
-import cv2
-import os
+import math
 import imutils
+from tqdm import tqdm
 from PIL import Image
+from io import BytesIO
+from datetime import datetime
+from ratelimit import limits, sleep_and_retry
+from matplotlib import pyplot as plt
+import time
+import random
+import pandas as pd
+# Configuration
+collecting_all = True
+buoy_list = pd.read_csv("scripts/working_buoys.csv")
+# Utility functions
+def mse_between_arrays(arr1, arr2):
+    return np.mean((arr1 - arr2) ** 2)
 
-class enVitArtist:
-    def __init__(self):
-        self.name = "enVitArtist"
-        self.buoys = []
-        self.weather_conditions = []
-        self.image_data = []
-        self.stitched_image_data = []
-        self.horizon_line = []
-        self.time_lapse_data = []
 
-    def artist_eval(self, image_path):
-        img = Image.open(image_path)
-        width, height = img.size
-        panels = [img.getpixel((int(width * i / 12), int(height / 2))) for i in [1, 3, 6, 9, 10, 11]]
-        mses = [np.mean((np.array(panels[i]) - np.array(panels[i + 1])) ** 2) for i in range(len(panels) - 1)]
-        mse = np.mean(mses)
+# BuoyImage class
+class BuoyImage:
+    def __init__(self, image_url, num_panels=6, target_height=500, mse_threshold=2000):
+        self.image_url = image_url
+        self.num_panels = num_panels
+        self.target_height = target_height
+        self.mse_threshold = mse_threshold
+        self.image = self.download_image(image_url)
+        self.resized_image = self.resize_image_to_standard_height()
+        self.panels = self.split_image_into_panels()
 
-        return mse < 100
+    @sleep_and_retry
+    def download_image(self, image_url):
+        global buoy_list
+        # time.sleep(random.randint(1, 3))
+        response = requests.get(image_url)
+        if response.status_code != 200:
+            print(f"API response: {response.status_code}")
+        img = Image.open(BytesIO(response.content))
+        img_array = np.asarray(img)
+        if np.sum(img_array > 200) / img_array.size < 0.9: # if more than 90% of the image is dark
+            print(f"Image too dark: {image_url}")
+            # drop image if too dark (from the csv file)
+            with open("scripts/failing_buoys.csv", "r") as f:
+                failing_buoys = f.read().splitlines()
+            if image_url not in failing_buoys:
+                with open("scripts/failing_buoys.csv", "a") as f:
+                    f.write(image_url + "\n")
+            # drop image from the csv file #TODO
+            # extract buoy from image_url
+            buoy = image_url.split("/")[-2]
+            # drop buoy from the csv file
+            buoy_list = [b for b in buoy_list if b != buoy]
+            # save the updated csv file
 
-    def make_panorama(self, images):
-        """
-        make_panorama stitches together a list of images into a single panoramic image. It uses the OpenCV library to do this.
+            buoy_list.to_csv("scripts/working_buoys.csv", index=False)
+            return None
+        return img
 
-        :param images: this is a list of images that we want to stitch together into a single panoramic image
-        :type images: list of strings (file paths)
-        :return: the stitched image if the stitching was successful, otherwise None
-        :rtype: numpy array
-        """
-        scale_percent = 70
-        if '.DS_Store' in images:
-            images.remove('.DS_Store')
-        images_opened = [cv2.resize(cv2.imread(image), None, fx=scale_percent / 100, fy=scale_percent / 100, interpolation=cv2.INTER_AREA) for image in images]
+    def resize_image_to_standard_height(self):
+        width, height = self.image.size
+        new_height = self.target_height
+        new_width = int((new_height / height) * width)
+        return self.image.resize((new_width, new_height), Image.ANTIALIAS)
+
+    def split_image_into_panels(self):
+        width, height = self.resized_image.size
+        panel_width = width // self.num_panels
+
+        panels = []
+        for i in range(self.num_panels):
+            left = i * panel_width
+            right = left + panel_width
+            panel = self.resized_image.crop((left, 0, right, height))
+            panels.append(panel)
+
+        return panels
+
+    def check_unusual_panels(self, panel_set=[]):
+        unusual_panels = []
+        rich_color_panels = []
+        panel_set = panel_set if panel_set else self.panels
+        panel_mses = []
+        for i, panel in enumerate(panel_set):
+            # Convert panel to an numpy array for MSE calculation
+            panel_array = np.array(panel)
+            # Calculate MSE between panel and itself
+            panel_mse = mse_between_arrays(panel_array, panel_array)
+            panel_mses.append(panel_mse)
+        # Calculate median MSE for the panel set
+        median_mse = np.median(panel_mses)
+        # Calculate a threshold for rich color based on the median MSE
+        rich_color_threshold = median_mse * 0.8
+        for i, panel in enumerate(panel_set):
+            panel_array = np.array(panel)
+            panel_mse = panel_mses[i]
+            if panel_mse > self.mse_threshold:
+                unusual_panels.append(i)
+            if panel_mse > rich_color_threshold:
+                rich_color_panels.append(panel)
+        return unusual_panels, rich_color_panels
+
+
+
+class PanoramicImage:
+    def __init__(self, images):
+        self.images = images
+        self.aligned_images = [self.align_horizon_line(img) for img in images]
+        self.stitched_image = self.stitch_aligned_images()
+
+    @staticmethod
+    def detect_horizon_line(img):
+        img = np.array(img)
+        # show a rough estimate of the horizon line in matplotlib
+        # if the img is not over 90% white pixels then show the horizon line
+        if np.sum(img > 200) / img.size < 0.9:
+            # then show the horizon line
+            plt.imshow(img)
+            plt.axhline(y=30, color='r', linestyle='-')
+            # save the plot as `latest_horizon_line.png`
+            plt.savefig('latest_horizon_line.png')
+        else:
+            # save a blank plot
+            pass
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        edges = cv2.Canny(gray, 50, 150, apertureSize=3)
+        lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 100, minLineLength=100, maxLineGap=10)
+        try:
+            longest_line = max(lines, key=lambda line: np.linalg.norm(line[0][2:] - line[0][:2]))
+            x1, y1, x2, y2 = longest_line[0]
+            angle = np.arctan2(y2 - y1, x2 - x1) * 180 / np.pi
+            return angle
+        except TypeError:
+            # station may not be online or have a buoycam
+            return 0
+        except Exception as e:
+            print(f"Error: {e}")
+            return 0
+    def align_horizon_line(self, img):
+        img = np.array(img)
+        tilt_angle = PanoramicImage.detect_horizon_line(img)
+        height, width = img.shape[:2]
+        center = (width // 2, height // 2)
+        rotation_matrix = cv2.getRotationMatrix2D(center, tilt_angle, 1)
+        aligned_img = cv2.warpAffine(img, rotation_matrix, (width, height), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        return aligned_img
+
+    def stitch_aligned_images(self):
         stitcher = cv2.createStitcher() if imutils.is_cv3() else cv2.Stitcher_create()
-        stitcher.setPanoConfidenceThresh(0.1)
-        stitcher.setRegistrationResol(0.6)
-        stitcher.setSeamEstimationResol(0.1)
-        stitcher.setCompositingResol(0.6)
-        stitcher.setFeaturesFinder(cv2.ORB_create())
-        stitcher.setFeaturesMatcher(cv2.DescriptorMatcher_create(cv2.DESCRIPTOR_MATCHER_BRUTEFORCE_HAMMING))
-        stitcher.setBundleAdjuster(cv2.detail_BundleAdjusterRay())
-        stitcher.setExposureCompensator(cv2.detail.ExposureCompensator_createDefault(cv2.detail.ExposureCompensator_GAIN_BLOCKS))
-        stitcher.setBlender(cv2.detail.Blender_createDefault(cv2.detail.Blender_NO))
-        stitcher.setSeamFinder(cv2.detail.SeamFinder_createDefault(cv2.detail.SeamFinder_VORONOI_SEAM))
-        stitcher.setWarper(cv2.PyRotationWarper(cv2.ROTATION_WARP_PERSPECTIVE))
-        stitcher.setInterpolationFlags(cv2.INTER_LINEAR_EXACT)
-        status, stitched = stitcher.stitch(images_opened)
+        (status, stitched_image) = stitcher.stitch(self.aligned_images)
 
         if status == 0:
-            stitched = cv2.resize(stitched, None, fx=scale_percent / 100, fy=scale_percent / 100, interpolation=cv2.INTER_AREA)
-            return stitched
+            return stitched_image
         else:
             return None
 
-    def get_average_color(self, image):
-        """
-        get_average_color determines the average color of the image in the center of the image by pixel.
 
-        :param image: this is the image that we want to get the average color of, it can be a numpy array or an image object
-        :type image: numpy array or image object
-        :return: the average color of the image in the center of the image by pixel
-        :rtype: tuple
-        """
-        if isinstance(image, np.ndarray):
-            image = Image.fromarray(image)
-
-        img_width, img_height = image.size
-        average_color = image.getpixel((img_width // 2, img_height // 2))
-
-        return average_color
-
-
-
-
-# Define the BuoyImage class
-class BuoyImage:
-    def __init__(self, location, weather_conditions, image_data):
-        self.location = location
-        self.weather_conditions = weather_conditions
-        self.image_data = image_data
-
-    def get_images(self):
-        # Retrieve the images from the NOAA API
-        pass
-
-    def stitch_images(self):
-        # Stitch the images together
-        pass
-
-    def blend_images(self):
-        # Blend the images over time
-        pass
-
-# Define the PanoramicImage class
-class PanoramicImage:
-    def __init__(self, stitched_image_data, horizon_line, time_lapse_data):
-        self.stitched_image_data = stitched_image_data
-        self.horizon_line = horizon_line
-        self.time_lapse_data = time_lapse_data
-
-    def blend_images(self):
-        # Blend the images over time
-        pass
-
-    def detect_horizon(self):
-        # Detect the horizon line
-        pass
-
-    def create_time_lapse(self):
-        # Create a time-lapse animation
-        pass
-
-# Define the main function
 def main():
-    # Instantiate the BuoyImage class
-    buoy_image = BuoyImage(location, weather_conditions, image_data)
 
-    # Retrieve images from NOAA API
-    buoy_image.get_images()
+    buoy_urls = [f'https://www.ndbc.noaa.gov/buoycam.php?station={station}' for station in buoy_list]
+    base_output_path = "images/output_test"
 
-    # Stitch images together
-    buoy_image.stitch_images()
+    for buoy_url in tqdm(buoy_urls, desc="Processing buoys"):
+        print(f'Processing {buoy_url}', end='', flush=True)
+        buoy_image = BuoyImage(buoy_url)
+        # test if any panels are unusual in the image
+        panel_set = buoy_image.panels
+        unusual_panels = buoy_image.check_unusual_panels(panel_set)
 
-    # Instantiate the PanoramicImage class
-    panoramic_image = PanoramicImage(stitched_image_data, horizon_line, time_lapse_data)
+        if unusual_panels:
+            print(f" - Unusual panels: {unusual_panels}")
+            current_datetime = datetime.now()
+            date_str = current_datetime.strftime("%Y-%m-%d")
+            time_str = current_datetime.strftime("%H-%M-%S")
+            buoy_name = buoy_url.split("/")[-2]
 
-    # Detect the horizon line
-    panoramic_image.detect_horizon()
+            output_path = os.path.join(base_output_path, buoy_name, date_str, time_str)
+            os.makedirs(output_path, exist_ok=True)
 
-    # Create a time-lapse animation
-    panoramic_image.create_time_lapse()
+            for i, panel in enumerate(buoy_image.panels):
+                panel_output_path = os.path.join(output_path, f"panel_{i+1}.jpg")
+                panel.save(panel_output_path)
 
-    # Save the final output
-    pass
+            panoramic_image = PanoramicImage(buoy_image.panels)
 
-# Call the main function
+            panorama_output_path = os.path.join(output_path, "panorama.jpg")
+            try:
+                cv2.imwrite(panorama_output_path, panoramic_image.stitched_image)
+                # update this image by saving it to the image `latest.png` in the main directory for easy viewing
+                latest_output_path = os.path.join(base_output_path, buoy_name, "latest.jpg")
+                cv2.imwrite(latest_output_path, panoramic_image.stitched_image)
+            except AttributeError:
+                print("Panorama could not be stitched")
+            except Exception as e:
+                print(f"Error: {e}, with {buoy_url}")
+        else:
+            print(" - No unusual panels")
+
 if __name__ == "__main__":
     main()

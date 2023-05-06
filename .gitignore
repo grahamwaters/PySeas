@@ -104,3 +104,5 @@ ENV/
 /images/cv_ml_model_data
 =======
 /images/deleted_images
+setup.py
+.DS_Store

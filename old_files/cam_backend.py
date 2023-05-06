@@ -350,9 +350,7 @@ class Artist:
 
     def make_panorama(self, images):
         """
-        make_panorama
-
-        _extended_summary_
+        make_panorama takes a list of images and makes a panorama out of them
 
         :param images: _description_
         :type images: _type_

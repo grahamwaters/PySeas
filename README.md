@@ -1,153 +1,128 @@
-## PyBuoy Module Repository
+# PySeas
 
 
-<div id="top"></div>
-<!--
-*** Thanks for checking out the PyBuoy. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+![main](images/PySeasMain.png)
 
 
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][grahamwaters-linkedin-url]
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/grahamwaters/PyBuoy">
-    <img src="images/PyBuoy_Main.png" alt="Logo" width="1640" height="200">
-  </a>
+<h1>
 
-  <h3 align="center">PyBuoy</h3>
 
-  <p align="center">
-    Generating a sense of randomness from the world's oceans.
-    <br />
-    <a href="https://github.com/grahamwaters/PyBuoy"><strong>Explore the docs »</strong></a>
-    <br />
-    <a href="https://github.com/grahamwaters/PyBuoy/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/grahamwaters/PyBuoy/issues">Request Feature</a>
-  </p>
+<h1 style= "color:blue; font-size: 50px; text-align: center;">
+PySeas
+
+</h1>
+<p align="center">
+  <!-- Typing SVG by DenverCoder1 - https://github.com/DenverCoder1/readme-typing-svg -->
+  <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=watch+12+at+2210;sunset+for+32+is+2010;Looking+at+Buoy+42001;sunset+for+20+is+2110;sunset+for+12+is+2210;sunset+for+13+is+2110;sunset+for+27+is+2110;sunset+for+3+is+2210;sunset+for+48+is+1610;watch+15+at+2110;sunset+for+7+is+2210;sunset+for+53+is+1510;sunset+for+8+is+2210;Looking+at+Buoy+42040;Looking+at+Buoy+46066;sunset+for+12+is+2210;watch+12+at+2210;Looking+at+Buoy+45003;watch+3+at+2210;sunset+for+20+is+2110;Looking+at+Buoy+41001;sunset+for+0+is+2310;watch+6+at+2210;watch+23+at+2110;sunset+for+37+is+1910;watch+18+at+2110;Looking+at+Buoy+46047;watch+10+at+2210;Looking+at+Buoy+42002;Looking+at+Buoy+42001;sunset+for+50+is+1610;sunset+for+37+is+1910;Looking+at+Buoy+42012;watch+5+at+2210;sunset+for+59+is+1510;watch+44+at+1610;watch+36+at+1910;sunset+for+56+is+1510;Looking+at+Buoy+46085;Looking+at+Buoy+51000;Looking+at+Buoy+46002;sunset+for+42+is+1710;sunset+for+2+is+2210;watch+17+at+2110;sunset+for+37+is+1910;sunset+for+24+is+2110;sunset+for+42+is+1710;watch+9+at+2210;sunset+for+32+is+2010;sunset+for+12+is+2210;watch+9+at+2210;watch+4+at+2210;Looking+at+Buoy+41008;watch+25+at+2110;sunset+for+20+is+2110;Looking+at+Buoy+44027;sunset+for+35+is+1910;sunset+for+40+is+1710;Looking+at+Buoy+46072;watch+58+at+1510;Looking+at+Buoy+46089;Looking+at+Buoy+46072;Looking+at+Buoy+51000;sunset+for+9+is+2210;watch+13+at+2110;Looking+at+Buoy+45003;sunset+for+38+is+1810;sunset+for+41+is+1710;sunset+for+54+is+1510;sunset+for+49+is+1610;Looking+at+Buoy+44007;watch+33+at+2010;Looking+at+Buoy+42060;sunset+for+47+is+1610;sunset+for+24+is+2110;sunset+for+12+is+2210;Looking+at+Buoy+51101;watch+27+at+2110;watch+18+at+2110;Looking+at+Buoy+46072;Looking+at+Buoy+41049;Looking+at+Buoy+51001;sunset+for+44+is+1610;Looking+at+Buoy+42002;sunset+for+13+is+2110;sunset+for+33+is+2010;watch+53+at+1510;Looking+at+Buoy+51002;sunset+for+35+is+1910;watch+29+at+2010;sunset+for+37+is+1910;sunset+for+36+is+1910;sunset+for+51+is+1510;Looking+at+Buoy+46066;Looking+at+Buoy+46059;sunset+for+29+is+2010;watch+17+at+2110;watch+31+at+2010;Looking+at+Buoy+46071;sunset+for+31+is+2010;The+optimal+time+for+sunset+at+buoy+31+is+2010;The+optimal+time+for+sunset+at+buoy+44+is+1610;Looking+at+Buoy+41046;&font=menlo%20Code&center=true&width=440&height=45&color=FFD43B&vCenter=true&size=22&pause=1500" /></a>
+</p>
+
 </div>
 
-Feel free to share this project on Twitter!
+<div align="center">
+<h1>
+PySeas Purpose
+</h1>
+</div>
+The world's oceans are an untapped wealth of information that we are only barely beginning to understand. More of the ocean has been untouched by man than any other place on earth.
 
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://froala.com/design-blocks&via=froala&hashtags=bootstrap,design,templates,blocks,developers)
+# Using PySeas as a enVita Artist Agent
+Our first application of this project is to create art with the images from these buoys, and use them to generate a tapestry of the beautiful oceans.
+
+Previously, our code was written as shown below, as an outline for a class structure. We will keep the class structure, but we will be using a different approach to the project.
+
+```python
+class BuoyImage:
+    def __init__(self, location, weather_conditions, image_data):
+        self.location = location
+        self.weather_conditions = weather_conditions
+        self.image_data = image_data
+
+    def get_images(self):
+        # Retrieve the images from the NOAA API
+        pass
+
+    def stitch_images(self):
+        # Stitch the images together
+        pass
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+# Create a GAN to generate images
+class GAN:
+    def __init__(self, image_data):
+        self.image_data = image_data
+
+    def generate_images(self):
+        # Generate images using a GAN
+        pass
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+class PanoramicImage:
+    def __init__(self, stitched_image_data, horizon_line, time_lapse_data):
+        self.stitched_image_data = stitched_image_data
+        self.horizon_line = horizon_line
+        self.time_lapse_data = time_lapse_data
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+    def detect_horizon(self):
+        # Detect the horizon line
+        pass
+
+    def create_time_lapse(self):
+        # Create a time-lapse animation
+        pass
+
+class Website:
+    def __init__(self, layout, content):
+        self.layout = layout
+        self.content = content
+
+    def generate_html(self):
+        # Generate the HTML for the website
+        pass
+
+    def generate_css(self):
+        # Generate the CSS for the website
+        pass
+
+    def generate_javascript(self):
+        # Generate the JavaScript for the website
+        pass
+```
+
+## Phase One: Sunrise over the Sea
+
+Create sunsets over the sea using the images from the NOAA API.
 
 
-### Basics
+## Phase Two: The Raging of the Storm
 
-* Station ID - A 7 character station ID, or a currents station ID. Specify the station ID with the "station=" parameter.
-> Example: station=9414290
-Station listings for various products can be viewed at https://tidesandcurrents.noaa.gov or viewed on a map at Tides & Currents Station Map
-* Date & Time -
-The API understands several parameters related to date ranges.
-
-* All dates can be formatted as follows:
-yyyyMMdd, yyyyMMdd HH:mm, MM/dd/yyyy, or MM/dd/yyyy HH:mm
-
-One the 4 following sets of parameters can be specified in a request:
-
-* Parameter Name (s)
-* Description
-* begin_date
-* end_date
-Specify the date/time range of retrieval
-date
-Valid options for the date parameters are: latest (last data point available within the last 18 min), today, or recent (last 72 hours)
-begin_date and a range
-
-Specify a begin date and a number of hours to retrieve data starting from that date
-end_date and a range
-
-Specify an end date and a number of hours to retrieve data ending at that date
-range
-
-Specify a number of hours to go back from now and retrieve data for that date range
-
-January 1st, 2012 through January 2nd, 2012
-    begin_date=20120101&end_date=20120102
-48 hours beginning on April 15, 2012
-    begin_date=20120415&range=48
-48 hours ending on March 17, 2012
-    end_date=20120307&range=48
-Today's data
-    date=today
-The last 3 days of data
-    date=recent
-The last data point available within the last 18 min
-    date=latest
-The last 24 hours from now
-    range=24
-The last 3 hours from now
-    range=3
-
-Data Products
-Specify the type of data with the "product=" option parameter.
-
-Option 	Description
-water_level 	Preliminary or verified water levels, depending on availability.
-air_temperature 	Air temperature as measured at the station.
-water_temperature 	Water temperature as measured at the station.
-wind 	Wind speed, direction, and gusts as measured at the station.
-air_pressure 	Barometric pressure as measured at the station.
-air_gap 	Air Gap (distance between a bridge and the water's surface) at the station.
-conductivity 	The water's conductivity as measured at the station.
-visibility 	Visibility from the station's visibility sensor. A measure of atmospheric clarity.
-humidity 	Relative humidity as measured at the station.
-salinity 	Salinity and specific gravity data for the station.
-hourly_height 	Verified hourly height water level data for the station.
-high_low 	Verified high/low water level data for the station.
-daily_mean 	Verified daily mean water level data for the station.
-monthly_mean 	Verified monthly mean water level data for the station.
-one_minute_water_level 	One minute water level data for the station.
-predictions 	6 minute predictions water level data for the station.*
-datums 	datums data for the stations.
-currents 	Currents data for currents stations.
-currents_predictions 	Currents predictions data for currents predictions stations.
+Find images of storms and hurricanes, and create a time-lapse of the storm.
 
 
 
+# License
+PySeas is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+# Contributing
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+
+# Acknowledgements
 
 
+# The Sunset Tapestry
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/grahamwaters/PyBuoy.svg?style=for-the-badge
-[contributors-url]: https://github.com/grahamwaters/PyBuoy/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/grahamwaters/PyBuoy.svg?style=for-the-badge
-[forks-url]: https://github.com/grahamwaters/PyBuoy/network/members
-[stars-shield]: https://img.shields.io/github/stars/grahamwaters/PyBuoy.svg?style=for-the-badge
-[stars-url]: https://github.com/grahamwaters/PyBuoy/stargazers
-[issues-shield]: https://img.shields.io/github/issues/grahamwaters/PyBuoy.svg?style=for-the-badge
-[issues-url]: https://github.com/grahamwaters/PyBuoy/issues
-[license-shield]: https://img.shields.io/github/license/grahamwaters/PyBuoy.svg?style=for-the-badge
-[license-url]: https://github.com/grahamwaters/PyBuoy/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+<div align="center">
 
-[nura-linkedin-url]:https://www.linkedin.com/in/nura-abuassaf/
-[grahamwaters-linkedin-url]: https://linkedin.com/in/grahamwaters01
-[product-screenshot]: images/screenshot.png
-[iso1]: images/example_isometric_scene.png
-[iso2]: images/example_isometricscene2.png
-[iso_goal]: images/goal_visual_iso.jpg
+![The Tapestry of the Ocean's Life](images/master_stitch.png)
 
-[pybuoymain]: images/PyBuoy_Main.png
+</div>

@@ -1,3 +1,4 @@
+# PySeas
 
 
 ![main](images/PySeasMain.png)
@@ -18,46 +19,96 @@ PySeas
 
 </div>
 
+<div align="center">
+<h1>
+PySeas Purpose
+</h1>
+</div>
+The world's oceans are an untapped wealth of information that we are only barely beginning to understand. More of the ocean has been untouched by man than any other place on earth.
 
-# Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [PySeas for Researchers](#pyseas-for-researchers)
-- [PySeas for Machine Learning and Data Science](#pyseas-for-machine-learning-and-data-science)
-- [PySeas as a random data generator](#pyseas-as-a-random-data-generator)
-- [PySeas as the Artist of the World](#pyseas-as-the-artist-of-the-world)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [The Sunset Tapestry](#the-sunset-tapestry)
+# Using PySeas as a enVita Artist Agent
+Our first application of this project is to create art with the images from these buoys, and use them to generate a tapestry of the beautiful oceans.
 
+Previously, our code was written as shown below, as an outline for a class structure. We will keep the class structure, but we will be using a different approach to the project.
 
-# Introduction
-PySeas is a Python package that allows you to easily access the NOAA's National Data Buoy Center (NDBC) data. The package is designed to be easy to use and to provide a simple interface to the data. The package is designed to be used by anyone who wants to access the data, but it is especially useful for those who are interested in marine weather and oceanography.
-
-# PySeas for Researchers
-One use-case for PySeas is as a way for scientists to gain greater insight from the images captured by Buoys and find correlations with the other forms of data that are measured from these buoys. For example, a scientist may want to find out if there is a correlation between the amount of sunlight that a buoy receives and the amount of algae that is present in the water. This is a very interesting question, but it is difficult to answer without access to the data. PySeas makes it easy to access the data and to find correlations between the data.
-
-# PySeas for Machine Learning and Data Science
-For computer vision challenges, a successful model will need to be able to recognize patterns in the images that are captured by the buoys. PySeas makes it easy to access the data and to find correlations between the data. Questions that would be interesting to answer include: what does a storm look like across six panels of images taken concurrently? What colors are most present in the days prior to a large storm? What colors are most present in the days after a large storm? These are all questions that can be answered using PySeas.
-# PySeas as a random data generator
-The world is the best generator of random data. The oceans are the best generator of random data. PySeas is the best way to access the oceans and generate random data. Synthetic data is a great way to test your machine learning models. PySeas is a great way to generate synthetic data.
-
-# PySeas as the Artist of the World
-One of the visions that I have for this project is a tapestry of sunsets. I think that it would be amazing to take the images of the sunset in real-time from the buoys and stitch them into rows (one buoy per row) to show the sunset across the ocean from the perspective of the buoys. I think that this would be a beautiful piece of art. This can be done and I think that CV2 can be used to stitch the images together. I will begin the tapestry at the end of this readme.
-
-# Installation
-PySeas is available on PyPI and can be installed using pip:
-```
-pip install pyseas
-```
-
-# Usage
 ```python
-# this will be filled in later on.
+class BuoyImage:
+    def __init__(self, location, weather_conditions, image_data):
+        self.location = location
+        self.weather_conditions = weather_conditions
+        self.image_data = image_data
+
+    def get_images(self):
+        # Retrieve the images from the NOAA API
+        pass
+
+    def stitch_images(self):
+        # Stitch the images together
+        pass
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+# Create a GAN to generate images
+class GAN:
+    def __init__(self, image_data):
+        self.image_data = image_data
+
+    def generate_images(self):
+        # Generate images using a GAN
+        pass
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+class PanoramicImage:
+    def __init__(self, stitched_image_data, horizon_line, time_lapse_data):
+        self.stitched_image_data = stitched_image_data
+        self.horizon_line = horizon_line
+        self.time_lapse_data = time_lapse_data
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+    def detect_horizon(self):
+        # Detect the horizon line
+        pass
+
+    def create_time_lapse(self):
+        # Create a time-lapse animation
+        pass
+
+class Website:
+    def __init__(self, layout, content):
+        self.layout = layout
+        self.content = content
+
+    def generate_html(self):
+        # Generate the HTML for the website
+        pass
+
+    def generate_css(self):
+        # Generate the CSS for the website
+        pass
+
+    def generate_javascript(self):
+        # Generate the JavaScript for the website
+        pass
 ```
+
+## Phase One: Sunrise over the Sea
+
+Create sunsets over the sea using the images from the NOAA API.
+
+
+## Phase Two: The Raging of the Storm
+
+Find images of storms and hurricanes, and create a time-lapse of the storm.
+
+
 
 # License
 PySeas is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
@@ -72,6 +123,6 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for mor
 
 <div align="center">
 
-![The Tapestry of the Ocean's Life](images/full_days/6_11_2022_46087.png)
+![The Tapestry of the Ocean's Life](images/master_stitch.png)
 
 </div>

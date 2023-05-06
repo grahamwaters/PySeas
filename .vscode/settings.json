@@ -1,3 +1,11 @@
 {
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#0F2869",
+        "titleBar.activeBackground": "#153893",
+        "titleBar.activeForeground": "#F9FAFE"
+    },
+    "github.gitAuthentication": true,
+    "git.autofetch": true,
+    "git.autoStash": true
 }

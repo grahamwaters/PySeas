@@ -9,6 +9,11 @@ from datetime import datetime
 from ratelimit import limits, sleep_and_retry
 import matplotlib.pyplot as plt
 import pandas as pd
+import time
+import random
+import glob
+import shutil
+import imutils
 
 collecting_all = True
 buoy_list = pd.read_csv("scripts/working_buoys.csv")
@@ -107,25 +112,27 @@ def check_unusual_panels(panels, mse_threshold):
             rich_color_panels.append(panel)
     return unusual_panels, rich_color_panels
 
+
 def detect_horizon_line(img):
     img = np.array(img)
-
-    if np.sum(img > 200) / img.size < 0.9:
-        plt.savefig('latest_horizon_line.png')
-    else:
-        pass
-
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    edges = cv2.Canny(gray, 50, 150, apertureSize=3)
-    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 100, minLineLength=100, maxLineGap=10)
+
+    # Use a Gaussian blur to reduce noise before edge detection
+    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+    edges = cv2.Canny(blurred, 50, 150, apertureSize=3)
+
+    # Increase the threshold for HoughLinesP to reduce false positives
+    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 150, minLineLength=100, maxLineGap=20)
+
+    if lines is None:
+        return 0
 
     try:
-        longest_line = max(lines, key=lambda line: np.linalg.norm(line[0][2:] - line[0][:2]))
-        x1, y1, x2, y2 = longest_line[0]
+        # Select the line closest to the horizontal orientation
+        closest_horizontal_line = min(lines, key=lambda line: abs(np.arctan2(line[0][3] - line[0][1], line[0][2] - line[0][0])))
+        x1, y1, x2, y2 = closest_horizontal_line[0]
         angle = np.arctan2(y2 - y1, x2 - x1) * 180 / np.pi
         return angle
-    except TypeError:
-        return 0
     except Exception as e:
         print(f"Error: {e}")
         return 0

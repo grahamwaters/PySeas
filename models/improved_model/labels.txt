@@ -1,0 +1,8 @@
+0 sunset
+1 night
+2 white
+3 storm
+4 clouds
+5 strange sky
+6 object
+7 normal

@@ -110,3 +110,7 @@ setup.py
 
 /images/output_test
 scripts/images/output_test/www.ndbc.noaa.gov/2023-05-06/18-25-26/panel_1.jpg
+
+*.jpg
+.jpg
+.csv

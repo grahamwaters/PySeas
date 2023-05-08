@@ -28,6 +28,19 @@ class ImageClassifier:
 
     # Classification Functions
     def classify_image(self, image, model, blank_or_not_model, image_size=IMAGE_SIZE, class_names=CLASS_NAMES):
+        """
+        The classify_image function takes in an image and a model, and returns the class of the image.
+
+        :param self: Represent the instance of the object itself
+        :param image: Pass the image to be classified
+        :param model: Pass in the model that will be used to classify the image
+        :param blank_or_not_model: Check if the image is blank or not
+        :param image_size: Resize the image to a standard size
+        :param class_names: Return the name of the class that is predicted by our model
+        :return: A string of the best guess
+        :doc-author: Trelent
+        """
+
         if not isinstance(image, PIL.Image.Image):
             img = keras_image.load_img(image, target_size=image_size)
         else:

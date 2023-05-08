@@ -92,6 +92,18 @@ def process_image(image):
 from tqdm import tqdm
 # Function to download, process, and classify images
 def analyze_buoys(model, blank_or_not_model=white_model):
+    """
+    The analyze_buoys function takes a model and an optional blank_or_not_model as arguments.
+    It then iterates through the buoy urls, downloading each image and processing it into panels.
+    The function classifies each panel using the ImageClassifier class, which uses the provided model to classify images.
+    If any of those panels are classified as &quot;White&quot;, that buoy is skipped (removed from buoy_urls) and added to skip_buoy list.
+
+    :param model: Specify which model to use for the classification
+    :param blank_or_not_model: Determine if the image is blank or not
+    :return: A list of the buoys that were skipped due to white panels
+    :doc-author: Trelent
+    """
+
     classifier = ImageClassifier()
     global white_mode
     global only_save_originals
@@ -126,13 +138,25 @@ def analyze_buoys(model, blank_or_not_model=white_model):
                 # continue to the next buoy in the list
                 continue
 
-        # Check if any panel is not "Normal"
-        if any(c != "Normal" for c in classifications):
+        # Check if any panel is not "normal"
+        if any(c != "normal" for c in classifications):
             # get the most common classification
             c = max(set(classifications), key=classifications.count)
+            # if the max is storm and there is a "sunset" panel then set the classification to "sunset"
+            # if the max is normal and there is a "sunset" panel then set the classification to "sunset"
+            # if the max is normal and there is a "night" panel then set the classification to "night"
+            if c == "storm" and "sunset" in classifications:
+                c = "sunset"
+            elif c == "normal" and "sunset" in classifications:
+                c = "sunset"
+            elif c == "normal" and "night" in classifications:
+                c = "night"
+
+            c = c.lower().replace(" ", "_")
+
             # get the index of the classification
             i = classifications.index(c)
-            # get the panel that is not "Normal"
+            # get the panel that is not "normal"
             panel = panels[i]
             # if any are not normal save ALL of the panels to the folder
             panel_set = panels
@@ -180,4 +204,14 @@ while True:
     print(f'Eliminated {len(skip_buoy_list)} buoys')
     random.shuffle(buoy_urls)
     analyze_buoys(model)
+    print(f'Waiting 10 minutes')
     time.sleep(600)  # Wait for 10 minutes
+    # random sample 10 of the white buoys and add them back to the list
+    if white_mode:
+        buoy_urls = random.sample(skip_buoy_list, 10) + buoy_urls
+        skip_buoy_list = []
+        # white_mode = False
+    # if there are no buoys left, exit the program
+    if len(buoy_urls) == 0:
+        print('No buoys left to process')
+        break

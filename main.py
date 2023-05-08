@@ -152,7 +152,7 @@ def analyze_buoys(model, blank_or_not_model=white_model):
             elif c == "normal" and "night" in classifications:
                 c = "night"
 
-            c = c.lower().replace(" ", "_")
+            # c = c.lower().replace(" ", "_")
 
             # get the index of the classification
             i = classifications.index(c)

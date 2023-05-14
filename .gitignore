@@ -92,6 +92,8 @@ ENV/
 #hazel file
 .hazellock
 
+/raw
+/panels
 /images/cv_ml_model_data
 /images/buoys
 /images/panels

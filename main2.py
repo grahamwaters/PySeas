@@ -1,31 +1,36 @@
 import os
 import time
+import shutil
+import random
 import requests
-from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image, ImageDraw
 from io import BytesIO
 from datetime import datetime
+from tqdm import tqdm
+from ratelimit import sleep_and_retry
 from image_classifier import ImageClassifier
 import pandas as pd
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-# matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import matplotlib.patches as patches
-# seaborn
-import seaborn as sns
-# numpy
-import numpy as np
-# tqdm
-from tqdm import tqdm
-import numpy as np
-from PIL import ImageDraw, ImageFont, Image
-MODEL_PATH = 'models/converted_keras/keras_model.h5'
+
+
+# MODEL_PATH = 'models/gen3_keras/keras_model.h5'
+MODEL_PATH = 'models/may_20_keras_model.h5'
+# this model is used to classify the images
+# the options are
+# - this image is a sunset, night, white, storm, clouds, strange sky, object, normal, or moon
+
 BLANK_OR_NOT_MODEL_PATH = 'models/blank_or_not_model/keras_model.h5'
-white_mode = False # if True, will only classify white images
+# this model is used to classify if the image is blank or not
+# the options are
+# - this image is blank or not blank
+# where blank means that the image is mostly white
+
+white_mode = False # if True, check all panels to see if they are all white and if they are then skip the buoy and don't save the images
 only_save_originals = True # if True, will only save the original images
 save_confidence_plots = False # if True, will save the confidence plots
-from colorama import Fore, Back, Style
+from colorama import Fore
 model = load_model(MODEL_PATH)
 white_model = load_model(BLANK_OR_NOT_MODEL_PATH)
 CLASS_NAMES = [
@@ -62,13 +67,6 @@ def refine_list(buoy_urls, skip_buoy_list):
     # remove duplicates
     buoys = list(dict.fromkeys(buoys))
     return buoys
-
-
-import requests
-from PIL import Image
-from io import BytesIO
-import ratelimit
-from ratelimit import limits, sleep_and_retry
 
 # create a file that will store the list of buoys that are not working so we don't have to check them again
 # if the file doesn't exist, then create it
@@ -132,6 +130,8 @@ def check_buoy_status(buoy_id):
             # this means the buoy is working
             # show the image by saving it as this_panel.png
             img.save('this_panel.png')
+            # also save the image to the raw folder
+            img.save(f'raw/{buoy_id}_this_panel.png')
             return True
 
     except IOError:
@@ -139,7 +139,6 @@ def check_buoy_status(buoy_id):
         # show the image by saving it as this_panel.png
         img.save('this_panel.png')
         return False  # Return false or whatever makes sense in your application
-
 
 def process_image(image):
     """
@@ -213,7 +212,6 @@ def classify_panel(panel, model, white_model):
     else:
         return ImageClassifier.classify_image(panel, model, white_model)
 
-
 def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, only_save_originals=False, white_mode=False):
     """
     The analyze_buoys function takes in a model and white_model, which are the models that will be used to classify
@@ -238,7 +236,6 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
     buoy_urls = [buoy for buoy in buoy_urls if check_buoy_status(buoy)]
     print(f'{len(buoy_urls)} buoys are working.')
 
-
     for url in tqdm(buoy_urls): #TODO -- change back to buoy_u
         url = f'https://www.ndbc.noaa.gov/buoycam.php?station={url}' #! new url format
         response = requests.get(url)
@@ -258,7 +255,9 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
             image.save(f'raw/{url.split("/")[-1].split("=")[-1]}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.png')
         panels = process_image(image)
 
+        # if there are 6 panels and their average color is less than 10, then it is a night time image,
         classifications = [classifier.classify_image(panel, model, white_model) for panel in panels]
+
         panel_countedas_white = 0
         for panel in panels:
             white_mode = False #TODO
@@ -325,14 +324,15 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
                         f.write(f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}\n')
 
                 continue
+        # now that we have classified the panels, we can annotate the image with the classification and save it
         for i, panel in enumerate(panels):
             panel_annotated = panel.copy()
             draw = ImageDraw.Draw(panel_annotated)
             # annotate the image with the classification in red text
             draw.text((0, 0), classifications[i], fill='red')
-            panel_annotated.save(f'cropped_panel_{i}.png')
+            panel_annotated.save(f'cropped_panel_{i}.png') # annotate the image with the classification in red text
 
-        if white_mode:
+        if white_mode: # if white mode is on, then we need to check if all panels are white, if so, then skip this buoy
             if all(c=="white" for c in classifications) and classifications != []:
                 continue
                 print(f'white panel found in {url}')
@@ -452,7 +452,7 @@ def run_analysis_loop():
         time.sleep(600)
 
         # read the skip_buoy_list file and remove those buoys from the list skip_buoy_list.txt
-        with open('scripts/skip_buoy_list.txt', 'r') as f:
+        with open('skip_buoy_list.txt', 'r') as f:
             skip_buoy_list = f.read().splitlines()
         # remove duplicates
         skip_buoy_list = list(dict.fromkeys(skip_buoy_list))
@@ -463,15 +463,80 @@ def run_analysis_loop():
             print('No buoys left to process')
             break
 
+import os
+import math
+from PIL import Image
 
+def stitch_images(input_dir, output_path):
+    """
+    Stitches all images in a specified folder into one canvas that forms a square grid.
 
+    :param input_dir: str, directory where images are stored
+    :param output_path: str, path to save the stitched image
+    """
+
+    # Get a list of all image files in the directory
+    images = [f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))]
+
+    # Calculate grid size (n x m) where n*m is the largest perfect square less than total image count
+    image_count = len(images)
+    grid_size = int(math.sqrt(image_count))
+
+    # Reduce the image count to fit the grid size
+    images = images[:grid_size**2]
+
+    # Open images and resize them
+    img_list = [Image.open(os.path.join(input_dir, img)).resize((100, 100)) for img in images]
+
+    # Create a blank canvas for the stitched image
+    canvas = Image.new('RGB', (grid_size*100, grid_size*100))
+
+    # Paste images onto the canvas
+    for i in range(grid_size):
+        for j in range(grid_size):
+            canvas.paste(img_list[i*grid_size + j], (j*100, i*100))
+
+    # Save the stitched image
+    canvas.save(output_path)
+
+def balance_classes_for_model_training(input_dir, output_dir):
+    """
+    Balances classes for model training.
+
+    :param input_dir: str, directory where original images are stored
+    :param output_dir: str, directory where balanced images will be stored
+    """
+
+    # Get the class directories
+    classes = [d for d in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, d))]
+
+    # Get the number of images in each class and find the minimum number
+    image_counts = [len(os.listdir(os.path.join(input_dir, c))) for c in classes]
+    min_count = min(image_counts)
+
+    # Create the output directories and balance the classes
+    for c in classes:
+        class_dir = os.path.join(input_dir, c)
+        output_class_dir = os.path.join(output_dir, c)
+
+        # Create the output class directory if it doesn't exist
+        os.makedirs(output_class_dir, exist_ok=True)
+
+        # Get a list of all image files in the class directory
+        images = [f for f in os.listdir(class_dir) if os.path.isfile(os.path.join(class_dir, f))]
+
+        # Randomly select min_count images
+        selected_images = random.sample(images, min_count)
+
+        # Copy the selected images to the output directory
+        for image in selected_images:
+            shutil.copy(os.path.join(class_dir, image), os.path.join(output_class_dir, image))
 
 def main():
     """
     The main function is the entry point for this script.
     It will run a loop that downloads images from NOAA buoy cameras,
     classifies them using the model specified in load_model(), and then saves them to disk.
-
 
     :return: The output of the analysis loop
     :doc-author: Trelent
@@ -495,7 +560,20 @@ def main():
     # remove duplicates
     buoy_urls = list(dict.fromkeys(buoy_urls))
 
+    # generate balanced training data and save it to a new directory named `balanced_training_data`
+    # make the directory if it doesn't exist
+    try:
+        if not os.path.exists('balanced_training_data'):
+            os.makedirs('balanced_training_data')
+        balance_classes_for_model_training('panels', 'balanced_training_data')
+    except:
+        print('Could not create balanced training data')
 
+    try:
+        # stitch the images in the BuoyEyeShots directory into one image
+        stitch_images('BuoyEyeShots', 'BuoyEyeCanvas.png')
+    except:
+        print('Could not stitch images')
 
     # Define the model to use
     model = load_model("models/gen3_keras/keras_model.h5")

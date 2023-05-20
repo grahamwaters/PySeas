@@ -1,0 +1,18 @@
+name: pyseas_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.0
+  - pip
+  - pandas
+  - tensorflow
+  - numpy
+  - pillow
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - tqdm
+  - pip:
+    - requests
+    - alive_progress

@@ -7,14 +7,24 @@ from datetime import datetime
 from image_classifier import ImageClassifier
 import pandas as pd
 from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+# matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.patches as patches
+# seaborn
+import seaborn as sns
+# numpy
+import numpy as np
+# tqdm
 from tqdm import tqdm
 import numpy as np
 from PIL import ImageDraw, ImageFont, Image
 MODEL_PATH = 'models/converted_keras/keras_model.h5'
 BLANK_OR_NOT_MODEL_PATH = 'models/blank_or_not_model/keras_model.h5'
-white_mode = False
-only_save_originals = True
-save_confidence_plots = False
+white_mode = False # if True, will only classify white images
+only_save_originals = True # if True, will only save the original images
+save_confidence_plots = False # if True, will save the confidence plots
 from colorama import Fore, Back, Style
 model = load_model(MODEL_PATH)
 white_model = load_model(BLANK_OR_NOT_MODEL_PATH)
@@ -43,6 +53,9 @@ def refine_list(buoy_urls, skip_buoy_list):
 
     # using the prefixes of the files in the /raw folder, build a list of non-malfunctioing buoys
     # get the list of files in the /raw folder
+    # if there is no raw folder yet, then there are no buoys that are not malfunctioning but we need to make the raw folder
+    if not os.path.exists('raw'):
+        os.mkdir('raw')
     files = os.listdir('raw')
     # get the list of buoys from the files
     buoys = [file.split('_')[0] for file in files]
@@ -122,7 +135,8 @@ def classify_panel(panel, model, white_model):
     else:
         return ImageClassifier.classify_image(panel, model, white_model)
 
-def analyze_buoys(model, white_model):
+
+def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, only_save_originals=False, white_mode=False):
     """
     The analyze_buoys function takes in a model and white_model, which are the models that will be used to classify
     the images. The function then iterates through each buoy url in the buoy_urls list, downloads the image from that url,
@@ -137,9 +151,11 @@ def analyze_buoys(model, white_model):
     """
 
     classifier = ImageClassifier()
-
-    global buoy_urls
-    for url in tqdm(buoy_urls):
+    # convert all buoy_ids to strings to avoid errors
+    buoy_urls = [str(buoy) for buoy in buoy_urls]
+    # global buoy_urls  #TODO -- may cause issues if removing dynamically
+    for url in tqdm(buoy_urls): #TODO -- change back to buoy_u
+        url = f'https://www.ndbc.noaa.gov/buoycam.php?station={url}' #! new url format
         response = requests.get(url)
         if response.status_code != 200:
             print(f'Error downloading {url}')
@@ -158,7 +174,7 @@ def analyze_buoys(model, white_model):
         panels = process_image(image)
 
         classifications = [classifier.classify_image(panel, model, white_model) for panel in panels]
-
+        panel_countedas_white = 0
         for panel in panels:
             white_mode = False #TODO
             if white_mode:
@@ -210,6 +226,19 @@ def analyze_buoys(model, white_model):
                 else:
                     print(Fore.WHITE + f'white panel found in {url}')
             else:
+                # drop the buoy_id from the list of buoy_urls if all panels are classified as white
+                panel_countedas_white += 1
+                if panel_countedas_white == 6:
+                    print(Fore.WHITE + f'white panel found in {url}')
+                    buoy_id = str(url.split('/')[-1].split('=')[-1])
+                    try:
+                        buoy_urls.remove(buoy_id)
+                    except ValueError:
+                        print(f"ValueError({buoy_id} not in list')")
+                    with open('scripts/failing_buoys.csv', 'a') as f:
+                        f.write(f'{buoy_id}\n')
+                        f.write(f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}\n')
+
                 continue
         for i, panel in enumerate(panels):
             panel_annotated = panel.copy()
@@ -332,7 +361,7 @@ def run_analysis_loop():
     buoy_urls = list(dict.fromkeys(first_buoys + buoy_urls))
 
     while True:
-        analyze_buoys(model, white_model)
+        analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=True, only_save_originals=False, white_mode=False)
 
         print('Waiting 10 minutes')
         time.sleep(600)
@@ -377,8 +406,8 @@ def main():
 
 
     # Define the model to use
-    model = load_model("models/2021-05-05_16-00-00.h5")
-    white_model = load_model("models/2021-05-05_16-00-00.h5")
+    model = load_model("models/gen3_keras/keras_model.h5")
+    white_model = load_model("models/blank_or_not_model/keras_model.h5")
 
     # Run the analysis loop
     run_analysis_loop()

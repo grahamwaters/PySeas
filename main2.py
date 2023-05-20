@@ -31,6 +31,16 @@ CLASS_NAMES = [
 ]
 
 def refine_list(buoy_urls, skip_buoy_list):
+    """
+    The refine_list function takes a list of buoys and removes any buoys that are not functioning.
+    It does this by checking the /raw folder for files with the buoy number as a prefix. If there is no file, then it is assumed that the buoy is not working.
+
+    :param buoy_urls: Pass the list of buoys to the function
+    :param skip_buoy_list: Pass a list of buoys that are known to be malfunctioning
+    :return: A list of buoys that are not in the skip_buoy_list
+    :doc-author: Trelent
+    """
+
     # using the prefixes of the files in the /raw folder, build a list of non-malfunctioing buoys
     # get the list of files in the /raw folder
     files = os.listdir('raw')
@@ -91,6 +101,19 @@ def process_image(image):
     return trimmed_panels
 
 def classify_panel(panel, model, white_model):
+    """
+    The classify_panel function takes in a panel image and classifies it as one of the following:
+        - 'white' if the average color is greater than 200 (i.e. white)
+        - 'night' if the average color is less than 10 (i.e. black)
+        - otherwise, it uses ImageClassifier to classify_image
+
+    :param panel: Pass in the image of a panel
+    :param model: Classify the panel as a day or night image
+    :param white_model: Classify panels as white
+    :return: The class of the panel
+    :doc-author: Trelent
+    """
+
     avg_color = np.array(panel).mean(axis=(0, 1))
     if avg_color.mean() > 200:
         return 'white'
@@ -100,6 +123,19 @@ def classify_panel(panel, model, white_model):
         return ImageClassifier.classify_image(panel, model, white_model)
 
 def analyze_buoys(model, white_model):
+    """
+    The analyze_buoys function takes in a model and white_model, which are the models that will be used to classify
+    the images. The function then iterates through each buoy url in the buoy_urls list, downloads the image from that url,
+    and saves it as an Image object. It then processes this image into panels using process_image(), and classifies each panel
+    using ImageClassifier().classify_image() with either model or white_model depending on whether or not it is a night time
+    panel (determined by checking if its average color is less than 10). If there are 6 panels and their average
+
+    :param model: Classify the image
+    :param white_model: Classify the image as white or not
+    :return: A list of images that are classified as stormy
+    :doc-author: Trelent
+    """
+
     classifier = ImageClassifier()
 
     global buoy_urls
@@ -281,6 +317,16 @@ def analyze_buoys(model, white_model):
                 image.save(os.path.join(folder_name, ext_filename))
 
 def run_analysis_loop():
+    """
+    The run_analysis_loop function is the main function that runs the analysis.
+    It first reads in a list of buoys from a csv file, and then loops through each buoy,
+    downloading an image from it's url and running it through our model to get predictions.
+    The results are saved as a csv file for later use.
+
+    :return: A list of buoy urls
+    :doc-author: Trelent
+    """
+
     first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
     buoy_urls = pd.read_csv("scripts/working_buoys.csv")["station_id"].tolist()
     buoy_urls = list(dict.fromkeys(first_buoys + buoy_urls))
@@ -299,26 +345,43 @@ def run_analysis_loop():
             print('No buoys left to process')
             break
 
-
-first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
-# refined_buoys = if len(refine_list(buoy_urls, skip_buoy_list)) > 0: refine_list(buoy_urls, skip_buoy_list) else: first_buoys
-skip_buoy_list = []
-# Define buoy URLs from the working_buoys.csv file in the scripts folder
-first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
-buoy_urls = pd.read_csv("scripts/working_buoys.csv")["station_id"].tolist()
-buoy_urls = first_buoys + buoy_urls
-# get unique values
-buoy_urls = list(dict.fromkeys(buoy_urls))
-if len(refine_list(buoy_urls, skip_buoy_list)) > 0:
-    refined_buoys = refine_list(buoy_urls, skip_buoy_list)
-else:
-    refined_buoys = first_buoys
-buoy_urls = refined_buoys
-buoy_urls = [f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy}' for buoy in buoy_urls]
-# remove duplicates
-buoy_urls = list(dict.fromkeys(buoy_urls))
+def main():
+    """
+    The main function is the entry point for this script.
+    It will run a loop that downloads images from NOAA buoy cameras,
+    classifies them using the model specified in load_model(), and then saves them to disk.
 
 
+    :return: The output of the analysis loop
+    :doc-author: Trelent
+    """
+
+    first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
+    # refined_buoys = if len(refine_list(buoy_urls, skip_buoy_list)) > 0: refine_list(buoy_urls, skip_buoy_list) else: first_buoys
+    skip_buoy_list = []
+    # Define buoy URLs from the working_buoys.csv file in the scripts folder
+    first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
+    buoy_urls = pd.read_csv("scripts/working_buoys.csv")["station_id"].tolist()
+    buoy_urls = first_buoys + buoy_urls
+    # get unique values
+    buoy_urls = list(dict.fromkeys(buoy_urls))
+    if len(refine_list(buoy_urls, skip_buoy_list)) > 0:
+        refined_buoys = refine_list(buoy_urls, skip_buoy_list)
+    else:
+        refined_buoys = first_buoys
+    buoy_urls = refined_buoys
+    buoy_urls = [f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy}' for buoy in buoy_urls]
+    # remove duplicates
+    buoy_urls = list(dict.fromkeys(buoy_urls))
 
 
-run_analysis_loop()
+
+    # Define the model to use
+    model = load_model("models/2021-05-05_16-00-00.h5")
+    white_model = load_model("models/2021-05-05_16-00-00.h5")
+
+    # Run the analysis loop
+    run_analysis_loop()
+
+if __name__ == "__main__":
+    main()

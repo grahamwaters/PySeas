@@ -63,6 +63,84 @@ def refine_list(buoy_urls, skip_buoy_list):
     buoys = list(dict.fromkeys(buoys))
     return buoys
 
+
+import requests
+from PIL import Image
+from io import BytesIO
+import ratelimit
+from ratelimit import limits, sleep_and_retry
+
+# create a file that will store the list of buoys that are not working so we don't have to check them again
+# if the file doesn't exist, then create it
+if not os.path.exists('skip_buoy_list.txt'):
+    with open('skip_buoy_list.txt', 'w') as f:
+        f.write('')
+
+@sleep_and_retry # this decorator will make sure that we sleep between attempts
+def check_buoy_status(buoy_id):
+    """
+    The check_buoy_status function takes in a buoy_id and checks if the buoy is working.
+    It does this by checking if more than 90% of the pixels are white. If they are then put a giant red word on the image that says &quot;NOT WORKING&quot;
+    and save it as this_panel.png, otherwise just save it as this_panel.png
+
+    :param buoy_id: Get the buoy_id from the user
+    :return: True if the buoy is working and false if it's not
+    :doc-author: Trelent
+    """
+
+    # check if the buoy_id is in the skip_buoy_list.txt file
+    with open('skip_buoy_list.txt', 'r') as f:
+        skip_buoy_list = f.read().splitlines()
+    if buoy_id in skip_buoy_list:
+        return False
+    url = f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}'
+    response = requests.get(url)
+    print(f'Testing buoy {buoy_id}...')
+    try:
+        # Open the image from the response content
+        img = Image.open(BytesIO(response.content)).convert("L")
+
+        # Calculate the total amount of pixels
+        total_pixels = img.width * img.height
+
+        # Count the white pixels
+        white_pixels = 0
+        for pixel in img.getdata():
+            if pixel > 200:  # assuming white is above 200 in grayscale
+                white_pixels += 1
+
+        # Check if more than 90% of the pixels are white
+        if white_pixels / total_pixels > 0.9:
+            # this means the buoy is not working
+            # show the image by saving it as this_panel.png
+            # if they are then put a giant red word on the image that says "NOT WORKING"
+
+            # annotate the image
+            draw = ImageDraw.Draw(img)
+            # set the font but also import Open_Sans/OpenSans-VariableFont_wdth,wght.ttf
+            font = ImageFont.truetype("Open_Sans/OpenSans-VariableFont_wdth,wght.ttf", 50)
+            # draw the text
+            draw.text((img.width/2, img.height/2), f"Buoy {buoy_id} is NOT WORKING", fill='red', font=font, anchor='mm')
+            # save the image
+
+            img.save('this_panel.png')
+            # save the buoy_id to the skip_buoy_list.txt file
+            with open('skip_buoy_list.txt', 'a') as f:
+                f.write(f'{buoy_id}\n')
+            return False
+        else:
+            # this means the buoy is working
+            # show the image by saving it as this_panel.png
+            img.save('this_panel.png')
+            return True
+
+    except IOError:
+        print("Error while reading image from", url)
+        # show the image by saving it as this_panel.png
+        img.save('this_panel.png')
+        return False  # Return false or whatever makes sense in your application
+
+
 def process_image(image):
     """
     The process_image function takes an image and returns a list of 6 images, representing the 6 horizonally segmented panels of the original image.
@@ -154,6 +232,13 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
     # convert all buoy_ids to strings to avoid errors
     buoy_urls = [str(buoy) for buoy in buoy_urls]
     # global buoy_urls  #TODO -- may cause issues if removing dynamically
+
+    # use check_buoy_status to remove buoys that are not working before downloading images
+    print(f'Checking buoy status for {len(buoy_urls)} buoys...')
+    buoy_urls = [buoy for buoy in buoy_urls if check_buoy_status(buoy)]
+    print(f'{len(buoy_urls)} buoys are working.')
+
+
     for url in tqdm(buoy_urls): #TODO -- change back to buoy_u
         url = f'https://www.ndbc.noaa.gov/buoycam.php?station={url}' #! new url format
         response = requests.get(url)
@@ -366,13 +451,20 @@ def run_analysis_loop():
         print('Waiting 10 minutes')
         time.sleep(600)
 
-        skip_buoy_list = pd.read_csv("scripts/failing_buoys.csv")["station_id"].tolist()
+        # read the skip_buoy_list file and remove those buoys from the list skip_buoy_list.txt
+        with open('scripts/skip_buoy_list.txt', 'r') as f:
+            skip_buoy_list = f.read().splitlines()
+        # remove duplicates
         skip_buoy_list = list(dict.fromkeys(skip_buoy_list))
-        buoy_urls = [buoy for buoy in buoy_urls if buoy not in skip_buoy_list]
+        # remove buoys from the list
+        buoy_urls = [x for x in buoy_urls if x not in skip_buoy_list]
 
         if len(buoy_urls) == 0:
             print('No buoys left to process')
             break
+
+
+
 
 def main():
     """

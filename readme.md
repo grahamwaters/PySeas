@@ -7,6 +7,8 @@
 <div align="center">
 <h1>
 
+<!-- add temp_2 image -->
+![temp_2](clouds_41009_2023-05-20_14-51-32.jpg)
 
 <h1 style= "color:blue; font-size: 50px; text-align: center;">
 PySeas

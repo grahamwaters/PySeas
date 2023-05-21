@@ -26,7 +26,7 @@ PySeas Purpose
 </div>
 The world's oceans are an untapped wealth of information that we are only barely beginning to understand. More of the ocean has been untouched by man than any other place on earth.
   
-![temp_2](images/clouds.png)
+![temp_2](images/41002_20230514_185042.png)
 
 # Using PySeas as a enVita Artist Agent
 Our first application of this project is to create art with the images from these buoys, and use them to generate a tapestry of the beautiful oceans.

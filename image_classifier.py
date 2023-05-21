@@ -9,11 +9,29 @@ IMAGE_SIZE = (224, 224)
 CLASS_NAMES = [
     "sunset",
     "night",
-    "white",
     "storm",
     "clouds",
-    "normal",
-    "moon"
+    "clear",
+    "object",
+    "dusk",
+    "beautiful"
+]
+
+# 0 Direct Sun
+# 1 Stormy Weather
+# 2 Interesting
+# 3 Object Detected
+# 4 Sunset
+# 5 Clouds
+# 6 Night
+CLASS_NAMES = [
+    "Direct Sun",
+    "Stormy Weather",
+    "Interesting",
+    "Object Detected",
+    "Sunset",
+    "Clouds",
+    "Night"
 ]
 temp_model = load_model('models/blank_or_not_model/keras_model.h5')
 
@@ -35,20 +53,11 @@ class ImageClassifier:
         img_array = img_array / 255.0
 
         avg_color = np.array(img).mean(axis=(0, 1))
-        if avg_color.mean() > 350:
-            return 'white'
-        elif avg_color.mean() < 10:
-            return 'night'
-        else:
-            # blank_or_not_probabilities = white_model.predict(img_array)
-            # for i in range(0, 6):
-            #     if blank_or_not_probabilities[0][i] > 0.5:
-            #         return 'White'
-
-            # blank_or_not_class_index = np.argmax(blank_or_not_probabilities)
-            # if blank_or_not_class_index == 0:
-            #     return 'White'
-
-            probabilities = model.predict(img_array)
-            class_index = np.argmax(probabilities)
-            return class_names[class_index]
+        # if avg_color.mean() > 350:
+        #     return 'white'
+        # elif avg_color.mean() < 10:
+        #     return 'night'
+        # else:
+        probabilities = model.predict(img_array)
+        class_index = np.argmax(probabilities)
+        return class_names[class_index]

@@ -117,3 +117,12 @@ scripts/images/output_test/www.ndbc.noaa.gov/2023-05-06/18-25-26/panel_1.jpg
 .jpg
 .csv
 cropped_panel_2_White.png
+BuoyEyeShots/
+cropped_panel_0.png
+cropped_panel_1.png
+cropped_panel_2.png
+cropped_panel_3.png
+cropped_panel_4.png
+cropped_panel_5.png
+balanced_training_data/46005_storm_20230520_134025.png
+*.png

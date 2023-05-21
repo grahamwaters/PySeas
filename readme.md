@@ -7,6 +7,8 @@
 <div align="center">
 <h1>
 
+<!-- add temp_2 image -->
+![temp_2](clouds_41009_2023-05-20_14-51-32.jpg)
 
 <h1 style= "color:blue; font-size: 50px; text-align: center;">
 PySeas
@@ -29,6 +31,76 @@ The world's oceans are an untapped wealth of information that we are only barely
 # Using PySeas as a enVita Artist Agent
 Our first application of this project is to create art with the images from these buoys, and use them to generate a tapestry of the beautiful oceans.
 
+Previously, our code was written as shown below, as an outline for a class structure. We will keep the class structure, but we will be using a different approach to the project.
+
+```python
+class BuoyImage:
+    def __init__(self, location, weather_conditions, image_data):
+        self.location = location
+        self.weather_conditions = weather_conditions
+        self.image_data = image_data
+
+    def get_images(self):
+        # Retrieve the images from the NOAA API
+        pass
+
+    def stitch_images(self):
+        # Stitch the images together
+        pass
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+# Create a GAN to generate images
+class GAN:
+    def __init__(self, image_data):
+        self.image_data = image_data
+
+    def generate_images(self):
+        # Generate images using a GAN
+        pass
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+class PanoramicImage:
+    def __init__(self, stitched_image_data, horizon_line, time_lapse_data):
+        self.stitched_image_data = stitched_image_data
+        self.horizon_line = horizon_line
+        self.time_lapse_data = time_lapse_data
+
+    def blend_images(self):
+        # Blend the images over time
+        pass
+
+    def detect_horizon(self):
+        # Detect the horizon line
+        pass
+
+    def create_time_lapse(self):
+        # Create a time-lapse animation
+        pass
+
+class Website:
+    def __init__(self, layout, content):
+        self.layout = layout
+        self.content = content
+
+    def generate_html(self):
+        # Generate the HTML for the website
+        pass
+
+    def generate_css(self):
+        # Generate the CSS for the website
+        pass
+
+    def generate_javascript(self):
+        # Generate the JavaScript for the website
+        pass
+```
+
 ## Phase One: Sunrise over the Sea
 
 Create sunsets over the sea using the images from the NOAA API.
@@ -40,60 +112,11 @@ Find images of storms and hurricanes, and create a time-lapse of the storm.
 
 
 
-## The Functions of PySeas
-
-1. get_image_size(img): This function accepts an image and returns its width and height.
-
-2. mse_between_arrays(arr1, arr2): This function calculates the mean squared error (MSE) between two arrays (arr1 and arr2) and returns the result.
-
-3. crop_the_bottom_off(images): This function accepts one or multiple images and crops 20 pixels off the bottom of each image.
-
-4. download_image(image_url): This function downloads an image from the specified URL and checks if it's too white. If the image is too white, it's considered a failing image and is recorded in a CSV file. The function returns the image if it's not too white.
-
-5. resize_image_to_standard_height(image, target_height): This function resizes the input image to the target height while maintaining its aspect ratio.
-
-6. split_image_into_panels(resized_image, num_panels): This function takes a resized image and the number of panels to split it into. It returns a list of panels.
-
-7. check_unusual_panels(panels, mse_threshold): This function accepts a list of panels and an MSE threshold value. It checks if any of the panels have an MSE value greater than the threshold and returns a tuple containing a list of unusual panels and a list of rich-color panels.
-
-8. detect_horizon_line(img): This function detects the horizon line of an image and returns the angle of the detected line.
-
-9. align_horizon_line(img): This function aligns the input image by rotating it to correct the tilt angle of the horizon line.
-
-10. stitch_aligned_images(aligned_images): This function stitches a list of aligned images into a single panoramic image.
-
-# These functions work together in the following ways:
-
-An image is downloaded using the download_image() function.
-The image is resized to a standard height using resize_image_to_standard_height().
-The resized image is split into panels using split_image_into_panels().
-Unusual panels are checked using the check_unusual_panels() function.
-If there are unusual panels, the horizon line is detected and aligned for each panel using detect_horizon_line() and align_horizon_line(), respectively.
-The aligned images are stitched together into a panoramic image using stitch_aligned_images().
-
-
-
-
-
-
-
 # License
 PySeas is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 # Contributing
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Acknowledgements
 

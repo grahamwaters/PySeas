@@ -1,132 +1,30 @@
-# PySeas
+# Project Title
+## Project Description
 
+When structuring a repository, it's important to keep in mind the principles of clarity, organization, and scalability. Here's a suggested structure for the PySeas repository:
 
-![main](images/PySeasMain.png)
+1. **src**: This directory would contain all the source code for the project. It could be further divided into subdirectories based on functionality, such as `data_processing`, `image_generation`, `model_training`, etc.
 
+2. **tests**: This directory would contain all the unit tests for the project. It's a good practice to mirror the structure of the `src` directory in `tests` so it's clear which tests correspond to which source files.
 
-<div align="center">
-<h1>
+3. **models**: This directory would contain the trained machine learning models used in the project.
 
-<!-- add temp_2 image -->
-![temp_2](clouds_41009_2023-05-20_14-51-32.jpg)
+4. **data**: This directory would contain the data used in the project. It could be further divided into `raw_data` and `processed_data`.
 
+5. **docs**: This directory would contain all the documentation for the project, including a detailed README, contribution guidelines, and API documentation.
 
-![temp_2](images/joined_image.png)
-<h1 style= "color:blue; font-size: 50px; text-align: center;">
-PySeas
+6. **notebooks**: This directory would contain Jupyter notebooks used for development, testing, and demonstration purposes.
 
-</h1>
-<p align="center">
-  <!-- Typing SVG by DenverCoder1 - https://github.com/DenverCoder1/readme-typing-svg -->
-  <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.demolab.com/?lines=watch+12+at+2210;sunset+for+32+is+2010;Looking+at+Buoy+42001;sunset+for+20+is+2110;sunset+for+12+is+2210;sunset+for+13+is+2110;sunset+for+27+is+2110;sunset+for+3+is+2210;sunset+for+48+is+1610;watch+15+at+2110;sunset+for+7+is+2210;sunset+for+53+is+1510;sunset+for+8+is+2210;Looking+at+Buoy+42040;Looking+at+Buoy+46066;sunset+for+12+is+2210;watch+12+at+2210;Looking+at+Buoy+45003;watch+3+at+2210;sunset+for+20+is+2110;Looking+at+Buoy+41001;sunset+for+0+is+2310;watch+6+at+2210;watch+23+at+2110;sunset+for+37+is+1910;watch+18+at+2110;Looking+at+Buoy+46047;watch+10+at+2210;Looking+at+Buoy+42002;Looking+at+Buoy+42001;sunset+for+50+is+1610;sunset+for+37+is+1910;Looking+at+Buoy+42012;watch+5+at+2210;sunset+for+59+is+1510;watch+44+at+1610;watch+36+at+1910;sunset+for+56+is+1510;Looking+at+Buoy+46085;Looking+at+Buoy+51000;Looking+at+Buoy+46002;sunset+for+42+is+1710;sunset+for+2+is+2210;watch+17+at+2110;sunset+for+37+is+1910;sunset+for+24+is+2110;sunset+for+42+is+1710;watch+9+at+2210;sunset+for+32+is+2010;sunset+for+12+is+2210;watch+9+at+2210;watch+4+at+2210;Looking+at+Buoy+41008;watch+25+at+2110;sunset+for+20+is+2110;Looking+at+Buoy+44027;sunset+for+35+is+1910;sunset+for+40+is+1710;Looking+at+Buoy+46072;watch+58+at+1510;Looking+at+Buoy+46089;Looking+at+Buoy+46072;Looking+at+Buoy+51000;sunset+for+9+is+2210;watch+13+at+2110;Looking+at+Buoy+45003;sunset+for+38+is+1810;sunset+for+41+is+1710;sunset+for+54+is+1510;sunset+for+49+is+1610;Looking+at+Buoy+44007;watch+33+at+2010;Looking+at+Buoy+42060;sunset+for+47+is+1610;sunset+for+24+is+2110;sunset+for+12+is+2210;Looking+at+Buoy+51101;watch+27+at+2110;watch+18+at+2110;Looking+at+Buoy+46072;Looking+at+Buoy+41049;Looking+at+Buoy+51001;sunset+for+44+is+1610;Looking+at+Buoy+42002;sunset+for+13+is+2110;sunset+for+33+is+2010;watch+53+at+1510;Looking+at+Buoy+51002;sunset+for+35+is+1910;watch+29+at+2010;sunset+for+37+is+1910;sunset+for+36+is+1910;sunset+for+51+is+1510;Looking+at+Buoy+46066;Looking+at+Buoy+46059;sunset+for+29+is+2010;watch+17+at+2110;watch+31+at+2010;Looking+at+Buoy+46071;sunset+for+31+is+2010;The+optimal+time+for+sunset+at+buoy+31+is+2010;The+optimal+time+for+sunset+at+buoy+44+is+1610;Looking+at+Buoy+41046;&font=menlo%20Code&center=true&width=440&height=45&color=FFD43B&vCenter=true&size=22&pause=1500" /></a>
-</p>
+7. **scripts**: This directory would contain utility scripts, such as those for data collection, model training, or deployment.
 
-</div>
+8. **assets**: This directory would contain any static assets used in the project, such as images or fonts.
 
-<div align="center">
-<h1>
-PySeas Purpose
-</h1>
-</div>
-The world's oceans are an untapped wealth of information that we are only barely beginning to understand. More of the ocean has been untouched by man than any other place on earth.
+9. **.github**: This directory would contain GitHub-specific files, such as issue templates, pull request templates, and GitHub Actions workflows for CI/CD.
 
-# Using PySeas as a enVita Artist Agent
-Our first application of this project is to create art with the images from these buoys, and use them to generate a tapestry of the beautiful oceans.
+10. **Dockerfile** and **docker-compose.yml**: These files would define the Docker configuration for the project.
 
-Previously, our code was written as shown below, as an outline for a class structure. We will keep the class structure, but we will be using a different approach to the project.
+11. **requirements.txt** or **environment.yml**: These files would list the project's dependencies.
 
-```python
-class BuoyImage:
-    def __init__(self, location, weather_conditions, image_data):
-        self.location = location
-        self.weather_conditions = weather_conditions
-        self.image_data = image_data
+12. **.gitignore**: This file would list files and directories that should not be tracked by Git.
 
-    def get_images(self):
-        # Retrieve the images from the NOAA API
-        pass
-
-    def stitch_images(self):
-        # Stitch the images together
-        pass
-
-    def blend_images(self):
-        # Blend the images over time
-        pass
-
-# Create a GAN to generate images
-class GAN:
-    def __init__(self, image_data):
-        self.image_data = image_data
-
-    def generate_images(self):
-        # Generate images using a GAN
-        pass
-
-    def blend_images(self):
-        # Blend the images over time
-        pass
-
-class PanoramicImage:
-    def __init__(self, stitched_image_data, horizon_line, time_lapse_data):
-        self.stitched_image_data = stitched_image_data
-        self.horizon_line = horizon_line
-        self.time_lapse_data = time_lapse_data
-
-    def blend_images(self):
-        # Blend the images over time
-        pass
-
-    def detect_horizon(self):
-        # Detect the horizon line
-        pass
-
-    def create_time_lapse(self):
-        # Create a time-lapse animation
-        pass
-
-class Website:
-    def __init__(self, layout, content):
-        self.layout = layout
-        self.content = content
-
-    def generate_html(self):
-        # Generate the HTML for the website
-        pass
-
-    def generate_css(self):
-        # Generate the CSS for the website
-        pass
-
-    def generate_javascript(self):
-        # Generate the JavaScript for the website
-        pass
-```
-
-## Phase One: Sunrise over the Sea
-
-Create sunsets over the sea using the images from the NOAA API.
-
-
-## Phase Two: The Raging of the Storm
-
-Find images of storms and hurricanes, and create a time-lapse of the storm.
-
-
-
-# License
-PySeas is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
-
-# Contributing
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
-
-# Acknowledgements
-
-
-# The Sunset Tapestry
-
-<div align="center">
-
-![The Tapestry of the Ocean's Life](images/master_stitch.png)
-
-</div>
+This structure separates different aspects of the project into their own dedicated directories, making it easier for contributors to find what they're looking for. It also scales well as the project grows and more files are added.

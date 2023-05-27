@@ -1,0 +1,5 @@
+2023-05-22 11:07:11,918 No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2023-05-22 11:07:28,568 No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2023-05-22 11:07:44,480 No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2023-05-22 11:07:52,952 No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2023-05-22 11:07:54,174 ERROR: BuoyEyeShots/46084_BuoyEye.png does not exist

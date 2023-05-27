@@ -78,6 +78,67 @@ def refine_list(buoy_urls, skip_buoy_list):
     buoys = list(dict.fromkeys(buoys))
     return buoys
 
+def create_cover_image():
+    # from PIL import Image
+
+    # List of image filenames
+    # the images are in the BuoyEye folder
+
+    image_filenames = [
+        "41002_BuoyEye.png", "41009_BuoyEye.png", "41040_BuoyEye.png", "41044_BuoyEye.png", "41046_BuoyEye.png",
+        "41049_BuoyEye.png", "42001_BuoyEye.png", "42002_BuoyEye.png", "42040_BuoyEye.png", "42059_BuoyEye.png",
+        "42060_BuoyEye.png", "44066_BuoyEye.png", "45005_BuoyEye.png", "45006_BuoyEye.png", "45007_BuoyEye.png",
+        "46005_BuoyEye.png", "46006_BuoyEye.png", "46011_BuoyEye.png", "46014_BuoyEye.png", "46025_BuoyEye.png",
+        "46027_BuoyEye.png", "46028_BuoyEye.png", "46041_BuoyEye.png", "46042_BuoyEye.png", "46047_BuoyEye.png",
+        "46050_BuoyEye.png", "46053_BuoyEye.png", "46054_BuoyEye.png", "46059_BuoyEye.png", "46069_BuoyEye.png",
+        "46072_BuoyEye.png", "46075_BuoyEye.png", "46076_BuoyEye.png", "46078_BuoyEye.png", "46084_BuoyEye.png",
+        "46087_BuoyEye.png", "46088_BuoyEye.png", "46089_BuoyEye.png", "51000_BuoyEye.png", "51001_BuoyEye.png",
+        "51002_BuoyEye.png", "51003_BuoyEye.png", "51004_BuoyEye.png"
+    ]
+    # for image in image_filenames:
+    #     image_path = os.path.join('BuoyEye', image)
+    #     if not os.path.exists(image_path):
+    #         print(Fore.RED + f"ERROR: {image_path} does not exist")
+    #         logging.error(f"ERROR: {image_path} does not exist")
+    #         exit()
+    image_filenames = [os.path.join('BuoyEyeShots', image) for image in image_filenames]
+
+    # Canvas dimensions
+    canvas_width = 3
+    canvas_height = 14
+
+    # Size of each cell in the canvas
+    cell_width = 300
+    # get the height of the image
+    image = Image.open(image_filenames[0])
+    cell_height = image.height * cell_width // image.width
+
+
+    # Create a blank canvas
+    canvas = Image.new('RGB', (canvas_width * cell_width, canvas_height * cell_height))
+
+    # Iterate over the images and paste them onto the canvas
+    for i, filename in enumerate(image_filenames[:canvas_width * canvas_height]):
+        # Open the image
+        try:
+            image = Image.open(filename)
+        except FileNotFoundError:
+            print(Fore.RED + f"ERROR: {filename} does not exist")
+            logging.error(f"ERROR: {filename} does not exist")
+        # Calculate the coordinates to paste the image on the canvas
+        x = (i % canvas_width) * cell_width
+        y = (i // canvas_width) * cell_height
+
+        # Resize the image to fit the cell size
+        image = image.resize((cell_width, cell_height))
+
+        # Paste the image onto the canvas
+        canvas.paste(image, (x, y))
+
+    # Save the final image
+    canvas.save('images/joined_image.png')
+
+
 # create a file that will store the list of buoys that are not working so we don't have to check them again
 # if the file doesn't exist, then create it
 if not os.path.exists('skip_buoy_list.txt'):
@@ -428,7 +489,7 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
 
                     panel = panel.convert('RGB')
 
-                panel.save(f"enhanced/{url.split('/')[-2]}_{timestamp}_6x.jpg")
+                panel.save(f"enhanced/{url.split('/')[-2]}_{timestamp}_6x.png")
 
             panel_set = panels
 
@@ -438,11 +499,11 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
             if not only_save_originals:
                 for ii, pan in enumerate(panel_set):
                     pan = pan.resize((pan.width * upscalefactor, pan.height * upscalefactor), Image.BICUBIC)
-                    pan.save(os.path.join(folder_name, f"{ii}_[{c}]_{timestamp}.jpg"))
+                    pan.save(os.path.join(folder_name, f"{ii}_[{c}]_{timestamp}.png"))
 
             image = image.resize((image.width * 4, image.height * 4), Image.BICUBIC)
 
-            filename = f"{url.split('/')[-2]}_{timestamp}.jpg"
+            filename = f"{url.split('/')[-2]}_{timestamp}.png"
             filename = filename.replace(" ", "_")
 
             ext_filename = os.path.join(folder_name, filename).replace('/',"_")
@@ -472,8 +533,8 @@ def run_analysis_loop():
     buoy_urls = [x for x in buoy_urls if x not in skip_buoy_list]
 
     while True:
+        create_cover_image()
         analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=True, only_save_originals=False, white_mode=False)
-
         print('Waiting 10 minutes')
         time.sleep(600)
 

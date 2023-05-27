@@ -233,7 +233,7 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
         response = requests.get(url)
         if response.status_code != 200:
             print(f'Error downloading {url}')
-            with open('scripts/failing_buoys.csv', 'a') as f:
+            with open('src/failing_buoys.csv', 'a') as f:
                 f.write(f'{url}\n')
                 f.write(f'https://www.ndbc.noaa.gov/buoycam.php?station={url.split("/")[-1].split("=")[-1]}\n')
             continue
@@ -310,7 +310,7 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
                         buoy_urls.remove(buoy_id)
                     except ValueError:
                         print(f"ValueError({buoy_id} not in list')")
-                    with open('scripts/failing_buoys.csv', 'a') as f:
+                    with open('src/failing_buoys.csv', 'a') as f:
                         f.write(f'{buoy_id}\n')
                         f.write(f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}\n')
 
@@ -332,7 +332,7 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
 
                 buoy_id = url.split('/')[-1].split('=')[-1]
 
-                with open('scripts/failing_buoys.csv', 'a') as f:
+                with open('src/failing_buoys.csv', 'a') as f:
                     f.write(f'{buoy_id}\n')
                     f.write(f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}\n')
 
@@ -366,7 +366,7 @@ def analyze_buoys(model, white_model, buoy_urls, save_confidence_plots=False, on
 
                 buoy_id = url.split('/')[-1].split('=')[-1]
 
-                with open('scripts/failing_buoys.csv', 'a') as f:
+                with open('src/failing_buoys.csv', 'a') as f:
                     f.write(f'{buoy_id}\n')
                     f.write(f'https://www.ndbc.noaa.gov/buoycam.php?station={buoy_id}\n')
 
@@ -433,8 +433,8 @@ def run_analysis_loop():
     :doc-author: Trelent
     """
 
-    first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
-    buoy_urls = pd.read_csv("scripts/working_buoys.csv")["station_id"].tolist()
+    first_buoys = pd.read_csv("src/manual_buoys.csv")["station_id"].tolist()
+    buoy_urls = pd.read_csv("src/working_buoys.csv")["station_id"].tolist()
     buoy_urls = list(dict.fromkeys(first_buoys + buoy_urls))
 
     with open('skip_buoy_list.txt', 'r') as f:
@@ -515,12 +515,12 @@ def main():
     :doc-author: Trelent
     """
 
-    first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
+    first_buoys = pd.read_csv("src/manual_buoys.csv")["station_id"].tolist()
 
     skip_buoy_list = []
 
-    first_buoys = pd.read_csv("scripts/manual_buoys.csv")["station_id"].tolist()
-    buoy_urls = pd.read_csv("scripts/working_buoys.csv")["station_id"].tolist()
+    first_buoys = pd.read_csv("src/manual_buoys.csv")["station_id"].tolist()
+    buoy_urls = pd.read_csv("src/working_buoys.csv")["station_id"].tolist()
     buoy_urls = first_buoys + buoy_urls
 
     buoy_urls = list(dict.fromkeys(buoy_urls))

@@ -110,6 +110,27 @@ Create sunsets over the sea using the images from the NOAA API.
 
 Find images of storms and hurricanes, and create a time-lapse of the storm.
 
+# PySeas
+
+PySeas is a Python project aimed at analyzing buoy data. The project is structured into several directories, each serving a specific purpose in the data analysis pipeline.
+
+# Directories
+
+src: This directory contains the main scripts of the project. It includes phase_one.py and phase_two.py, which perform initial data loading, cleaning, and visualization.
+
+notebooks: This directory contains Jupyter notebooks that demonstrate the usage of the project modules. For example, PyBuoy.ipynb shows how to use the PyBuoy module to fetch and analyze buoy data.
+
+utils: This directory typically contains utility scripts used across the project. These can include data processing functions, helper functions, and other reusable code snippets.
+
+# How to Run the Program
+
+* Clone the repository to your local machine.
+* Navigate to the project directory.
+* Install the required dependencies listed in the requirements.txt file. You can do this by running pip install -r requirements.txt in your terminal.
+* Run the scripts in the src directory. For example, you can run python src/phase_one.py to execute the first phase of the data analysis pipeline.
+
+
+
 
 
 # License

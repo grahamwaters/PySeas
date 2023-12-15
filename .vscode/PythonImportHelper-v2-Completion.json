@@ -1,5 +1,128 @@
 [
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
         "label": "sys,",
         "kind": 6,
         "isExtraImport": true,
@@ -18,15 +141,6 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
         "label": "sample",
         "kind": 6,
         "isExtraImport": true,
@@ -42,6 +156,115 @@
         "importPath": "unittest",
         "description": "unittest",
         "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "pytz",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytz",
+        "description": "pytz",
+        "detail": "pytz",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "keras",
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "isExtraImport": true,
+        "detail": "tensorflow",
         "documentation": {}
     },
     {
@@ -71,15 +294,6 @@
         "documentation": {}
     },
     {
-        "label": "requests",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
-        "documentation": {}
-    },
-    {
         "label": "re",
         "kind": 6,
         "isExtraImport": true,
@@ -98,55 +312,6 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
-        "isExtraImport": true,
-        "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
-        "isExtraImport": true,
-        "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
-        "isExtraImport": true,
-        "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
-        "isExtraImport": true,
-        "detail": "bs4",
-        "documentation": {}
-    },
-    {
-        "label": "BeautifulSoup",
-        "importPath": "bs4",
-        "description": "bs4",
-        "isExtraImport": true,
-        "detail": "bs4",
-        "documentation": {}
-    },
-    {
         "label": "tqdm",
         "importPath": "tqdm",
         "description": "tqdm",
@@ -176,15 +341,6 @@
         "description": "tqdm",
         "isExtraImport": true,
         "detail": "tqdm",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
         "documentation": {}
     },
     {
@@ -264,70 +420,12 @@
         "documentation": {}
     },
     {
-        "label": "Image",
-        "importPath": "PIL",
-        "description": "PIL",
-        "isExtraImport": true,
-        "detail": "PIL",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "importPath": "PIL",
-        "description": "PIL",
-        "isExtraImport": true,
-        "detail": "PIL",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "importPath": "PIL",
-        "description": "PIL",
-        "isExtraImport": true,
-        "detail": "PIL",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "importPath": "PIL",
-        "description": "PIL",
-        "isExtraImport": true,
-        "detail": "PIL",
-        "documentation": {}
-    },
-    {
-        "label": "Image",
-        "importPath": "PIL",
-        "description": "PIL",
-        "isExtraImport": true,
-        "detail": "PIL",
-        "documentation": {}
-    },
-    {
         "label": "math",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "math",
         "description": "math",
         "detail": "math",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "datetime",
-        "description": "datetime",
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "io",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "io",
-        "description": "io",
-        "detail": "io",
         "documentation": {}
     },
     {
@@ -386,23 +484,6 @@
         "importPath": "matplotlib.pyplot",
         "description": "matplotlib.pyplot",
         "detail": "matplotlib.pyplot",
-        "documentation": {}
-    },
-    {
-        "label": "tensorflow",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "tensorflow",
-        "description": "tensorflow",
-        "detail": "tensorflow",
-        "documentation": {}
-    },
-    {
-        "label": "keras",
-        "importPath": "tensorflow",
-        "description": "tensorflow",
-        "isExtraImport": true,
-        "detail": "tensorflow",
         "documentation": {}
     },
     {
@@ -657,6 +738,42 @@
         "importPath": "pickle",
         "description": "pickle",
         "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "get_buoy_list",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app",
+        "description": "Pyseas_revived.app",
+        "peekOfCode": "def get_buoy_list():\n    # Add your list of buoy IDs here\n    buoy_ids = ['41001', '41002', '41003', '41004']\n    return buoy_ids\ndef get_buoy_images(buoy_ids):\n    image_urls = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id\n        response = requests.get(url)",
+        "detail": "Pyseas_revived.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_buoy_images",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app",
+        "description": "Pyseas_revived.app",
+        "peekOfCode": "def get_buoy_images(buoy_ids):\n    image_urls = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id\n        response = requests.get(url)\n        soup = BeautifulSoup(response.content, 'html.parser')\n        img_tag = soup.find('img', {\"id\": \"latest_img\"})\n        if img_tag:\n            image_url = img_tag['src']",
+        "detail": "Pyseas_revived.app",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app",
+        "description": "Pyseas_revived.app",
+        "peekOfCode": "def index():\n    buoy_ids = get_buoy_list()\n    image_urls = get_buoy_images(buoy_ids)\n    return render_template('index.html', image_urls=image_urls)\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "detail": "Pyseas_revived.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "Pyseas_revived.app",
+        "description": "Pyseas_revived.app",
+        "peekOfCode": "app = Flask(__name__)\ndef get_buoy_list():\n    # Add your list of buoy IDs here\n    buoy_ids = ['41001', '41002', '41003', '41004']\n    return buoy_ids\ndef get_buoy_images(buoy_ids):\n    image_urls = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id",
+        "detail": "Pyseas_revived.app",
         "documentation": {}
     },
     {
@@ -1197,6 +1314,213 @@
         "description": "tests.test_basic",
         "peekOfCode": "class BasicTestSuite(unittest.TestCase):\n    \"\"\"Basic test cases.\"\"\"\n    def test_absolute_truth_and_meaning(self):\n        assert True\nif __name__ == '__main__':\n    unittest.main()",
         "detail": "tests.test_basic",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "def index():\n    if request.method == 'POST':\n        buoy_id = request.form['buoy_id']\n        webcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\n        response = requests.get(webcam_url)\n        # get the current time and check if it's after sunset\n        date = datetime.datetime.now(pytz.timezone('US/Pacific'))\n        url = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\n        response = requests.get(url)\n        sunset_time_str = response.json()['results']['sunset']",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "buoy_id",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "buoy_id = '46219' # example buoy ID\nurl = f'https://www.ndbc.noaa.gov/data/stations/station_history_{buoy_id}.txt'\nresponse = requests.get(url)\nlines = response.content.decode().split('\\n')\nlat, lon = [float(line.split()[-1]) for line in lines if 'Lat' in line or 'Lon' in line]\n# Step 2: Use sunrise-sunset.org to calculate sunset time\ndate = datetime.datetime.now(pytz.timezone('US/Pacific'))\nurl = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\nresponse = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "url = f'https://www.ndbc.noaa.gov/data/stations/station_history_{buoy_id}.txt'\nresponse = requests.get(url)\nlines = response.content.decode().split('\\n')\nlat, lon = [float(line.split()[-1]) for line in lines if 'Lat' in line or 'Lon' in line]\n# Step 2: Use sunrise-sunset.org to calculate sunset time\ndate = datetime.datetime.now(pytz.timezone('US/Pacific'))\nurl = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\nresponse = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "response = requests.get(url)\nlines = response.content.decode().split('\\n')\nlat, lon = [float(line.split()[-1]) for line in lines if 'Lat' in line or 'Lon' in line]\n# Step 2: Use sunrise-sunset.org to calculate sunset time\ndate = datetime.datetime.now(pytz.timezone('US/Pacific'))\nurl = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\nresponse = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "lines",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "lines = response.content.decode().split('\\n')\nlat, lon = [float(line.split()[-1]) for line in lines if 'Lat' in line or 'Lon' in line]\n# Step 2: Use sunrise-sunset.org to calculate sunset time\ndate = datetime.datetime.now(pytz.timezone('US/Pacific'))\nurl = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\nresponse = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time\nwebcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "date = datetime.datetime.now(pytz.timezone('US/Pacific'))\nurl = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\nresponse = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time\nwebcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\nresponse = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "url = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'\nresponse = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time\nwebcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\nresponse = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "response = requests.get(url)\nsunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time\nwebcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\nresponse = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "sunset_time_str",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "sunset_time_str = response.json()['results']['sunset']\nsunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time\nwebcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\nresponse = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "sunset_time",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "sunset_time = datetime.datetime.strptime(sunset_time_str, '%I:%M:%S %p').time()\n# Step 3: Download the image at sunset time\nwebcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\nresponse = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "webcam_url",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "webcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\nresponse = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images\n# example code using VGG16 architecture\nbase_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "response = requests.get(webcam_url)\nimg = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images\n# example code using VGG16 architecture\nbase_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))\nx = tf.keras.layers.Flatten()(base_model.output)",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "img = Image.open(BytesIO(response.content))\n# Step 4: Preprocess the image data\nimg = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images\n# example code using VGG16 architecture\nbase_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))\nx = tf.keras.layers.Flatten()(base_model.output)\nx = tf.keras.layers.Dense(256, activation='relu')(x)",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "img",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "img = img.resize((224, 224)) # example size for VGG16\nimg_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images\n# example code using VGG16 architecture\nbase_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))\nx = tf.keras.layers.Flatten()(base_model.output)\nx = tf.keras.layers.Dense(256, activation='relu')(x)\nx = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "img_arr",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "img_arr = np.array(img.convert('RGB'))\nimg_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images\n# example code using VGG16 architecture\nbase_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))\nx = tf.keras.layers.Flatten()(base_model.output)\nx = tf.keras.layers.Dense(256, activation='relu')(x)\nx = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "img_arr",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "img_arr = img_arr / 255.0 # normalize pixel values\n# Step 5: Train a model to classify sunset images\n# example code using VGG16 architecture\nbase_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))\nx = tf.keras.layers.Flatten()(base_model.output)\nx = tf.keras.layers.Dense(256, activation='relu')(x)\nx = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "base_model",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "base_model = tf.keras.applications.VGG16(include_top=False, input_shape=(224, 224, 3))\nx = tf.keras.layers.Flatten()(base_model.output)\nx = tf.keras.layers.Dense(256, activation='relu')(x)\nx = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n# ... train the model on a dataset of sunset and non-sunset images ...\n# Step 6: Use Flask to create a web app\nfrom flask import Flask, request, render_template",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "x = tf.keras.layers.Flatten()(base_model.output)\nx = tf.keras.layers.Dense(256, activation='relu')(x)\nx = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n# ... train the model on a dataset of sunset and non-sunset images ...\n# Step 6: Use Flask to create a web app\nfrom flask import Flask, request, render_template\napp = Flask(__name__)",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "x = tf.keras.layers.Dense(256, activation='relu')(x)\nx = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n# ... train the model on a dataset of sunset and non-sunset images ...\n# Step 6: Use Flask to create a web app\nfrom flask import Flask, request, render_template\napp = Flask(__name__)\n@app.route('/', methods=['GET', 'POST'])",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "x",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "x = tf.keras.layers.Dropout(0.5)(x)\noutput = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n# ... train the model on a dataset of sunset and non-sunset images ...\n# Step 6: Use Flask to create a web app\nfrom flask import Flask, request, render_template\napp = Flask(__name__)\n@app.route('/', methods=['GET', 'POST'])\ndef index():",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "output",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "output = tf.keras.layers.Dense(1, activation='sigmoid')(x)\nmodel = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n# ... train the model on a dataset of sunset and non-sunset images ...\n# Step 6: Use Flask to create a web app\nfrom flask import Flask, request, render_template\napp = Flask(__name__)\n@app.route('/', methods=['GET', 'POST'])\ndef index():\n    if request.method == 'POST':",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "model = tf.keras.models.Model(inputs=base_model.input, outputs=output)\nmodel.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])\n# ... train the model on a dataset of sunset and non-sunset images ...\n# Step 6: Use Flask to create a web app\nfrom flask import Flask, request, render_template\napp = Flask(__name__)\n@app.route('/', methods=['GET', 'POST'])\ndef index():\n    if request.method == 'POST':\n        buoy_id = request.form['buoy_id']",
+        "detail": "NEW_gpt_powered",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "NEW_gpt_powered",
+        "description": "NEW_gpt_powered",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/', methods=['GET', 'POST'])\ndef index():\n    if request.method == 'POST':\n        buoy_id = request.form['buoy_id']\n        webcam_url = f'https://www.ndbc.noaa.gov/images/buoycam/{buoy_id}.jpg'\n        response = requests.get(webcam_url)\n        # get the current time and check if it's after sunset\n        date = datetime.datetime.now(pytz.timezone('US/Pacific'))\n        url = f'https://api.sunrise-sunset.org/json?lat={lat}&lng={lon}&date={date.strftime(\"%Y-%m-%d\")}'",
+        "detail": "NEW_gpt_powered",
         "documentation": {}
     },
     {

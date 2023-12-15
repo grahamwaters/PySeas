@@ -104,3 +104,4 @@ ENV/
 /images/cv_ml_model_data
 =======
 /images/deleted_images
+.DS_Store

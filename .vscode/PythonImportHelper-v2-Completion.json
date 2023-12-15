@@ -50,6 +50,22 @@
         "documentation": {}
     },
     {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "request",
         "importPath": "flask",
         "description": "flask",
@@ -123,39 +139,19 @@
         "documentation": {}
     },
     {
-        "label": "sys,",
-        "kind": 6,
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
         "isExtraImport": true,
-        "importPath": "sys.",
-        "description": "sys.",
-        "detail": "sys.",
+        "detail": "bs4",
         "documentation": {}
     },
     {
-        "label": "sys",
-        "kind": 6,
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
         "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "sample",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sample",
-        "description": "sample",
-        "detail": "sample",
-        "documentation": {}
-    },
-    {
-        "label": "unittest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "unittest",
-        "description": "unittest",
-        "detail": "unittest",
+        "detail": "PIL",
         "documentation": {}
     },
     {
@@ -224,6 +220,68 @@
         "documentation": {}
     },
     {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "sys,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys.",
+        "description": "sys.",
+        "detail": "sys.",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "sample",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sample",
+        "description": "sample",
+        "detail": "sample",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "kind": 6,
         "isExtraImport": true,
@@ -239,15 +297,6 @@
         "importPath": "pytz",
         "description": "pytz",
         "detail": "pytz",
-        "documentation": {}
-    },
-    {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -374,15 +423,6 @@
         "description": "difPy",
         "isExtraImport": true,
         "detail": "difPy",
-        "documentation": {}
-    },
-    {
-        "label": "cv2",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "cv2",
-        "description": "cv2",
-        "detail": "cv2",
         "documentation": {}
     },
     {
@@ -774,6 +814,51 @@
         "description": "Pyseas_revived.app",
         "peekOfCode": "app = Flask(__name__)\ndef get_buoy_list():\n    # Add your list of buoy IDs here\n    buoy_ids = ['41001', '41002', '41003', '41004']\n    return buoy_ids\ndef get_buoy_images(buoy_ids):\n    image_urls = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id",
         "detail": "Pyseas_revived.app",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_images",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app2",
+        "description": "Pyseas_revived.app2",
+        "peekOfCode": "def stitch_images(image_paths):\n    \"\"\"\n    Stitch images together based on the horizon line.\n    Args:\n        image_paths (list): List of paths to the input images.\n    Returns:\n        numpy.ndarray: Stitched panorama image.\n    \"\"\"\n    # Load the first image\n    first_image = cv2.imread(image_paths[0])",
+        "detail": "Pyseas_revived.app2",
+        "documentation": {}
+    },
+    {
+        "label": "get_buoy_list",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app2",
+        "description": "Pyseas_revived.app2",
+        "peekOfCode": "def get_buoy_list():\n    return ['41001', '41002', '41003', '41004']\ndef get_buoy_images(buoy_ids):\n    image_paths = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id\n        response = requests.get(url)\n        soup = BeautifulSoup(response.content, 'html.parser')\n        img_tag = soup.find('img', {\"id\": \"latest_img\"})",
+        "detail": "Pyseas_revived.app2",
+        "documentation": {}
+    },
+    {
+        "label": "get_buoy_images",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app2",
+        "description": "Pyseas_revived.app2",
+        "peekOfCode": "def get_buoy_images(buoy_ids):\n    image_paths = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id\n        response = requests.get(url)\n        soup = BeautifulSoup(response.content, 'html.parser')\n        img_tag = soup.find('img', {\"id\": \"latest_img\"})\n        if img_tag:\n            image_url = 'http://www.ndbc.noaa.gov' + img_tag['src'] if img_tag['src'].startswith('/') else img_tag['src']",
+        "detail": "Pyseas_revived.app2",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "Pyseas_revived.app2",
+        "description": "Pyseas_revived.app2",
+        "peekOfCode": "def index():\n    all_images = []\n    buoy_ids = get_buoy_list()\n    image_urls = get_buoy_images(buoy_ids)\n    for buoy_id, image_url in image_urls:\n        # Download the image\n        response = requests.get(image_url)\n        if response.status_code == 200:\n            image = Image.open(BytesIO(response.content))\n            all_images.append(image)",
+        "detail": "Pyseas_revived.app2",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "Pyseas_revived.app2",
+        "description": "Pyseas_revived.app2",
+        "peekOfCode": "app = Flask(__name__)\ndef get_buoy_list():\n    return ['41001', '41002', '41003', '41004']\ndef get_buoy_images(buoy_ids):\n    image_paths = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id\n        response = requests.get(url)\n        soup = BeautifulSoup(response.content, 'html.parser')",
+        "detail": "Pyseas_revived.app2",
         "documentation": {}
     },
     {
@@ -2345,6 +2430,150 @@
     {
         "label": "preprocess_image",
         "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def preprocess_image(image):\n    \"\"\"\n    Preprocess an image for the classification model.\n    Args:\n        image: Input image as a numpy array.\n    Returns:\n        numpy.ndarray: Preprocessed image.\n    \"\"\"\n    # Resize the image to the input size of the model (e.g., 224x224)\n    resized_image = cv2.resize(image, (224, 224))",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "determine_if_sunset",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def determine_if_sunset(image):\n    \"\"\"\n    Determine if an image is a sunset image.\n    Args:\n        image: Input image as a numpy array.\n    Returns:\n        bool: True if the image is a sunset image, False otherwise.\n    \"\"\"\n    # Apply image processing techniques to determine if the image is a sunset image\n    # For example, you can use edge detection, color thresholding, etc.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "check_sunset_prediction",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def check_sunset_prediction(prediction):\n    \"\"\"\n    Check if the prediction indicates a sunset.\n    Args:\n        prediction (numpy.ndarray): Prediction vector.\n    Returns:\n        bool: True if the prediction indicates a sunset, False otherwise.\n    \"\"\"\n    # Check if the prediction indicates a sunset\n    # For example, you can check if the prediction is above a certain threshold",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "classify_sunsets",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def classify_sunsets(image_path, model):\n    \"\"\"\n    Classify images and return paths of sunset images.\n    Args:\n        image_path (str): Path to the image file.\n        model: Pre-trained classification model.\n    Returns:\n        bool: True if the image is classified as a sunset, False otherwise.\n    \"\"\"\n    # Load image",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "detect_horizon_line",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def detect_horizon_line(image):\n    \"\"\"\n    Detect the horizon line in an image.\n    Args:\n        image: Input image as a numpy array.\n    Returns:\n        tuple: (x1, y1, x2, y2) coordinates of the detected horizon line.\n    \"\"\"\n    # Apply image processing techniques to find the horizon line\n    # For example, you can use edge detection, Hough transform, etc.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_images",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def stitch_images(image_paths):\n    \"\"\"\n    Stitch images together based on the horizon line.\n    Args:\n        image_paths (list): List of paths to the input images.\n    Returns:\n        numpy.ndarray: Stitched panorama image.\n    \"\"\"\n    # Initialize an empty canvas for the panorama\n    panorama = np.zeros((height, width, 3), dtype=np.uint8)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    # Path to images and model\n    image_directory = \"path/to/image/folder\"\n    model = None  # Load a pre-trained classification model\n    sunset_images = []\n    for image_file in os.listdir(image_directory):\n        image_path = os.path.join(image_directory, image_file)\n        if classify_sunsets(image_path, model):\n            sunset_images.append(image_path)\n    panorama = stitch_images(sunset_images)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_image",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def preprocess_image(image):\n    \"\"\"\n    Preprocess an image for the classification model.\n    Args:\n        image: Input image as a numpy array.\n    Returns:\n        numpy.ndarray: Preprocessed image.\n    \"\"\"\n    # Resize the image to the input size of the model (e.g., 224x224)\n    resized_image = cv2.resize(image, (224, 224))",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "determine_if_sunset",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def determine_if_sunset(image):\n    \"\"\"\n    Determine if an image is a sunset image.\n    Args:\n        image: Input image as a numpy array.\n    Returns:\n        bool: True if the image is a sunset image, False otherwise.\n    \"\"\"\n    # Apply image processing techniques to determine if the image is a sunset image\n    # For example, you can use edge detection, color thresholding, etc.",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "check_sunset_prediction",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def check_sunset_prediction(prediction):\n    \"\"\"\n    Check if the prediction indicates a sunset.\n    Args:\n        prediction (numpy.ndarray): Prediction vector.\n    Returns:\n        bool: True if the prediction indicates a sunset, False otherwise.\n    \"\"\"\n    # Check if the prediction indicates a sunset\n    # For example, you can check if the prediction is above a certain threshold",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "classify_sunsets",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def classify_sunsets(image_path, model):\n    \"\"\"\n    Classify images and return paths of sunset images.\n    Args:\n        image_path (str): Path to the image file.\n        model: Pre-trained classification model.\n    Returns:\n        bool: True if the image is classified as a sunset, False otherwise.\n    \"\"\"\n    # Load image",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "detect_horizon_line",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def detect_horizon_line(image):\n    \"\"\"\n    Detect the horizon line in an image.\n    Args:\n        image: Input image as a numpy array.\n    Returns:\n        tuple: (x1, y1, x2, y2) coordinates of the detected horizon line.\n    \"\"\"\n    # Apply image processing techniques to find the horizon line\n    # For example, you can use edge detection, Hough transform, etc.",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "align_image",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def align_image(image, horizon_line):\n    \"\"\"\n    Align the image based on the detected horizon line.\n    Args:\n        image: Input image as a numpy array.\n        horizon_line: (x1, y1, x2, y2) coordinates of the detected horizon line.\n    Returns:\n        numpy.ndarray: Aligned image.\n    \"\"\"\n    # Implement the image alignment process based on the detected horizon line",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_image",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def stitch_image(panorama, aligned_image):\n    \"\"\"\n    Stitch the aligned image to the panorama.\n    Args:\n        panorama: Panorama image as a numpy array.\n        aligned_image: Aligned image as a numpy array.\n    Returns:\n        numpy.ndarray: Updated panorama image.\n    \"\"\"\n    # Implement the image stitching process to add the aligned image to the panorama",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_images",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def stitch_images(image_paths):\n    \"\"\"\n    Stitch images together based on the horizon line.\n    Args:\n        image_paths (list): List of paths to the input images.\n    Returns:\n        numpy.ndarray: Stitched panorama image.\n    \"\"\"\n    # Initialize an empty canvas for the panorama\n    height, width = 1000, 2000  # Set the desired dimensions of the panorama",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main2",
+        "description": "main2",
+        "peekOfCode": "def main():\n    # Path to images and model\n    image_directory = \"path/to/image/folder\"\n    model = None  # Load a pre-trained classification model\n    sunset_images = []\n    for image_file in os.listdir(image_directory):\n        image_path = os.path.join(image_directory, image_file)\n        if classify_sunsets(image_path, model):\n            sunset_images.append(image_path)\n    panorama = stitch_images(sunset_images)",
+        "detail": "main2",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_image",
+        "kind": 2,
         "importPath": "one",
         "description": "one",
         "peekOfCode": "def preprocess_image(image_path):\n  \"\"\" Loads image from path and preprocesses to make it model ready\n      Args:\n        image_path: Path to the image file\n  \"\"\"\n  hr_image = tf.image.decode_image(tf.io.read_file(image_path))\n  # If PNG, remove the alpha channel. The model only supports\n  # images with 3 color channels.\n  if hr_image.shape[-1] == 4:\n    hr_image = hr_image[...,:-1]",
@@ -2529,6 +2758,24 @@
         "description": "one",
         "peekOfCode": "plt.rcParams['figure.figsize'] = [15, 10]\nfig, axes = plt.subplots(1, 3)\nfig.tight_layout()\nplt.subplot(131)\nplot_image(tf.squeeze(hr_image), title=\"Original\")\nplt.subplot(132)\nfig.tight_layout()\nplot_image(tf.squeeze(lr_image), \"x4 Bicubic\")\nplt.subplot(133)\nfig.tight_layout()",
         "detail": "one",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_noaa_buoycams",
+        "kind": 2,
+        "importPath": "quick_scrape_copilot",
+        "description": "quick_scrape_copilot",
+        "peekOfCode": "def scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image\n    buoycam_url = \"https://www.ndbc.noaa.gov/data/cameras/{buoycam_id}.jpg\"\n    # List of buoycam IDs\n    buoycam_ids = [\"44025\", \"44027\", \"44065\"]  # Replace with the desired buoycam IDs\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)\n    # Scrape images from each buoycam\n    for buoycam_id in buoycam_ids:\n        # Construct the URL for the buoycam image",
+        "detail": "quick_scrape_copilot",
+        "documentation": {}
+    },
+    {
+        "label": "image_directory",
+        "kind": 5,
+        "importPath": "quick_scrape_copilot",
+        "description": "quick_scrape_copilot",
+        "peekOfCode": "image_directory = \"path/to/save/images\"\nscrape_noaa_buoycams(image_directory)",
+        "detail": "quick_scrape_copilot",
         "documentation": {}
     },
     {

@@ -3,6 +3,7 @@ import time
 from flask import Flask, render_template, url_for
 import requests
 from bs4 import BeautifulSoup
+# import app
 
 app = Flask(__name__)
 

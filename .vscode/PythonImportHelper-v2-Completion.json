@@ -246,6 +246,79 @@
         "documentation": {}
     },
     {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
         "label": "sys,",
         "kind": 6,
         "isExtraImport": true,
@@ -358,38 +431,6 @@
         "importPath": "pandas",
         "description": "pandas",
         "detail": "pandas",
-        "documentation": {}
-    },
-    {
-        "label": "tqdm",
-        "importPath": "tqdm",
-        "description": "tqdm",
-        "isExtraImport": true,
-        "detail": "tqdm",
-        "documentation": {}
-    },
-    {
-        "label": "tqdm",
-        "importPath": "tqdm",
-        "description": "tqdm",
-        "isExtraImport": true,
-        "detail": "tqdm",
-        "documentation": {}
-    },
-    {
-        "label": "tqdm",
-        "importPath": "tqdm",
-        "description": "tqdm",
-        "isExtraImport": true,
-        "detail": "tqdm",
-        "documentation": {}
-    },
-    {
-        "label": "tqdm",
-        "importPath": "tqdm",
-        "description": "tqdm",
-        "isExtraImport": true,
-        "detail": "tqdm",
         "documentation": {}
     },
     {
@@ -712,15 +753,6 @@
         "documentation": {}
     },
     {
-        "label": "glob",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "glob",
-        "description": "glob",
-        "detail": "glob",
-        "documentation": {}
-    },
-    {
         "label": "tensorflow_hub",
         "kind": 6,
         "isExtraImport": true,
@@ -859,6 +891,276 @@
         "description": "Pyseas_revived.app2",
         "peekOfCode": "app = Flask(__name__)\ndef get_buoy_list():\n    return ['41001', '41002', '41003', '41004']\ndef get_buoy_images(buoy_ids):\n    image_paths = []\n    base_url = \"http://www.ndbc.noaa.gov/buoycam.php?station=\"\n    for buoy_id in buoy_ids:\n        url = base_url + buoy_id\n        response = requests.get(url)\n        soup = BeautifulSoup(response.content, 'html.parser')",
         "detail": "Pyseas_revived.app2",
+        "documentation": {}
+    },
+    {
+        "label": "is_mostly_black",
+        "kind": 2,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "def is_mostly_black(image, threshold=10):\n    return np.mean(image) < threshold\n# Function to stitch images vertically\ndef stitch_vertical(images):\n    # Determine the width and height for the collage\n    width = max(image.shape[1] for image in images)\n    height = sum(image.shape[0] for image in images)\n    # Create a blank canvas for the collage\n    collage = np.zeros((height, width, 3), dtype=np.uint8)\n    y_offset = 0",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_vertical",
+        "kind": 2,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "def stitch_vertical(images):\n    # Determine the width and height for the collage\n    width = max(image.shape[1] for image in images)\n    height = sum(image.shape[0] for image in images)\n    # Create a blank canvas for the collage\n    collage = np.zeros((height, width, 3), dtype=np.uint8)\n    y_offset = 0\n    for image in tqdm(images):\n        collage[y_offset:y_offset+image.shape[0], :image.shape[1]] = image\n        y_offset += image.shape[0]",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "split_into_panels",
+        "kind": 2,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "def split_into_panels(image, number_of_panels=6):\n    # Split the image into six equal panels vertically (side by side)\n    height, width = image.shape[:2]\n    panel_width = width // number_of_panels\n    panels = [image[:, i*panel_width:(i+1)*panel_width] for i in range(number_of_panels)]\n    return panels\ndef remove_bottom_strip(panel, strip_height=30):\n    # Remove the bottom strip from the panel\n    return panel[:-strip_height]\ndef enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "remove_bottom_strip",
+        "kind": 2,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "def remove_bottom_strip(panel, strip_height=30):\n    # Remove the bottom strip from the panel\n    return panel[:-strip_height]\ndef enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)\n    panel_yuv[:, :, 0] = clahe.apply(panel_yuv[:, :, 0])\n    # Convert back to BGR color space",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "enhance_image",
+        "kind": 2,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "def enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)\n    panel_yuv[:, :, 0] = clahe.apply(panel_yuv[:, :, 0])\n    # Convert back to BGR color space\n    enhanced_panel = cv2.cvtColor(panel_yuv, cv2.COLOR_YUV2BGR)\n    return enhanced_panel\ndef preprocess_and_stitch_panels(image, number_of_panels=6, strip_height=20):",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_and_stitch_panels",
+        "kind": 2,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "def preprocess_and_stitch_panels(image, number_of_panels=6, strip_height=20):\n    # Split the image into panels\n    panels = split_into_panels(image, number_of_panels)\n    # Process each panel\n    processed_panels = []\n    for panel in tqdm(panels):\n        # Remove the bottom strip\n        panel_without_strip = remove_bottom_strip(panel, strip_height)\n        # Enhance the panel\n        # enhanced_panel = enhance_image(panel_without_strip)",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "files",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "files = glob.glob('images/buoys/*/*')\nlatest_images = []  # A new list to hold processed images\nlatest_image_files = []  # A new list to hold filenames of images that pass the filter\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    # Check conditions for orange value and blackness\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Check if the image is too similar to the previous one by comparing filenames",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "latest_images",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "latest_images = []  # A new list to hold processed images\nlatest_image_files = []  # A new list to hold filenames of images that pass the filter\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    # Check conditions for orange value and blackness\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Check if the image is too similar to the previous one by comparing filenames\n    elif len(latest_image_files) > 0 and np.array_equal(image, cv2.imread(latest_image_files[-1])):",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "latest_image_files",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "latest_image_files = []  # A new list to hold filenames of images that pass the filter\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    # Check conditions for orange value and blackness\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Check if the image is too similar to the previous one by comparing filenames\n    elif len(latest_image_files) > 0 and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "collage",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "collage = stitch_vertical(latest_images)\n# Save the collage to disk as a single image with the current timestamp\ntimestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)  # Ensure the directory exists\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Depending on your environment, the cv2.imshow might not work. In such cases, you can remove these lines.\n# Display the collage",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "timestamp",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "timestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)  # Ensure the directory exists\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Depending on your environment, the cv2.imshow might not work. In such cases, you can remove these lines.\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "collage_directory",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "collage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)  # Ensure the directory exists\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Depending on your environment, the cv2.imshow might not work. In such cases, you can remove these lines.\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "filename",
+        "kind": 5,
+        "importPath": "data.dev",
+        "description": "data.dev",
+        "peekOfCode": "filename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Depending on your environment, the cv2.imshow might not work. In such cases, you can remove these lines.\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "data.dev",
+        "documentation": {}
+    },
+    {
+        "label": "is_mostly_black",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def is_mostly_black(image, threshold=10):\n    return np.mean(image) < threshold\n# Function to stitch images horizontally\ndef stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\n# Function to stitch images vertically\ndef stitch_vertical(rows):",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_panels_horizontally",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\n# Function to stitch images vertically\ndef stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_vertical",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels\n    rows_resized = []\n    for row in rows:\n        if row.shape[1] < max_width:\n            padding = np.zeros((row.shape[0], max_width - row.shape[1], 3), dtype=np.uint8)\n            row_resized = np.concatenate((row, padding), axis=1)\n        else:",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "split_into_panels",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def split_into_panels(image, number_of_panels=6):\n    # Split the image into six equal vertical panels (side by side)\n    width = image.shape[1]\n    panel_width = width // number_of_panels\n    panels = [image[:, i*panel_width:(i+1)*panel_width] for i in range(number_of_panels)]\n    # Ensure last panel takes any remaining pixels to account for rounding\n    panels[-1] = image[:, (number_of_panels-1)*panel_width:]\n    return panels\n# Remove the bottom strip from each panel\ndef remove_bottom_strip(panel, strip_height=20):",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "remove_bottom_strip",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def remove_bottom_strip(panel, strip_height=20):\n    # Assume the strip to be removed is at the bottom of the image\n    return panel[:-strip_height, :]\n# Enhance the image\ndef enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Apply any enhancements to the panel, like histogram equalization, etc.\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "enhance_image",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Apply any enhancements to the panel, like histogram equalization, etc.\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)\n    panel_yuv[:, :, 0] = clahe.apply(panel_yuv[:, :, 0])\n    # Convert back to BGR color space\n    enhanced_panel = cv2.cvtColor(panel_yuv, cv2.COLOR_YUV2BGR)\n    return enhanced_panel",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_and_stitch_panels",
+        "kind": 2,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "def preprocess_and_stitch_panels(image, number_of_panels=6, strip_height=35):\n    panels = split_into_panels(image, number_of_panels)\n    processed_panels = [enhance_image(remove_bottom_strip(panel, strip_height)) for panel in panels]\n    return stitch_panels_horizontally(processed_panels)\n# Main processing logic\nfiles = glob.glob('images/buoys/*/*')\nrows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "files",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "files = glob.glob('images/buoys/*/*')\nrows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "rows_to_stitch",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "rows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "latest_image_files",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "latest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue\n    row = preprocess_and_stitch_panels(image)",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "collage",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "collage = stitch_vertical(rows_to_stitch)\n# Save the collage with timestamp\ntimestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "timestamp",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "timestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "collage_directory",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "collage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "filename",
+        "kind": 5,
+        "importPath": "data.dev2",
+        "description": "data.dev2",
+        "peekOfCode": "filename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "data.dev2",
+        "documentation": {}
+    },
+    {
+        "label": "split_into_panels",
+        "kind": 2,
+        "importPath": "data.dev3",
+        "description": "data.dev3",
+        "peekOfCode": "def split_into_panels(image, number_of_panels=6):\n    # Split the image into six equal vertical panels (side by side)\n    width = image.shape[1]\n    panel_width = width // number_of_panels\n    panels = [image[:, i*panel_width:(i+1)*panel_width] for i in range(number_of_panels)]\n    # Ensure last panel takes any remaining pixels to account for rounding\n    panels[-1] = image[:, (number_of_panels-1)*panel_width:]\n    return panels\ndef stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching",
+        "detail": "data.dev3",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_panels_horizontally",
+        "kind": 2,
+        "importPath": "data.dev3",
+        "description": "data.dev3",
+        "peekOfCode": "def stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\ndef stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels\n    rows_resized = []",
+        "detail": "data.dev3",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_vertical",
+        "kind": 2,
+        "importPath": "data.dev3",
+        "description": "data.dev3",
+        "peekOfCode": "def stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels\n    rows_resized = []\n    for row in rows:\n        if row.shape[1] < max_width:\n            padding = np.zeros((row.shape[0], max_width - row.shape[1], 3), dtype=np.uint8)\n            row_resized = np.concatenate((row, padding), axis=1)\n        else:",
+        "detail": "data.dev3",
         "documentation": {}
     },
     {
@@ -2077,6 +2379,321 @@
         "documentation": {}
     },
     {
+        "label": "scrape_noaa_buoycams",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image should be like this https://www.ndbc.noaa.gov/buoycam.php?station=42039\n    buoycam_url = \"https://www.ndbc.noaa.gov/buoycam.php?station={buoycam_id}\"\n    # List of buoycam IDs\n    buoycam_ids = [\"45007\", \"45012\", \"46002\", \"46011\", \"46012\", \"46015\", \"46025\", \"46026\", \"46027\", \"46028\", \"46042\", \"46047\", \"46053\", \"46054\", \"46059\", \"46066\", \"46069\", \"46071\", \"46072\", \"46078\", \"46085\", \"46086\", \"46087\", \"46088\", \"46089\", \"51000\", \"51001\", \"51002\", \"51003\", \"51004\", \"51101\", \"46084\"]\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)\n    # Scrape images from each buoycam\n    for buoycam_id in buoycam_ids:\n        # Construct the URL for the buoycam image",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "is_mostly_black",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def is_mostly_black(image, threshold=10):\n    return np.mean(image) < threshold\n# Function to stitch images horizontally\ndef stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\n# Function to stitch images vertically\ndef stitch_vertical(rows):",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_panels_horizontally",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\n# Function to stitch images vertically\ndef stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_vertical",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels\n    rows_resized = []\n    for row in rows:\n        if row.shape[1] < max_width:\n            padding = np.zeros((row.shape[0], max_width - row.shape[1], 3), dtype=np.uint8)\n            row_resized = np.concatenate((row, padding), axis=1)\n        else:",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "split_into_panels",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def split_into_panels(image, number_of_panels=6):\n    # Split the image into six equal vertical panels (side by side)\n    width = image.shape[1]\n    panel_width = width // number_of_panels\n    panels = [image[:, i*panel_width:(i+1)*panel_width] for i in range(number_of_panels)]\n    # Ensure last panel takes any remaining pixels to account for rounding\n    panels[-1] = image[:, (number_of_panels-1)*panel_width:]\n    return panels\n# Remove the bottom strip from each panel\ndef remove_bottom_strip(panel, strip_height=20):",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "remove_bottom_strip",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def remove_bottom_strip(panel, strip_height=20):\n    # Assume the strip to be removed is at the bottom of the image\n    return panel[:-strip_height, :]\n# Enhance the image\ndef enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Apply any enhancements to the panel, like histogram equalization, etc.\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "enhance_image",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Apply any enhancements to the panel, like histogram equalization, etc.\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)\n    panel_yuv[:, :, 0] = clahe.apply(panel_yuv[:, :, 0])\n    # Convert back to BGR color space\n    enhanced_panel = cv2.cvtColor(panel_yuv, cv2.COLOR_YUV2BGR)\n    return enhanced_panel",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_and_stitch_panels",
+        "kind": 2,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "def preprocess_and_stitch_panels(image, number_of_panels=6, strip_height=35):\n    panels = split_into_panels(image, number_of_panels)\n    processed_panels = [enhance_image(remove_bottom_strip(panel, strip_height)) for panel in panels]\n    return stitch_panels_horizontally(processed_panels)\n# Main processing logic\nfiles = glob.glob('images/buoys/*/*')\nrows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "image_directory",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "image_directory = \"images/buoys\"\nscrape_noaa_buoycams(image_directory)\n# Function to determine if an image is mostly black\ndef is_mostly_black(image, threshold=10):\n    return np.mean(image) < threshold\n# Function to stitch images horizontally\ndef stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "files",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "files = glob.glob('images/buoys/*/*')\nrows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "rows_to_stitch",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "rows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "latest_image_files",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "latest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue\n    row = preprocess_and_stitch_panels(image)",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "collage",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "collage = stitch_vertical(rows_to_stitch)\n# Save the collage with timestamp\ntimestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "timestamp",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "timestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "collage_directory",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "collage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "filename",
+        "kind": 5,
+        "importPath": "dec17_2024",
+        "description": "dec17_2024",
+        "peekOfCode": "filename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "dec17_2024",
+        "documentation": {}
+    },
+    {
+        "label": "scrape_noaa_buoycams",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image should be like this https://www.ndbc.noaa.gov/buoycam.php?station=42039\n    buoycam_url = \"https://www.ndbc.noaa.gov/buoycam.php?station={buoycam_id}\"\n    # List of buoycam IDs\n    buoycam_ids = [\"45007\", \"45012\", \"46002\", \"46011\", \"46012\", \"46015\", \"46025\", \"46026\", \"46027\", \"46028\", \"46042\", \"46047\", \"46053\", \"46054\", \"46059\", \"46066\", \"46069\", \"46071\", \"46072\", \"46078\", \"46085\", \"46086\", \"46087\", \"46088\", \"46089\", \"51000\", \"51001\", \"51002\", \"51003\", \"51004\", \"51101\", \"46084\"]\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)\n    # Scrape images from each buoycam\n    for buoycam_id in buoycam_ids:\n        # Construct the URL for the buoycam image",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "is_mostly_black",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def is_mostly_black(image, threshold=10):\n    return np.mean(image) < threshold\n# Function to stitch images horizontally\ndef stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\n# Function to stitch images vertically\ndef stitch_vertical(rows):",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_panels_horizontally",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]\n    return np.concatenate(panels_resized, axis=1)\n# Function to stitch images vertically\ndef stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "stitch_vertical",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def stitch_vertical(rows):\n    # Ensure all rows are the same width before stitching\n    max_width = max(row.shape[1] for row in rows)\n    # Resize rows to the max width or pad with black pixels\n    rows_resized = []\n    for row in rows:\n        if row.shape[1] < max_width:\n            padding = np.zeros((row.shape[0], max_width - row.shape[1], 3), dtype=np.uint8)\n            row_resized = np.concatenate((row, padding), axis=1)\n        else:",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "split_into_panels",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def split_into_panels(image, number_of_panels=6):\n    # Split the image into six equal vertical panels (side by side)\n    width = image.shape[1]\n    panel_width = width // number_of_panels\n    panels = [image[:, i*panel_width:(i+1)*panel_width] for i in range(number_of_panels)]\n    # Ensure last panel takes any remaining pixels to account for rounding\n    panels[-1] = image[:, (number_of_panels-1)*panel_width:]\n    return panels\n# Remove the bottom strip from each panel\ndef remove_bottom_strip(panel, strip_height=20):",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "remove_bottom_strip",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def remove_bottom_strip(panel, strip_height=20):\n    # Assume the strip to be removed is at the bottom of the image\n    return panel[:-strip_height, :]\n# Enhance the image\ndef enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Apply any enhancements to the panel, like histogram equalization, etc.\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "enhance_image",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def enhance_image(panel, clip_limit=2.0, tile_grid_size=(8, 8)):\n    # Apply any enhancements to the panel, like histogram equalization, etc.\n    # Convert to YUV color space\n    panel_yuv = cv2.cvtColor(panel, cv2.COLOR_BGR2YUV)\n    # Apply CLAHE to the Y channel\n    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=tile_grid_size)\n    panel_yuv[:, :, 0] = clahe.apply(panel_yuv[:, :, 0])\n    # Convert back to BGR color space\n    enhanced_panel = cv2.cvtColor(panel_yuv, cv2.COLOR_YUV2BGR)\n    return enhanced_panel",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "preprocess_and_stitch_panels",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def preprocess_and_stitch_panels(image, number_of_panels=6, strip_height=35):\n    panels = split_into_panels(image, number_of_panels)\n    processed_panels = [enhance_image(remove_bottom_strip(panel, strip_height)) for panel in panels]\n    return stitch_panels_horizontally(processed_panels)\ndef check_for_duplicate_panel(image):\n    # check the image against all the panels in the panels folder with and without enhancement or any rotation.\n    # if it matches any of them, return True and do not save the image\n    for panel in panels:\n        panel = cv2.imread(panel)\n        # panel = enhance_image(panel)",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "check_for_duplicate_panel",
+        "kind": 2,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "def check_for_duplicate_panel(image):\n    # check the image against all the panels in the panels folder with and without enhancement or any rotation.\n    # if it matches any of them, return True and do not save the image\n    for panel in panels:\n        panel = cv2.imread(panel)\n        # panel = enhance_image(panel)\n        # panel = rotate(panel, angle=180)\n        if np.array_equal(image, panel):\n            return True\n    return False",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "panel_ids",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "panel_ids = glob.glob('images/*/*')\n# make a list of all the panels in the panels folder\npanels = glob.glob('panels/*')\ndef scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image should be like this https://www.ndbc.noaa.gov/buoycam.php?station=42039\n    buoycam_url = \"https://www.ndbc.noaa.gov/buoycam.php?station={buoycam_id}\"\n    # List of buoycam IDs\n    buoycam_ids = [\"45007\", \"45012\", \"46002\", \"46011\", \"46012\", \"46015\", \"46025\", \"46026\", \"46027\", \"46028\", \"46042\", \"46047\", \"46053\", \"46054\", \"46059\", \"46066\", \"46069\", \"46071\", \"46072\", \"46078\", \"46085\", \"46086\", \"46087\", \"46088\", \"46089\", \"51000\", \"51001\", \"51002\", \"51003\", \"51004\", \"51101\", \"46084\"]\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "panels",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "panels = glob.glob('panels/*')\ndef scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image should be like this https://www.ndbc.noaa.gov/buoycam.php?station=42039\n    buoycam_url = \"https://www.ndbc.noaa.gov/buoycam.php?station={buoycam_id}\"\n    # List of buoycam IDs\n    buoycam_ids = [\"45007\", \"45012\", \"46002\", \"46011\", \"46012\", \"46015\", \"46025\", \"46026\", \"46027\", \"46028\", \"46042\", \"46047\", \"46053\", \"46054\", \"46059\", \"46066\", \"46069\", \"46071\", \"46072\", \"46078\", \"46085\", \"46086\", \"46087\", \"46088\", \"46089\", \"51000\", \"51001\", \"51002\", \"51003\", \"51004\", \"51101\", \"46084\"]\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)\n    # Scrape images from each buoycam\n    for buoycam_id in buoycam_ids:",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "image_directory",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "image_directory = \"images/buoys\"\nscrape_noaa_buoycams(image_directory)\n# Function to determine if an image is mostly black\ndef is_mostly_black(image, threshold=10):\n    return np.mean(image) < threshold\n# Function to stitch images horizontally\ndef stitch_panels_horizontally(panels):\n    # Ensure all panels are the same height before stitching\n    max_height = max(panel.shape[0] for panel in panels)\n    panels_resized = [cv2.resize(panel, (panel.shape[1], max_height), interpolation=cv2.INTER_LINEAR) for panel in panels]",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "files",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "files = glob.glob('images/buoys/*/*')\nrows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "rows_to_stitch",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "rows_to_stitch = []\nlatest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "latest_image_files",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "latest_image_files = []  # Maintain a list of filenames that have been processed\nfor file in tqdm(files):\n    image = cv2.imread(file)\n    orange_value = np.mean(image[:,:,2])\n    if not (10 <= orange_value <= 150) or is_mostly_black(image):\n        continue\n    # Compare with the last image file processed, not the processed row\n    elif latest_image_files and np.array_equal(image, cv2.imread(latest_image_files[-1])):\n        continue\n    row = preprocess_and_stitch_panels(image)",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "collage",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "collage = stitch_vertical(rows_to_stitch)\n# Save the collage with timestamp\ntimestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "timestamp",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "timestamp = str(int(time.time()))\ncollage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "collage_directory",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "collage_directory = 'images/save_images'\nos.makedirs(collage_directory, exist_ok=True)\nfilename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
+        "label": "filename",
+        "kind": 5,
+        "importPath": "dec17_2024_withedgedetect",
+        "description": "dec17_2024_withedgedetect",
+        "peekOfCode": "filename = os.path.join(collage_directory, f'collage_{timestamp}.jpg')\ncv2.imwrite(filename, collage)\nprint(f\"Collage saved to {filename}\")\n# Display the collage\ncv2.imshow('Vertical Collage', collage)\ncv2.waitKey(0)\ncv2.destroyAllWindows()",
+        "detail": "dec17_2024_withedgedetect",
+        "documentation": {}
+    },
+    {
         "label": "model",
         "kind": 5,
         "importPath": "finding_sunrise",
@@ -2765,7 +3382,7 @@
         "kind": 2,
         "importPath": "quick_scrape_copilot",
         "description": "quick_scrape_copilot",
-        "peekOfCode": "def scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image\n    buoycam_url = \"https://www.ndbc.noaa.gov/data/cameras/{buoycam_id}.jpg\"\n    # List of buoycam IDs\n    buoycam_ids = [\"44025\", \"44027\", \"44065\"]  # Replace with the desired buoycam IDs\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)\n    # Scrape images from each buoycam\n    for buoycam_id in buoycam_ids:\n        # Construct the URL for the buoycam image",
+        "peekOfCode": "def scrape_noaa_buoycams(image_directory):\n    # URL of the buoycam image should be like this https://www.ndbc.noaa.gov/buoycam.php?station=42039\n    buoycam_url = \"https://www.ndbc.noaa.gov/buoycam.php?station={buoycam_id}\"\n    # List of buoycam IDs\n    buoycam_ids = [\"45007\", \"45012\", \"46002\", \"46011\", \"46012\", \"46015\", \"46025\", \"46026\", \"46027\", \"46028\", \"46042\", \"46047\", \"46053\", \"46054\", \"46059\", \"46066\", \"46069\", \"46071\", \"46072\", \"46078\", \"46085\", \"46086\", \"46087\", \"46088\", \"46089\", \"51000\", \"51001\", \"51002\", \"51003\", \"51004\", \"51101\", \"46084\"]\n    # Create the image directory if it doesn't exist\n    os.makedirs(image_directory, exist_ok=True)\n    # Scrape images from each buoycam\n    for buoycam_id in buoycam_ids:\n        # Construct the URL for the buoycam image",
         "detail": "quick_scrape_copilot",
         "documentation": {}
     },
@@ -2774,7 +3391,7 @@
         "kind": 5,
         "importPath": "quick_scrape_copilot",
         "description": "quick_scrape_copilot",
-        "peekOfCode": "image_directory = \"path/to/save/images\"\nscrape_noaa_buoycams(image_directory)",
+        "peekOfCode": "image_directory = \"images/buoys\"\nscrape_noaa_buoycams(image_directory)",
         "detail": "quick_scrape_copilot",
         "documentation": {}
     },

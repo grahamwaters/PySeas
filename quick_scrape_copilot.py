@@ -1,13 +1,14 @@
+import datetime
 import requests
 import os
+import re
 
 def scrape_noaa_buoycams(image_directory):
-    # URL of the buoycam image
-    buoycam_url = "https://www.ndbc.noaa.gov/data/cameras/{buoycam_id}.jpg"
+    # URL of the buoycam image should be like this https://www.ndbc.noaa.gov/buoycam.php?station=42039
+    buoycam_url = "https://www.ndbc.noaa.gov/buoycam.php?station={buoycam_id}"
 
     # List of buoycam IDs
-    buoycam_ids = ["44025", "44027", "44065"]  # Replace with the desired buoycam IDs
-
+    buoycam_ids = ["45007", "45012", "46002", "46011", "46012", "46015", "46025", "46026", "46027", "46028", "46042", "46047", "46053", "46054", "46059", "46066", "46069", "46071", "46072", "46078", "46085", "46086", "46087", "46088", "46089", "51000", "51001", "51002", "51003", "51004", "51101", "46084"]
     # Create the image directory if it doesn't exist
     os.makedirs(image_directory, exist_ok=True)
 
@@ -21,8 +22,14 @@ def scrape_noaa_buoycams(image_directory):
 
         # Check if the request was successful
         if response.status_code == 200:
+            timedateofimage = datetime.datetime.utcnow().strftime("%Y%m%d%H%M%S")
+            # Convert the timedateofimage to Zulu snake case format
+            zulu_snakecased_time = re.sub(r'[^a-zA-Z0-9]', '_', timedateofimage)
+
             # Save the image to the image directory
-            image_path = os.path.join(image_directory, f"{buoycam_id}.jpg")
+            # Save the image with the Zulu snakecased timecode
+            image_path = os.path.join(image_directory, f"{buoycam_id}/{buoycam_id}_{zulu_snakecased_time}.jpg")
+
             with open(image_path, "wb") as f:
                 f.write(response.content)
             print(f"Image saved: {image_path}")
@@ -30,5 +37,6 @@ def scrape_noaa_buoycams(image_directory):
             print(f"Failed to retrieve image from buoycam {buoycam_id}")
 
 # Example usage
-image_directory = "path/to/save/images"
+image_directory = "images/buoys"
+
 scrape_noaa_buoycams(image_directory)
